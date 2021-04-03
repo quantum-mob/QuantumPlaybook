@@ -1,0 +1,86 @@
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{kiwircs}
+\RCS $Revision: 1.17 $
+\RCS $Date: 2021-04-03 17:52:07+09 $
+\ProvidesPackage{workbooktools}[\RCSTeXDate\space v\RCSRevision\space Mahn-Soo Choi]
+\RequirePackage{currfile}
+\newcounter{mathbundle}[subsection]
+\newcommand\bundle@file{%
+  \currfilebase.nbc/\the\c@section.\the\c@subsection-\themathbundle.tex}
+\newif\ifIgnoreBundleLoadError
+\IgnoreBundleLoadErrorfalse
+\newcommand\loadMathBundle{%
+  \stepcounter{mathbundle}
+  \IfFileExists{\bundle@file}{%
+    \input{\bundle@file}}{%
+    \PackageWarning{workbooktools}{Bundle file \bundle@file\space not found}
+    \ifIgnoreBundleLoadError\else{\textcolor{red}{\fbox{\bundle@file}}}\fi}}
+\newcommand\skipMathBundle{\stepcounter{mathbundle}}
+\newenvironment{mathbundle}{%
+  \begin{list}{}{
+    \parskip=6pt plus 4pt
+    \topsep=6pt plus 4pt
+    \partopsep=0pt plus 4pt
+    \itemsep=6pt plus 4pt
+    \parsep=0pt plus 4pt
+  }%
+  \raggedleft}{%
+  \end{list}}
+\newcommand\includemathcell[1]{%
+  \item\relax\includegraphics[scale=\mathcellscale]{#1}}
+\newcommand\mathcellscale{0.72}
+\def\maketitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}%
+   \def\@makefnmark{\hbox
+       to\z@{$\m@th^{\@thefnmark}$\hss}}%
+   \if@twocolumn
+     \twocolumn[\@maketitle]%
+     \else \newpage
+     \global\@topnum\z@   % Prevents figures from going at top of page.
+     \@maketitle \fi\thispagestyle{empty}\@thanks
+     \par\penalty -\@M
+ \endgroup
+ \setcounter{footnote}{0}%
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle{\newpage
+ \null
+ \vskip 2em                 % Vertical space above title.
+\begingroup
+  \def\and{\unskip, }
+  \parindent=\z@
+  \pretolerance=10000
+  \rightskip=\z@ \@plus 3cm
+  {\LARGE                   % each author set in \LARGE
+   \lineskip .5em
+   \textbf{\@author}
+   \par}%
+  \vskip 2cm                % Vertical space after author.
+  {\Huge \textbf{\@title} \par}%     % Title set in \Huge size.
+  \vskip 1cm                % Vertical space after title.
+  \if!\@subtitle!\else
+   {\LARGE\ignorespaces\@subtitle \par}
+   \vskip 1cm                % Vertical space after subtitle.
+  \fi
+  \if!\@date!\else
+    {\large \@date}%          % Date set in \large size.
+    \par
+    \vskip 1.5em               % Vertical space after date.
+  \fi
+ \vfill
+ {\Large Springer\par}
+%\vskip 5\p@
+%\large
+%  Berlin\enspace Heidelberg\enspace New\kern0.1em York\\
+%  Hong\thinspace Kong\enspace London\\
+%  Milan\enspace Paris\enspace Tokyo\par
+\endgroup}
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\@subtitle{}
+\AtEndDocument{%
+  \phantomsection% required for hyperref package
+  \addcontentsline{toc}{chapter}{Index}%
+  \printindex}
+\endinput
