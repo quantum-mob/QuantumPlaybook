@@ -1,0 +1,1609 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     73257,       1601]
+NotebookOptionsPosition[      2245,         69]
+NotebookOutlinePosition[     72621,       1594]
+CellTagsIndexPosition[     72578,       1591]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Decoherence", "Title",
+ CellChangeTimes->{{3.81848277080221*^9, 3.818482778013246*^9}, {
+  3.822802957823658*^9, 
+  3.822802959252193*^9}},ExpressionUUID->"b9269d85-53e8-4b1a-8e3e-\
+227531db259b"],
+
+Cell[BoxData[{
+ RowBox[{"<<", "Q3`"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "WorkbookTools`"}]}], "Input",
+ CellChangeTimes->{{3.8228029525833807`*^9, 3.822802954675468*^9}, {
+  3.824002470339212*^9, 3.8240024769295273`*^9}},
+ CellLabel->
+  "In[241]:=",ExpressionUUID->"e413860f-2c01-4a38-8435-7222f9cbb255"],
+
+Cell[BoxData[
+ RowBox[{"Let", "[", 
+  RowBox[{"Qubit", ",", "S"}], "]"}]], "Input",
+ CellChangeTimes->{{3.822802963010672*^9, 3.822802964854642*^9}},
+ CellLabel->
+  "In[243]:=",ExpressionUUID->"c494dd96-3d55-4e9b-80f6-3a2c6f835c3e"],
+
+Cell["Quantum Operations", "Section",
+ CellChangeTimes->{{3.818482785696848*^9, 
+  3.818482788565215*^9}},ExpressionUUID->"1eef8705-d61a-4c98-a8e6-\
+30542618e076"],
+
+Cell["Generalized Measurement as Quantum Operations", "Section",
+ CellChangeTimes->{{3.818482810468948*^9, 
+  3.818482818601832*^9}},ExpressionUUID->"b0488524-a57e-4c35-a3ec-\
+153d75cf8815"],
+
+Cell["Quantum Master Equations", "Section",
+ CellChangeTimes->{{3.8184828224835243`*^9, 
+  3.818482831124168*^9}},ExpressionUUID->"52f5e648-1af4-44cc-a250-\
+03b8d9bb17a9"],
+
+Cell["Fidelity and Trace Distance", "Section",
+ CellChangeTimes->{{3.818482836444128*^9, 
+  3.818482843767706*^9}},ExpressionUUID->"8be22056-1268-46fa-bb9d-\
+f80f555ef89a"],
+
+Cell["Entanglement, Entropy, Mutual Information", "Section",
+ CellChangeTimes->{{3.818482846557666*^9, 
+  3.8184828556359453`*^9}},ExpressionUUID->"440c7641-755e-4e0c-b7ff-\
+361555c66910"]
+}, Open  ]]
+},
+Saveable->False,
+WindowToolbars->"EditBar",
+WindowSize->{996, 1340},
+WindowMargins->{{567, Automatic}, {Automatic, 0}},
+DockedCells->Cell[
+ "Quantum Computation Workbook", "Text", Background -> GrayLevel[0.9], 
+  FontSize -> 12, CellFrameMargins -> {{22, 8}, {8, 8}}],
+PageFooters->{{
+   Cell["Quantum Computation Workbook", "Footer", CellMargins -> 4], None, 
+   None}, {None, None, 
+   Cell["Quantum Computation Workbook", "Footer", CellMargins -> 4]}},
+PageFooterLines->{True, True},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Core.nb"]], 
+   Cell["Modify the definitions below to change the default appearance of all \
+cells in a given style. \nMake modifications to any definition using commands \
+in the Format menu.", "Text"], 
+   Cell[
+    CellGroupData[{
+      Cell["Style Environment Names", "Section"], 
+      Cell[
+       StyleData[All, "Working"], $CellContext`CellInsertionPointCell -> 
+       FEPrivate`FrontEndResource["FEExpressions", "CellInsertionMenu"]], 
+      Cell[
+       StyleData[All, "SlideShow"], ShowGroupOpener -> False], 
+      Cell[
+       StyleData[All, "Printout"], Magnification -> 0.72], 
+      Cell[
+       StyleData[
+       All, "PrintoutGray", StyleDefinitions -> StyleData[All, "Printout"]], 
+       MenuSortingValue -> None]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Notebook Options Settings", "Section"], 
+      Cell[
+      "The options defined for the style below will be used at the Notebook \
+level.", "Text"], 
+      Cell[
+       StyleData["Notebook"], PageHeaders -> {{
+          Cell[
+           TextData[{
+             Cell[
+              TextData[{
+                CounterBox["Page"]}], "PageNumber"], "   ", 
+             Cell[
+             " ", "Header", CellFrame -> {{0.5, 0}, {0, 0}}, CellFrameMargins -> 
+              4], 
+             Cell[
+              TextData[{
+                ValueBox["FileName"]}], "Header"]}], 
+           CellMargins -> {{0, Inherited}, {Inherited, Inherited}}], None, 
+          None}, {None, None, 
+          Cell[
+           TextData[{
+             Cell[
+              TextData[{
+                ValueBox["FileName"]}], "Header"], 
+             Cell[
+             " ", "Header", CellFrame -> {{0, 0.5}, {0, 0}}, CellFrameMargins -> 
+              4], "   ", 
+             Cell[
+              TextData[{
+                CounterBox["Page"]}], "PageNumber"]}], 
+           CellMargins -> {{Inherited, 0}, {Inherited, Inherited}}]}}, 
+       PageHeaderLines -> {False, False}, PageFooterLines -> {False, False}, 
+       PrintingOptions -> {
+        "FacingPages" -> True, "FirstPageFace" -> Right, "FirstPageFooter" -> 
+         True, "FirstPageHeader" -> False}]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Styles for Title and Section Cells", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["Title", "Subsection"], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Title"], CellMargins -> {{27, Inherited}, {10, 30}}, 
+             StyleKeyMapping -> {"Tab" -> "Subtitle"}, 
+             CellGroupingRules -> {"TitleGrouping", 0}, PageBreakBelow -> 
+             False, LineSpacing -> {1, 4}, LanguageCategory -> 
+             "NaturalLanguage", CounterIncrements -> "Title", 
+             CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+               "Figure", 0}, {"Subtitle", 0}, {"Subsubtitle", 0}, {
+               "Item", 0}, {"Subitem", 0}, {"Subsubitem", 0}, {
+               "ItemNumbered", 0}, {"SubitemNumbered", 0}, {
+               "SubsubitemNumbered", 0}}, MenuSortingValue -> 1100, 
+             MenuCommandKey :> "1", FontFamily -> "Source Sans Pro", FontSize -> 
+             45, FontTracking -> -0.5, FontColor -> 
+             RGBColor[0.8, 0.043, 0.008]], 
+            Cell[
+             StyleData["Title", "Presentation"], 
+             CellMargins -> {{67, Inherited}, {15, 45}}, 
+             LineSpacing -> {1, 18}, FontSize -> 72], 
+            Cell[
+             StyleData["Title", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+               15, 0.12 FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}, 
+             LineSpacing -> {1, 2}, FontSize -> 72], 
+            Cell[
+             StyleData["Title", "Condensed"], 
+             CellMargins -> {{18, 10}, {4, 8}}, FontSize -> 20], 
+            Cell[
+             StyleData["Title", "Printout"], 
+             CellMargins -> {{10, Inherited}, {10, 30}}], 
+            Cell[
+             StyleData["Title", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {10, 30}}, FontColor -> 
+             GrayLevel[0]]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subtitle"], CellMargins -> {{27, Inherited}, {20, 2}},
+              StyleKeyMapping -> {
+              "Tab" -> "Subsubtitle", "Backspace" -> 
+               "Title", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Title"}, CellGroupingRules -> {"TitleGrouping", 10}, 
+             PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subtitle", 
+             CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+               "Figure", 0}, {"Subsubtitle", 0}, {"Item", 0}, {
+               "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+               "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, 
+             MenuSortingValue -> 1125, MenuCommandKey :> "2", FontFamily -> 
+             "Source Sans Pro", FontSize -> 24, FontColor -> GrayLevel[0.35]], 
+            Cell[
+             StyleData["Subtitle", "Presentation"], 
+             CellMargins -> {{67, Inherited}, {30, 3}}, 
+             LineSpacing -> {1, 16}, FontSize -> 48], 
+            Cell[
+             StyleData["Subtitle", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {30, 12}}, 
+             LineSpacing -> {1, 2}, FontSize -> 48], 
+            Cell[
+             StyleData["Subtitle", "Condensed"], 
+             CellMargins -> {{18, 10}, {4, 4}}, FontSize -> 14], 
+            Cell[
+             StyleData["Subtitle", "Printout"], 
+             CellMargins -> {{10, Inherited}, {20, 2}}], 
+            Cell[
+             StyleData["Subtitle", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {20, 2}}]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subsubtitle"], 
+             CellMargins -> {{27, Inherited}, {8, 2}}, 
+             StyleKeyMapping -> {
+              "Backspace" -> 
+               "Subtitle", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Subtitle"}, CellGroupingRules -> {"TitleGrouping", 20}, 
+             PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subsubtitle", 
+             CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+               "Figure", 0}, {"Item", 0}, {"Subitem", 0}, {"Subsubitem", 0}, {
+               "ItemNumbered", 0}, {"SubitemNumbered", 0}, {
+               "SubsubitemNumbered", 0}}, FontFamily -> "Source Sans Pro", 
+             FontSize -> 16, FontColor -> GrayLevel[0.3]], 
+            Cell[
+             StyleData["Subsubtitle", "Presentation"], 
+             CellMargins -> {{67, Inherited}, {12, 3}}, 
+             LineSpacing -> {1, 14}, FontSize -> 32], 
+            Cell[
+             StyleData["Subsubtitle", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {12, 12}}, 
+             LineSpacing -> {1, 2}, FontSize -> 32], 
+            Cell[
+             StyleData["Subsubtitle", "Condensed"], 
+             CellMargins -> {{18, 10}, {8, 8}}, FontSize -> 12], 
+            Cell[
+             StyleData["Subsubtitle", "Printout"], 
+             CellMargins -> {{10, Inherited}, {8, 2}}], 
+            Cell[
+             StyleData["Subsubtitle", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {8, 2}}]}, Closed]]}, Closed]], 
+      
+      Cell[
+       CellGroupData[{
+         Cell["Chapter", "Subsection"], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Chapter"], CellMargins -> {{27, Inherited}, {10, 15}},
+              StyleKeyMapping -> {
+              "Tab" -> "Subchapter", "Backspace" -> 
+               "Title", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Title"}, CellGroupingRules -> {"SectionGrouping", 10}, 
+             PageBreakBelow -> False, LineSpacing -> {1, 4}, LanguageCategory -> 
+             "NaturalLanguage", CounterIncrements -> "Chapter", 
+             CounterAssignments -> {{"Subchapter", 0}, {"Section", 0}, {
+               "Equation", 0}, {"Figure", 0}, {"Subsubtitle", 0}, {
+               "Item", 0}, {"Subitem", 0}, {"Subsubitem", 0}, {
+               "ItemNumbered", 0}, {"SubitemNumbered", 0}, {
+               "SubsubitemNumbered", 0}}, MenuSortingValue -> 1150, 
+             MenuCommandKey :> "3", FontFamily -> "Source Sans Pro", FontSize -> 
+             34, FontColor -> 
+             RGBColor[
+              0.20584420538643472`, 0.20584420538643472`, 
+               0.20584420538643472`]], 
+            Cell[
+             StyleData["Chapter", "Presentation"], 
+             CellMargins -> {{67, Inherited}, {10, 15}}, 
+             LineSpacing -> {1, 16}, FontSize -> 48], 
+            Cell[
+             StyleData["Chapter", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 15}}, 
+             LineSpacing -> {1, 2}, FontSize -> 48], 
+            Cell[
+             StyleData["Chapter", "Condensed"], 
+             CellMargins -> {{18, 10}, {5, 7}}, FontSize -> 14], 
+            Cell[
+             StyleData["Chapter", "Printout"], 
+             CellMargins -> {{10, Inherited}, {10, 15}}], 
+            Cell[
+             StyleData["Chapter", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {10, 15}}]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subchapter"], CellDingbat -> 
+             StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+               RGBColor[0.8, 0.043, 0.008]], 
+             CellMargins -> {{63, Inherited}, {8, 20}}, 
+             StyleKeyMapping -> {
+              "Backspace" -> 
+               "Chapter", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Chapter"}, CellGroupingRules -> {"SectionGrouping", 20}, 
+             PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subchapter", 
+             CounterAssignments -> {{"Section", 0}, {"Equation", 0}, {
+               "Figure", 0}, {"Item", 0}, {"Subitem", 0}, {"Subsubitem", 0}, {
+               "ItemNumbered", 0}, {"SubitemNumbered", 0}, {
+               "SubsubitemNumbered", 0}}, FontFamily -> "Source Sans Pro", 
+             FontSize -> 28, FontColor -> RGBColor[0.3, 0.3, 0.3]], 
+            Cell[
+             StyleData["Subchapter", "Presentation"], 
+             CellMargins -> {{67, Inherited}, {8, 20}}, 
+             LineSpacing -> {1, 14}, FontSize -> 32], 
+            Cell[
+             StyleData["Subchapter", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {6, 20}}, 
+             LineSpacing -> {1, 2}, FontSize -> 32], 
+            Cell[
+             StyleData["Subchapter", "Condensed"], 
+             CellMargins -> {{18, 10}, {6, 10}}, FontSize -> 12], 
+            Cell[
+             StyleData["Subchapter", "Printout"], 
+             CellMargins -> {{10, Inherited}, {8, 20}}], 
+            Cell[
+             StyleData["Subchapter", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {8, 20}}]}, Closed]]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Section", "Subsection"], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Section"], CellFrame -> {{0, 0}, {0, 1}}, 
+             CellMargins -> {{27, Inherited}, {8, 18}}, 
+             StyleKeyMapping -> {"Tab" -> "Subsection"}, 
+             CellGroupingRules -> {"SectionGrouping", 30}, PageBreakBelow -> 
+             False, CellFrameMargins -> 4, CellFrameColor -> GrayLevel[0.7], 
+             LineSpacing -> {1, 2}, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Section", 
+             CounterAssignments -> {{"Subsection", 0}, {"Subsubsection", 0}, {
+               "Item", 0}, {"Subitem", 0}, {"Subsubitem", 0}, {
+               "ItemNumbered", 0}, {"SubitemNumbered", 0}, {
+               "SubsubitemNumbered", 0}}, MenuSortingValue -> 1250, 
+             MenuCommandKey :> "4", FontFamily -> "Source Sans Pro", FontSize -> 
+             28, FontColor -> 
+             RGBColor[
+              0.7612268253604944, 0.29576562142366675`, 0.08555733577477684]], 
+            Cell[
+             StyleData["Section", "Presentation"], 
+             CellFrame -> {{0, 0}, {0, 2}}, 
+             CellMargins -> {{67, Inherited}, {12, 24}}, CellFrameMargins -> 
+             8, LineSpacing -> {1, 10}, FontSize -> 40], 
+            Cell[
+             StyleData["Section", "SlideShow"], 
+             CellMargins -> {{
+               0.06 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.04 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+               12, 0.06 FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}, 
+             LineSpacing -> {1, 2}, FontSize -> 40], 
+            Cell[
+             StyleData["Section", "Condensed"], 
+             CellMargins -> {{18, Inherited}, {6, 12}}, FontSize -> 12], 
+            Cell[
+             StyleData["Section", "Printout"], 
+             CellMargins -> {{10, Inherited}, {8, 18}}], 
+            Cell[
+             StyleData["Section", "PrintoutGray"], 
+             CellMargins -> {{10, Inherited}, {8, 18}}, FontColor -> 
+             GrayLevel[0.2]]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subsection"], 
+             CellMargins -> {{50.34765625, 3.}, {8., 20.}}, 
+             StyleKeyMapping -> {
+              "Tab" -> "Subsubsection", "Backspace" -> 
+               "Section", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Section"}, CellGroupingRules -> {"SectionGrouping", 40}, 
+             PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subsection", 
+             CounterAssignments -> {{"Subsubsection", 0}, {"Item", 0}, {
+               "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+               "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, 
+             MenuSortingValue -> 1300, MenuCommandKey :> "5", FontFamily -> 
+             "Source Sans Pro", FontSize -> 20, FontColor -> 
+             RGBColor[
+              0.778286411841001, 0.4230563820859083, 0.16115053025101092`]], 
+            Cell[
+             StyleData["Subsection", "Presentation"], 
+             CellMargins -> {{100, Inherited}, {12, 18}}, 
+             LineSpacing -> {1, 10}, FontSize -> 28], 
+            Cell[
+             StyleData["Subsection", "SlideShow"], 
+             CellMargins -> {{
+               0.1 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.02 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+               12, 0.046 FrontEnd`AbsoluteCurrentValue[{WindowSize, 2}]}}, 
+             LineSpacing -> {1, 2}, FontSize -> 32], 
+            Cell[
+             StyleData["Subsection", "Condensed"], 
+             CellMargins -> {{18, Inherited}, {6, 12}}, FontSize -> 11], 
+            Cell[
+             StyleData["Subsection", "Printout"], 
+             CellMargins -> {{30, Inherited}, {8., 16}}], 
+            Cell[
+             StyleData["Subsection", "PrintoutGray"], 
+             CellMargins -> {{30, Inherited}, {8., 16}}, FontColor -> 
+             GrayLevel[0.3]]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subsubsection"], 
+             CellMargins -> {{66, Inherited}, {8, 12}}, 
+             StyleKeyMapping -> {
+              "Tab" -> "Subsubsubsection", "Backspace" -> 
+               "Subsection", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Subsection"}, CellGroupingRules -> {"SectionGrouping", 50}, 
+             PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subsubsection", 
+             CounterAssignments -> {{"Subsubsubsection", 0}, {"Item", 0}, {
+               "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+               "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, 
+             MenuSortingValue -> 1350, MenuCommandKey :> "6", FontFamily -> 
+             "Source Sans Pro", FontSize -> 19, FontColor -> 
+             RGBColor[
+              0.7143816281376364, 0.21776150148775464`, 0.03341725795376516]], 
+            Cell[
+             StyleData["Subsubsection", "Presentation"], 
+             CellMargins -> {{100, Inherited}, {3, 15}}, 
+             LineSpacing -> {1, 6}, FontSize -> 24], 
+            Cell[
+             StyleData["Subsubsection", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {3, 15}}, 
+             LineSpacing -> {1, 2}, FontSize -> 28], 
+            Cell[
+             StyleData["Subsubsection", "Condensed"], 
+             CellMargins -> {{18, Inherited}, {6, 12}}, FontSize -> 11], 
+            Cell[
+             StyleData["Subsubsection", "Printout"], 
+             CellMargins -> {{49, Inherited}, {6, 16}}], 
+            Cell[
+             StyleData["Subsubsection", "PrintoutGray"], 
+             CellMargins -> {{49, Inherited}, {6, 16}}, FontColor -> 
+             GrayLevel[0.3]]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subsubsubsection"], 
+             CellMargins -> {{66, Inherited}, {2, 10}}, 
+             StyleKeyMapping -> {
+              "Tab" -> "Subsubsubsubsection", "Backspace" -> 
+               "Subsubsection", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Subsubsection"}, CellGroupingRules -> {"SectionGrouping", 60},
+              PageBreakBelow -> False, LanguageCategory -> "NaturalLanguage", 
+             CounterIncrements -> "Subsubsubsection", 
+             CounterAssignments -> {{"Subsubsubsubsection", 0}, {"Item", 0}, {
+               "Subitem", 0}, {"Subsubitem", 0}, {"ItemNumbered", 0}, {
+               "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, 
+             MenuSortingValue -> None, FontFamily -> "Source Sans Pro", 
+             FontSize -> 15, FontWeight -> "Bold", FontColor -> 
+             RGBColor[
+              0.778286411841001, 0.4230563820859083, 0.16115053025101092`]], 
+            Cell[
+             StyleData["Subsubsubsection", "Presentation"], 
+             CellMargins -> {{100, Inherited}, {3, 15}}, 
+             LineSpacing -> {1, 7}, FontSize -> 24], 
+            Cell[
+             StyleData["Subsubsubsection", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {3, 15}}, 
+             LineSpacing -> {1, 2}, FontSize -> 22], 
+            Cell[
+             StyleData["Subsubsubsection", "Condensed"], 
+             CellMargins -> {{18, Inherited}, {6, 12}}, FontSize -> 10], 
+            Cell[
+             StyleData["Subsubsubsection", "Printout"], 
+             CellMargins -> {{49, Inherited}, {6, 14}}], 
+            Cell[
+             StyleData["Subsubsubsection", "PrintoutGray"], 
+             CellMargins -> {{49, Inherited}, {6, 14}}, FontColor -> 
+             GrayLevel[0.4]]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Subsubsubsubsection"], 
+             CellMargins -> {{66, Inherited}, {2, 10}}, 
+             StyleKeyMapping -> {
+              "Backspace" -> 
+               "Subsubsubsection", $CellContext`KeyEvent[
+                "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+               "Subsubsubsection"}, 
+             CellGroupingRules -> {"SectionGrouping", 70}, PageBreakBelow -> 
+             False, LanguageCategory -> "NaturalLanguage", CounterIncrements -> 
+             "Subsubsubsubsection", 
+             CounterAssignments -> {{"Item", 0}, {"Subitem", 0}, {
+               "Subsubitem", 0}, {"ItemNumbered", 0}, {
+               "SubitemNumbered", 0}, {"SubsubitemNumbered", 0}}, 
+             MenuSortingValue -> None, FontFamily -> "Source Sans Pro", 
+             FontSize -> 14, FontColor -> 
+             RGBColor[0.5875944151979858, 0.053406576638437474`, 0.]], 
+            Cell[
+             StyleData["Subsubsubsubsection", "Presentation"], 
+             CellMargins -> {{100, Inherited}, {3, 15}}, 
+             LineSpacing -> {1, 7}, FontSize -> 24], 
+            Cell[
+             StyleData["Subsubsubsubsection", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {3, 15}}, 
+             LineSpacing -> {1, 2}, FontSize -> 22], 
+            Cell[
+             StyleData["Subsubsubsubsection", "Condensed"], 
+             CellMargins -> {{18, Inherited}, {6, 12}}, FontSize -> 10], 
+            Cell[
+             StyleData["Subsubsubsubsection", "Printout"], 
+             CellMargins -> {{49, Inherited}, {6, 14}}], 
+            Cell[
+             StyleData["Subsubsubsubsection", "PrintoutGray"], 
+             CellMargins -> {{49, Inherited}, {6, 14}}, FontColor -> 
+             GrayLevel[0.3]]}, Closed]]}, Closed]]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Styles for Body Text", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell["Standard", "Subsection"], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["Text"], CellMargins -> {{66, 10}, {7, 8}}, 
+             LineSpacing -> {1, 3}, TabSpacings -> {2.5}, CounterIncrements -> 
+             "Text", MenuSortingValue -> 1400, MenuCommandKey :> "7", 
+             FontFamily -> "Source Sans Pro", FontSize -> 15], 
+            Cell[
+             StyleData["Text", "Presentation"], 
+             CellMargins -> {{100, 10}, {10, 10}}, LineSpacing -> {1, 5}, 
+             FontSize -> 24], 
+            Cell[
+             StyleData["Text", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+             FontSize -> 22], 
+            Cell[
+             StyleData["Text", "Condensed"], 
+             CellMargins -> {{18, 10}, {6, 6}}, LineSpacing -> {1, 1}, 
+             FontSize -> 11], 
+            Cell[
+             StyleData["Text", "Printout"], 
+             CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+             Hyphenation -> True], 
+            Cell[
+             StyleData["Text", "PrintoutGray"], 
+             CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+             Hyphenation -> True]}, Closed]], 
+         Cell[
+          CellGroupData[{
+            Cell[
+             StyleData["SmallText"], CellMargins -> {{66, 10}, {6, 6}}, 
+             LineSpacing -> {1, 3}, TabSpacings -> {2.5}, LanguageCategory -> 
+             "NaturalLanguage", CounterIncrements -> "SmallText", 
+             MenuSortingValue -> 1750, StyleMenuListing -> None, FontFamily -> 
+             "Source Sans Pro", FontSize -> 14, FontColor -> GrayLevel[0.2]], 
+            
+            Cell[
+             StyleData["SmallText", "Presentation"], 
+             CellMargins -> {{100, 10}, {9, 9}}, LineSpacing -> {1, 5}, 
+             FontSize -> 18], 
+            Cell[
+             StyleData["SmallText", "SlideShow"], 
+             CellMargins -> {{
+               0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+                FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {9, 9}}, 
+             FontSize -> 18], 
+            Cell[
+             StyleData["SmallText", "Condensed"], 
+             CellMargins -> {{18, 10}, {5, 5}}, LineSpacing -> {1, 2}, 
+             FontSize -> 9], 
+            Cell[
+             StyleData["SmallText", "Printout"], 
+             CellMargins -> {{33, Inherited}, {Inherited, Inherited}}, 
+             Hyphenation -> True], 
+            Cell[
+             StyleData["SmallText", "PrintoutGray"], 
+             CellMargins -> {{33, Inherited}, {Inherited, Inherited}}, 
+             Hyphenation -> True]}, Closed]], 
+         Cell[
+          StyleData["CodeText", StyleDefinitions -> StyleData["Text"]], 
+          CellMargins -> {{66, 10}, {3, 15}}, LineSpacing -> {1, 1, 1}, 
+          MenuSortingValue -> 1540, 
+          MenuCommandKey :> $CellContext`MenuKey[
+           "7", $CellContext`Modifiers -> {"Shift"}], FontColor -> 
+          GrayLevel[0.45]]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell["Display", "Subsection"], 
+         Cell[
+          CellGroupData[{
+            Cell["Lists", "Subsubsection"], 
+            Cell[
+             CellGroupData[{
+               Cell["Bulleted", "Subsubsubsection"], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["Item"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    RGBColor[0.8, 0.043, 0.008]], 
+                   CellMargins -> {{81, 10}, {4, 8}}, 
+                   StyleKeyMapping -> {"Tab" -> "Subitem", "*" -> "Subitem"}, 
+                   CellGroupingRules -> {"ItemGrouping", 70}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> "Item", 
+                   CounterAssignments -> {{"Subitem", 0}, {"Subsubitem", 0}}, 
+                   MenuSortingValue -> 1600, FontFamily -> "Source Sans Pro", 
+                   FontSize -> 15, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["Item", "Presentation"], 
+                   CellMargins -> {{140, 10}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["Item", "SlideShow"], 
+                   CellMargins -> {{
+                    0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 8, FontSize -> 22], 
+                  Cell[
+                   StyleData["Item", "Condensed"], 
+                   CellMargins -> {{38, Inherited}, {2, 2}}, FontSize -> 11], 
+                  
+                  Cell[
+                   StyleData["Item", "Printout"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.2]], 
+                   CellMargins -> {{65, Inherited}, {Inherited, Inherited}}], 
+                  
+                  Cell[
+                   StyleData["Item", "PrintoutGray"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.2]], 
+                   CellMargins -> {{65, Inherited}, {Inherited, Inherited}}]},
+                  Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["ItemParagraph"], 
+                   CellMargins -> {{81, 10}, {4, 1}}, 
+                   StyleKeyMapping -> {"Tab" -> "SubitemParagraph"}, 
+                   CellGroupingRules -> {"ItemGrouping", 80}, 
+                   MenuSortingValue -> 1600, FontFamily -> "Source Sans Pro", 
+                   FontSize -> 15, FontColor -> 
+                   GrayLevel[0.2], $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["ItemParagraph", "Presentation"], 
+                   CellMargins -> {{140, 10}, {7, 2}}, FontSize -> 24], 
+                  Cell[
+                   StyleData["ItemParagraph", "SlideShow"], ShowGroupOpener -> 
+                   False, 
+                   CellMargins -> {{
+                    0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     2}}, FontSize -> 22], 
+                  Cell[
+                   StyleData["ItemParagraph", "Condensed"], 
+                   CellMargins -> {{38, Inherited}, {2, 1}}, FontSize -> 11], 
+                  
+                  Cell[
+                   StyleData["ItemParagraph", "Printout"], 
+                   CellMargins -> {{65, Inherited}, {
+                    Inherited, 0.5 Inherited}}], 
+                  Cell[
+                   StyleData["ItemParagraph", "PrintoutGray"], 
+                   CellMargins -> {{65, Inherited}, {
+                    Inherited, 0.5 Inherited}}]}, Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["Subitem"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    RGBColor[0.8, 0.043, 0.008]], 
+                   CellMargins -> {{105, 12}, {4, 4}}, 
+                   StyleKeyMapping -> {
+                    "Tab" -> "Subsubitem", "*" -> "Subsubitem", "Backspace" -> 
+                    "Item", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "Item"}, CellGroupingRules -> {"ItemGrouping", 80}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> "Subitem",
+                    CounterAssignments -> {{"Subsubitem", 0}}, 
+                   MenuSortingValue -> 1610, FontFamily -> "Source Sans Pro", 
+                   FontSize -> 14, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["Subitem", "Presentation"], 
+                   CellMargins -> {{176, 12}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["Subitem", "SlideShow"], 
+                   CellMargins -> {{
+                    0.155 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 8, FontSize -> 22], 
+                  Cell[
+                   StyleData["Subitem", "Condensed"], 
+                   CellMargins -> {{60, 2}, {2, 2}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["Subitem", "Printout"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.3]], 
+                   CellMargins -> {{92, Inherited}, {Inherited, Inherited}}], 
+                  
+                  Cell[
+                   StyleData["Subitem", "PrintoutGray"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.3]], 
+                   CellMargins -> {{92, Inherited}, {Inherited, Inherited}}]},
+                  Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["SubitemParagraph"], 
+                   CellMargins -> {{105, 12}, {4, 1}}, 
+                   StyleKeyMapping -> {
+                    "Tab" -> "SubsubitemParagraph", "Backspace" -> 
+                    "ItemParagraph", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "ItemParagraph"}, 
+                   CellGroupingRules -> {"ItemGrouping", 90}, 
+                   CellFrameLabelMargins -> 4, MenuSortingValue -> 1610, 
+                   FontFamily -> "Source Sans Pro", FontSize -> 14, FontColor -> 
+                   GrayLevel[0.2], $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["SubitemParagraph", "Presentation"], 
+                   CellMargins -> {{176, 12}, {7, 2}}, FontSize -> 24], 
+                  Cell[
+                   StyleData["SubitemParagraph", "SlideShow"], 
+                   CellMargins -> {{
+                    0.155 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     2}}, FontSize -> 22], 
+                  Cell[
+                   StyleData["SubitemParagraph", "Condensed"], 
+                   CellMargins -> {{60, 2}, {2, 1}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["SubitemParagraph", "Printout"], 
+                   CellMargins -> {{92, Inherited}, {
+                    Inherited, 0.1 Inherited}}], 
+                  Cell[
+                   StyleData["SubitemParagraph", "PrintoutGray"], 
+                   CellMargins -> {{92, Inherited}, {
+                    Inherited, 0.1 Inherited}}]}, Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["Subsubitem"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    RGBColor[0.6, 0.6, 0.6]], 
+                   CellMargins -> {{129, 12}, {4, 4}}, 
+                   StyleKeyMapping -> {
+                    "Backspace" -> 
+                    "Subitem", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "Subitem"}, CellGroupingRules -> {"ItemGrouping", 90}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> 
+                   "Subsubitem", MenuSortingValue -> 1620, FontFamily -> 
+                   "Source Sans Pro", FontSize -> 
+                   13, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["Subsubitem", "Presentation"], 
+                   CellMargins -> {{212, 12}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["Subsubitem", "SlideShow"], 
+                   CellMargins -> {{
+                    0.176 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 8, FontSize -> 22], 
+                  Cell[
+                   StyleData["Subsubitem", "Condensed"], 
+                   CellMargins -> {{84, 2}, {2, 2}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["Subsubitem", "Printout"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.4]], 
+                   CellMargins -> {{119, Inherited}, {Inherited, Inherited}}], 
+                  Cell[
+                   StyleData["Subsubitem", "PrintoutGray"], CellDingbat -> 
+                   StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+                    GrayLevel[0.4]], 
+                   CellMargins -> {{119, Inherited}, {
+                    Inherited, Inherited}}]}, Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["SubsubitemParagraph"], 
+                   CellMargins -> {{129, 12}, {4, 1}}, 
+                   StyleKeyMapping -> {
+                    "Backspace" -> 
+                    "SubitemParagraph", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "SubitemParagraph"}, 
+                   CellGroupingRules -> {"ItemGrouping", 100}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> 
+                   "Subsubitem", MenuSortingValue -> 1620, FontFamily -> 
+                   "Source Sans Pro", FontSize -> 13, FontColor -> 
+                   GrayLevel[0.2], $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["SubsubitemParagraph", "Presentation"], 
+                   CellMargins -> {{212, 12}, {7, 2}}, FontSize -> 24], 
+                  Cell[
+                   StyleData["SubsubitemParagraph", "SlideShow"], 
+                   CellMargins -> {{
+                    0.176 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     2}}, FontSize -> 22], 
+                  Cell[
+                   StyleData["SubsubitemParagraph", "Condensed"], 
+                   CellMargins -> {{84, 2}, {2, 1}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["SubsubitemParagraph", "Printout"], 
+                   CellMargins -> {{119, Inherited}, {
+                    Inherited, 0.1 Inherited}}], 
+                  Cell[
+                   StyleData["SubsubitemParagraph", "PrintoutGray"], 
+                   CellMargins -> {{119, Inherited}, {
+                    Inherited, 0.1 Inherited}}]}, Closed]]}, Closed]], 
+            Cell[
+             CellGroupData[{
+               Cell["Numbered", "Subsubsubsection"], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["ItemNumbered"], CellDingbat -> Cell[
+                    TextData[{
+                    CounterBox["ItemNumbered"], "."}], FontWeight -> "Bold"], 
+                   CellMargins -> {{81, 10}, {4, 8}}, 
+                   StyleKeyMapping -> {"Tab" -> "SubitemNumbered"}, 
+                   CellGroupingRules -> {"ItemGrouping", 70}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> 
+                   "ItemNumbered", 
+                   CounterAssignments -> {{"SubitemNumbered", 0}, {
+                    "SubsubitemNumbered", 0}}, MenuSortingValue -> 1600, 
+                   FontFamily -> "Source Sans Pro", FontSize -> 
+                   15, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["ItemNumbered", "Presentation"], 
+                   CellMargins -> {{140, 10}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["ItemNumbered", "SlideShow"], 
+                   CellMargins -> {{
+                    0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 6, FontSize -> 22], 
+                  Cell[
+                   StyleData["ItemNumbered", "Condensed"], 
+                   CellMargins -> {{38, Inherited}, {2, 2}}, FontSize -> 11], 
+                  
+                  Cell[
+                   StyleData["ItemNumbered", "Printout"], 
+                   CellMargins -> {{65, Inherited}, {Inherited, Inherited}}], 
+                  
+                  Cell[
+                   StyleData["ItemNumbered", "PrintoutGray"], 
+                   CellMargins -> {{65, Inherited}, {Inherited, Inherited}}]},
+                  Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["SubitemNumbered"], CellDingbat -> Cell[
+                    TextData[{
+                    CounterBox["ItemNumbered"], ".", 
+                    CounterBox["SubitemNumbered"], "."}], FontWeight -> 
+                    "Bold"], CellMargins -> {{105, 12}, {4, 4}}, 
+                   StyleKeyMapping -> {
+                    "Tab" -> "SubsubitemNumbered", "Backspace" -> 
+                    "ItemNumbered", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "ItemNumbered"}, 
+                   CellGroupingRules -> {"ItemGrouping", 80}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> 
+                   "SubitemNumbered", 
+                   CounterAssignments -> {{"SubsubitemNumbered", 0}}, 
+                   MenuSortingValue -> 1610, FontFamily -> "Source Sans Pro", 
+                   FontSize -> 14, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["SubitemNumbered", "Presentation"], 
+                   CellMargins -> {{176, 12}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["SubitemNumbered", "SlideShow"], 
+                   CellMargins -> {{
+                    0.155 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 6, FontSize -> 22], 
+                  Cell[
+                   StyleData["SubitemNumbered", "Condensed"], 
+                   CellMargins -> {{60, 2}, {2, 2}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["SubitemNumbered", "Printout"], 
+                   CellMargins -> {{92, Inherited}, {Inherited, Inherited}}], 
+                  
+                  Cell[
+                   StyleData["SubitemNumbered", "PrintoutGray"], 
+                   CellMargins -> {{92, Inherited}, {Inherited, Inherited}}]},
+                  Closed]], 
+               Cell[
+                CellGroupData[{
+                  Cell[
+                   StyleData["SubsubitemNumbered"], CellDingbat -> Cell[
+                    TextData[{
+                    CounterBox["ItemNumbered"], ".", 
+                    CounterBox["SubitemNumbered"], ".", 
+                    CounterBox["SubsubitemNumbered"], "."}], FontWeight -> 
+                    "Bold"], CellMargins -> {{129, 12}, {4, 4}}, 
+                   StyleKeyMapping -> {
+                    "Backspace" -> 
+                    "SubitemNumbered", $CellContext`KeyEvent[
+                    "Tab", $CellContext`Modifiers -> {$CellContext`Shift}] -> 
+                    "SubitemNumbered"}, 
+                   CellGroupingRules -> {"ItemGrouping", 90}, 
+                   CellFrameLabelMargins -> 4, CounterIncrements -> 
+                   "SubsubitemNumbered", MenuSortingValue -> 1620, FontFamily -> 
+                   "Source Sans Pro", FontSize -> 
+                   13, $CellContext`ReturnCreatesNewCell -> True], 
+                  Cell[
+                   StyleData["SubsubitemNumbered", "Presentation"], 
+                   CellMargins -> {{212, 12}, {7, 7}}, CellFrameLabelMargins -> 
+                   6, FontSize -> 24], 
+                  Cell[
+                   StyleData["SubsubitemNumbered", "SlideShow"], 
+                   CellMargins -> {{
+                    0.176 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 
+                    0.03 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10,
+                     10}}, CellFrameLabelMargins -> 6, FontSize -> 22], 
+                  Cell[
+                   StyleData["SubsubitemNumbered", "Condensed"], 
+                   CellMargins -> {{84, 2}, {2, 2}}, FontSize -> 11], 
+                  Cell[
+                   StyleData["SubsubitemNumbered", "Printout"], 
+                   CellMargins -> {{119, Inherited}, {Inherited, Inherited}}], 
+                  Cell[
+                   StyleData["SubsubitemNumbered", "PrintoutGray"], 
+                   CellMargins -> {{119, Inherited}, {
+                    Inherited, Inherited}}]}, Closed]]}, Closed]]}, Closed]], 
+         
+         Cell[
+          CellGroupData[{
+            Cell["Templates", "Subsubsection"], 
+            Cell[
+             CellGroupData[{
+               Cell[
+                StyleData[
+                "SideCaptionArray", StyleDefinitions -> StyleData["Text"]], 
+                GridBoxOptions -> {
+                 GridBoxAlignment -> {
+                   "Columns" -> {Left}, "Rows" -> {Center}}, 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}}], 
+               Cell[
+                StyleData["SideCaptionArray", "SlideShow"]], 
+               Cell[
+                StyleData["SideCaptionArray", "Printout"], 
+                CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+               Cell[
+                StyleData["SideCaptionArray", "PrintoutGray"], 
+                CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+              Closed]], 
+            Cell[
+             CellGroupData[{
+               Cell[
+                StyleData[
+                "SideCaption", StyleDefinitions -> StyleData["SmallText"]]], 
+               Cell[
+                StyleData["SideCaption", "SlideShow"]], 
+               Cell[
+                StyleData["SideCaption", "Printout"]], 
+               Cell[
+                StyleData["SideCaption", "PrintoutGray"]]}, Closed]]}, 
+           Closed]]}, Closed]]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Styles for Input and Output Cells", "Section"], 
+      Cell[
+      "The cells in this section define styles used for input and output to \
+the kernel.  Be careful when modifying, renaming, or removing these styles, \
+because the front end associates special meanings with these style names. \
+Some attributes for these styles are actually set in FormatType Styles (in \
+the last section of this stylesheet). ", "Text"], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Input"], CellMargins -> {{66, 10}, {5, 8}}, 
+          StyleKeyMapping -> {
+           "=" -> "WolframAlphaShort", "*" -> "Item", ">" -> 
+            "ExternalLanguageDefault"}, FontSize -> 13], 
+         Cell[
+          StyleData["Input", "Presentation"], 
+          CellMargins -> {{100, 10}, {8, 15}}], 
+         Cell[
+          StyleData["Input", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          LinebreakAdjustments -> {1, 2., 12., 1., 1.}, FontSize -> 20], 
+         Cell[
+          StyleData["Input", "Condensed"], CellMargins -> {{50, 10}, {2, 3}}], 
+         Cell[
+          StyleData["Input", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, 8}}, 
+          LinebreakAdjustments -> {0.85, 2, 10, 1, 1}], 
+         Cell[
+          StyleData["Input", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, 8}}, 
+          LinebreakAdjustments -> {0.85, 2, 10, 1, 1}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["InputOnly"], CellMargins -> {{66, 10}, {7, 8}}, FontSize -> 
+          13], 
+         Cell[
+          StyleData["InputOnly", "Presentation"], 
+          CellMargins -> {{100, 10}, {8, 15}}], 
+         Cell[
+          StyleData["InputOnly", "SlideShow"], 
+          CellMargins -> {{100, 10}, {8, 15}}], 
+         Cell[
+          StyleData["InputOnly", "Condensed"], 
+          CellMargins -> {{50, 10}, {2, 3}}], 
+         Cell[
+          StyleData["InputOnly", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LinebreakAdjustments -> {0.85, 2, 10, 1, 1}], 
+         Cell[
+          StyleData["InputOnly", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LinebreakAdjustments -> {0.85, 2, 10, 1, 1}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["ExternalLanguage"]], 
+         Cell[
+          StyleData["ExternalLanguage", "SlideShow"], 
+          CellMargins -> {{
+            1 + 0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Code"]], 
+         Cell[
+          StyleData["Code", "Presentation"], 
+          CellMargins -> {{100, 10}, {8, 15}}], 
+         Cell[
+          StyleData["Code", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          LinebreakAdjustments -> {1, 2., 12., 1., 1.}, FontSize -> 20], 
+         Cell[
+          StyleData["Code", "Condensed"], CellMargins -> {{50, 10}, {2, 3}}], 
+         
+         Cell[
+          StyleData["Code", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Code", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Output"], CellMargins -> {{66, 10}, {12, 5}}, FontSize -> 
+          13], 
+         Cell[
+          StyleData["Output", "Presentation"], 
+          CellMargins -> {{100, 10}, {15, 8}}], 
+         Cell[
+          StyleData["Output", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {15, 8}}, 
+          LinebreakAdjustments -> {1, 2., 12., 1., 1.}, FontSize -> 20], 
+         Cell[
+          StyleData["Output", "Condensed"], 
+          CellMargins -> {{50, Inherited}, {3, 2}}], 
+         Cell[
+          StyleData["Output", "Printout"], 
+          CellMargins -> {{49, Inherited}, {9, 3}}], 
+         Cell[
+          StyleData["Output", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {9, 3}}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Message"]], 
+         Cell[
+          StyleData["Message", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["Message", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["Message", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Message", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          CellFrameLabels -> {{None, None}, {None, None}}], 
+         Cell[
+          StyleData["Message", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          CellFrameLabels -> {{None, None}, {None, None}}, FontColor -> 
+          GrayLevel[0.5]]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Print"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Print", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["Print", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["Print", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Print", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Print", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Echo"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Echo", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["Echo", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["Echo", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Echo", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Echo", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["EchoBefore"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoBefore", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["EchoBefore", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["EchoBefore", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoBefore", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoBefore", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["EchoAfter"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoAfter", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["EchoAfter", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["EchoAfter", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoAfter", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoAfter", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["EchoTiming"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoTiming", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}], 
+         
+         Cell[
+          StyleData["EchoTiming", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.01 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {8, 15}}, 
+          FontSize -> 18], 
+         Cell[
+          StyleData["EchoTiming", "Condensed"], 
+          CellMargins -> {{18, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoTiming", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["EchoTiming", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Styles for Formulas and Programming", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["InlineFormula"], 
+          HyphenationOptions -> {"HyphenationCharacter" -> "\[Continuation]"},
+           LanguageCategory -> "Formula", ScriptLevel -> 1, 
+          SingleLetterItalics -> True, MenuSortingValue -> 1650, FontSize -> 
+          1.05 Inherited, $CellContext`StripStyleOnPaste -> True], 
+         Cell[
+          StyleData["InlineFormula", "Presentation"], 
+          CellMargins -> {{10, 4}, {0, 12}}, LineSpacing -> {1, 5}], 
+         Cell[
+          StyleData["InlineFormula", "SlideShow"]], 
+         Cell[
+          StyleData["InlineFormula", "Condensed"], 
+          CellMargins -> {{50, 10}, {6, 6}}, LineSpacing -> {1, 1}], 
+         Cell[
+          StyleData["InlineFormula", "Printout"]], 
+         Cell[
+          StyleData["InlineFormula", "PrintoutGray"]]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["DisplayFormula"], 
+          CellMargins -> {{66, Inherited}, {Inherited, Inherited}}, 
+          DefaultFormatType -> DefaultInputFormatType, 
+          HyphenationOptions -> {"HyphenationCharacter" -> "\[Continuation]"},
+           LanguageCategory -> "Formula", ScriptLevel -> 0, 
+          SingleLetterItalics -> True, MenuSortingValue -> 1700, FontFamily -> 
+          "Source Sans Pro", FontSize -> 14, FontColor -> GrayLevel[0.2], 
+          UnderoverscriptBoxOptions -> {
+           LimitsPositioning -> True}, $CellContext`StripStyleOnPaste -> 
+          True], 
+         Cell[
+          StyleData["DisplayFormula", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}, 
+          LineSpacing -> {1, 5}, FontSize -> 24], 
+         Cell[
+          StyleData["DisplayFormula", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+            1.3 Inherited, 1.3 Inherited}}, FontSize -> 22], 
+         Cell[
+          StyleData["DisplayFormula", "Condensed"], 
+          CellMargins -> {{50, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1, 1}, FontSize -> 11], 
+         Cell[
+          StyleData["DisplayFormula", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["DisplayFormula", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData[
+          "DisplayFormulaNumbered", StyleDefinitions -> 
+           StyleData["DisplayFormula"]], CellFrameLabels -> {{None, 
+             Cell[
+              TextData[{"(", 
+                CounterBox["DisplayFormulaNumbered"], ")"}], 
+              "DisplayFormulaEquationNumber"]}, {None, None}}, 
+          CounterIncrements -> "DisplayFormulaNumbered", MenuSortingValue -> 
+          1710], 
+         Cell[
+          StyleData["DisplayFormulaNumbered", "Presentation"], 
+          CellMargins -> {{100, Inherited}, {1.5 Inherited, 1.5 Inherited}}, 
+          LineSpacing -> {1, 5}, FontSize -> 24], 
+         Cell[
+          StyleData["DisplayFormulaNumbered", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {
+            1.5 Inherited, 1.5 Inherited}}, FontSize -> 22], 
+         Cell[
+          StyleData["DisplayFormulaNumbered", "Condensed"], 
+          CellMargins -> {{50, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1, 1}, FontSize -> 11], 
+         Cell[
+          StyleData["DisplayFormulaNumbered", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["DisplayFormulaNumbered", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]], 
+      Cell[
+       StyleData["DisplayFormulaEquationNumber"], FontFamily -> "Arial", 
+       FontSize -> -1 + Inherited], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Program"], CellFrame -> {{0, 0}, {0.5, 0.5}}, 
+          CellMargins -> {{66, 10}, {8, 8}}, Hyphenation -> False, 
+          AutoQuoteCharacters -> {}, PasteAutoQuoteCharacters -> {}, 
+          LanguageCategory -> "Formula", ScriptLevel -> 1, MenuSortingValue -> 
+          1800, FontFamily -> Dynamic[
+            
+            CurrentValue[{
+             StyleHints, "CodeFont"}]], $CellContext`StripStyleOnPaste -> 
+          True], 
+         Cell[
+          StyleData["Program", "Presentation"], CellFrame -> {{0, 0}, {1, 1}},
+           CellMargins -> {{100, 4}, {0, 12}}, LineSpacing -> {1, 5}, 
+          FontSize -> 24], 
+         Cell[
+          StyleData["Program", "SlideShow"], CellFrame -> {{0, 0}, {1, 1}}, 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {12, 12}}, 
+          FontSize -> 22], 
+         Cell[
+          StyleData["Program", "Condensed"], 
+          CellMargins -> {{18, 10}, {6, 6}}, LineSpacing -> {1, 1}, FontSize -> 
+          11], 
+         Cell[
+          StyleData["Program", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}], 
+         Cell[
+          StyleData["Program", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}]}, 
+        Closed]]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Citation Styles", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Reference"], CellMargins -> {{66, 10}, {3, 3}}], 
+         Cell[
+          StyleData["Reference", "Presentation"], 
+          CellMargins -> {{100, 10}, {5, 5}}], 
+         Cell[
+          StyleData["Reference", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          FontSize -> 22], 
+         Cell[
+          StyleData["Reference", "Condensed"], 
+          CellMargins -> {{18, 10}, {3, 3}}], 
+         Cell[
+          StyleData["Reference", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}], 
+         Cell[
+          StyleData["Reference", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Author"], CellMargins -> {{64, 120}, {2, 6}}, 
+          ShowAutoSpellCheck -> False, IgnoreSpellCheck -> True, 
+          LineSpacing -> {1, 3}, TabSpacings -> {2.5}, MenuSortingValue -> 
+          1570, FontFamily -> "Source Sans Pro", FontSize -> 18], 
+         Cell[
+          StyleData["Author", "Presentation"], 
+          CellMargins -> {{100, 10}, {5, 5}}], 
+         Cell[
+          StyleData["Author", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          FontSize -> 22], 
+         Cell[
+          StyleData["Author", "Condensed"], 
+          CellMargins -> {{18, 10}, {3, 3}}], 
+         Cell[
+          StyleData["Author", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}], 
+         Cell[
+          StyleData["Author", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Affiliation", StyleDefinitions -> StyleData["Text"]], 
+          CellMargins -> {{64, 120}, {8, 2}}, LineSpacing -> {1, 3}, 
+          TabSpacings -> {2.5}, MenuSortingValue -> 1575, FontSize -> 16, 
+          FontColor -> GrayLevel[0.4]], 
+         Cell[
+          StyleData["Affiliation", "Presentation"], 
+          CellMargins -> {{100, 10}, {5, 5}}], 
+         Cell[
+          StyleData["Affiliation", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          FontSize -> 22], 
+         Cell[
+          StyleData["Affiliation", "Condensed"], 
+          CellMargins -> {{18, 10}, {3, 3}}], 
+         Cell[
+          StyleData["Affiliation", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}], 
+         Cell[
+          StyleData["Affiliation", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Abstract"], CellFrame -> {{False, False}, {True, True}}, 
+          CellMargins -> {{66, 120}, {12, 12}}, CellFrameColor -> 
+          GrayLevel[0.7], LineSpacing -> {1, 3}, TabSpacings -> {2.5}, 
+          MenuSortingValue -> 1565, FontFamily -> "Source Sans Pro", FontSize -> 
+          15, FontSlant -> "Italic"], 
+         Cell[
+          StyleData["Abstract", "Presentation"], 
+          CellMargins -> {{100, 10}, {5, 5}}], 
+         Cell[
+          StyleData["Abstract", "SlideShow"], 
+          CellMargins -> {{
+            0.135 FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}], 0.03 
+             FrontEnd`AbsoluteCurrentValue[{WindowSize, 1}]}, {10, 10}}, 
+          FontSize -> 22], 
+         Cell[
+          StyleData["Abstract", "Condensed"], 
+          CellMargins -> {{18, 10}, {3, 3}}], 
+         Cell[
+          StyleData["Abstract", "Printout"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}], 
+         Cell[
+          StyleData["Abstract", "PrintoutGray"], 
+          CellMargins -> {{49, Inherited}, {Inherited, Inherited}}, 
+          LineSpacing -> {1., 2.}]}, Closed]]}, Closed]], 
+   Cell[
+    CellGroupData[{
+      Cell["Styles for Printed Runningheads and Footers", "Section"], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Header"], CellMargins -> {{0, 0}, {0, 0}}, 
+          LineSpacing -> {1, 8}, MenuSortingValue -> None, FontFamily -> 
+          "Verdana", FontSize -> 7, FontSlant -> "Italic"], 
+         Cell[
+          StyleData["Header", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["Header", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["HeaderSection"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["HeaderSection", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["HeaderSection", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["HeaderSubsection"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["HeaderSubsection", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["HeaderSubsection", "PrintoutGray"], Magnification -> 
+          1.]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["HeaderTitle"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["HeaderTitle", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["HeaderTitle", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Footer"], CellMargins -> {{0, 0}, {0, 0}}, 
+          MenuSortingValue -> None, FontFamily -> "Verdana", FontSize -> 6], 
+         Cell[
+          StyleData["Footer", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["Footer", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["FooterSection"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["FooterSection", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["FooterSection", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["FooterSubsection"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["FooterSubsection", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["FooterSubsection", "PrintoutGray"], Magnification -> 
+          1.]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["FooterTitle"], StyleMenuListing -> None], 
+         Cell[
+          StyleData["FooterTitle", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["FooterTitle", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["PageNumber"], LineSpacing -> {1, 8}, MenuSortingValue -> 
+          None, FontFamily -> "Verdana", FontSize -> 7, FontWeight -> "Bold"], 
+         Cell[
+          StyleData["PageNumber", "Printout"], Magnification -> 1.], 
+         Cell[
+          StyleData["PageNumber", "PrintoutGray"], Magnification -> 1.]}, 
+        Closed]]}, Closed]]}, Visible -> False, FrontEndVersion -> 
+  "12.2 for Mac OS X x86 (64-bit) (December 12, 2020)", StyleDefinitions -> 
+  "StylesheetFormatting.nb"],
+ExpressionUUID->"a9b5e516-22bb-4dc2-98c0-90d5a5075e92"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 202, 4, 98, "Title",ExpressionUUID->"b9269d85-53e8-4b1a-8e3e-227531db259b"],
+Cell[785, 28, 310, 6, 52, "Input",ExpressionUUID->"e413860f-2c01-4a38-8435-7222f9cbb255"],
+Cell[1098, 36, 232, 5, 30, "Input",ExpressionUUID->"c494dd96-3d55-4e9b-80f6-3a2c6f835c3e"],
+Cell[1333, 43, 163, 3, 67, "Section",ExpressionUUID->"1eef8705-d61a-4c98-a8e6-30542618e076"],
+Cell[1499, 48, 190, 3, 53, "Section",ExpressionUUID->"b0488524-a57e-4c35-a3ec-153d75cf8815"],
+Cell[1692, 53, 171, 3, 53, "Section",ExpressionUUID->"52f5e648-1af4-44cc-a250-03b8d9bb17a9"],
+Cell[1866, 58, 172, 3, 53, "Section",ExpressionUUID->"8be22056-1268-46fa-bb9d-f80f555ef89a"],
+Cell[2041, 63, 188, 3, 53, "Section",ExpressionUUID->"440c7641-755e-4e0c-b7ff-361555c66910"]
+}, Open  ]]
+}
+]
+*)
+

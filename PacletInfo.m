@@ -11,9 +11,9 @@ Paclet[
   Creator -> "Mahn-Soo Choi (Korea University)",
   Extensions -> {
     { "Documentation",
-      Language -> "English" }
+      Language -> "English",
+      MainPage -> "Tutorials/Contents" }
    },
   Category -> "Workbook"
  ]
-
 
