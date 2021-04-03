@@ -14,7 +14,8 @@ Module[
     "https://github.com/quantum-mob/PacletServer/raw/main",
     "Quamtum Mob Paclet Server"
    ];
-  PacletSiteUpdate[ps]
+  PacletSiteUpdate[ps];
+  PacletInstall["QuantumWorkbook"]
  ]
 ```
 
