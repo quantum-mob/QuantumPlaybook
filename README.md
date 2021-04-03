@@ -1,7 +1,6 @@
 # QuantumWorkbook
 
-This repository provides the workbook chapters in the format of Mathematica(R) Notebook.
-
+The collection of Mathematica(R) Notebook files that have been used to generate the demonstation in the Quantum Workbook.
 
 ## Installation
 
