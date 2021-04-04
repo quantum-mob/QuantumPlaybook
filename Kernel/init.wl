@@ -1,12 +1,12 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2021-04-04 11:52:51+09 $ *)
-(* $Revision: 1.1 $ *)
+(* $Date: 2021-04-04 12:50:25+09 $ *)
+(* $Revision: 1.3 $ *)
 
 BeginPackage["QuantumWorkbook`"]
 
 Unprotect[Evaluate[$Context<>"*"]]
-ClearAll[$Context<>"*"]]
+ClearAll[Evaluate[$Context<>"*"]]
 
 { QuantumWorkbookUpdate, QuantumWorkbookCheckUpdate };
 
@@ -26,7 +26,7 @@ serverRegister[url_:$serverURL] :=
 
 serverEnsure[] := If[ serverRegisteredQ[], Null, serverRegister[] ]
 
-pacletVersion[pp:{__PacletObject}] := First @ pp
+pacletVersion[pp:{__PacletObject}] := pacletVersion[First @ pp]
 
 pacletVersion[pac_PacletObject] := pac["Version"]
 
@@ -34,7 +34,7 @@ versionNumber[vv:{__String}] := versionNumber[First @ vv]
 
 versionNumber[ver_String] := With[
   { new = StringSplit[ver, "."] },
-  If[ AllTrue[, DigitQ],
+  If[ AllTrue[new, DigitQ],
     ToExpression @ new,
     ver
    ]
