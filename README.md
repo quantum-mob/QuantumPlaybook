@@ -19,6 +19,8 @@ Module[
  ]
 ```
 
+Note that along with QuantumWorkbook, it also installs the unitility package WorkbookTools.
+
 
 ## Update
 
