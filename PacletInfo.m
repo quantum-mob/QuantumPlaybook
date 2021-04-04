@@ -5,7 +5,7 @@
 
 Paclet[
   Name -> "QuantumWorkbook",
-  Version -> "1.0.2",
+  Version -> "1.1.0",
   WolframVersion -> "12+",
   Description -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   Creator -> "Mahn-Soo Choi (Korea University)",
@@ -21,6 +21,6 @@ Paclet[
       Language -> "English",
       MainPage -> "Tutorials/Contents" }
    },
+  Updating -> Automatic,
   Category -> "Workbook"
  ]
-
