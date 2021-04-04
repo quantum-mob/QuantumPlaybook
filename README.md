@@ -14,6 +14,7 @@ Module[
     "Quamtum Mob Paclet Server"
    ];
   PacletSiteUpdate[ps];
+  PacletInstall["WorkbookTools"]
   PacletInstall["QuantumWorkbook"]
  ]
 ```
