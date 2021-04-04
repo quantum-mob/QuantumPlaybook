@@ -1,6 +1,6 @@
 # QuantumWorkbook
 
-The collection of Mathematica(R) Notebook files that have been used to generate the demonstation in the Quantum Workbook.
+The collection of Mathematica(R) Notebook files that have been used to generate the demonstrations in the Quantum Workbook.
 
 ## Installation
 
