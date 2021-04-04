@@ -11,7 +11,7 @@ Module[
   { ps },
   ps = PacletSiteRegister[
     "https://github.com/quantum-mob/PacletServer/raw/main",
-    "Quamtum Mob Paclet Server"
+    "Quantum Mob Paclet Server"
    ];
   PacletSiteUpdate[ps];
   PacletInstall["WorkbookTools"]
@@ -27,6 +27,7 @@ Note that along with QuantumWorkbook, it also installs the unitility package Wor
 Just call the following function:
 
 ```Mathematica
+PacletSiteUpdate["Quantum Mob Paclet Server"];
 PacletInstall["QuantumWorkbook"]
 ```
 It will automatically install a newer edition (if any) of the workbook.
