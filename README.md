@@ -24,7 +24,7 @@ Note that along with QuantumWorkbook, it also installs the unitility package Wor
 
 ## Update
 
-The contents of this package is actively updated, and you may want to check for updates from time to time:
+At the momoment, the contents of this package are being actively generated and modified, and you may want to check for updates from time to time:
 
 ```Mathematica
 << QuantumWorkbook`
