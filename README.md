@@ -24,11 +24,7 @@ Note that along with QuantumWorkbook, it also installs the unitility package Wor
 
 ## Update
 
-The contents of this package is actively updated, and you may want to check for the updates.frequently.
-
-Fortunately, once installed, QuantumWorkbook will automatically check for updates and install the newest update whenever it is available.
-
-If you want to check for updates manually, use the following code:
+The contents of this package is actively updated, and you may want to check for updates from time to time:
 
 ```Mathematica
 << QuantumWorkbook`
