@@ -26,10 +26,13 @@ Note that along with QuantumWorkbook, it also installs the unitility package Wor
 
 The contents of this package is actively updated, and you may want to check for the updates.frequently.
 
-To install the latest update, just call the following function:
+Fortunately, once installed, QuantumWorkbook will automatically check for updates and install the newest update whenever it is available.
+
+If you want to check for updates manually, use the following code:
 
 ```Mathematica
 << QuantumWorkbook`
+QuantumWorkbookCheckUpdate[]
 QuantumWorkbookUpdate[]
 ```
 
@@ -39,6 +42,7 @@ or
 PacletSiteUpdate["Quantum Mob Paclet Server"];
 PacletInstall["QuantumWorkbook"]
 ```
+
 It will automatically install a newest edition (if any) of the workbook.
 
 
