@@ -45,3 +45,12 @@ It will automatically install a newest edition (if any) of the workbook.
 ## How to use
 
 Once QuantumWorkbook is installed, put `QuantumWorkbook` in the search field of the Wolfram Documentation Center (Mathematica Help window). You will see the table of contents of the workbook.
+
+## Uninstall
+
+If you do not want to use QuantumWorkbook any longer, just evaluate the following code:
+
+```Mathematica
+PacletUninstall["WorkbookTools"];
+PacletUninstall["QuantumWorkbook"]
+```
