@@ -2,6 +2,10 @@
 
 A compilation of the Mathematica(R) Notebook files that have been used to generate the demonstrations in the Quantum Workbook.
 
+## Requirement
+
+QuantumWorkbook requires *Mathematica v12.1 or later*.
+
 ## Installation
 
 Copy the following code, and just evaluate it in your Mathematica(R) Notebook:

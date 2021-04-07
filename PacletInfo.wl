@@ -1,13 +1,13 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-04-06 12:18:09+09 $ *)
-(* $Revision: 1.7 $ *)
+(* $Date: 2021-04-07 10:00:25+09 $ *)
+(* $Revision: 1.10 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "0.1.1",
-  "WolframVersion" -> "12+",
+  "Version" -> "0.1.3",
+  "WolframVersion" -> "12.2+",
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
   "Loading" -> Automatic,
@@ -30,7 +30,18 @@ Paclet[
      },
     { "Documentation",
       "Language" -> "English",
-      "MainPage" -> "Tutorials/Contents" }
+      "MainPage" -> "Tutorials/Contents" },
+    { "Asset",
+      (* Similar to the old-style Resource extension. *)
+      (* The documented way to extract the named asset from Asset extensions
+         is pacletObj["AssetLocation", "assetname"]. *)
+      "Root" -> "Samples",
+      "Assets" -> {
+        {"FrontMatter", "FrontMatter.pdf"},
+        {"Chapter2", "Chapter2.pdf"},
+        {"BackMatter", "BackMatter.pdf"}
+       }
+     }
    },
   "URL" -> "https://github.com/quantum-mob/QuantumWorkbook",
   "Category" -> "Education"
