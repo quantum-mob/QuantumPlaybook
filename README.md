@@ -4,7 +4,10 @@ A compilation of the Mathematica(R) Notebook files that have been used to genera
 
 ## Requirement
 
-QuantumWorkbook requires *Mathematica v12.1 or later*.
+QuantumWorkbook requires
+
+- *Mathematica v12.1 or later*
+- [https://github.com/quantum-mob/Q3App](Q3 Application)
 
 ## Installation
 
@@ -18,12 +21,13 @@ Module[
     "Quantum Mob Paclet Server"
    ];
   PacletSiteUpdate[ps];
+  PacletInstall["Q3"];
   PacletInstall["WorkbookTools"];
   PacletInstall["QuantumWorkbook"]
  ]
 ```
 
-Note that along with QuantumWorkbook, it also installs the unitility package WorkbookTools.
+Note that along with QuantumWorkbook, it also installs the unitility package WorkbookTools as well as the main application Q3.
 
 
 ## Update
