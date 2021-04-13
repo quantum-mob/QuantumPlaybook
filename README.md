@@ -6,7 +6,7 @@ A compilation of the Mathematica(R) Notebook files that have been used to genera
 
 QuantumWorkbook requires
 
-* *Mathematica v12.1 or later*
+* [Mathematica v12.1 or later](https://www.wolfram.com/mathematica)
 * [Q3 Application](https://github.com/quantum-mob/Q3App)
 
 ## Installation
