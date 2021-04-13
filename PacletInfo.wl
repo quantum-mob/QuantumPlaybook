@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-04-07 10:02:41+09 $ *)
-(* $Revision: 1.11 $ *)
+(* $Date: 2021-04-10 15:54:44+09 $ *)
+(* $Revision: 1.15 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "0.1.5",
+  "Version" -> "0.2.3",
   "WolframVersion" -> "12.1+",
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
@@ -15,7 +15,7 @@ Paclet[
   "Extensions" -> {
     { "Kernel",
       "Root" -> "Kernel",
-      "Context" -> { "QuantumWorkbook`" },
+      "Context" -> { "QuantumWorkbook`", "QuantumWorkbook`Custom`" },
       (* Context specifies the package context or list of contexts . Used by
          FindFile. Also causes documentation links to be added to usage
          messages when documentation is present. *)
@@ -31,6 +31,12 @@ Paclet[
     { "Documentation",
       "Language" -> "English",
       "MainPage" -> "Tutorials/Contents" },
+    { "FrontEnd",
+      "Prepend" -> True },
+    (* Enables subdirectories within the FrontEnd to be handled,
+       e.g. FrontEnd/Palettes, FrontEnd/StyleSheets, FrontEnd/SystemResources,
+       FrontEnd/TextResources. These items will be recognized by the Front
+       End, e.g. palettes will show up in the Palettes menu. *)
     { "Asset",
       (* Similar to the old-style Resource extension. *)
       (* The documented way to extract the named asset from Asset extensions
@@ -38,6 +44,7 @@ Paclet[
       "Root" -> "Samples",
       "Assets" -> {
         {"FrontMatter", "FrontMatter.pdf"},
+        {"Chapter1", "Chapter1.pdf"},
         {"Chapter2", "Chapter2.pdf"},
         {"BackMatter", "BackMatter.pdf"}
        }

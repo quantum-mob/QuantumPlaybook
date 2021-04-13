@@ -22,12 +22,11 @@ Module[
    ];
   PacletSiteUpdate[ps];
   PacletInstall["Q3"];
-  PacletInstall["WorkbookTools"];
   PacletInstall["QuantumWorkbook"]
  ]
 ```
 
-Note that along with QuantumWorkbook, it also installs the unitility package WorkbookTools as well as the main application Q3.
+Note that along with QuantumWorkbook, it also installs the main application Q3 for your convenience.
 
 
 ## Update
@@ -53,6 +52,5 @@ Once QuantumWorkbook is installed, put `QuantumWorkbook` in the search field of 
 If you do not want to use QuantumWorkbook any longer, just evaluate the following code:
 
 ```Mathematica
-PacletUninstall["WorkbookTools"];
 PacletUninstall["QuantumWorkbook"]
 ```
