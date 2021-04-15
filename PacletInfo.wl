@@ -1,7 +1,7 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-04-10 15:54:44+09 $ *)
-(* $Revision: 1.15 $ *)
+(* $Date: 2021-04-15 15:07:32+09 $ *)
+(* $Revision: 1.16 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
@@ -46,6 +46,7 @@ Paclet[
         {"FrontMatter", "FrontMatter.pdf"},
         {"Chapter1", "Chapter1.pdf"},
         {"Chapter2", "Chapter2.pdf"},
+        {"Chapter3", "Chapter3.pdf"},
         {"BackMatter", "BackMatter.pdf"}
        }
      }
