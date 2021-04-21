@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-04-15 15:07:32+09 $ *)
-(* $Revision: 1.16 $ *)
+(* $Date: 2021-04-21 10:16:14+09 $ *)
+(* $Revision: 1.19 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "0.2.3",
+  "Version" -> "0.2.5",
   "WolframVersion" -> "12.1+",
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
@@ -43,10 +43,9 @@ Paclet[
          is pacletObj["AssetLocation", "assetname"]. *)
       "Root" -> "Samples",
       "Assets" -> {
+        {"Book", "QuantumWorkbook.pdf"},
         {"FrontMatter", "FrontMatter.pdf"},
-        {"Chapter1", "Chapter1.pdf"},
         {"Chapter2", "Chapter2.pdf"},
-        {"Chapter3", "Chapter3.pdf"},
         {"BackMatter", "BackMatter.pdf"}
        }
      }
