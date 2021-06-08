@@ -1,9 +1,9 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2021-04-13 12:21:14+09 $ *)
-(* $Revision: 1.10 $ *)
+(* $Date: 2021-06-05 21:35:35+09 $ *)
+(* $Revision: 1.11 $ *)
 
-BeginPackage["QuantumWorkbook`Custom`", {"Q3`Custom`"}]
+BeginPackage["QuantumWorkbook`Custom`", {"Q3`"}]
 
 (* General usuers do not need WorkbookTools` any longer. *)
 If[ MemberQ[{"Okoye", "Leona", "Lijia"}, $MachineName], Null,
@@ -31,11 +31,11 @@ Block[
 
   (* Graphics *)
 
-  Customization[Graphics, Frame -> False, Axes -> False, GridLines -> None];
+  Customize[Graphics, Frame -> False, Axes -> False, GridLines -> None];
 
   (* Graphics-related functions *)
 
-  Customization @ {
+  Customize @ {
     Histogram,
     Plot, ParametricPlot, LogPlot, LogLinearPlot, LogLogPlot,
     ListPlot, ListLinePlot, ListLogPlot, ListLogLinearPlot, ListLogLogPlot
@@ -43,9 +43,9 @@ Block[
 
   (* Graphics3D-related functions *)
 
-  Customization[Graphics3D];
+  Customize[Graphics3D];
 
-  Customization[
+  Customize[
     { Plot3D,
       ParametricPlot3D
      },
