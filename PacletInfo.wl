@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-08-27 06:51:09+09 $ *)
-(* $Revision: 1.32 $ *)
+(* $Date: 2021-09-01 05:01:36+09 $ *)
+(* $Revision: 1.33 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "0.2.24",
+  "Version" -> "1.0.0",
   "WolframVersion" -> "12.1+",
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
