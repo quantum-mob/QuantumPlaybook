@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2021-06-05 21:35:35+09 $ *)
-(* $Revision: 1.11 $ *)
+(* $Date: 2021-08-27 06:26:50+09 $ *)
+(* $Revision: 1.12 $ *)
 
 BeginPackage["QuantumWorkbook`Custom`", {"Q3`"}]
 
@@ -26,7 +26,7 @@ Block[
     (* Common *)
     PlotStyle -> Automatic,
     AxesStyle -> Automatic,
-    ImageSize -> Automatic
+    ImageSize -> 250
    };
 
   (* Graphics *)
