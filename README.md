@@ -1,6 +1,6 @@
 # QuantumWorkbook
 
-A compilation of the Mathematica(R) Notebook files that have been used to generate the demonstrations in **"A Quantum Computation Workbook"** to be published with Springer later this year.
+A compilation of the Mathematica(R) Notebook files that have been used to generate the demonstrations in **"A Quantum Computation Workbook"** to be published with Springer later this year. Users can try and modify the code themselves to build their own examples on the demonstrations and to experiment their fresh ideas.
 
 ## Requirement
 
