@@ -8,7 +8,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 
 QuantumWorkbook requires
 
-* [Mathematica v12.1 or later](https://www.wolfram.com/mathematica)
+* [Mathematica v12.2 or later](https://www.wolfram.com/mathematica)
 * [Q3 Application](https://github.com/quantum-mob/Q3App)
 
 ## Installation
