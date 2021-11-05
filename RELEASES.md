@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## v1.1.7
+
+- The book "A Quantum Computation Workbook" is ready for publication. The link to the publication site has been added.
+
 ## v1.1.6
 
 - The version to be published by Springer.
