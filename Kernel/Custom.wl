@@ -1,13 +1,17 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2021-08-27 06:26:50+09 $ *)
-(* $Revision: 1.12 $ *)
+(* $Date: 2021-12-07 17:20:13+09 $ *)
+(* $Revision: 1.14 $ *)
 
 BeginPackage["QuantumWorkbook`Custom`", {"Q3`"}]
 
-(* General usuers do not need WorkbookTools` any longer. *)
-If[ MemberQ[{"Okoye", "Leona", "Lijia"}, $MachineName], Null,
-  Quiet @ PacletUninstall["WorkbookTools"]
+If[ MemberQ[{"Grace", "Okoye", "Leona", "Lijia"}, $MachineName], Null,
+  Quiet @ PacletUninstall["WorkbookTools"];
+  MessageDialog @ Column @ {
+    Style["\[WarningSign] NOTICE", Large, Red], 
+    "You have kept the old 'WorkbookTools' package.", 
+    "Now it has been uninstalled."
+   };
  ];
 
 Begin["`Private`"]
