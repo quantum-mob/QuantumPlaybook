@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2021-12-16 21:46:22+09 $ *)
-(* $Revision: 1.52 $ *)
+(* $Date: 2021-12-17 08:24:37+09 $ *)
+(* $Revision: 1.58 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "1.2.3",
+  "Version" -> "1.3.1",
   "WolframVersion" -> "12.1+",
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
@@ -30,7 +30,7 @@ Paclet[
      },
     { "Documentation",
       "Language" -> "English",
-      "MainPage" -> "Tutorials/Contents" },
+      "MainPage" -> "Tutorials/QuantumWorkbook" },
     { "FrontEnd",
       "Prepend" -> True },
     (* Enables subdirectories within the FrontEnd to be handled,
