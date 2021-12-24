@@ -1,6 +1,6 @@
 # QuantumWorkbook
 
-A compilation of the Mathematica(R) Notebook files that have been used to generate the demonstrations in ["A Quantum Computation Workbook"](https://link.springer.com/book/9783030912130) to be published with Springer on Febrauary 1, 2022 (ISBN: 978-3-030-91213-0, 978-3-030-91214-7). Users can try and modify the code themselves to build their own examples on the demonstrations and to experiment their fresh ideas.
+A compilation of the Mathematica(R) Notebook files that have been used to generate the demonstrations in ["A Quantum Computation Workbook"](https://link.springer.com/book/9783030912130) to be published with Springer on Febrauary 1, 2022 (click here for a draft copy of the [fulltext of the entire book in PDF](./Samples/QuantumWorkbook.pdf)). Users can try and modify the code themselves to build their own examples on the demonstrations and to experiment their fresh ideas.
 
 The code in this compilation is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
