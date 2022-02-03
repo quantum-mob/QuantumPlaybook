@@ -1,5 +1,10 @@
 # Select Release Notes
 
+## 1.3.6
+
+- Many typos have been corrected.
+- Some figures have been regenerated to include subfigure labels.
+
 ## 1.3.3
 
 - Consistentcy with Q3 v2.2.0.
