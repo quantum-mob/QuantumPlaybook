@@ -7,7 +7,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 ## Contents of the Workbook
 
 1. The Postulates of Quantum Mechanics
-2. Quantum Computation: Overview
+2. Quantum Computation: Overview [Full text of Chapter 2 in PDF](./Samples/Chapter2.pdf)
 3. Realizations of Quantum Computers
 4. Quantum Algorithms
 5. Quantum Decoherence
