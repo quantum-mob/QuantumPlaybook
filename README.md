@@ -13,16 +13,14 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 5. Quantum Decoherence
 6. Quantum Error-Correction Codes
 7. Quantum Information Theory
-
-* Appendix A. Linear Algebra
-* Appendix B. Superoperators
-* Appendix C. Group Theory
-* Appendix D. Mathematica Application Q3
-* Appendix E. Integrated Compilation of Demonstrations
-* Appendix F. Solutions to Select Problems
-
-* Bibliography
-* Index
+- Appendix A. Linear Algebra
+- Appendix B. Superoperators
+- Appendix C. Group Theory
+- Appendix D. Mathematica Application Q3
+- Appendix E. Integrated Compilation of Demonstrations
+- Appendix F. Solutions to Select Problems
+- Bibliography
+- Index
 
 ## Requirements
 
