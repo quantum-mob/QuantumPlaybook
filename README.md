@@ -4,10 +4,9 @@ A compilation of the Mathematica(R) Notebook files that have been used to genera
 
 The code in this compilation is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
-![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)
-
-
 ## Contents of the Workbook
+
+![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)
 
 1. The Postulates of Quantum Mechanics
 2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./Samples/Chapter2.pdf))
