@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 1.5.0
+
+- The book has been published.
+
 ## 1.3.6
 
 - Many typos have been corrected.
