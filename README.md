@@ -23,6 +23,9 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 - Appendix F. Solutions to Select Problems
 - Bibliography
 - Index
+- [Errata](./Samples/Errata.pdf)
+
+NOTE: All back materials including appendices, bibliography, and index are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
 ## Requirements
 

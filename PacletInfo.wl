@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2022-03-16 12:37:11+09 $ *)
-(* $Revision: 1.2 $ *)
+(* $Date: 2022-08-28 10:24:38+09 $ *)
+(* $Revision: 1.9 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "1.5.1",
+  "Version" -> "1.5.5",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
@@ -29,12 +29,6 @@ Paclet[
     { "Documentation",
       "Language" -> "English",
       "MainPage" -> "Tutorials/QuantumWorkbook" },
-    { "FrontEnd",
-      "Prepend" -> True },
-    (* Enables subdirectories within the FrontEnd to be handled,
-       e.g. FrontEnd/Palettes, FrontEnd/StyleSheets, FrontEnd/SystemResources,
-       FrontEnd/TextResources. These items will be recognized by the Front
-       End, e.g. palettes will show up in the Palettes menu. *)
     { "Asset",
       (* Similar to the old-style Resource extension. *)
       (* The documented way to extract the named asset from Asset extensions
@@ -44,7 +38,8 @@ Paclet[
         {"Book", "QuantumWorkbook.pdf"},
         {"FrontMatter", "FrontMatter.pdf"},
         {"Chapter2", "Chapter2.pdf"},
-        {"BackMatter", "BackMatter.pdf"}
+        {"BackMatter", "BackMatter.pdf"},
+        {"Errata", "Errata.pdf"}
        }
      }
    },

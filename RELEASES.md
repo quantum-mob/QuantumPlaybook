@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 1.5.3
+
+- GrayTwoLevelU has been renamed FromTwoLevelU.
+
 ## 1.5.0
 
 - The book has been published.
