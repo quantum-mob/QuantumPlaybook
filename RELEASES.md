@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 1.5.5
+
+- Errata is available in PDF.
+
 ## 1.5.3
 
 - GrayTwoLevelU has been renamed FromTwoLevelU.
