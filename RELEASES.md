@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 1.6.0
+
+- A serious errata in Problem 1.10 is included in this release.
+
 ## 1.5.5
 
 - Errata is available in PDF.
