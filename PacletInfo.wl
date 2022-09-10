@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2022-09-09 07:09:48+09 $ *)
-(* $Revision: 1.13 $ *)
+(* $Date: 2022-09-10 23:11:15+09 $ *)
+(* $Revision: 1.14 $ *)
 
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "1.6.0",
+  "Version" -> "2.0.0",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
@@ -25,6 +25,10 @@ Paclet[
       (* Symbols supplies a set of symbols that the paclet provides. If the
          Loading is set to Automatic , autoloading will be set up for everyone
          of these symbols. *)
+     },
+    { "Kernel",
+      "Root" -> "Transmon/Kernel",
+      "Context" -> "Transmon`"
      },
     { "Documentation",
       "Language" -> "English",

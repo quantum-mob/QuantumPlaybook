@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 2.0.0
+
+- Includes playbook.
+
 ## 1.6.0
 
 - A serious errata in Problem 1.10 is included in this release.
