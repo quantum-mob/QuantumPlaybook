@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 2.1.0
+
+- New demonstration on entanglement distillation.
+
+## 2.0.5
+
+- Errata is almost complete.
+
 ## 2.0.0
 
 - Includes playbook.
