@@ -6,7 +6,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 
 ## Contents of the Workbook
 
-![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)
+[![Quantum Workbook Cover](Images/QuantumWorkbookCover.jpg?raw=true)](https://link.springer.com/book/9783030912130)
 
 1. The Postulates of Quantum Mechanics
 2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./Samples/Chapter2.pdf))
