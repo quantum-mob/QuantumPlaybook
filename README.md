@@ -4,7 +4,7 @@ This is a compilation of Mathematica(R) Notebook files containing demonstrations
 
 The code in this compilation is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
-## Contents of the Quantum Workbook
+## Workbok Contents
 
 [![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)](https://link.springer.com/book/9783030912130)
 
@@ -27,7 +27,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 
 NOTE: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
-## Other Demonstrations
+## Playbook Contents
 
 - Partial Trace: Physical Meaning
 - Non-Unitary Dynamics of Quantum States
