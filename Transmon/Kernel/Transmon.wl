@@ -1,20 +1,16 @@
 (* -*- mode:math -*- *)
+Get["Q3`"];
+Q3Assert["2.6.0"];
+
 BeginPackage["Transmon`", {"Q3`"}]
 
-(* Requirement *)
-If[ Not @ OrderedQ @ {"2.6.0", Q3Release[]},
-  PrintTemporary["Q3 v2.6.0 or later is required and Q3 is being updated."];
-  Q3Update[UpdatePacletSites->True];
-  Get["Q3`"]
- ]
-
-Unprotect[Evaluate[$Context<>"*"]]
-ClearAll[Evaluate[$Context<>"*"]]
+Unprotect["`*"]
+ClearAll["`*"]
 
 `Transmon`$Version = StringJoin[
   "Transmon/", $Input, " v",
-  StringSplit["$Revision: 1.24 $"][[2]], " (",
-  StringSplit["$Date: 2022-07-24 13:15:45+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.25 $"][[2]], " (",
+  StringSplit["$Date: 2022-12-19 19:03:52+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -152,6 +148,6 @@ hatP[x_, q_][expr_] := -I*D[expr, x] - q*expr
 
 End[]
 
-Protect[Evaluate[$Context<>"*"]]
+SetAttributes[Evaluate @ Protect["`*"], ReadProtected];
 
 EndPackage[]

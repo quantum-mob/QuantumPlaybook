@@ -6,7 +6,7 @@
 Paclet[
   "Name" -> "QuantumWorkbook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "2.1.6",
+  "Version" -> "2.1.7",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
@@ -29,6 +29,10 @@ Paclet[
     { "Kernel",
       "Root" -> "Transmon/Kernel",
       "Context" -> "Transmon`"
+     },
+    { "Kernel",
+      "Root" -> "Solovay/Kernel",
+      "Context" -> "Solovay`"
      },
     { "Documentation",
       "Language" -> "English",

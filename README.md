@@ -25,7 +25,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 - Index (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
 - [Errata](./Samples/Errata.pdf)
 
-NOTE: All back materials including appendices, bibliography, and index are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
+NOTE: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
 ## Requirements
 
