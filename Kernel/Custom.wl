@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2021-12-16 22:22:00+09 $ *)
-(* $Revision: 1.16 $ *)
+(* $Date: 2022-12-31 12:24:58+09 $ *)
+(* $Revision: 1.1 $ *)
 
 BeginPackage["QuantumPlaybook`Custom`", {"Q3`"}]
 
