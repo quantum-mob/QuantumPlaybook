@@ -4,13 +4,13 @@ Q3Assert["2.6.0"];
 
 BeginPackage["Transmon`", {"Q3`"}]
 
-Unprotect["`*"]
-ClearAll["`*"]
+Unprotect["`*"];
+ClearAll["`*"];
 
 `Transmon`$Version = StringJoin[
   "Transmon/", $Input, " v",
-  StringSplit["$Revision: 1.25 $"][[2]], " (",
-  StringSplit["$Date: 2022-12-19 19:03:52+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.26 $"][[2]], " (",
+  StringSplit["$Date: 2022-12-31 16:37:51+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 

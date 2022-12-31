@@ -5,13 +5,26 @@
 
 BeginPackage["QuantumPlaybook`"]
 
-Unprotect[Evaluate[$Context<>"*"]]
-ClearAll[Evaluate[$Context<>"*"]]
+Unprotect["`*"];
+ClearAll["`*"];
 
 { QuantumPlaybookUpdate, QuantumPlaybookCheckUpdate };
 { QuantumPlaybookEdition };
 
 Begin["`Private`"]
+
+
+(**** <QuantumWorkbook> *****)
+
+old = PacletFind["QuantumWorkbook"];
+If[ old != {},
+  PrintTemporary["You still have the QuantumWorkbook package, which has been superceded by QuantumPlaybook. It is now removed ..."];
+  PacletUninstall["QuantumWorkbook"];
+  Pause[5]
+ ];
+
+(**** </QuantumWorkbook> *****)
+
 
 (***** <Paclet Server> ****)
 
@@ -88,6 +101,6 @@ QuantumPlaybookEdition[] := Module[
 
 End[]
 
-Protect[Evaluate[$Context<>"*"]]
+SetAttributes[Evaluate @ Protect["`*"], ReadProtected];
 
 EndPackage[]
