@@ -4,7 +4,7 @@ This is a compilation of Mathematica(R) Notebook files containing demonstrations
 
 The code in this compilation is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
-## Contents of the Workbook
+## Contents of the Quantum Workbook
 
 [![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)](https://link.springer.com/book/9783030912130)
 
@@ -27,9 +27,23 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 
 NOTE: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
+## Other Demonstrations
+
+- Partial Trace: Physical Meaning
+- Non-Unitary Dynamics of Quantum States
+- Transposition as a Supermap
+- Addition of Numbers
+- Measurement of Total Pauli Z
+- Entanglement Distillation
+- Lambda-Matter in a Cavity
+- Symmetry Effects on Quantum Master Equations
+- Transmon: Quantum Phase Model
+- And many others
+
+
 ## Requirements
 
-QuantumWorkbook requires
+QuantumPlaybook requires
 
 * [Mathematica v12.2 or later](https://www.wolfram.com/mathematica)
 * [Q3 Application](https://github.com/quantum-mob/Q3)
@@ -47,11 +61,11 @@ Module[
    ];
   PacletSiteUpdate[ps];
   PacletInstall["Q3"];
-  PacletInstall["QuantumWorkbook"]
+  PacletInstall["QuantumPlaybook"]
  ]
 ```
 
-Note that along with QuantumWorkbook, it also installs the main application Q3 for your convenience.
+Note that along with QuantumPlaybook, it also installs the main application Q3 for your convenience.
 
 
 ## Update
@@ -59,23 +73,23 @@ Note that along with QuantumWorkbook, it also installs the main application Q3 f
 At the momoment, the contents of this package are being actively generated and modified, and you may want to check for updates from time to time:
 
 ```Mathematica
-QuantumWorkbookCheckUpdate[]
+QuantumPlaybookCheckUpdate[]
 ```
 
 In case there is an update, you can install it by using the following function:
 
 ```Mathematica
-QuantumWorkbookUpdate[]
+QuantumPlaybookUpdate[]
 ```
 
 ## How to use
 
-Once QuantumWorkbook is installed, put `QuantumWorkbook` in the search field of the Wolfram Documentation Center (Mathematica Help window). You will see the table of contents of the workbook.
+Once QuantumPlaybook is installed, put `QuantumPlaybook` in the search field of the Wolfram Documentation Center (Mathematica Help window). You will see the table of contents of the workbook.
 
 ## Uninstall
 
-If you do not want to use QuantumWorkbook any longer, just evaluate the following code:
+If you do not want to use QuantumPlaybook any longer, just evaluate the following code:
 
 ```Mathematica
-PacletUninstall["QuantumWorkbook"]
+PacletUninstall["QuantumPlaybook"]
 ```
