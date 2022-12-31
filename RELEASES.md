@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.0.0
+
+- QuantumWorkbook has been renamed QuatnumPlaybook.
+
 ## 2.1.0
 
 - New demonstration on entanglement distillation.
