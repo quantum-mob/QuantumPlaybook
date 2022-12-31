@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2022-12-31 12:24:46+09 $ *)
-(* $Revision: 1.1 $ *)
+(* $Date: 2022-12-31 17:19:20+09 $ *)
+(* $Revision: 1.3 $ *)
 
 BeginPackage["QuantumPlaybook`"]
 
@@ -93,8 +93,7 @@ QuantumPlaybookEdition[] := Module[
     pac = First @ pac
    ];
   StringJoin[
-    "A Quantum Computation Workbook (draft ", pac["Year"], "), ",
-    "Mathematica Notebook Compilation ", pac["Version"], "."
+    "A Quantum Playbook (", pac["Year"], ") Release ", pac["Version"], "."
    ]
  ]
 
