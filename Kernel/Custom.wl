@@ -3,7 +3,7 @@
 (* $Date: 2021-12-16 22:22:00+09 $ *)
 (* $Revision: 1.16 $ *)
 
-BeginPackage["QuantumWorkbook`Custom`", {"Q3`"}]
+BeginPackage["QuantumPlaybook`Custom`", {"Q3`"}]
 
 Begin["`Private`"]
 

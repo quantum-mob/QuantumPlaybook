@@ -1,26 +1,26 @@
 (* Paclet Info File *)
 
-(* $Date: 2022-12-19 09:29:17+09 $ *)
-(* $Revision: 1.28 $ *)
+(* $Date: 2022-12-31 11:59:04+09 $ *)
+(* $Revision: 1.29 $ *)
 
 Paclet[
-  "Name" -> "QuantumWorkbook",
+  "Name" -> "QuantumPlaybook",
   "Year" -> "2021", (* custom field *)
-  "Version" -> "2.1.7",
+  "Version" -> "3.0.0",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
   "Extensions" -> {
     { "Kernel",
       "Root" -> "Kernel",
-      "Context" -> { "QuantumWorkbook`", "QuantumWorkbook`Custom`" },
+      "Context" -> { "QuantumPlaybook`", "QuantumPlaybook`Custom`" },
       (* Context specifies the package context or list of contexts . Used by
          FindFile. Also causes documentation links to be added to usage
          messages when documentation is present. *)
       "Symbols" -> {
-        "QuantumWorkbookEdition",
-        "QuantumWorkbookUpdate",
-        "QuantumWorkbookCheckUpdate"
+        "QuantumPlaybookEdition",
+        "QuantumPlaybookUpdate",
+        "QuantumPlaybookCheckUpdate"
        }
       (* Symbols supplies a set of symbols that the paclet provides. If the
          Loading is set to Automatic , autoloading will be set up for everyone
@@ -36,14 +36,14 @@ Paclet[
      },
     { "Documentation",
       "Language" -> "English",
-      "MainPage" -> "Tutorials/QuantumWorkbook" },
+      "MainPage" -> "Tutorials/QuantumPlaybook" },
     { "Asset",
       (* Similar to the old-style Resource extension. *)
       (* The documented way to extract the named asset from Asset extensions
          is pacletObj["AssetLocation", "assetname"]. *)
       "Root" -> "Samples",
       "Assets" -> {
-        {"Book", "QuantumWorkbook.pdf"},
+        {"Book", "QuantumPlaybook.pdf"},
         {"FrontMatter", "FrontMatter.pdf"},
         {"Chapter2", "Chapter2.pdf"},
         {"BackMatter", "BackMatter.pdf"},
@@ -53,6 +53,6 @@ Paclet[
    },
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
-  "URL" -> "https://github.com/quantum-mob/QuantumWorkbook",
+  "URL" -> "https://github.com/quantum-mob/QuantumPlaybook",
   "Category" -> "Education"
  ]

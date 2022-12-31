@@ -3,13 +3,13 @@
 (* $Date: 2021-04-05 09:50:58+09 $ *)
 (* $Revision: 1.5 $ *)
 
-BeginPackage["QuantumWorkbook`"]
+BeginPackage["QuantumPlaybook`"]
 
 Unprotect[Evaluate[$Context<>"*"]]
 ClearAll[Evaluate[$Context<>"*"]]
 
-{ QuantumWorkbookUpdate, QuantumWorkbookCheckUpdate };
-{ QuantumWorkbookEdition };
+{ QuantumPlaybookUpdate, QuantumPlaybookCheckUpdate };
+{ QuantumPlaybookEdition };
 
 Begin["`Private`"]
 
@@ -43,39 +43,39 @@ versionNumber[ver_String] := With[
 
 (***** </Paclet Server> ****)
 
-QuantumWorkbookUpdate::usage = "QuantumWorkbookUpdate[] installs the latest update of the package."
+QuantumPlaybookUpdate::usage = "QuantumPlaybookUpdate[] installs the latest update of the package."
 
-QuantumWorkbookUpdate[opts___?OptionQ] := (
+QuantumPlaybookUpdate[opts___?OptionQ] := (
   serverEnsure[];
-  PacletInstall["QuantumWorkbook", opts]
+  PacletInstall["QuantumPlaybook", opts]
  )
 
 
-QuantumWorkbookCheckUpdate::usage = "QuantumWorkbookCheckUpdate[] checks if there is a newer release of QuantumWorkbook in the GitHub repository."
+QuantumPlaybookCheckUpdate::usage = "QuantumPlaybookCheckUpdate[] checks if there is a newer release of QuantumPlaybook in the GitHub repository."
 
-QuantumWorkbookCheckUpdate[] := Module[
+QuantumPlaybookCheckUpdate[] := Module[
   { pac, new },
   serverEnsure[];
-  pac = PacletFind["QuantumWorkbook"];
-  new = PacletFindRemote["QuantumWorkbook", UpdatePacletSites->True];
+  pac = PacletFind["QuantumPlaybook"];
+  new = PacletFindRemote["QuantumPlaybook", UpdatePacletSites->True];
   If[ pac=={}, Return[$Failed], pac = pacletVersion[pac] ];
   If[ new=={}, Return[$Failed], new = pacletVersion[new] ];
   If[ OrderedQ @ {versionNumber @ new, versionNumber @ pac},
-    Print["You are using the latest release v", pac, " of QuantumWorkbook."],
-    Print["QuantumWorkbook,v", new, " is now available -- you are using v",
-      pac, ".\nUse QuantumWorkbookUpdate to install the update."]
+    Print["You are using the latest release v", pac, " of QuantumPlaybook."],
+    Print["QuantumPlaybook,v", new, " is now available -- you are using v",
+      pac, ".\nUse QuantumPlaybookUpdate to install the update."]
    ]
  ]
 
 
-QuantumWorkbookEdition::usage = "QuantumWorkbookEdition[] returns the edition of the current compilation of workbook chapters."
+QuantumPlaybookEdition::usage = "QuantumPlaybookEdition[] returns the edition of the current compilation of workbook chapters."
 
-QuantumWorkbookEdition::nobk = "No complilation of the Workbook chapters is found."
+QuantumPlaybookEdition::nobk = "No complilation of the Workbook chapters is found."
 
-QuantumWorkbookEdition[] := Module[
-  { pac = PacletFind["QuantumWorkbook"] },
+QuantumPlaybookEdition[] := Module[
+  { pac = PacletFind["QuantumPlaybook"] },
   If[ pac == {},
-    Message[QuantumWorkbookEdition::nobk];
+    Message[QuantumPlaybookEdition::nobk];
     Return[$Failed],
     pac = First @ pac
    ];
