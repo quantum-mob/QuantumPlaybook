@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.0.1
+
+- Solovay-Kitaev algorithm is demonstrated.
+
 ## 3.0.0
 
 - QuantumWorkbook has been renamed QuatnumPlaybook.
