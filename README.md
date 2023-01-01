@@ -5,14 +5,6 @@ This is a compilation of Mathematica(R) Notebook files containing demonstrations
 The code in this compilation is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
 
-## Requirements
-
-QuantumPlaybook requires
-
-* [Mathematica v12.2 or later](https://www.wolfram.com/mathematica)
-* [Q3 Application](https://github.com/quantum-mob/Q3)
-
-
 ## Installation
 
 QuantumPlaybook provides a *fully automatic installation and update*. Please take a look at the [Installation Guide](./INSTALL.md) for the instructions.
