@@ -14,16 +14,16 @@ ClearAll["`*"];
   "Mahn-Soo Choi"
  ];
 
-
 { GroupCommutator,
-  BalancedCommutator,
-  Solovay, TheSolovay,
-  SolovayChains,
+  BalancedCommutator };
+
+{ Solovay, TheSolovay, SolovayDagger };
+{ SolovayChains,
   SolovayKitaev };
 
 Begin["`Private`"]
 
-GroupCommutator::usage = "GroupCommutator[a, b] returns the group commutator of a and b."
+GroupCommutator::usage = "GroupCommutator[a, b] returns the group commutator of a and b; that is, a**b**Inverse[a]**Inverse[b]."
 
 GroupCommutator[a_?MatrixQ, b_?MatrixQ] :=
   Dot[a,  b, Topple @ a, Topple @ b]
@@ -32,7 +32,7 @@ GroupCommutator[a_?NonCommutativeQ, b_?NonCommutatorQ] :=
   Multiply[a, b, Dagger @ a, Dagger @ b]
 
 
-BalancedCommutator::usage = "BalancedCommuator[u] returns the group commuator decomposition of 2 x 2 unitary matrix u."
+BalancedCommutator::usage = "BalancedCommuator[u] returns the group commuator decomposition of 2 x 2 unitary matrix u; that is, a pair of two group elements a and b such that u = GroupCommutator[a, b]."
 
 BalancedCommutator[mat_?SquareMatrixQ] := Module[
   {angle, axis, new, x, V, W, S},
@@ -68,7 +68,7 @@ SolovayKitaev[u_?SquareMatrixQ, n_Integer] := Module[
   (* Echo[MatrixForm /@ {vv, ww}]; *)
   {vv, mv} = SolovayKitaev[mv, n-1];
   {ww, mw} = SolovayKitaev[mw, n-1];
-  { Join[vv, ww, Reverse[svyDagger @ vv], Reverse[svyDagger @ ww], uu],
+  { Join[vv, ww, Reverse[SolovayDagger @ vv], Reverse[SolovayDagger @ ww], uu],
     Dot[mv, mw, Topple @ mv, Topple @ mw, mu] }
  ]
 
@@ -84,22 +84,34 @@ SolovayKitaev[u_?SquareMatrixQ, 0] := Module[
  ]
 
 
-TheSolovay::usage = "TheSolovay[k] returns the matrix representation of the k'th generagor."
+Solovay::usage = "Solovay[k] represents the element associated with index k in the densely generating set {H, T, \!\(\*SuperscriptBox[\(T\),\(-1\)]\)}."
 
-SetAttributes[TheSolovay, Listable]
+SetAttributes[Solovay, Listable];
 
-TheSolovay[9] = ThePauli[6]
+Format[Solovay[9]] = Interpretation["H", Pauli[6]];
+
+Format[Solovay[k_Integer]] :=
+  Interpretation[Superscript["T", ToString @ k], MultiplyPower[Pauli[8], k]]
+
+
+TheSolovay::usage = "TheSolovay[k] returns the matrix representation of the element associated with index k in the densely generating set {H, T, \!\(\*SuperscriptBox[\(T\),\(-1\)]\)}."
+
+SetAttributes[TheSolovay, Listable];
+
+TheSolovay[9] = ThePauli[6];
 
 TheSolovay[k_Integer] :=
   SparseArray[{{1, 1} -> 1, {2, 2} -> Exp[I*Pi*k/4]}, {2,2}]
 
+TheSolovay @ Solovay[k_Integer] := TheSolovay[k]
 
-svyDagger::usage = "..."
 
-SetAttributes[svyDagger, Listable]
+SolovayDagger::usage = "SolovayDagger[k] returns the index corresponding to the Hermitian conjugate of Solovay[k]."
 
-svyDagger[9] = 9;
-svyDagger[k_Integer] = -k;
+SetAttributes[SolovayDagger, Listable]
+
+SolovayDagger[9] = 9;
+SolovayDagger[k_Integer] = -k;
 
 
 svyDictionary::usage = "..."
