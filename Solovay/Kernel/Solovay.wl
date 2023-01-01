@@ -9,8 +9,8 @@ ClearAll["`*"];
 
 `Solovay`$Version = StringJoin[
   "Solovay/", $Input, " v",
-  StringSplit["$Revision: 1.10 $"][[2]], " (",
-  StringSplit["$Date: 2022-12-31 00:45:49+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.14 $"][[2]], " (",
+  StringSplit["$Date: 2023-01-01 20:14:49+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -18,6 +18,7 @@ ClearAll["`*"];
   BalancedCommutator };
 
 { Solovay, TheSolovay, SolovayDagger };
+
 { SolovayChains,
   SolovayKitaev };
 
@@ -49,7 +50,7 @@ BalancedCommutator[mat_?SquareMatrixQ] := Module[
 
 
 
-SolovayKitaev::usage = "SolovayKitae[gg, u, n] returns a list of elementary generators from set gg that approximately reconstruct matrix u."
+SolovayKitaev::usage = "SolovayKitae[u, n] constructs at the n'th recursive level a sequence of elementary generators that approximately reconstruct matrix u."
 
 SolovayKitaev::init = "Generating the initial approximately covering set; it may take a while."
 
@@ -88,13 +89,22 @@ Solovay::usage = "Solovay[k] represents the element associated with index k in t
 
 SetAttributes[Solovay, Listable];
 
-Format[Solovay[9]] = Interpretation["H", Pauli[6]];
+Format @ Solovay[9] = Interpretation["H", Pauli[6]];
 
-Format[Solovay[k_Integer]] :=
-  Interpretation[Superscript["T", ToString @ k], MultiplyPower[Pauli[8], k]]
+Format @ Solovay[1] = Interpretation["T", Pauli[8]];
+
+Format @ Solovay[k_Integer?Negative] := Interpretation[
+  Superscript["T", ToString @ k],
+  MultiplyPower[Pauli[-3], -k]
+ ]
+
+Format @ Solovay[k_Integer] := Interpretation[
+  Superscript["T", ToString @ k],
+  MultiplyPower[Pauli[8], k]
+ ]
 
 
-TheSolovay::usage = "TheSolovay[k] returns the matrix representation of the element associated with index k in the densely generating set {H, T, \!\(\*SuperscriptBox[\(T\),\(-1\)]\)}."
+TheSolovay::usage = "TheSolovay[k] returns the matrix representation of Solovay[k]."
 
 SetAttributes[TheSolovay, Listable];
 
@@ -124,7 +134,7 @@ svyDictionary[n_Integer] := Module[
  ]
 
 
-SolovayChains::usage = "..."
+SolovayChains::usage = "SolovayChains[n] returns the list of all possible generator sequences of length n."
 
 SetAttributes[SolovayChains, Listable];
 
