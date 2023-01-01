@@ -12,7 +12,9 @@ QuantumPlaybook provides a *fully automatic installation and update*. Please tak
 
 ## Workbok Contents
 
-[![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true)](https://link.springer.com/book/9783030912130)
+[![Quantum Workbook Cover](Samples/BookCover.jpg?raw=true&align=right)](https://link.springer.com/book/9783030912130)
+
+<img src="Samples/BookCover.jpg" link="https://link.springer.com/book/9783030912130" />
 
 1. The Postulates of Quantum Mechanics
 2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./Samples/Chapter2.pdf))
