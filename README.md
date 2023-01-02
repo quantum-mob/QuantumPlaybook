@@ -10,7 +10,7 @@ The code in this compilation is based on Mathematica package [Q3](https://github
 QuantumPlaybook provides a *fully automatic installation and update*. Please take a look at the [Installation Guide](./INSTALL.md) for the instructions.
 
 
-## Workbok Contents
+## Workbok Demonstrations
 
 <img src="Samples/BookCover.jpg" align="right"
      alg="Quantum Workbook Cover"
@@ -36,7 +36,7 @@ QuantumPlaybook provides a *fully automatic installation and update*. Please tak
 NOTE: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
 
-## Playbook Contents
+## Playbook Demonstrations
 
 - Partial Trace: Physical Meaning
 - Non-Unitary Dynamics of Quantum States
