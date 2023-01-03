@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.0.3
+
+- Some broken cross-reference links have been fixed.
+
 ## 3.0.1
 
 - Solovay-Kitaev algorithm is demonstrated.
