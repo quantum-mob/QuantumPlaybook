@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2022-12-31 17:19:20+09 $ *)
-(* $Revision: 1.3 $ *)
+(* $Date: 2023-01-03 09:47:26+09 $ *)
+(* $Revision: 1.4 $ *)
 
 BeginPackage["QuantumPlaybook`"]
 
@@ -12,7 +12,6 @@ ClearAll["`*"];
 { QuantumPlaybookEdition };
 
 Begin["`Private`"]
-
 
 (**** <QuantumWorkbook> *****)
 

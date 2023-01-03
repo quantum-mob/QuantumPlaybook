@@ -1,7 +1,7 @@
 (* Paclet Info File *)
 
-(* $Date: 2023-01-02 21:16:16+09 $ *)
-(* $Revision: 1.32 $ *)
+(* $Date: 2023-01-03 09:46:36+09 $ *)
+(* $Revision: 1.34 $ *)
 
 Paclet[
   "Name" -> "QuantumPlaybook",
