@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2023-01-05 13:58:39+09 $ *)
-(* $Revision: 1.38 $ *)
+(* $Date: 2023-01-05 20:30:18+09 $ *)
+(* $Revision: 1.39 $ *)
 
 Paclet[
   "Name" -> "QuantumPlaybook",
   "Year" -> "2022", (* custom field *)
-  "Version" -> "3.0.5",
+  "Version" -> "3.0.6", (* The document on Solovay-Kitaev algorithm is elaborated. *)
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
