@@ -9,8 +9,8 @@ ClearAll["`*"];
 
 `Solovay`$Version = StringJoin[
   "Solovay/", $Input, " v",
-  StringSplit["$Revision: 1.14 $"][[2]], " (",
-  StringSplit["$Date: 2023-01-01 20:14:49+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.18 $"][[2]], " (",
+  StringSplit["$Date: 2023-01-05 13:19:23+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -29,14 +29,14 @@ GroupCommutator::usage = "GroupCommutator[a, b] returns the group commutator of 
 GroupCommutator[a_?MatrixQ, b_?MatrixQ] :=
   Dot[a,  b, Topple @ a, Topple @ b]
 
-GroupCommutator[a_?NonCommutativeQ, b_?NonCommutatorQ] :=
-  Multiply[a, b, Dagger @ a, Dagger @ b]
+GroupCommutator[a_?NonCommutativeQ, b_?NonCommutativeQ] :=
+  Multiply[a, b, Inverse @ a, Inverse @ b]
 
 
 BalancedCommutator::usage = "BalancedCommuator[u] returns the group commuator decomposition of 2 x 2 unitary matrix u; that is, a pair of two group elements a and b such that u = GroupCommutator[a, b]."
 
 BalancedCommutator[mat_?SquareMatrixQ] := Module[
-  {angle, axis, new, x, V, W, S},
+  { angle, axis, new, x, V, W, S },
   {angle, axis} = RotationSystem[mat];
   x = 2 * Sign[angle] * ArcSin[Sqrt @ Abs @ Sin[angle/4]];
   V = TheRotation[x, 3];
@@ -48,41 +48,6 @@ BalancedCommutator[mat_?SquareMatrixQ] := Module[
   {S . V . Topple[S], S . W . Topple[S]}
  ] /; Length[mat] == 2
 
-
-
-SolovayKitaev::usage = "SolovayKitae[u, n] constructs at the n'th recursive level a sequence of elementary generators that approximately reconstruct matrix u."
-
-SolovayKitaev::init = "Generating the initial approximately covering set; it may take a while."
-
-Options[SolovayKitaev] = {
-  "InitialLength" -> 10
- }
-
-$dictionary = {};
-
-SolovayKitaev[u_?SquareMatrixQ, n_Integer] := Module[
-  {uu, vv, ww,
-   mu, mv, mw },
-  {uu, mu} = SolovayKitaev[u, n-1];
-  (* Echo[uu]; *)
-  {mv, mw} = BalancedCommutator[u . Topple[mu]];
-  (* Echo[MatrixForm /@ {vv, ww}]; *)
-  {vv, mv} = SolovayKitaev[mv, n-1];
-  {ww, mw} = SolovayKitaev[mw, n-1];
-  { Join[vv, ww, Reverse[SolovayDagger @ vv], Reverse[SolovayDagger @ ww], uu],
-    Dot[mv, mw, Topple @ mv, Topple @ mw, mu] }
- ]
-
-SolovayKitaev[u_?SquareMatrixQ, 0] := Module[
-  { kk },
-  If[ $dictionary == {},
-    PrintTemporary["Initializing the dictionary... It may take a while."];
-    EchoTiming[$dictionary = svyDictionary[18]]
-   ];
-  kk = Keys @ MinimalBy[$dictionary, Norm[#-u]&];
-  kk = Flatten @ MinimalBy[kk, Length, 1];
-  {kk, $dictionary[kk]}
- ]
 
 
 Solovay::usage = "Solovay[k] represents the element associated with index k in the densely generating set {H, T, \!\(\*SuperscriptBox[\(T\),\(-1\)]\)}."
@@ -122,6 +87,39 @@ SetAttributes[SolovayDagger, Listable]
 
 SolovayDagger[9] = 9;
 SolovayDagger[k_Integer] = -k;
+
+
+SolovayKitaev::usage = "SolovayKitae[u, n] constructs at the n'th recursive level a sequence seq of elementary generators that approximately reconstruct matrix u, and returns the pair {seq, mat} with matrix mat corresponding to the sequence seq."
+
+SolovayKitaev::init = "Generating the initial approximately covering set; it may take a while."
+
+Options[SolovayKitaev] = {
+  "InitialLength" -> 10
+ }
+
+$dictionary = {};
+
+SolovayKitaev[u_?SquareMatrixQ, n_Integer] := Module[
+  { uu, vv, ww,
+    mu, mv, mw },
+  {uu, mu} = SolovayKitaev[u, n-1];
+  {mv, mw} = BalancedCommutator[u . Topple[mu]];
+  {vv, mv} = SolovayKitaev[mv, n-1];
+  {ww, mw} = SolovayKitaev[mw, n-1];
+  { Join[vv, ww, Reverse[SolovayDagger @ vv], Reverse[SolovayDagger @ ww], uu],
+    Dot[mv, mw, Topple @ mv, Topple @ mw, mu] }
+ ]
+
+SolovayKitaev[u_?SquareMatrixQ, 0] := Module[
+  { kk },
+  If[ $dictionary == {},
+    PrintTemporary["Initializing the dictionary... It may take a while."];
+    EchoTiming[$dictionary = svyDictionary[18]]
+   ];
+  kk = Keys @ MinimalBy[$dictionary, Norm[#-u]&];
+  kk = Flatten @ MinimalBy[kk, Length, 1];
+  {kk, $dictionary[kk]}
+ ]
 
 
 svyDictionary::usage = "..."
