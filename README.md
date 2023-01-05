@@ -14,9 +14,10 @@ QuantumPlaybook provides a *fully automatic installation and update*. Please tak
 
 This is a compilation of the demonstrations in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130).
 
+<a href="https://link.springer.com/book/9783030912130" 
 <img src="Samples/BookCover.jpg" align="right"
-     alg="Quantum Workbook Cover"
-     link="https://link.springer.com/book/9783030912130" />
+     alg="Quantum Workbook Cover" />
+</a>
 
 1. The Postulates of Quantum Mechanics
 2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./Samples/Chapter2.pdf))
