@@ -9,8 +9,8 @@ ClearAll["`*"];
 
 `Solovay`$Version = StringJoin[
   "Solovay/", $Input, " v",
-  StringSplit["$Revision: 1.18 $"][[2]], " (",
-  StringSplit["$Date: 2023-01-05 13:19:23+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.19 $"][[2]], " (",
+  StringSplit["$Date: 2023-01-14 01:42:36+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -94,27 +94,27 @@ SolovayKitaev::usage = "SolovayKitae[u, n] constructs at the n'th recursive leve
 SolovayKitaev::init = "Generating the initial approximately covering set; it may take a while."
 
 Options[SolovayKitaev] = {
-  "InitialLength" -> 10
+  "InitialLength" -> 18
  }
 
 $dictionary = {};
 
-SolovayKitaev[u_?SquareMatrixQ, n_Integer] := Module[
+SolovayKitaev[u_?SquareMatrixQ, n_Integer, opts:OptionsPattern[]] := Module[
   { uu, vv, ww,
     mu, mv, mw },
-  {uu, mu} = SolovayKitaev[u, n-1];
+  {uu, mu} = SolovayKitaev[u, n-1, opts];
   {mv, mw} = BalancedCommutator[u . Topple[mu]];
-  {vv, mv} = SolovayKitaev[mv, n-1];
-  {ww, mw} = SolovayKitaev[mw, n-1];
+  {vv, mv} = SolovayKitaev[mv, n-1, opts];
+  {ww, mw} = SolovayKitaev[mw, n-1, opts];
   { Join[vv, ww, Reverse[SolovayDagger @ vv], Reverse[SolovayDagger @ ww], uu],
     Dot[mv, mw, Topple @ mv, Topple @ mw, mu] }
  ]
 
-SolovayKitaev[u_?SquareMatrixQ, 0] := Module[
+SolovayKitaev[u_?SquareMatrixQ, 0, OptionsPattern[]] := Module[
   { kk },
   If[ $dictionary == {},
     PrintTemporary["Initializing the dictionary... It may take a while."];
-    EchoTiming[$dictionary = svyDictionary[18]]
+    EchoTiming[$dictionary = svyDictionary[OptionValue @ "InitialLength"]]
    ];
   kk = Keys @ MinimalBy[$dictionary, Norm[#-u]&];
   kk = Flatten @ MinimalBy[kk, Length, 1];
