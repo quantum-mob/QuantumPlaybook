@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2023-01-03 09:47:26+09 $ *)
-(* $Revision: 1.4 $ *)
+(* $Date: 2023-01-16 11:53:11+09 $ *)
+(* $Revision: 1.5 $ *)
 
 BeginPackage["QuantumPlaybook`"]
 
@@ -19,7 +19,8 @@ old = PacletFind["QuantumWorkbook"];
 If[ old != {},
   PrintTemporary["You still have the QuantumWorkbook package, which has been superceded by QuantumPlaybook. It is now removed ..."];
   PacletUninstall["QuantumWorkbook"];
-  Pause[5]
+  Pause[5];
+  PacletDataRebuild[]
  ];
 
 (**** </QuantumWorkbook> *****)
