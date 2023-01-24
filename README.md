@@ -56,4 +56,4 @@ Here is another compilation of demonstrations that have not been covered in deta
 
 ## How to use
 
-Once QuantumPlaybook is installed, put `QuantumPlaybook` in the search field of the Wolfram Documentation Center (Mathematica Help window). You will see the table of contents of the workbook.
+Once QuantumPlaybook is installed, put `QuantumPlaybook` in the search field of the Wolfram Documentation Center (Mathematica Help window). You will see the table of contents of the playbook.
