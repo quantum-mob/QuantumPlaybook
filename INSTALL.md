@@ -30,7 +30,9 @@ Note that along with QuantumPlaybook, it also installs the main application Q3 f
 
 ## Update
 
-At the momoment, the contents of this package are being actively generated and modified, and you may want to check for updates from time to time:
+Once installed, QuantumPlaybook will automatically check for updates and install the newest update (if any).
+
+If you want to check for update manually, use the following function:
 
 ```Mathematica
 QuantumPlaybookCheckUpdate[]
