@@ -1,7 +1,7 @@
 (* -*- mode:math -*- *)
 (* Mahn-Soo Choi *)
-(* $Date: 2023-01-16 11:53:11+09 $ *)
-(* $Revision: 1.5 $ *)
+(* $Date: 2023-01-26 14:28:07+09 $ *)
+(* $Revision: 1.9 $ *)
 
 BeginPackage["QuantumPlaybook`"]
 
@@ -26,41 +26,13 @@ If[ old != {},
 (**** </QuantumWorkbook> *****)
 
 
-(***** <Paclet Server> ****)
-
-$serverURL = "https://github.com/quantum-mob/PacletServer/raw/main"
-
-serverRegisteredQ[url_:$serverURL] := Module[
-  { ps = PacletSites[] },
-  MemberQ[ Through[ps["URL"]], url ]
- ]
-
-serverRegister[url_:$serverURL] :=
-  PacletSiteUpdate @ PacletSiteRegister[url, "Quantum Mob Paclet Server"]
-
-serverEnsure[] := If[ serverRegisteredQ[], Null, serverRegister[] ]
-
-pacletVersion[pp:{__PacletObject}] := pacletVersion[First @ pp]
-
-pacletVersion[pac_PacletObject] := pac["Version"]
-
-versionNumber[vv:{__String}] := versionNumber[First @ vv]
-
-versionNumber[ver_String] := With[
-  { new = StringSplit[ver, "."] },
-  If[ AllTrue[new, DigitQ],
-    ToExpression @ new,
-    ver
-   ]
- ]
-
-(***** </Paclet Server> ****)
-
 QuantumPlaybookUpdate::usage = "QuantumPlaybookUpdate[] installs the latest update of the package."
 
 QuantumPlaybookUpdate[opts___?OptionQ] := (
-  serverEnsure[];
-  PacletInstall["QuantumPlaybook", opts]
+  PrintTemporary["Installing an update ..."];
+  PacletDataRebuild[];
+  Q3`Private`serverEnsure[];
+  PacletInstall["QuantumPlaybook", opts, UpdatePacletSites -> True]
  )
 
 
@@ -68,15 +40,20 @@ QuantumPlaybookCheckUpdate::usage = "QuantumPlaybookCheckUpdate[] checks if ther
 
 QuantumPlaybookCheckUpdate[] := Module[
   { pac, new },
-  serverEnsure[];
+  PrintTemporary["Checking for updates ..."];
+  PacletDataRebuild[];
+  Q3`Private`serverEnsure[];
   pac = PacletFind["QuantumPlaybook"];
-  new = PacletFindRemote["QuantumPlaybook", UpdatePacletSites->True];
-  If[ pac=={}, Return[$Failed], pac = pacletVersion[pac] ];
-  If[ new=={}, Return[$Failed], new = pacletVersion[new] ];
-  If[ OrderedQ @ {versionNumber @ new, versionNumber @ pac},
+  new = PacletFindRemote["QuantumPlaybook", UpdatePacletSites -> True];
+  If[ pac=={}, Return[$Failed], pac = Q3`Private`pacletVersion[pac] ];
+  If[ new=={}, Return[$Failed], new = Q3`Private`pacletVersion[new] ];
+  If[ OrderedQ @ {
+      Q3`Private`versionNumber @ new,
+      Q3`Private`versionNumber @ pac },
     Print["You are using the latest release v", pac, " of QuantumPlaybook."],
-    Print["QuantumPlaybook,v", new, " is now available -- you are using v",
-      pac, ".\nUse QuantumPlaybookUpdate to install the update."]
+    PrintTemporary["QuantumPlaybook,v", new, " is now available; ",
+      "you are using v", pac, "."];
+    QuantumPlaybookUpdate[]
    ]
  ]
 
