@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.1.0
+
+- Many bug fixes.
+
 ## 3.0.3
 
 - Some broken cross-reference links have been fixed.
