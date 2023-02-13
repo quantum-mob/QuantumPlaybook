@@ -1,8 +1,12 @@
 # Select Release Notes
 
+## 3.1.1
+
+- Style definitions are embedded in the notebook file.
+
 ## 3.1.0
 
-- Many bug fixes.
+- Maintenance release after the last flavor index is changed from None to $ in Q3.
 
 ## 3.0.3
 
