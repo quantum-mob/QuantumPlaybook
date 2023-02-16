@@ -40,7 +40,7 @@ NOTE: All back materials including appendices, bibliography, and index in a sing
 
 ## Playbook Demonstrations
 
-Here is another compilation of demonstrations that have not been covered in detail or at all in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130). It involves a wide range of topics from the field of quantum information systems, quantum many-body systems, and quantum spin systems.
+Here is another compilation of demonstrations that have not been covered in detail or at all in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130). This includes a wide range of topics from the field of quantum information systems, quantum many-body systems, and quantum spin systems.
 
 - Partial Trace: Physical Meaning
 - Non-Unitary Dynamics of Quantum States
