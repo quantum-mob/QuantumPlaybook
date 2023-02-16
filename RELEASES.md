@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.0
+
+- Redesigned Tutorials/QuantumPlaybook document.
+
 ## 3.1.1
 
 - Style definitions are embedded in the notebook file.

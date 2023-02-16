@@ -1,12 +1,12 @@
 (* Paclet Info File *)
 
-(* $Date: 2023-02-14 01:12:07+09 $ *)
-(* $Revision: 1.45 $ *)
+(* $Date: 2023-02-17 06:19:38+09 $ *)
+(* $Revision: 1.46 $ *)
 
 Paclet[
   "Name" -> "QuantumPlaybook",
   "Year" -> "2022", (* custom field *)
-  "Version" -> "3.1.1",
+  "Version" -> "3.2.0",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
