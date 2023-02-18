@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.1
+
+- Updates according to Q3 v2.10.2.
+
 ## 3.2.0
 
 - Redesigned Tutorials/QuantumPlaybook document.
