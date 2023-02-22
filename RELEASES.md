@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.2
+
+- Further maintenance update to be consistent with Q3 v2.10.3
+
 ## 3.2.1
 
 - Updates according to Q3 v2.10.2.
