@@ -6,7 +6,7 @@
 Paclet[
   "Name" -> "QuantumPlaybook",
   "Year" -> "2022", (* custom field *)
-  "Version" -> "3.2.2",
+  "Version" -> "3.2.3", (* draft *)
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
