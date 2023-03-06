@@ -63,7 +63,31 @@ Here is another compilation of demonstrations that have not been covered in deta
 
 The tutorials of Q3 for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
 
-
+1. Q3: Install & Quick Start
+2. Quantum Playbook
+3. Qubits (Quantum Bits)
+4. Quantum States
+5. QuantumOpertators
+6. Quantum Measurement
+7. Quantum Circuits
+8. Mathematica Cool Tips
+9. Matrix Representation
+10. Phase Operators
+11. Single-Qubit Rotations
+12. Schmidt Decomposition
+13. The CNOT Gate 1: Elementary Properties
+14. The CNOT Gate 2: Parity Measurement
+15. Multi-Control NOT Gate
+16. The CZ Gate
+17. Controlled-Unitary Gates
+18. More Mathematica Cool Tips
+19. Controlled-Unitary Gates: Special Examples
+20. Working in Different Bases
+21. Working in Different Bases: Simple Way
+22. Dyadic Products
+23. Multi-Level Systems (Qudits)
+24. Cavity QED Systems
+25. Cavity QED Systems: Spectral Properties
 
 
 ## How to use
