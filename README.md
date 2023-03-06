@@ -10,7 +10,7 @@ The code in this package is based on Mathematica package [Q3](https://github.com
 QuantumPlaybook provides a *fully automatic installation and update*. Please take a look at the [Installation Guide](./INSTALL.md) for the instructions.
 
 
-## Workbok Demonstrations
+## Workbook Demonstrations
 
 This is a compilation of the demonstrations in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130).
 
@@ -52,6 +52,18 @@ Here is another compilation of demonstrations that have not been covered in deta
 - Symmetry Effects on Quantum Master Equations
 - Transmon: Quantum Phase Model
 - And many others
+
+## Demonstrations in YouTube Videos
+
+## YouTube Video Tutorials of Q3
+
+The tutorials of Q3 for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
+
+<a href="https://www.youtube.com/@QuantumWorkforceCenter/videos" target="_blank">
+<img src="http://img.youtube.com/vi/k2icqSdb0FA/mqdefault.jpg" alt="Watch the videos" width="240" border="10" align="right" />
+</a>
+
+
 
 
 ## How to use
