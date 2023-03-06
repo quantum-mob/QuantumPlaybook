@@ -53,9 +53,8 @@ Here is another compilation of demonstrations that have not been covered in deta
 - Transmon: Quantum Phase Model
 - And many others
 
-## Demonstrations in YouTube Videos
 
-## YouTube Video Tutorials of Q3
+## Demonstrations in YouTube Videos
 
 <a href="https://www.youtube.com/@QuantumWorkforceCenter/videos" target="_blank">
 <img src="http://img.youtube.com/vi/k2icqSdb0FA/mqdefault.jpg" alt="Watch the videos" width="240" border="10" align="right" />
