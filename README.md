@@ -57,11 +57,11 @@ Here is another compilation of demonstrations that have not been covered in deta
 
 ## YouTube Video Tutorials of Q3
 
-The tutorials of Q3 for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
-
 <a href="https://www.youtube.com/@QuantumWorkforceCenter/videos" target="_blank">
 <img src="http://img.youtube.com/vi/k2icqSdb0FA/mqdefault.jpg" alt="Watch the videos" width="240" border="10" align="right" />
 </a>
+
+The tutorials of Q3 for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
 
 
 
