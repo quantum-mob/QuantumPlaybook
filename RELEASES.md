@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.6
+
+- Update in the tutorial on the Solovay-Kitaev algorithm.
+
 ## 3.2.2
 
 - Further maintenance update to be consistent with Q3 v2.10.3
