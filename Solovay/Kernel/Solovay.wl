@@ -9,8 +9,8 @@ ClearAll["`*"];
 
 `Solovay`$Version = StringJoin[
   "Solovay/", $Input, " v",
-  StringSplit["$Revision: 1.19 $"][[2]], " (",
-  StringSplit["$Date: 2023-01-14 01:42:36+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.21 $"][[2]], " (",
+  StringSplit["$Date: 2023-03-13 13:18:28+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -23,6 +23,8 @@ ClearAll["`*"];
   SolovayKitaev };
 
 Begin["`Private`"]
+
+ClearAll["`*"];
 
 GroupCommutator::usage = "GroupCommutator[a, b] returns the group commutator of a and b; that is, a**b**Inverse[a]**Inverse[b]."
 
@@ -162,6 +164,8 @@ SolovayChains[n_Integer, 2] := With[
   Map[Join[{9}, #, {9}]&, cc]
  ]
 
+
+SetAttributes[Evaluate @ Names["`*"], ReadProtected];
 
 End[]
 

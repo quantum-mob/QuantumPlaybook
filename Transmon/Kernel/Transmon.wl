@@ -9,8 +9,8 @@ ClearAll["`*"];
 
 `Transmon`$Version = StringJoin[
   "Transmon/", $Input, " v",
-  StringSplit["$Revision: 1.26 $"][[2]], " (",
-  StringSplit["$Date: 2022-12-31 16:37:51+09 $"][[2]], ") ",
+  StringSplit["$Revision: 1.28 $"][[2]], " (",
+  StringSplit["$Date: 2023-03-13 13:18:15+09 $"][[2]], ") ",
   "Mahn-Soo Choi"
  ];
 
@@ -25,6 +25,7 @@ ClearAll["`*"];
 
 Begin["`Private`"]
 
+ClearAll["`*"];
 
 BlochEnergy::usage = "BlochEnergy[\[Nu], \[Alpha]] returns the energy of the Bloch function with characteristic exponent \[Nu] for the transmon Hamiltonian with MacCumber parameter \[Alpha]."
 
@@ -145,6 +146,8 @@ hatP[x_][expr_] := -I*D[expr, x]
 
 hatP[x_, q_][expr_] := -I*D[expr, x] - q*expr
 
+
+SetAttributes[Evaluate @ Names["`*"], ReadProtected];
 
 End[]
 
