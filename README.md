@@ -33,9 +33,10 @@ This is a compilation of the demonstrations in ["A Quantum Computation Workbook"
 - Appendix F. Solutions to Select Problems (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
 - Bibliography (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
 - Index (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
-- [Errata](./Samples/Errata.pdf)
 
-NOTE: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
+[ERRATA](./Samples/Errata.pdf): Unfortunately, the book has several typographical errors. Please look that the [errata](./Samples/Errata.pdf) for corrections.
+
+BACK MATERIALS: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
 
 ## Playbook Demonstrations
