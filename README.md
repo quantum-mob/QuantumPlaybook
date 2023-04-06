@@ -36,7 +36,7 @@ This is a compilation of the demonstrations in ["A Quantum Computation Workbook"
 
 [ERRATA](./Samples/Errata.pdf): Unfortunately, the book has several typographical errors. Please check the [errata](./Samples/Errata.pdf) for corrections.
 
-BACK MATERIALS: All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
+```BACK MATERIALS''': All back materials including appendices, bibliography, and index in a single PDF file are available free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 
 
 ## Playbook Demonstrations
