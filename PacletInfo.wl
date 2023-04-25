@@ -1,11 +1,10 @@
 (* Paclet Info File *)
 
-(* $Date: 2023-04-17 10:19:14+09 $ *)
-(* $Revision: 1.59 $ *)
+(* $Date: 2023-04-26 08:50:21+09 $ *)
+(* $Revision: 1.60 $ *)
 
 Paclet[
   "Name" -> "QuantumPlaybook",
-  "Year" -> "2022", (* custom field *)
   "Version" -> "3.2.13",
   "WolframVersion" -> "12.1+",
   "Loading" -> Automatic,
@@ -53,6 +52,7 @@ Paclet[
    },
   "Description" -> "Mathematica Notebook files accompanying the Quantum Computation Workbook.",
   "Creator" -> "Mahn-Soo Choi (Korea University)",
+  "Year" -> "2022", (* custom field *)
   "URL" -> "https://github.com/quantum-mob/QuantumPlaybook",
   "Category" -> "Education"
  ]
