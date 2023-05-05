@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.15
+
+- Labels of Oracle has been changed.
+
 ## 3.2.6
 
 - Update in the tutorial on the Solovay-Kitaev algorithm.
