@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.18
+
+- New demonstrations on variational quantum classifiers.
+
 ## 3.2.15
 
 - Labels of Oracle has been changed.

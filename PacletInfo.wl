@@ -1,11 +1,11 @@
 (* Paclet Info File *)
 
-(* $Date: 2023-07-02 15:06:02+09 $ *)
-(* $Revision: 1.65 $ *)
+(* $Date: 2023-07-17 00:59:50+09 $ *)
+(* $Revision: 1.66 $ *)
 
 Paclet[
   "Name" -> "QuantumPlaybook",
-  "Version" -> "3.2.17",
+  "Version" -> "3.2.18",
   "WolframVersion" -> "12.3+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
@@ -47,6 +47,12 @@ Paclet[
         {"Chapter2", "Chapter2.pdf"},
         {"BackMatter", "BackMatter.pdf"},
         {"Errata", "Errata.pdf"}
+       }
+     },
+    { "Asset",
+      "Root" -> "Data",
+      "Assets" -> {
+        {"Iris", "QML/Iris-Class1and2-Scaled.txt"}
        }
      }
    },
