@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.19
+
+- New demonstrations on variational quantum eigensolver.
+
 ## 3.2.18
 
 - New demonstrations on variational quantum classifiers.
