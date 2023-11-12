@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.2.22
+
+- New tutorial documentation on spin codes.
+
 ## 3.2.19
 
 - New demonstrations on variational quantum eigensolver.
