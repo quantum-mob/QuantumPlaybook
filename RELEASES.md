@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.0
+
+- Documents accompanying the YouTube videos have regenerated with a new version of PlaybookTools.
+
 ## 3.2.22
 
 - New tutorial documentation on spin codes.
