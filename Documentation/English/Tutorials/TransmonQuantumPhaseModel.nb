@@ -10,47 +10,276 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    852251,      15451]
-NotebookOptionsPosition[    833817,      15080]
-NotebookOutlinePosition[    834339,      15098]
-CellTagsIndexPosition[    834296,      15095]
+NotebookDataLength[    839464,      15269]
+NotebookOptionsPosition[    821356,      14934]
+NotebookOutlinePosition[    824475,      15002]
+CellTagsIndexPosition[    824432,      14999]
+WindowTitle->Transmon: Quantum Phase Model
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["QUANTUM PLAYBOOK TECH NOTE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "c93c9557-5422-4c24-ba47-bd0455943bfd"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "6ce48dc1-5ed6-414e-af21-2596dcecd9ed"],
+        Background->RGBColor[
+         0.3843137254901961, 0.4627450980392157, 0.7019607843137254],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[Cell[BoxData[
+     TagBox[
+      ActionMenuBox[
+       FrameBox[Cell[TextData[{
+         "URL",
+         " ",
+         Cell[BoxData[
+          GraphicsBox[
+           {GrayLevel[0.66667], Thickness[0.13], 
+            LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+           AspectRatio->1,
+           AxesStyle->Large,
+           FrameStyle->Large,
+           ImageSize->20,
+           PlotRange->{{-3, 4}, {-1, 1}},
+           PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+          "af8fd906-7794-48bd-84c0-9bc7ade069ea"]
+        }],ExpressionUUID->"83fba80f-689c-401a-b967-681898e690a4"],
+        StripOnInput->
+         False], {"\<\"QuantumPlaybook/tutorial/TransmonQuantumPhaseModel\"\>\
+":>None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["QuantumPlaybook/tutorial/TransmonQuantumPhaseModel"]}, 
+            Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/QuantumPlaybook/\
+tutorial/TransmonQuantumPhaseModel.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$22081], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"] <> 
+            "QuantumPlaybook/tutorial/TransmonQuantumPhaseModel" <> ".html"], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"],
+      MouseAppearanceTag["LinkHand"]]],
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "ab8b2d41-0b3f-44d4-a287-d8d711a5c5cc"]], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "55f12a03-a6fd-4105-adbf-d732c73e164a"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"1976a06a-ee59-4300-af39-e8cc0a1a5f6e"],
 
 Cell[CellGroupData[{
-Cell["Transmon: Quantum Phase Model", "Title",
- CellID->1995842154,ExpressionUUID->"84619687-b99d-42fb-b62a-1e97838d67a8"],
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "Transmon: Quantum Phase Model", "TechNoteTitle",ExpressionUUID->
+      "880e95ab-e097-43ef-bf46-9f227ebdd0c8"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"de3dd415-963b-4343-9573-ca74203c9b4d"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "95fa0b27-28ae-480b-979e-3f61e23ab18c"]
+    }],ExpressionUUID->"22588d34-9d87-4362-ad85-0223b5898b51"], Cell[BoxData[
+     TooltipBox[
+      StyleBox[
+       TagBox[
+        StyleBox[
+         GraphicsBox[InsetBox[
+           StyleBox["\<\"NEW IN 13.1\"\>",
+            StripOnInput->False,
+            FontFamily->"Source Sans Pro",
+            FontSize->18,
+            FontWeight->"Bold",
+            FontSlant->"Italic",
+            FontColor->RGBColor[0.968627, 0.466667, 0]], {Right, Center}, {
+           Right, Center}],
+          AxesStyle->Large,
+          FrameStyle->Large,
+          ImageSize->{125, 24},
+          PlotRangePadding->Scaled[0.025]], "NewInGraphic",
+         StripOnInput->False],
+        Deploy,
+        DefaultBaseStyle->"Deploy"], "NewInGraphic",
+       StripOnInput->False],
+      "New in 13.1",
+      TooltipDelay->0.3]],
+     Magnification->1,ExpressionUUID->
+     "4bc06e9d-0dc0-46dc-8c01-e8f102d33add"]}
+  }]], "ObjectNameGrid",
+ CacheGraphics->False,ExpressionUUID->"e931dae2-a74a-49b2-8cc0-3ad6eede0d65"],
 
 Cell[BoxData[GridBox[{
    {
-    ButtonBox["TransmonEnergy",
-     BaseStyle->"Link",
-     ButtonData->"paclet:QuantumPlaybook/ref/TransmonEnergy"], Cell[
-    "Eigenenergy of the transmon Hamiltonian", "TableText",ExpressionUUID->
-     "3ad4e4b7-c358-43f5-bcda-7df16e319057"]},
+    TemplateBox[{
+      Cell["Transmon Hamiltonian"], 
+      "paclet:QuantumPlaybook/tutorial/TransmonQuantumPhaseModel#1938848208", 
+      
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Bloch States"], 
+      "paclet:QuantumPlaybook/tutorial/TransmonQuantumPhaseModel#428639651", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
    {
-    ButtonBox["TransmonFunction",
-     BaseStyle->"Link",
-     ButtonData->"paclet:QuantumPlaybook/ref/TransmonFunction"], Cell[
-    "Eigenfucntion of the transmon Hamiltonian", "TableText",ExpressionUUID->
-     "0a9f0ea4-3e04-44ae-a6da-4ef344dd3cf1"]},
+    TemplateBox[{
+      Cell["Limiting Cases"], 
+      "paclet:QuantumPlaybook/tutorial/TransmonQuantumPhaseModel#170388726", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Transmon Eigenstates"], 
+      "paclet:QuantumPlaybook/tutorial/TransmonQuantumPhaseModel#138156041", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, AxesStyle -> Large, 
+        FrameStyle -> Large, ImageSize -> Large, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]}
+  }]], "TechNoteJumpBox",ExpressionUUID->"652534f1-4de4-48a5-b797-\
+8ac138f80d16"],
+
+Cell[BoxData[GridBox[{
    {
-    ButtonBox["TransmonHamiltonian",
-     BaseStyle->"Link",
-     ButtonData->"paclet:QuantumPlaybook/ref/TransmonHamiltonian"], Cell[
-    "The Hamiltonian for a transmon", "TableText",ExpressionUUID->
+    TemplateBox[{
+      Cell[
+       TextData["TransmonEnergy"]], 
+      "paclet:QuantumPlaybook/ref/TransmonEnergy", 
+      "QuantumPlaybook Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Eigenenergy of the transmon Hamiltonian", "TechNoteTableText",
+     ExpressionUUID->"3ad4e4b7-c358-43f5-bcda-7df16e319057"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["TransmonFunction"]], 
+      "paclet:QuantumPlaybook/ref/TransmonFunction", 
+      "QuantumPlaybook Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Eigenfucntion of the transmon Hamiltonian", "TechNoteTableText",
+     ExpressionUUID->"0a9f0ea4-3e04-44ae-a6da-4ef344dd3cf1"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["TransmonHamiltonian"]], 
+      "paclet:QuantumPlaybook/ref/TransmonHamiltonian", 
+      "QuantumPlaybook Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "The Hamiltonian for a transmon", "TechNoteTableText",ExpressionUUID->
      "23511870-c94b-4e62-80db-25da9ec85bed"]}
   }]], "DefinitionBox",
- CellChangeTimes->{{3.866373962201532*^9, 3.8663739722734547`*^9}, {
-   3.866375912529759*^9, 3.866375962676227*^9}, 3.866377176190233*^9, {
-   3.866690245377788*^9, 3.8666902560392857`*^9}, {3.866968084763035*^9, 
-   3.8669680887722473`*^9}, {3.86704697910907*^9, 3.867047007416883*^9}},
  CellID->902056032,ExpressionUUID->"a7efde7c-3ddc-4c72-aeca-82b006a2880f"],
 
-Cell["Functions to describe transmon physics.", "Caption",
- CellChangeTimes->{{3.866373976358815*^9, 3.866373986930993*^9}},
+Cell["Functions to describe transmon physics.", "TechNoteCaption",
  CellID->1768665651,ExpressionUUID->"3850dfff-1213-4bf1-a9d0-d1e9ee3eecf7"],
 
 Cell[TextData[{
@@ -77,18 +306,7 @@ for selective  control of a pair of levels to form a quantum bit (Koch ",
  StyleBox["et al",
   FontSlant->"Italic"],
  "., 2007)."
-}], "Text",
- CellChangeTimes->{{3.8669704885472383`*^9, 3.866970492878395*^9}, {
-  3.866974119017631*^9, 3.8669741793851547`*^9}, {3.8669742161151876`*^9, 
-  3.86697423620335*^9}, {3.866974415613903*^9, 3.86697447572554*^9}, {
-  3.866974631180504*^9, 3.866974714542016*^9}, {3.866974841596797*^9, 
-  3.866974849424096*^9}, {3.8669748936342497`*^9, 3.866974987861532*^9}, {
-  3.866975057798841*^9, 3.8669750765903788`*^9}, {3.866975254259817*^9, 
-  3.866975255041609*^9}, {3.866975292946528*^9, 3.866975370283087*^9}, {
-  3.866975475088883*^9, 3.8669754808848963`*^9}, {3.866975511793179*^9, 
-  3.866975519792531*^9}, {3.8669784378305073`*^9, 3.866978438947215*^9}, {
-  3.866978482026655*^9, 3.866978487683921*^9}, {3.8669785631321077`*^9, 
-  3.8669785639841757`*^9}, {3.8673605716948957`*^9, 3.867360591694816*^9}},
+}], "TechNoteText",
  CellID->873981330,ExpressionUUID->"8e1c8753-da45-4d47-b3fe-d1a49df28a00"],
 
 Cell[BoxData[
@@ -5584,8 +5802,7 @@ EBh4YexjGnAcAo0yY19HjDUqVPwMXGk/e+x3Lw==
   DefaultBaseStyle->"ImageGraphics",
   ImageSize->{436.4546875, Automatic},
   ImageSizeRaw->{2748., 1872.},
-  PlotRange->{{0, 2748.}, {0, 1872.}}]], "Text",
- CellChangeTimes->{3.8673597074608*^9, 3.8673597484107122`*^9},
+  PlotRange->{{0, 2748.}, {0, 1872.}}]], "TechNoteText",
  TextAlignment->Center,
  CellID->161542912,ExpressionUUID->"3f80036a-4016-4b78-b799-2c7427caaf1d"],
 
@@ -5595,37 +5812,26 @@ Cell[TextData[{
  ". A schematic of transmon. It consists of two superconducting islands \
 tunnel coupled through two Josephson junctions and shunted by a large \
 capacitor."
-}], "Caption",
- CellChangeTimes->{{3.86697428539272*^9, 3.866974313514194*^9}, {
-   3.8669743507121487`*^9, 3.866974402207592*^9}, 3.8669785976786118`*^9},
+}], "TechNoteCaption",
  CellID->718733029,ExpressionUUID->"e2400e56-9846-4f7c-bb2e-73a54e11aab7"],
 
-Cell[CellGroupData[{
-
-Cell["Load the Transmon package.", "MathCaption",
- CellChangeTimes->{{3.8669670888697166`*^9, 3.8669671242985697`*^9}},
+Cell["Load the Transmon package.", "TechNoteMathCaption",
  CellID->494954583,ExpressionUUID->"46038275-7f9e-4e05-8112-bb3f07d818d1"],
 
 Cell[BoxData[
  RowBox[{"<<", "Transmon`"}]], "Input",
- CellChangeTimes->{{3.866373452553864*^9, 3.86637345580204*^9}},
  CellLabel->"In[1]:=",
  CellID->1497511650,ExpressionUUID->"5a8ed06e-4ee4-4f90-b644-d3cb4c53cbe8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Transmon Hamiltonian", "Section",
- CellChangeTimes->{{3.866373465857245*^9, 3.866373466385357*^9}, {
-  3.866968229230496*^9, 3.86696823239147*^9}},
+Cell["Transmon Hamiltonian", "TechNoteSection",
  CellID->1938848208,ExpressionUUID->"51c9fb48-beb1-4144-8f97-0878cbba511b"],
 
 Cell["\<\
 A transmon is a small Josephson junction and is described by the Hamiltonian\
-\>", "Text",
- CellChangeTimes->{{3.866373473955844*^9, 3.866373491520071*^9}, {
-  3.866805714946308*^9, 3.866805715454878*^9}, {3.86696801438465*^9, 
-  3.866968024896534*^9}, {3.866969705167536*^9, 3.866969709727517*^9}},
+\>", "TechNoteText",
  CellID->1694078531,ExpressionUUID->"3b44f7ba-6fbf-438e-86b1-f174fd9cf6e7"],
 
 Cell[TextData[{
@@ -5656,9 +5862,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "7f9b370a-cd18-4c57-84e7-3275e6fc7768"],
  ","
-}], "Text",
- CellChangeTimes->{{3.866373495262941*^9, 3.866373502413684*^9}, 
-   3.8663735352488194`*^9},
+}], "TechNoteText",
  CellID->1039678591,ExpressionUUID->"3f64e552-cf52-4897-9fed-80156c5580df"],
 
 Cell[TextData[{
@@ -5771,13 +5975,7 @@ order parameter, respectively. The two operators ",
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "9b374428-5d7f-40c9-b819-905fe3047728"],
  " satisfy the commutation relation"
-}], "Text",
- CellChangeTimes->{{3.8663735372613783`*^9, 3.866373679881516*^9}, {
-  3.866967181163266*^9, 3.866967191394125*^9}, {3.866967227623365*^9, 
-  3.866967247239805*^9}, {3.866967417040071*^9, 3.866967485805623*^9}, {
-  3.866967690085319*^9, 3.866967736112061*^9}, {3.866968124421417*^9, 
-  3.866968147551321*^9}, {3.867360649073172*^9, 3.8673606495606003`*^9}, {
-  3.867360723703474*^9, 3.867360727567397*^9}},
+}], "TechNoteText",
  CellID->1951126945,ExpressionUUID->"79fd7c82-abfa-4f6e-b1f0-eb7b36bc465b"],
 
 Cell[TextData[{
@@ -5796,15 +5994,13 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "a6e99ba1-e47c-4b50-b67b-ab5d1c314f6c"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.866373684065482*^9, 3.866373700198805*^9}},
+}], "TechNoteText",
  CellID->515274925,ExpressionUUID->"2146ea69-4f1f-4454-b692-32559977fe5c"],
 
 Cell["\<\
 Due to this commutation relation, the phase and number are subjected to \
 quantum fluctuations satisfying the uncertainty relation\
-\>", "Text",
- CellChangeTimes->{{3.866968649587598*^9, 3.8669687289796677`*^9}},
+\>", "TechNoteText",
  CellID->1835552066,ExpressionUUID->"0c30cdf1-ad88-4b58-a4a1-e7688eddc103"],
 
 Cell[TextData[{
@@ -5819,8 +6015,7 @@ Cell[TextData[{
       "\\Delta\\phi\\,\\Delta{n}\\geq\\frac{1}{2}", "state" -> "Boxes"|>,
      "TeXAssistantTemplate"], "."}], TraditionalForm]],ExpressionUUID->
   "9186c30f-6cea-4dd3-b79c-8c764233f987"]
-}], "Text",
- CellChangeTimes->{{3.866968738721756*^9, 3.8669687641173553`*^9}},
+}], "TechNoteText",
  CellID->1841863071,ExpressionUUID->"dce11a55-878e-49b4-a5f6-1d842fe7e177"],
 
 Cell[TextData[{
@@ -5828,8 +6023,7 @@ Cell[TextData[{
  StyleBox["quantum phase model",
   FontSlant->"Italic"],
  "."
-}], "Text",
- CellChangeTimes->{{3.866969737968527*^9, 3.8669697580771847`*^9}},
+}], "TechNoteText",
  CellID->668277452,ExpressionUUID->"fa69716b-8464-41b9-b6dc-430935c58860"],
 
 Cell[BoxData[
@@ -6759,7 +6953,7 @@ EBh4YexjGnAcAo0yY19HjDUqVPwMXGk/e+x3Lw==
   DefaultBaseStyle->"ImageGraphics",
   ImageSize->{425.22734375, Automatic},
   ImageSizeRaw->{850., 396.},
-  PlotRange->{{0, 850.}, {0, 396.}}]], "Text",
+  PlotRange->{{0, 850.}, {0, 396.}}]], "TechNoteText",
  TextAlignment->Center,
  CellID->1212380834,ExpressionUUID->"51066b20-8f10-4ecd-80e7-32df741ac253"],
 
@@ -6869,8 +7063,7 @@ junction characterized by Josephson critical current ",
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "f4e155e3-5fa6-41e5-8b92-fd4d29fcbdd9"],
  "."
-}], "Caption",
- CellChangeTimes->{{3.867359799957074*^9, 3.867360335275956*^9}},
+}], "TechNoteCaption",
  CellID->2002338608,ExpressionUUID->"8f204c60-1176-4fc8-9894-453cee144567"],
 
 Cell[TextData[{
@@ -6928,15 +7121,7 @@ phase strongly fluctuates. In the opposite limit, ",
 Cooper-pair number has a large uncertainty. It is thus convenient to \
 characterize the quantum fluctuations with the ratio of the two energy \
 scales, more precisely, with"
-}], "Text",
- CellChangeTimes->{{3.8663737289579372`*^9, 3.8663737632995043`*^9}, {
-   3.866967506465694*^9, 3.866967584103856*^9}, 3.866968611530949*^9, {
-   3.86696880431811*^9, 3.866968814587165*^9}, {3.866968957071851*^9, 
-   3.86696899339117*^9}, {3.8669690412816277`*^9, 3.866969259078168*^9}, {
-   3.866969384926401*^9, 3.866969391329352*^9}, {3.866969437050702*^9, 
-   3.86696949665352*^9}, {3.8669695390774307`*^9, 3.866969549923435*^9}, {
-   3.86696959867626*^9, 3.866969608243537*^9}, 3.86696973601257*^9, {
-   3.866975589700358*^9, 3.866975599210042*^9}},
+}], "TechNoteText",
  CellID->807078751,ExpressionUUID->"9afcaabc-9bb0-4c1b-9cd5-4ab54b982daa"],
 
 Cell[TextData[{
@@ -6958,9 +7143,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "668775be-ea3d-4b17-a4e6-0351720265cc"],
  "."
-}], "Text",
- CellChangeTimes->{{3.8663737662330837`*^9, 3.866373769553954*^9}, 
-   3.86696762922425*^9, {3.866969551864073*^9, 3.8669695521991177`*^9}},
+}], "TechNoteText",
  CellID->1061060072,ExpressionUUID->"5b98d29d-bca3-41b8-a507-dd118d049627"],
 
 Cell[TextData[{
@@ -6969,11 +7152,7 @@ Cell[TextData[{
   FontSlant->"Italic"],
  " of the transmon device. Furthermore, we measure energies in units of the \
 geometric mean of the two energy scales, that is,"
-}], "Text",
- CellChangeTimes->{{3.866373890932414*^9, 3.866373928302945*^9}, {
-  3.866967257148644*^9, 3.866967287407144*^9}, {3.866975650622384*^9, 
-  3.86697565141975*^9}, {3.866975760648143*^9, 3.866975795255933*^9}, {
-  3.866975833899729*^9, 3.866975833901272*^9}},
+}], "TechNoteText",
  CellID->1689424343,ExpressionUUID->"ea5b4231-c9e8-4a38-8d43-0d0147f87be2"],
 
 Cell[TextData[{
@@ -7000,11 +7179,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "8a9c7523-1d01-4a15-9c67-0d6c1bc4cd48"],
  "."
-}], "Text",
- CellChangeTimes->{{3.866373890932414*^9, 3.866373928302945*^9}, {
-  3.866967257148644*^9, 3.866967287407144*^9}, {3.866975650622384*^9, 
-  3.86697565141975*^9}, {3.866975760648143*^9, 3.866975795255933*^9}, {
-  3.866975834636701*^9, 3.866975840936427*^9}},
+}], "TechNoteText",
  CellID->1697021582,ExpressionUUID->"909e3253-0842-4bcb-9f9f-df355fa35a6c"],
 
 Cell[TextData[{
@@ -7012,11 +7187,7 @@ Cell[TextData[{
  StyleBox["dimensionless transmon Hamiltonian",
   FontSlant->"Italic"],
  " reads as"
-}], "Text",
- CellChangeTimes->{{3.866373890932414*^9, 3.866373928302945*^9}, {
-  3.866967257148644*^9, 3.866967287407144*^9}, {3.866975650622384*^9, 
-  3.86697565141975*^9}, {3.866975760648143*^9, 3.866975795255933*^9}, {
-  3.866975834636701*^9, 3.866975841912818*^9}},
+}], "TechNoteText",
  CellID->600783519,ExpressionUUID->"e343654d-328e-4486-89b7-45da8570c0c5"],
 
 Cell[TextData[{
@@ -7044,16 +7215,13 @@ hat\\phi)", "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "063b5464-2fd6-44ac-bf52-6ab3d3cdf175"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.866967300899248*^9, 3.866967303348284*^9}, {
-  3.866967810542995*^9, 3.866967810778236*^9}},
+}], "TechNoteText",
  CellID->2113106672,ExpressionUUID->"16ae58d0-4598-4998-a2c2-87adb1d3d5f1"],
 
 Cell["\<\
 In the \[Phi]-space representation, the corresponding Schr\[ODoubleDot]dinger \
 equation is given by\
-\>", "Text",
- CellChangeTimes->{{3.867044440635293*^9, 3.867044482415313*^9}},
+\>", "TechNoteText",
  CellID->1946973196,ExpressionUUID->"c5ba5dad-0613-4af4-9940-fdaea10a869c"],
 
 Cell[TextData[{
@@ -7097,9 +7265,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "3bed0ce9-445c-4fd4-b1e2-e0dfca334f42"],
  "."
-}], "Text",
- CellChangeTimes->{{3.8670445030749483`*^9, 3.8670445327251453`*^9}, {
-  3.867044623087206*^9, 3.867044654562855*^9}},
+}], "TechNoteText",
  CellID->693176039,ExpressionUUID->"c4c53bd1-2a84-4c2b-9f5d-f0d1597226f5"],
 
 Cell[TextData[{
@@ -7107,9 +7273,7 @@ Cell[TextData[{
 must satisfy the ",
  StyleBox["periodic boundary condition",
   FontSlant->"Italic"]
-}], "Text",
- CellChangeTimes->{{3.866967849830244*^9, 3.8669679123539352`*^9}, {
-  3.8669684023088713`*^9, 3.8669684226806183`*^9}},
+}], "TechNoteText",
  CellID->185020457,ExpressionUUID->"d3c2005a-889b-4efe-a234-15577894f353"],
 
 Cell[TextData[{
@@ -7126,20 +7290,17 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "b205231b-7f96-4e72-91b7-1925631740d9"],
  "."
-}], "Text",
- CellChangeTimes->{{3.866967917352688*^9, 3.8669679317605963`*^9}},
+}], "TechNoteText",
  CellID->1706049274,ExpressionUUID->"b658b445-42b9-4a5a-9ed2-da5831bf6254"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Limiting Cases", "Section",
- CellChangeTimes->{{3.86697595526637*^9, 3.8669759636826468`*^9}},
+Cell["Limiting Cases", "TechNoteSection",
  CellID->170388726,ExpressionUUID->"6fdfbd36-19af-4aee-acf6-f874342f68ec"],
 
 Cell[BoxData[
  RowBox[{"<<", "Transmon`"}]], "Input",
- CellChangeTimes->{{3.8670548520386963`*^9, 3.8670548568269033`*^9}},
  CellLabel->"In[4]:=",
  CellID->1709628000,ExpressionUUID->"88ebd940-8e26-4184-9d2f-9c6ca130aa81"],
 
@@ -7156,11 +7317,9 @@ Cell[TextData[{
   "2724cd7a-73dc-4b80-9320-c00bf93dc9b8"],
  ")"
 }], "Subsection",
- CellChangeTimes->{{3.86697596841315*^9, 3.8669760017239933`*^9}},
  CellID->2134184332,ExpressionUUID->"e80161f7-5dc9-4f30-a40b-abe1bd4bbe90"],
 
-Cell["(under construction)", "Text",
- CellChangeTimes->{{3.867358146367383*^9, 3.867358158375602*^9}},
+Cell["(under construction)", "TechNoteText",
  CellID->401368965,ExpressionUUID->"11045e16-f582-4846-b3cb-e58c9f41876b"]
 }, Open  ]],
 
@@ -7177,62 +7336,53 @@ Cell[TextData[{
   "f7a76d46-3038-42ae-b70c-7076bce490d7"],
  ")"
 }], "Subsection",
- CellChangeTimes->{{3.8669759772753487`*^9, 3.866976014882276*^9}},
  CellID->59991752,ExpressionUUID->"55eda08c-5d1d-44f9-9584-4cff32791375"],
 
-Cell["(under construction)", "Text",
- CellChangeTimes->{{3.867358146367383*^9, 3.867358158375602*^9}},
+Cell["(under construction)", "TechNoteText",
  CellID->762433005,ExpressionUUID->"174f556b-18f4-4be4-b7e2-e0cb2e0b3edf"]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Bloch States", "Section",
- CellChangeTimes->{{3.866976032425871*^9, 3.866976038056767*^9}, {
-  3.867036429109273*^9, 3.867036429860268*^9}},
+Cell["Bloch States", "TechNoteSection",
  CellID->428639651,ExpressionUUID->"b17e7835-0d71-4eae-9217-57103517accd"],
 
 Cell[BoxData[GridBox[{
    {
-    ButtonBox["BlochEnergy",
-     BaseStyle->"Link",
-     ButtonData->"paclet:QuantumPlaybook/ref/BlochEnergy"], Cell[
-    "The energy of a Bloch state for a characteristic exponent", "TableText",
-     ExpressionUUID->"ef7feec1-97b3-45d1-911c-cc81177e5059"]},
+    TemplateBox[{
+      Cell[
+       TextData["BlochEnergy"]], "paclet:QuantumPlaybook/ref/BlochEnergy", 
+      "QuantumPlaybook Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "The energy of a Bloch state for a characteristic exponent", 
+     "TechNoteTableText",ExpressionUUID->
+     "ef7feec1-97b3-45d1-911c-cc81177e5059"]},
    {
-    ButtonBox["BlochFunction",
-     BaseStyle->"Link",
-     ButtonData->"paclet:QuantumPlaybook/ref/BlochFunction"], Cell["\<\
+    TemplateBox[{
+      Cell[
+       TextData["BlochFunction"]], "paclet:QuantumPlaybook/ref/BlochFunction",
+       "QuantumPlaybook Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell["\<\
 The wave function of a Bloch state for a characteristic exponent\
-\>", "TableText",ExpressionUUID->"993c31ae-fd01-4921-b2a3-4874393eebbb"]},
-   {"XXXX", Cell[
-    "XXXX", "TableText",ExpressionUUID->
-     "1def604a-8de1-413e-bf97-4fd505e167cb"]}
+\>", "TechNoteTableText",ExpressionUUID->
+     "993c31ae-fd01-4921-b2a3-4874393eebbb"]}
   }]], "DefinitionBox",
- CellChangeTimes->{{3.8670486837794743`*^9, 3.867048771240375*^9}},
  CellID->1779792370,ExpressionUUID->"80410dd0-fd13-4a51-875c-40dd9b8c021c"],
 
-Cell[CellGroupData[{
-
-Cell["Functions related to Bloch states.", "Caption",
- CellChangeTimes->{{3.867048776660098*^9, 3.867048801238968*^9}},
+Cell["Functions related to Bloch states.", "TechNoteCaption",
  CellID->670643527,ExpressionUUID->"5f9c5116-9adc-40f3-8759-0339aff148b3"],
 
 Cell[BoxData[
  RowBox[{"<<", "Transmon`"}]], "Input",
- CellChangeTimes->{{3.8670548520386963`*^9, 3.8670548568269033`*^9}},
  CellLabel->"In[3]:=",
- CellID->1958972845,ExpressionUUID->"46ab8046-f48e-442f-b0a7-98fe212e6a08"]
-}, Open  ]],
+ CellID->1958972845,ExpressionUUID->"46ab8046-f48e-442f-b0a7-98fe212e6a08"],
 
 Cell["\<\
 Here, we consider a slightly different model described by the Hamiltonian\
-\>", "Text",
- CellChangeTimes->{{3.867036458961359*^9, 3.867036492239306*^9}, {
-  3.867036597505787*^9, 3.867036608191553*^9}, {3.8670373372237463`*^9, 
-  3.867037345084119*^9}, {3.867041200615203*^9, 3.867041201116952*^9}, {
-  3.867370350586397*^9, 3.867370353307728*^9}},
+\>", "TechNoteText",
  CellID->1547238424,ExpressionUUID->"ac8c9758-d4f3-46a1-beeb-9b47c3f9a68f"],
 
 Cell[TextData[{
@@ -7257,9 +7407,7 @@ phi)", "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "6cbf78bd-c1de-455c-82ee-0df151d396f4"],
  " "
-}], "Text",
- CellChangeTimes->{{3.866967300899248*^9, 3.866967303348284*^9}, {
-   3.866967810542995*^9, 3.866967810778236*^9}, 3.8669761220033216`*^9},
+}], "TechNoteText",
  CellID->400121982,ExpressionUUID->"1709fefb-de72-4539-9754-9150a911f554"],
 
 Cell[TextData[{
@@ -7273,14 +7421,7 @@ Cell[TextData[{
    "paclet:QuantumPlaybook/tutorial/TransmonQuantumPhaseModel#1706049274"],
  "). In the \[Phi]-space representation, the Schr\[ODoubleDot]dinger equation \
 reads as"
-}], "Text",
- CellChangeTimes->{{3.866976100010262*^9, 3.866976109767226*^9}, {
-  3.8670365218056498`*^9, 3.8670365397493143`*^9}, {3.867036618063353*^9, 
-  3.8670366183163757`*^9}, {3.867036652070526*^9, 3.8670368519915524`*^9}, {
-  3.867037234543933*^9, 3.867037274256774*^9}, {3.8670411924264383`*^9, 
-  3.867041281265594*^9}, {3.867041340351225*^9, 3.867041371783667*^9}, {
-  3.867041445325959*^9, 3.867041480062201*^9}, {3.867044728238957*^9, 
-  3.8670447477950172`*^9}},
+}], "TechNoteText",
  CellID->849606356,ExpressionUUID->"24246715-afbd-4fcf-a0bb-2ee762fb6455"],
 
 Cell[TextData[{
@@ -7305,10 +7446,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "2821d427-b18a-4723-83ca-4f5beb4b95e3"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.867041486266656*^9, 3.867041494343712*^9}, {
-  3.867041580788582*^9, 3.867041581080616*^9}, {3.867041630699285*^9, 
-  3.867041655369101*^9}},
+}], "TechNoteText",
  CellID->1559573891,ExpressionUUID->"b566962f-e042-4453-9cd2-4b32b8c3db18"],
 
 Cell[TextData[{
@@ -7321,10 +7459,7 @@ the ",
  StyleBox["Mathieu model",
   FontSlant->"Italic"],
  "."
-}], "Text",
- CellChangeTimes->{{3.867370378722389*^9, 3.867370458989737*^9}, {
-  3.867370489298355*^9, 3.867370491220989*^9}, {3.86737055611191*^9, 
-  3.8673705586642*^9}, {3.8673705908858747`*^9, 3.8673706405482073`*^9}},
+}], "TechNoteText",
  CellID->826884776,ExpressionUUID->"be18249c-82f8-4c17-abaf-14d82831e19d"],
 
 Cell[TextData[{
@@ -7408,21 +7543,12 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "a9a9f4bf-b6c8-406a-9f97-655cc080aef9"],
  "."
-}], "Text",
- CellChangeTimes->{{3.866976100010262*^9, 3.866976109767226*^9}, {
-   3.8670365218056498`*^9, 3.8670365397493143`*^9}, {3.867036618063353*^9, 
-   3.8670366183163757`*^9}, {3.867036652070526*^9, 3.8670368519915524`*^9}, {
-   3.867037234543933*^9, 3.867037274256774*^9}, {3.8670411924264383`*^9, 
-   3.867041281265594*^9}, {3.867041340351225*^9, 3.867041371783667*^9}, 
-   3.867041446526264*^9, {3.867044329530959*^9, 3.867044361930017*^9}, {
-   3.8670448074057713`*^9, 3.867044825112474*^9}, {3.8670448854589643`*^9, 
-   3.8670449161422873`*^9}, {3.867044986300372*^9, 3.867045106766341*^9}},
+}], "TechNoteText",
  CellID->1507807136,ExpressionUUID->"9677f42a-c784-4d81-ad84-519c04a37846"],
 
 Cell[CellGroupData[{
 
 Cell["Bloch Theorem", "Subsection",
- CellChangeTimes->{{3.867049084852405*^9, 3.8670490892397537`*^9}},
  CellID->1919793530,ExpressionUUID->"5f2324a7-3ec2-40be-a553-ecbd56aed2b5"],
 
 Cell[TextData[{
@@ -7447,10 +7573,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "08bb0c21-0b40-4b35-b790-80529765c102"],
  " be the translation operator by amount \[Theta] such that"
-}], "Text",
- CellChangeTimes->{{3.8670372178800793`*^9, 3.867037223282827*^9}, {
-  3.867037427550168*^9, 3.867037431438355*^9}, {3.867037473832883*^9, 
-  3.867037565683235*^9}},
+}], "TechNoteText",
  CellID->1146307208,ExpressionUUID->"b469d6b2-aa30-413f-bff8-93eb1fdcf7b1"],
 
 Cell[TextData[{
@@ -7474,17 +7597,13 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "0cba733c-425b-45bc-8be0-6fb0c1c67258"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.867037569462386*^9, 3.867037577427891*^9}, {
-  3.867037611147016*^9, 3.8670376113951883`*^9}},
+}], "TechNoteText",
  CellID->1836996988,ExpressionUUID->"933ef6c6-4506-458e-9e0c-7a742e2f3bda"],
 
 Cell["\<\
 The Hamiltonian commutes with any translation by integer multiples of 2\[Pi],\
 \
-\>", "Text",
- CellChangeTimes->{{3.867037647604888*^9, 3.8670376943514957`*^9}, {
-  3.867037887671789*^9, 3.867037889074913*^9}},
+\>", "TechNoteText",
  CellID->1002080302,ExpressionUUID->"d8d28eb1-f830-4add-bfc5-241acf8ff1b3"],
 
 Cell[TextData[{
@@ -7506,10 +7625,7 @@ Cell[TextData[{
      "[\\hat{H},\\hat{T}(2\\pi{m})]=0", "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "541dd298-80db-4628-9cdc-c73c27080bfc"]
-}], "Text",
- CellChangeTimes->{{3.8670377002295628`*^9, 3.867037706261313*^9}, {
-  3.867037740341343*^9, 3.867037758982136*^9}, {3.867037847940968*^9, 
-  3.8670378487611322`*^9}},
+}], "TechNoteText",
  CellID->1808814691,ExpressionUUID->"ed967b39-8d48-47ff-bc0f-5c7f2bdc9074"],
 
 Cell[TextData[{
@@ -7522,8 +7638,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "dad9bede-d2ff-4b50-85e1-7d04cac0e08e"],
  "."
-}], "Text",
- CellChangeTimes->{{3.867037851922784*^9, 3.867037873435014*^9}},
+}], "TechNoteText",
  CellID->938596671,ExpressionUUID->"f324ee1a-e335-4088-8d41-cee3724e8498"],
 
 Cell[TextData[{
@@ -7538,9 +7653,7 @@ Cell[TextData[{
   FontSlant->"Italic"],
  ", the discrete translational symmetry allows us to choose eigenstates of \
 the Hamiltonian of the form "
-}], "Text",
- CellChangeTimes->{{3.8670393700385933`*^9, 3.8670394675853853`*^9}, {
-  3.867045315181939*^9, 3.867045323561892*^9}},
+}], "TechNoteText",
  CellID->1377197139,ExpressionUUID->"ef533499-ffaa-4762-9938-93c08d2bbde9"],
 
 Cell[TextData[{
@@ -7560,10 +7673,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "5936ca1a-e34e-4a98-8334-88247d194a43"],
  " , "
-}], "Text",
- CellChangeTimes->{{3.867039486212216*^9, 3.867039491829905*^9}, {
-  3.867039626014084*^9, 3.867039676698141*^9}, {3.867039729438097*^9, 
-  3.8670397427154016`*^9}, {3.8670407765209312`*^9, 3.867040778630769*^9}},
+}], "TechNoteText",
  CellID->480568027,ExpressionUUID->"3ec696a3-0454-4b35-a501-f7b2663aa1d2"],
 
 Cell[TextData[{
@@ -7585,19 +7695,12 @@ the ",
   FontSlant->"Italic"],
  ") of the wave function. A state with wave function of the above form is \
 called a Bloch (or Floquet) states."
-}], "Text",
- CellChangeTimes->{{3.867039678401951*^9, 3.867039700187984*^9}, {
-  3.867040794545012*^9, 3.867040859341321*^9}, {3.867042358882988*^9, 
-  3.867042367003738*^9}, {3.867045251215412*^9, 3.8670452983789377`*^9}},
+}], "TechNoteText",
  CellID->1946440487,ExpressionUUID->"2904f56e-dad3-4ca4-8ecb-1c8873b3229f"],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 Consider an eigenfunction with a specific characteristic exponent.\
-\>", "MathCaption",
- CellChangeTimes->{{3.8670417729885387`*^9, 3.86704184793544*^9}, {
-  3.8670419143676567`*^9, 3.867041939635849*^9}},
+\>", "TechNoteMathCaption",
  CellID->1699554849,ExpressionUUID->"70b25202-b1a2-4099-ab26-7c30b5d0e4a7"],
 
 Cell[BoxData[{
@@ -7610,20 +7713,13 @@ Cell[BoxData[{
    RowBox[{"sol", "[", "x_", "]"}], "=", 
    RowBox[{"BlochFunction", "[", 
     RowBox[{"\[Nu]", ",", "\[Alpha]", ",", "x"}], "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.867041849737349*^9, 3.867041909294894*^9}, {
-  3.867041944207899*^9, 3.8670419512267523`*^9}, {3.867042223793619*^9, 
-  3.8670422264459743`*^9}},
  CellLabel->"In[27]:=",
- CellID->204329706,ExpressionUUID->"a9fe38a3-7e87-437c-9f03-a84ae658f92e"]
-}, Open  ]],
-
-Cell[CellGroupData[{
+ CellID->204329706,ExpressionUUID->"a9fe38a3-7e87-437c-9f03-a84ae658f92e"],
 
 Cell["\<\
 The wave function itself is not periodic due to the non-integer value of the \
 characteristic exponent.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867042017422365*^9, 3.867042056601356*^9}},
+\>", "TechNoteMathCaption",
  CellID->494943984,ExpressionUUID->"eda9ac3e-d29d-4678-a283-ba4b0fc4f699"],
 
 Cell[CellGroupData[{
@@ -7640,7 +7736,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", "\"\<\[Psi]\>\""}], "}"}]}]}], 
   "]"}]], "Input",
- CellChangeTimes->{{3.86704195336555*^9, 3.86704200325585*^9}},
  CellLabel->"In[30]:=",
  CellID->184637593,ExpressionUUID->"65c6cad6-3962-4480-85b1-7a82b7e0d185"],
 
@@ -8242,20 +8337,13 @@ lxYCXOlRYSsa2GBDOTs53UaArLXj9rhWNjzac4xPqZOAvhL1T7rdbDAI41IR
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.8670419672142773`*^9, 3.867042005971221*^9}, 
-   3.867042063639696*^9, 3.867042228937786*^9, {3.867042260539311*^9, 
-   3.86704227342953*^9}},
  CellLabel->"Out[30]=",
  CellID->854355858,ExpressionUUID->"3119592a-4c4a-4cf1-bea5-ff7f428da92b"]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 However, with the plane-wave factor removed, the remaining part is periodic.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867042075029481*^9, 3.8670421110295267`*^9}},
+\>", "TechNoteMathCaption",
  CellID->858453958,ExpressionUUID->"4d023dbb-9bfd-407f-a453-d0075e070431"],
 
 Cell[CellGroupData[{
@@ -8276,8 +8364,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", "\"\<\[Psi]\>\""}], "}"}]}]}], 
   "]"}]], "Input",
- CellChangeTimes->{{3.86704195336555*^9, 3.86704200325585*^9}, {
-  3.867042114541584*^9, 3.867042123035117*^9}},
  CellLabel->"In[31]:=",
  CellID->1573110719,ExpressionUUID->"32908bd7-e616-4cbd-8690-b6f24d970e15"],
 
@@ -8897,12 +8983,8 @@ LqXfJA/3Xx4xdUM8ebalYmoethMpeR3r9mNo686j7jPzQPhsKRhZZ4H//70c
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{
-  3.867042124780753*^9, 3.867042231117915*^9, {3.867042262101832*^9, 
-   3.867042275170665*^9}},
  CellLabel->"Out[31]=",
  CellID->1384815573,ExpressionUUID->"9f495fef-f988-49ae-8832-6fee1cda0463"]
-}, Open  ]]
 }, Open  ]],
 
 Cell[TextData[{
@@ -8911,19 +8993,13 @@ relation forms ",
  StyleBox["bands",
   FontSlant->"Italic"],
  "."
-}], "Text",
- CellChangeTimes->{{3.867042315664048*^9, 3.867042342658721*^9}, {
-  3.867042377266247*^9, 3.8670423903588247`*^9}},
+}], "TechNoteText",
  CellID->1295918368,ExpressionUUID->"9c2d3283-cfea-41ca-808c-20f66e7316a9"],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 Here is an example of the dispersion relation in the charging limit. The \
 dispersion relation resembles a quadratic curve.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867042498404276*^9, 3.867042522636797*^9}, {
-  3.8670425809796667`*^9, 3.867042602500372*^9}},
+\>", "TechNoteMathCaption",
  CellID->2146643744,ExpressionUUID->"e05d0a2b-a01b-4717-a566-f63c84efe4e4"],
 
 Cell[CellGroupData[{
@@ -8987,15 +9063,6 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"\"\<\[Nu]\>\"", ",", "\"\<Energy\>\""}], "}"}]}], ",", 
     RowBox[{"PlotRange", "->", "All"}]}], "]"}]}]}], "Input",
- CellChangeTimes->{{3.8670424139163837`*^9, 3.867042469819427*^9}, {
-  3.867042530833098*^9, 3.867042534653488*^9}, {3.867045549103595*^9, 
-  3.867045577214061*^9}, {3.8670456798373003`*^9, 3.86704574884266*^9}, {
-  3.867045782235119*^9, 3.867045808884553*^9}, {3.8670458434250937`*^9, 
-  3.867045931272233*^9}, {3.8670459694810247`*^9, 3.8670459959360857`*^9}, {
-  3.867046032636195*^9, 3.867046032815441*^9}, {3.86704621913387*^9, 
-  3.867046223226247*^9}, {3.867046404692163*^9, 3.867046405386119*^9}, {
-  3.867046559269224*^9, 3.867046635101248*^9}, {3.867046708959461*^9, 
-  3.867046710306945*^9}},
  CellLabel->"In[146]:=",
  CellID->1036262070,ExpressionUUID->"d9e73bac-b4ed-4b90-903e-4a6f34f9419c"],
 
@@ -9331,31 +9398,15 @@ rIUeHOaowWuaVlrowcF94SlZz7PQg0N09sDl5AMWenCY9cNAbbvTQg8OI0L6
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{
-  3.867042436621882*^9, {3.8670424711310177`*^9, 3.867042483240556*^9}, 
-   3.867045207643331*^9, {3.867045567317725*^9, 3.867045579089892*^9}, {
-   3.8670457049099293`*^9, 3.867045749636755*^9}, {3.867045783520152*^9, 
-   3.867045809528536*^9}, 3.867045858085807*^9, {3.867045897294105*^9, 
-   3.867045932204124*^9}, {3.867045972388604*^9, 3.8670459964385233`*^9}, 
-   3.867046034103162*^9, 3.867046223814352*^9, 3.867046331839122*^9, {
-   3.867046380923544*^9, 3.867046405829053*^9}, {3.867046562665287*^9, 
-   3.867046569766528*^9}, {3.867046601076105*^9, 3.867046635528102*^9}, 
-   3.867046711078163*^9},
  CellLabel->"Out[150]=",
  CellID->643832829,ExpressionUUID->"8317eaf2-8dc2-4e2b-9d86-16e08eb8cee1"]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 Here is an example of the dispersion relation in the Josephson limit. The \
 allowed values of energy are almost discrete and are similar to those of \
 simple harmonic oscillator.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867042498404276*^9, 3.867042522636797*^9}, {
-  3.867042553258196*^9, 3.867042558793385*^9}, {3.8670426136519423`*^9, 
-  3.867042678573889*^9}},
+\>", "TechNoteMathCaption",
  CellID->2069478039,ExpressionUUID->"9e21d03b-cc3c-4117-b4b1-9e2e3cd6b2ba"],
 
 Cell[CellGroupData[{
@@ -9419,15 +9470,6 @@ Cell[BoxData[{
      RowBox[{"{", 
       RowBox[{"\"\<\[Nu]\>\"", ",", "\"\<Energy\>\""}], "}"}]}], ",", 
     RowBox[{"PlotRange", "->", "All"}]}], "]"}]}]}], "Input",
- CellChangeTimes->{{3.8670424139163837`*^9, 3.867042469819427*^9}, {
-  3.867042530833098*^9, 3.867042534653488*^9}, {3.867045549103595*^9, 
-  3.867045577214061*^9}, {3.8670456798373003`*^9, 3.86704574884266*^9}, {
-  3.867045782235119*^9, 3.867045808884553*^9}, {3.8670458434250937`*^9, 
-  3.867045931272233*^9}, {3.8670459694810247`*^9, 3.8670459959360857`*^9}, {
-  3.867046032636195*^9, 3.867046032815441*^9}, {3.86704621913387*^9, 
-  3.867046223226247*^9}, {3.867046404692163*^9, 3.867046405386119*^9}, {
-  3.867046559269224*^9, 3.867046635101248*^9}, {3.867046668772571*^9, 
-  3.8670467033206472`*^9}},
  CellLabel->"In[141]:=",
  CellID->2141032521,ExpressionUUID->"d6f5576c-d4ed-4300-bb9f-cbb4893744bd"],
 
@@ -9734,17 +9776,14 @@ gJtueUg8+uLJ+VB33fKQqJ/Z4u/vqVseEqNjBmad9dItD4n7p5MK3vTWLQ+J
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.867046670513014*^9, 3.867046705118165*^9}},
  CellLabel->"Out[145]=",
  CellID->126979287,ExpressionUUID->"9b876dc1-1ee0-493c-b523-ed066d4c54ca"]
-}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell["Mathieu Functions", "Subsection",
- CellChangeTimes->{{3.867049121561668*^9, 3.8670491247332*^9}},
  CellID->1284780530,ExpressionUUID->"34b3d79e-ca60-4730-8e4a-ebd38dc9d0b4"],
 
 Cell[TextData[{
@@ -9812,11 +9851,7 @@ Hamiltonian and parity. However, the Bloch states of the form ",
  " do not have a definite parity; that is, they are not eigenstates of the \
 parity operator. Nevertheless, it is possible to construct simultaneous \
 eigenstates of the Hamiltonian and parity by starting with the Bloch states."
-}], "Text",
- CellChangeTimes->{{3.867049712690496*^9, 3.8670498417546873`*^9}, {
-  3.867049932003415*^9, 3.867049942631315*^9}, {3.8670499791307907`*^9, 
-  3.86705018866391*^9}, {3.8670502540090218`*^9, 3.867050340810191*^9}, {
-  3.867050384620232*^9, 3.8670504695469723`*^9}},
+}], "TechNoteText",
  CellID->776220634,ExpressionUUID->"97849a34-aeca-4860-8337-eb6c909f7fb2"],
 
 Cell[TextData[{
@@ -9859,11 +9894,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "bb935132-bb88-4343-a683-ffcfbea88177"],
  ". Therefore, the two functions defined by"
-}], "Text",
- CellChangeTimes->{{3.8670504814219513`*^9, 3.867050484304558*^9}, {
-  3.8670507012448483`*^9, 3.867050734183918*^9}, {3.8670507746625338`*^9, 
-  3.867050939119234*^9}, {3.86705097388271*^9, 3.867050999204693*^9}, {
-  3.867052554575119*^9, 3.867052556497303*^9}},
+}], "TechNoteText",
  CellID->2091133882,ExpressionUUID->"a83fd811-6b81-4efa-a6c3-60a0671e9ee5"],
 
 Cell[TextData[{
@@ -9893,8 +9924,7 @@ Cell[TextData[{
       "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "ea9d3adb-9e36-4ebd-b59f-74b505c2a4ff"]
-}], "Text",
- CellChangeTimes->{{3.867050503291614*^9, 3.867050507226025*^9}},
+}], "TechNoteText",
  CellID->34522092,ExpressionUUID->"32246fd8-1bfe-4833-b44c-14be24fc47c6"],
 
 Cell[TextData[{
@@ -9926,8 +9956,7 @@ Cell[TextData[{
 ", "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "4f4bb1bd-eddd-42cb-baa2-618590e83f58"]
-}], "Text",
- CellChangeTimes->{{3.867050503291614*^9, 3.867050507226025*^9}},
+}], "TechNoteText",
  CellID->1065060897,ExpressionUUID->"d96e9f80-9617-427d-91f9-0e1ba5c3532c"],
 
 Cell[TextData[{
@@ -10005,11 +10034,7 @@ desired wave functions.  These functions are called the ",
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "c5265c1e-fb8f-4b89-8715-37a39160eb93"],
  " and are solutions to the Mathieu equations"
-}], "Text",
- CellChangeTimes->{{3.8670510021000557`*^9, 3.8670512426969843`*^9}, {
-  3.8670512743613863`*^9, 3.8670514513833313`*^9}, {3.867051815146731*^9, 
-  3.867051885493964*^9}, {3.86705197296448*^9, 3.867052002547216*^9}, {
-  3.8670521155271482`*^9, 3.8670521315897493`*^9}},
+}], "TechNoteText",
  CellID->681991870,ExpressionUUID->"31b8d458-0c79-4ffb-a805-6438dc91d268"],
 
 Cell[TextData[{
@@ -10036,10 +10061,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "54679f8f-fec8-435a-ab5b-0e2cb39e7428"],
  " ,"
-}], "Text",
- CellChangeTimes->{{3.867051481360989*^9, 3.8670514869405403`*^9}, {
-  3.867051552364756*^9, 3.86705155261127*^9}, {3.867051597378148*^9, 
-  3.867051597747232*^9}},
+}], "TechNoteText",
  CellID->1217648810,ExpressionUUID->"6146667c-4267-474c-aeb0-fac3283c0b0c"],
 
 Cell[TextData[{
@@ -10068,10 +10090,7 @@ Cell[TextData[{
   "54cb0f77-5fb6-4c8c-ae90-0cc5b3165131"],
  ". Putting it another way, one can find the Bloch states starting from the \
 Mathieu functions,"
-}], "Text",
- CellChangeTimes->{{3.867051599080038*^9, 3.8670516059010487`*^9}, {
-  3.867051752436385*^9, 3.867051774643613*^9}, {3.867052247331195*^9, 
-  3.867052285423806*^9}},
+}], "TechNoteText",
  CellID->1292111441,ExpressionUUID->"0b3859b6-3e17-41b8-9e0d-47eabcaab8c9"],
 
 Cell[TextData[{
@@ -10099,9 +10118,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "5cec570c-de6d-4154-ae10-1d02536aae2d"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.86705231519674*^9, 3.8670523196573677`*^9}, {
-  3.8670523579412107`*^9, 3.8670523582131567`*^9}},
+}], "TechNoteText",
  CellID->975786153,ExpressionUUID->"daaef912-a6e5-4e99-a046-3766c34a3ee5"],
 
 Cell[TextData[{
@@ -10160,23 +10177,18 @@ functions ",
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "fe32d984-a249-4458-9790-6ed42e6881c8"],
  " is an eigenstate and is both a Bloch state and parity eigenstate."
-}], "Text",
- CellChangeTimes->{{3.867052376457353*^9, 3.8670524420159187`*^9}, {
-  3.867052572935295*^9, 3.8670525780532503`*^9}, {3.867052667163258*^9, 
-  3.867052829689905*^9}},
+}], "TechNoteText",
  CellID->1818426641,ExpressionUUID->"e3104b01-22ab-4ee9-a3a2-8e4a55e1474a"]
 }, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["Transmon Eigenstates", "Section",
- CellChangeTimes->{{3.867053043007635*^9, 3.8670530479447536`*^9}},
+Cell["Transmon Eigenstates", "TechNoteSection",
  CellID->138156041,ExpressionUUID->"dfced86a-c5a4-4ca6-bb2c-0f4a0092beae"],
 
 Cell[BoxData[
  RowBox[{"<<", "Transmon`"}]], "Input",
- CellChangeTimes->{{3.8670548520386963`*^9, 3.8670548568269033`*^9}},
  CellLabel->"In[1]:=",
  CellID->1150065278,ExpressionUUID->"61ad759c-2fef-439e-aff7-8e5003d20f2f"],
 
@@ -10212,12 +10224,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "fb3e48eb-550f-49d0-bb97-703c6b8667f6"],
  ". Clearly, it satisfies the Schr\[ODoubleDot]dinger equation"
-}], "Text",
- CellChangeTimes->{{3.8670530707443323`*^9, 3.867053159039612*^9}, {
-  3.867053226923449*^9, 3.8670532592769823`*^9}, {3.867053329412677*^9, 
-  3.867053417452957*^9}, {3.8670534775396023`*^9, 3.867053479912961*^9}, {
-  3.867053573223028*^9, 3.867053659890161*^9}, {3.867053694809866*^9, 
-  3.867053706024987*^9}},
+}], "TechNoteText",
  CellID->468284324,ExpressionUUID->"04ac1f75-10cf-4906-b335-24bcb883c4dd"],
 
 Cell[TextData[{
@@ -10242,10 +10249,7 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "79863a87-aaef-4303-9956-a3c8de0e6c92"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.867041486266656*^9, 3.867041494343712*^9}, {
-  3.867041580788582*^9, 3.867041581080616*^9}, {3.867041630699285*^9, 
-  3.867041655369101*^9}},
+}], "TechNoteText",
  CellID->1227593811,ExpressionUUID->"226b8b36-c4e9-45d4-8bdf-2b7e71b16405"],
 
 Cell[TextData[{
@@ -10284,19 +10288,12 @@ condition ",
  StyleBox["m",
   FontSlant->"Italic"],
  "."
-}], "Text",
- CellChangeTimes->{{3.8670530707443323`*^9, 3.867053159039612*^9}, {
-  3.867053226923449*^9, 3.8670532592769823`*^9}, {3.867053329412677*^9, 
-  3.867053417452957*^9}, {3.8670534775396023`*^9, 3.867053479912961*^9}, {
-  3.867053573223028*^9, 3.867053656649027*^9}, {3.867053734478907*^9, 
-  3.867053832126412*^9}},
+}], "TechNoteText",
  CellID->745744007,ExpressionUUID->"e2211d97-5d1e-43fa-8e8e-369e57193dc6"],
 
 Cell["\<\
 \tIn short, eigenstates of the transmon Hamiltonian has energy\
-\>", "Text",
- CellChangeTimes->{{3.867053910162827*^9, 3.867053915185089*^9}, {
-  3.867053973293694*^9, 3.8670540210044317`*^9}},
+\>", "TechNoteText",
  CellID->1251747742,ExpressionUUID->"d9b25aa4-34bd-43ad-9986-73c755cd5f76"],
 
 Cell[BoxData[
@@ -10320,12 +10317,10 @@ Cell[BoxData[
     "errors" -> {}, "input" -> 
     "\\varepsilon_m(q)=\\frac{1}{\\alpha}+\\frac{1}{8}\\alpha \
 a_{2(m-\\nu)}(-4/\\alpha^2)", "state" -> "Boxes"|>,
-   "TeXAssistantTemplate"]}]], "Text",
- CellChangeTimes->{{3.867054081483042*^9, 3.8670540916003847`*^9}},
+   "TeXAssistantTemplate"]}]], "TechNoteText",
  CellID->923702001,ExpressionUUID->"1067f284-bff4-445f-8414-0e7528eafe72"],
 
-Cell["and wave function", "Text",
- CellChangeTimes->{{3.867054220075597*^9, 3.867054225115451*^9}},
+Cell["and wave function", "TechNoteText",
  CellID->65073434,ExpressionUUID->"31bb3969-8904-4f24-a7db-0352a4dee6cc"],
 
 Cell[TextData[{
@@ -10369,10 +10364,7 @@ S_{2(m-q)}(\\phi/2)\\right]", "state" -> "Boxes"|>,
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "e49d97b7-1c20-4398-be28-2694ca31b4fc"],
  " ,"
-}], "Text",
- CellChangeTimes->{{3.867054227639153*^9, 3.8670542306677322`*^9}, {
-  3.867054275671328*^9, 3.8670542759183903`*^9}, {3.867054385808818*^9, 
-  3.867054386056162*^9}},
+}], "TechNoteText",
  CellID->2008242915,ExpressionUUID->"98bf87d4-3ce0-41df-a1e2-141f26f2e921"],
 
 Cell[TextData[{
@@ -10412,18 +10404,12 @@ Cell[TextData[{
     "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
   "dfc90454-d449-4f8c-99d6-3ef17899bc28"],
  " ."
-}], "Text",
- CellChangeTimes->{{3.8670543885359383`*^9, 3.867054560184895*^9}, {
-  3.867054628506035*^9, 3.867054636346834*^9}, {3.867054689224175*^9, 
-  3.867054720116487*^9}},
+}], "TechNoteText",
  CellID->427459998,ExpressionUUID->"dd595e3d-981d-4c1e-9b64-3acae47be64e"],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 As an example, consider the first excited state of the transmon Hamiltonian.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867054787053096*^9, 3.8670548173149977`*^9}},
+\>", "TechNoteMathCaption",
  CellID->247564451,ExpressionUUID->"22eabd9b-bd2b-4467-9062-d93db2cd37b9"],
 
 Cell[BoxData[{
@@ -10440,9 +10426,6 @@ Cell[BoxData[{
     RowBox[{"TransmonFunction", "[", 
      RowBox[{"n", ",", "\[Alpha]", ",", "q", ",", "x"}], "]"}], "//", 
     "Simplify"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.867054819080268*^9, 3.867054848974646*^9}, {
-  3.86705489955517*^9, 3.867054929549348*^9}, {3.8670551268673353`*^9, 
-  3.867055128473755*^9}, {3.867055204405508*^9, 3.867055205571727*^9}},
  CellLabel->"In[2]:=",
  CellID->1780744697,ExpressionUUID->"451a381a-88ea-49ae-a451-280671f6ecd3"],
 
@@ -10461,9 +10444,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", " ", "\"\<\[Psi]\>\""}], 
      "}"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.867054819080268*^9, 3.867054848974646*^9}, {
-  3.86705489955517*^9, 3.867054939263802*^9}, {3.867055151329254*^9, 
-  3.8670551544284163`*^9}, {3.867055301314064*^9, 3.867055316173863*^9}},
  CellLabel->"In[6]:=",
  CellID->1871320843,ExpressionUUID->"f71b0fc6-fe20-4992-ac27-bd7e78fe1b68"],
 
@@ -10998,21 +10978,14 @@ Ty9DQZyqj3jVXfT8e9TcgrkMPlmqhRZV1/H//yeF//+ftOh/Pos2/w==
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.867054940477827*^9, 3.867054966948284*^9}, {
-   3.867055130395803*^9, 3.86705515522999*^9}, 3.867055207842195*^9, 
-   3.867055316939617*^9, 3.8670558412270184`*^9},
  CellLabel->"Out[6]=",
  CellID->1730556660,ExpressionUUID->"0a980032-d4fe-448c-9a9e-5e6af99ca7b8"]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 Clearly, the above wave function satisfies the Schr\[ODoubleDot]dinger \
 equation.\
-\>", "MathCaption",
- CellChangeTimes->{{3.867055353405959*^9, 3.867055375714493*^9}},
+\>", "TechNoteMathCaption",
  CellID->1146806578,ExpressionUUID->"92cf618e-8b1a-44d1-8b93-e1d2793d980e"],
 
 Cell[CellGroupData[{
@@ -11044,8 +11017,6 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", " ", "\"\<deviation\>\""}], 
      "}"}]}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.867055238541986*^9, 3.867055291045199*^9}, {
-  3.867055328335462*^9, 3.867055345365417*^9}},
  CellLabel->"In[7]:=",
  CellID->1722105853,ExpressionUUID->"120f2e0c-8051-49a3-ad1b-4c9d5d02d3c1"],
 
@@ -11141,19 +11112,11 @@ uS7caWTFwFl+9BxyEmdaVL6MbGHaTHTbQBbnMSZ7tpHvTMVSswzIB/8L/AeL
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{
-  3.867055293268126*^9, {3.867055330973715*^9, 3.867055345794087*^9}, 
-   3.867055842986527*^9},
  CellLabel->"Out[8]=",
  CellID->503825587,ExpressionUUID->"58eb9291-b63e-4a25-be4f-f43876ef96af"]
-}, Open  ]]
 }, Open  ]],
 
-Cell[CellGroupData[{
-
-Cell["Consider another example in the opposite limit.", "MathCaption",
- CellChangeTimes->{{3.867054787053096*^9, 3.8670548173149977`*^9}, {
-  3.867055439458753*^9, 3.8670554498408003`*^9}},
+Cell["Consider another example in the opposite limit.", "TechNoteMathCaption",
  CellID->243979338,ExpressionUUID->"ae2371bd-707c-4c70-af88-727c7aa3b95d"],
 
 Cell[BoxData[{
@@ -11170,10 +11133,6 @@ Cell[BoxData[{
     RowBox[{"TransmonFunction", "[", 
      RowBox[{"n", ",", "\[Alpha]", ",", "q", ",", "x"}], "]"}], "//", 
     "Simplify"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.867054819080268*^9, 3.867054848974646*^9}, {
-  3.86705489955517*^9, 3.867054929549348*^9}, {3.8670551268673353`*^9, 
-  3.867055128473755*^9}, {3.867055204405508*^9, 3.867055205571727*^9}, {
-  3.867055408792615*^9, 3.867055411389868*^9}},
  CellLabel->"In[9]:=",
  CellID->1014451643,ExpressionUUID->"7fc59e23-d895-4368-83ee-d5b16b5da01e"],
 
@@ -11192,9 +11151,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", " ", "\"\<\[Psi]\>\""}], 
      "}"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.867054819080268*^9, 3.867054848974646*^9}, {
-  3.86705489955517*^9, 3.867054939263802*^9}, {3.867055151329254*^9, 
-  3.8670551544284163`*^9}, {3.867055301314064*^9, 3.867055316173863*^9}},
  CellLabel->"In[13]:=",
  CellID->1016090368,ExpressionUUID->"726df25c-eab2-474f-98cf-a35513dad7f4"],
 
@@ -11966,10 +11922,6 @@ Nff/AAaq/4k=
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.867054940477827*^9, 3.867054966948284*^9}, {
-   3.867055130395803*^9, 3.86705515522999*^9}, 3.867055207842195*^9, 
-   3.867055316939617*^9, {3.867055413426045*^9, 3.867055452431509*^9}, 
-   3.867055846520347*^9},
  CellLabel->"Out[13]=",
  CellID->604990663,ExpressionUUID->"a326afba-3b8d-482c-b52b-04151ad6cc5a"]
 }, Open  ]],
@@ -12003,8 +11955,6 @@ Cell[BoxData[{
     RowBox[{"{", 
      RowBox[{"\"\<\[Phi] / \[Pi]\>\"", ",", " ", "\"\<deviation\>\""}], 
      "}"}]}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.867055238541986*^9, 3.867055291045199*^9}, {
-  3.867055328335462*^9, 3.867055345365417*^9}},
  CellLabel->"In[14]:=",
  CellID->1137313168,ExpressionUUID->"3d5656e0-7f51-4686-a70b-c452f9a61472"],
 
@@ -12100,8 +12050,6 @@ uS7caWTFwFl+9BxyEmdaVL6MbGHaTHTbQBbnMSZ7tpHvTMVSswzIB/8L/AeL
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.8670554257028713`*^9, 3.867055453267427*^9}, 
-   3.8670558489190083`*^9},
  CellLabel->"Out[15]=",
  CellID->1448573271,ExpressionUUID->"6da54c1b-0487-4106-aac1-e50476154e79"]
 }, Open  ]],
@@ -12130,15 +12078,6 @@ Cell[BoxData[{
      RowBox[{
      "\"\<\!\(\*StyleBox[\"q\",FontSlant->\"Italic\"]\)\>\"", ",", 
       "\"\<\[Epsilon]\>\""}], "}"}]}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.866802446564563*^9, 3.866802505002178*^9}, {
-   3.866802568533679*^9, 3.866802616436884*^9}, {3.8668037855356007`*^9, 
-   3.8668038595553913`*^9}, 3.866803996488051*^9, {3.8668053872515306`*^9, 
-   3.866805406573271*^9}, {3.8668054402202053`*^9, 3.866805444051422*^9}, {
-   3.866954609143012*^9, 3.866954614140032*^9}, {3.8670555777680607`*^9, 
-   3.867055658361679*^9}, {3.867055706966297*^9, 3.867055706992917*^9}, {
-   3.867055754441807*^9, 3.8670557685852623`*^9}, {3.867055862346756*^9, 
-   3.867055883043528*^9}, {3.8670561408074923`*^9, 3.8670561508370047`*^9}, {
-   3.86705628738802*^9, 3.867056327067157*^9}},
  CellLabel->"In[65]:=",
  CellID->107211967,ExpressionUUID->"51f51ab6-304a-45c1-a427-f9ed5c6800fb"],
 
@@ -13074,10 +13013,6 @@ gen/P8ssnMiYSiRACAKoSSHv/z+59ffIm1EkQL9rd9TA9P8//nCXBaBYJEB2
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.867055553891006*^9, 3.867055769091559*^9}, {
-  3.8670558505320177`*^9, 3.867055883742283*^9}, {3.8670559519852667`*^9, 
-  3.867055961278089*^9}, {3.8670561249614477`*^9, 3.867056151226543*^9}, {
-  3.867056290238296*^9, 3.8670563276834383`*^9}},
  CellLabel->"Out[67]=",
  CellID->598053705,ExpressionUUID->"c4d6855e-5a62-4739-aadc-816d09bfc2a2"]
 }, Open  ]],
@@ -13106,15 +13041,6 @@ Cell[BoxData[{
      RowBox[{
      "\"\<\!\(\*StyleBox[\"q\",FontSlant->\"Italic\"]\)\>\"", ",", 
       "\"\<\[Epsilon]\>\""}], "}"}]}]}], "]"}]}], "Input",
- CellChangeTimes->{{3.866802446564563*^9, 3.866802505002178*^9}, {
-   3.866802568533679*^9, 3.866802616436884*^9}, {3.8668037855356007`*^9, 
-   3.8668038595553913`*^9}, 3.866803996488051*^9, {3.8668053872515306`*^9, 
-   3.866805406573271*^9}, {3.8668054402202053`*^9, 3.866805444051422*^9}, {
-   3.866954609143012*^9, 3.866954614140032*^9}, {3.8670555777680607`*^9, 
-   3.867055658361679*^9}, {3.867055706966297*^9, 3.867055706992917*^9}, {
-   3.867055754441807*^9, 3.8670557685852623`*^9}, {3.867055862346756*^9, 
-   3.867055883043528*^9}, {3.8670561408074923`*^9, 3.8670561508370047`*^9}, {
-   3.86705628738802*^9, 3.8670563374082813`*^9}},
  CellLabel->"In[68]:=",
  CellID->1739519264,ExpressionUUID->"19c0c0c6-d9ff-4d34-8c0c-5ecb1afec77b"],
 
@@ -13519,19 +13445,14 @@ Cell[BoxData[
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{3.867056337811184*^9},
  CellLabel->"Out[70]=",
  CellID->801642582,ExpressionUUID->"4aa8abe2-0494-49b5-8678-7073532d0d78"]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell["\<\
 As the MacCumber parameter \[Alpha] varies, the spectrum gradually changes \
 from the Josephson to charging limit.\
-\>", "MathCaption",
- CellChangeTimes->{{3.8670564408603992`*^9, 3.867056535486227*^9}},
+\>", "TechNoteMathCaption",
  CellID->1188823418,ExpressionUUID->"26e8f494-5ada-49b4-807b-f81c7afadfd2"],
 
 Cell[CellGroupData[{
@@ -13553,18 +13474,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Alpha]\>\"", ",", "\"\<\[Epsilon]\>\""}], "}"}]}]}], 
   "\[IndentingNewLine]", "]"}]], "Input",
- CellChangeTimes->{{3.8663764115910873`*^9, 3.866376533546597*^9}, {
-  3.866376601574404*^9, 3.866376667200521*^9}, {3.866376769191586*^9, 
-  3.8663767732861*^9}, {3.866376807939617*^9, 3.8663768190575933`*^9}, {
-  3.866376853096856*^9, 3.866376881414796*^9}, {3.86637693065344*^9, 
-  3.866376930724702*^9}, {3.8668018830573387`*^9, 3.866801886568183*^9}, {
-  3.866802755772283*^9, 3.866802779958452*^9}, {3.866804018900241*^9, 
-  3.866804050778742*^9}, {3.86680408080536*^9, 3.866804081775114*^9}, {
-  3.86680545468815*^9, 3.8668055185545893`*^9}, {3.866941859206913*^9, 
-  3.866941886932981*^9}, {3.866947324012865*^9, 3.866947344529208*^9}, {
-  3.8669473769854183`*^9, 3.866947401129534*^9}, {3.8669548226526127`*^9, 
-  3.866954825412282*^9}, {3.867056086537674*^9, 3.867056093450678*^9}, {
-  3.86705640792855*^9, 3.8670564185259933`*^9}},
  CellLabel->"In[3]:=",
  CellID->1796169684,ExpressionUUID->"a7c8e1a1-51d4-47ff-8136-68195bcdb866"],
 
@@ -14190,25 +14099,9 @@ Y6BEQ42OEpOLYrF+rFx5Bhao3bK6rEDW92GPUUwG1pbFbGSyyPpWH1pDFBjY
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{{3.8663765117458973`*^9, 3.866376534664425*^9}, 
-   3.866376570216387*^9, {3.866376654136853*^9, 3.8663766619669952`*^9}, 
-   3.8663767737482767`*^9, {3.866376811890916*^9, 3.866376819556302*^9}, {
-   3.866376853523232*^9, 3.866376888304954*^9}, 3.866376931257872*^9, 
-   3.866377001983344*^9, 3.866801888144518*^9, 3.8668019251751623`*^9, 
-   3.866802354495969*^9, {3.866802725585947*^9, 3.866802780843649*^9}, 
-   3.866803691262515*^9, {3.866804006665935*^9, 3.866804051414681*^9}, 
-   3.866804082786621*^9, {3.8668054559502296`*^9, 3.8668055289370604`*^9}, {
-   3.866941859732298*^9, 3.866941887913165*^9}, 3.8669419439870462`*^9, {
-   3.8669473287467117`*^9, 3.866947345719928*^9}, {3.866947382756503*^9, 
-   3.8669474028571577`*^9}, {3.8669548177972193`*^9, 3.866954832797611*^9}, {
-   3.867056078312847*^9, 3.8670560940298777`*^9}, {3.867056394701416*^9, 
-   3.867056419236381*^9}, 3.867056538807948*^9, 3.8670567506860313`*^9},
  CellLabel->"Out[3]=",
  CellID->931230069,ExpressionUUID->"d240cacf-ec63-4644-a8a2-f523e417ca37"]
-}, Open  ]]
 }, Open  ]],
-
-Cell[CellGroupData[{
 
 Cell[TextData[{
  "The degeneracy in the Josephson limit is lifted for finite dimensionless \
@@ -14216,8 +14109,7 @@ gate charge ",
  StyleBox["q",
   FontSlant->"Italic"],
  "."
-}], "MathCaption",
- CellChangeTimes->{{3.8670564408603992`*^9, 3.867056600927313*^9}},
+}], "TechNoteMathCaption",
  CellID->949183490,ExpressionUUID->"20357a51-2fdd-44de-bf77-c97df170ea32"],
 
 Cell[CellGroupData[{
@@ -14239,16 +14131,6 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"\"\<\[Alpha]\>\"", ",", "\"\<\[Epsilon]\>\""}], "}"}]}]}], 
   "\[IndentingNewLine]", "]"}]], "Input",
- CellChangeTimes->{{3.8663764115910873`*^9, 3.866376533546597*^9}, {
-   3.866376601574404*^9, 3.866376667200521*^9}, {3.866376769191586*^9, 
-   3.8663767732861*^9}, {3.866376807939617*^9, 3.8663768190575933`*^9}, {
-   3.866376853096856*^9, 3.866376881414796*^9}, {3.86637693065344*^9, 
-   3.866376930724702*^9}, {3.8668018830573387`*^9, 3.866801886568183*^9}, {
-   3.866802755772283*^9, 3.866802779958452*^9}, {3.866804018900241*^9, 
-   3.866804050778742*^9}, {3.86680408080536*^9, 3.866804081775114*^9}, {
-   3.86680545468815*^9, 3.866805537392089*^9}, {3.866941862319551*^9, 
-   3.866941893148037*^9}, {3.86695483936167*^9, 3.86695484422931*^9}, {
-   3.867056104986998*^9, 3.867056105576223*^9}, 3.86705642660671*^9},
  CellLabel->"In[4]:=",
  CellID->1312098114,ExpressionUUID->"8f513f6b-5eea-41ab-8121-864c8a0edd04"],
 
@@ -14872,219 +14754,241 @@ g/8HD99ziQ==
      Scaled[0.025], 
      Scaled[0.025]}},
   Ticks->{Automatic, Automatic}]], "Output",
- CellChangeTimes->{
-  3.866805537978483*^9, {3.866941872178402*^9, 3.866941894139983*^9}, 
-   3.866941945870669*^9, 3.8669548449064074`*^9, {3.8670560979189587`*^9, 
-   3.867056106261565*^9}, 3.867056395603097*^9, 3.86705642782364*^9, 
-   3.867056540055105*^9, 3.867056753574752*^9},
  CellLabel->"Out[4]=",
  CellID->1281676296,ExpressionUUID->"6ec70d04-459e-42b6-9986-cbbb3173ada5"]
 }, Open  ]]
-}, Open  ]]
 }, Open  ]],
 
-Cell[CellGroupData[{
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:Q3/guide/QuantumInformationSystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "01f04e72-f4f4-4e04-b243-f2a900fa5558"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Many-Body Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:Q3/guide/QuantumManyBodySystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "3e2b1269-c660-4ab5-bf58-aad4422f095b"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Spin Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:Q3/guide/QuantumSpinSystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "84fe880a-af8f-4b50-a4b1-8794ce9ec0cd"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"38264291-3390-4ac8-9790-\
+5c04fa5b8232"],
 
-Cell["Related Guides", "TutorialMoreAboutSection",
- CellChangeTimes->{{3.843042384656711*^9, 3.843042386024461*^9}},
- CellID->342788460,ExpressionUUID->"95fcc82d-e223-474a-b1a5-29d526c30a38"],
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Tech", " ", "Notes"}], 
+        "RelatedTutorialsSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "A Quantum Playbook",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumPlaybook/tutorial/QuantumPlaybook"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "9449875c-2eb8-4262-9246-0904e611ee7d"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Mathieu and Related Functions",
+         BaseStyle->"Link",
+         ButtonData->"paclet:tutorial/MathematicalFunctions#10287"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "42c07db6-ec09-4e6b-aa9f-25124640ebba"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->"paclet:Q3/tutorial/QuantumInformationSystems"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "424a4e73-35eb-4053-bb1b-7b9a2c6fd2b8"]}]}
+     }]}
+  }]], "RelatedTutorialsSection",ExpressionUUID->"6090ef69-be64-4bea-962e-\
+577b269a4f7d"],
 
-Cell[TextData[ButtonBox["Quantum Information Systems",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Q3/guide/QuantumInformationSystems"]], "TutorialMoreAbout",
- CellChangeTimes->{{3.850943061537991*^9, 3.8509430815007553`*^9}},
- CellID->1551876817,ExpressionUUID->"01f04e72-f4f4-4e04-b243-f2a900fa5558"],
-
-Cell[TextData[ButtonBox["Quantum Many-Body Systems",
- BaseStyle->"Link",
- ButtonData->"paclet:Q3/guide/QuantumManyBodySystems"]], "TutorialMoreAbout",
- CellChangeTimes->{{3.881697855180212*^9, 3.881697871492756*^9}},
- CellID->2096576364,ExpressionUUID->"3e2b1269-c660-4ab5-bf58-aad4422f095b"],
-
-Cell[TextData[ButtonBox["Quantum Spin Systems",
- BaseStyle->"Link",
- ButtonData->"paclet:Q3/guide/QuantumSpinSystems"]], "TutorialMoreAbout",
- CellChangeTimes->{{3.881697873643753*^9, 3.881697881880527*^9}},
- CellID->2020423144,ExpressionUUID->"84fe880a-af8f-4b50-a4b1-8794ce9ec0cd"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Tech Notes", "RelatedTutorialsSection",
- CellID->1781127695,ExpressionUUID->"e1059f40-7194-42bf-9af7-c617bf25b11a"],
-
-Cell[TextData[ButtonBox["A Quantum Playbook",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:QuantumPlaybook/tutorial/QuantumPlaybook"]], "RelatedTutorials",
- CellChangeTimes->{{3.881562842368142*^9, 3.881562854939859*^9}},
- CellID->64621854,ExpressionUUID->"9449875c-2eb8-4262-9246-0904e611ee7d"],
-
-Cell[TextData[ButtonBox["Mathieu and Related Functions",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:tutorial/MathematicalFunctions#10287"]], "RelatedTutorials",
- CellChangeTimes->{{3.866957923348461*^9, 3.866957937435985*^9}},
- CellID->834618593,ExpressionUUID->"42c07db6-ec09-4e6b-aa9f-25124640ebba"],
-
-Cell[TextData[ButtonBox["Quantum Information Systems with Q3",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:Q3/tutorial/QuantumInformationSystems"]], "RelatedTutorials",
- CellChangeTimes->{{3.850943050994355*^9, 3.850943087505946*^9}},
- CellID->2102036812,ExpressionUUID->"424a4e73-35eb-4053-bb1b-7b9a2c6fd2b8"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Related Links", "TutorialRelatedLinksSection",
- CellChangeTimes->{{3.850597361716105*^9, 3.850597362195363*^9}},
- CellID->847161968,ExpressionUUID->"c77fdbdc-d41d-4163-9f41-57029cacd3be"],
-
-Cell[TextData[{
- ButtonBox["Y. Nakamura, Y. A. Pashkin, and J. S. Tsai, Nature 398, 786 \
-(1999)",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://doi.org/10.1038/19718"], None}],
- ", \"Coherent control of macroscopic quantum states in a single-Cooper-pair \
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{29},
+     "Spacer1"], GridBox[{
+      {
+       RowBox[{
+        TemplateBox[{17},
+         "Spacer1"], 
+        StyleBox[
+         RowBox[{"Related", " ", "Links"}], 
+         "TutorialRelatedLinksSection"]}]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "Y. Nakamura, Y. A. Pashkin, and J. S. Tsai, Nature 398, \
+786 (1999)"}]]]], "https://doi.org/10.1038/19718"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "7d0f571b-2697-409f-971e-48f1c32deb3c"]}]],ExpressionUUID->
+         "bb712a93-b8a5-46a4-acd5-0857ccc97d72"],
+        ", \"Coherent control of macroscopic quantum states in a \
+single-Cooper-pair box.\""
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "d36bb8ed-5af4-4639-88c6-7eab3cd7052d"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], "J. Koch "}]]]], 
+             "https://doi.org/10.1103/PhysRevA.76.042319"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "d608a89d-be2f-446d-8832-adfea1760e2c"]}]],ExpressionUUID->
+         "721920c3-5b3b-42eb-8752-aeb3fc367e62"],
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+             StyleBox[{
+               StyleBox["et al", FontSlant -> "Italic"], 
+               "., Physical Review A 76, 042319 (2007)"}]]], 
+           "https://doi.org/10.1103/PhysRevA.76.042319"},
+          "WebLink",
+          BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+         "40d6cf70-84ce-46e1-b2e0-acb32a863021"],
+        ", \"Charge-insensitive qubit design derived from the Cooper pair \
 box.\""
-}], "TutorialRelatedLinks",
- CellChangeTimes->{{3.866689900240818*^9, 3.866689995903268*^9}},
- CellID->2079065127,ExpressionUUID->"d36bb8ed-5af4-4639-88c6-7eab3cd7052d"],
-
-Cell[TextData[{
- ButtonBox["J. Koch ",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://doi.org/10.1103/PhysRevA.76.042319"], None}],
- StyleBox[ButtonBox["et al",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://doi.org/10.1103/PhysRevA.76.042319"], None}],
-  FontSlant->"Italic"],
- ButtonBox["., Physical Review A 76, 042319 (2007)",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://doi.org/10.1103/PhysRevA.76.042319"], None}],
- ", \"Charge-insensitive qubit design derived from the Cooper pair box.\""
-}], "TutorialRelatedLinks",
- CellChangeTimes->{{3.866689772407517*^9, 3.86668982662014*^9}, 
-   3.8666898571199503`*^9},
- CellID->159401120,ExpressionUUID->"3111c180-422a-4da6-b13e-c4c01fc20835"],
-
-Cell[TextData[{
- ButtonBox["G. Blanch (1972)",
-  BaseStyle->"Hyperlink",
-  ButtonData->{
-    URL["https://dlmf.nist.gov/28"], None}],
- ", \"Mathieu Functions\" in ",
- StyleBox["Handbook of Mathematical Functions with Formulas, Graphs, and \
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "3111c180-422a-4da6-b13e-c4c01fc20835"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], "G. Blanch (1972)"}]]]], 
+             "https://dlmf.nist.gov/28"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "861cfd14-9587-4b03-a2e1-0a7d4ebaaccd"]}]],ExpressionUUID->
+         "9707cd48-d7c8-4e0b-ac17-ff4c86bf1863"],
+        ", \"Mathieu Functions\" in ",
+        StyleBox[
+        "Handbook of Mathematical Functions with Formulas, Graphs, and \
 Mathematical Tables",
-  FontSlant->"Italic"],
- ", edited by M. Abramowitz and I. A. Stegun (John Wiley & Sons, 1972)."
-}], "TutorialRelatedLinks",
- CellChangeTimes->{{3.866958121221672*^9, 3.866958198091242*^9}, {
-   3.866958275525366*^9, 3.866958340849454*^9}, 3.866958781166767*^9},
- CellID->976969510,ExpressionUUID->"9eb944ff-7eb8-4ca2-9cef-24a6c7460501"]
-}, Open  ]]
-}, Open  ]],
+         FontSlant->"Italic"],
+        ", edited by M. Abramowitz and I. A. Stegun (John Wiley & Sons, 1972)."
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "9eb944ff-7eb8-4ca2-9cef-24a6c7460501"]}
+     }]}
+  }]], "TutorialRelatedLinksSection",ExpressionUUID->"0bba90ad-fe77-4c86-9ea2-\
+7dceb029c7e0"],
 
-Cell[CellGroupData[{
-
-Cell["Metadata", "MetadataSection",
- CellID->860788796,ExpressionUUID->"269fd244-724d-4297-87ea-2e581b4581df"],
-
-Cell[TextData[{
- "New in: ",
- Cell["13.1", "HistoryData",
-  CellTags->"New",ExpressionUUID->"dff2678b-ff66-4bae-ac7d-65637f921bd9"],
- " | Modified in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Modified",ExpressionUUID->"15bdad71-9cfa-4158-ab38-62ffdd434d53"],
- " | Obsolete in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Obsolete",ExpressionUUID->"3440380f-5383-48f6-9c6e-f33289d245e2"],
- " | Excised in: ",
- Cell[" ", "HistoryData",
-  CellTags->"Excised",ExpressionUUID->"22c7cdeb-9f1e-4b0d-9c1c-3560cba76f32"]
-}], "History",
- CellChangeTimes->{{3.850625775230301*^9, 3.8506257753601627`*^9}, {
-  3.8663740445812387`*^9, 3.8663740461277113`*^9}},
- CellID->1247902091,ExpressionUUID->"0baf3fd0-3f4d-4d7b-a784-28ae4cca1f26"],
-
-Cell[CellGroupData[{
-
-Cell["Categorization", "CategorizationSection",
- CellID->1827448180,ExpressionUUID->"fd27759f-e768-4eed-8899-e7f784036007"],
-
-Cell["Tech Note", "Categorization",
- CellLabel->"Entity Type",
- CellID->610441866,ExpressionUUID->"aa1fc7fb-bd3f-4cf1-b158-3e1e7bb1eb8d"],
-
-Cell["QuantumPlaybook", "Categorization",
- CellLabel->"Paclet Name",
- CellID->1167060143,ExpressionUUID->"f8f58759-4e5c-4129-95e7-28fb7b033bb0"],
-
-Cell["Transmon`", "Categorization",
- CellChangeTimes->{{3.866373364880528*^9, 3.866373366573679*^9}, {
-  3.866373432571669*^9, 3.8663734336803637`*^9}},
- CellLabel->"Context",
- CellID->1811675350,ExpressionUUID->"4187edc1-76a5-4d94-a0b4-ecc63b76b0dc"],
-
-Cell["QuantumPlaybook/tutorial/TransmonQuantumPhaseModel", "Categorization",
- CellLabel->"URI",
- CellID->1804460284,ExpressionUUID->"86e39f22-7c60-4e99-8f62-41025316f4b5"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Keywords", "KeywordsSection",
- CellID->799930254,ExpressionUUID->"786cd24f-259c-4725-9a6a-35d2e0b79aae"],
-
-Cell["Transmon", "Keywords",
- CellChangeTimes->{{3.866373372529182*^9, 3.8663733736064568`*^9}, {
-  3.866690192568976*^9, 3.866690205470274*^9}},
- CellID->1180148758,ExpressionUUID->"8f8820d9-2ba4-49af-b829-ea2e0301dfa9"],
-
-Cell["Cooper-pair box", "Keywords",
- CellChangeTimes->{{3.8666901535192413`*^9, 3.866690159122486*^9}},
- CellID->912713703,ExpressionUUID->"b07924b4-58d9-4d25-b404-7b9c2293239a"],
-
-Cell["superconducting charge qubit", "Keywords",
- CellChangeTimes->{{3.8666902010330257`*^9, 3.866690209337823*^9}},
- CellID->1740158970,ExpressionUUID->"e02f351c-6922-4a99-b704-d65d8a08956b"],
-
-Cell["superconducting phase qubit", "Keywords",
- CellChangeTimes->{{3.86669021032204*^9, 3.866690214311328*^9}},
- CellID->1443433549,ExpressionUUID->"e52772ba-026a-4a23-bc54-16403db4e405"],
-
-Cell["superconducting flux qubit", "Keywords",
- CellChangeTimes->{{3.8666902156550903`*^9, 3.8666902206773567`*^9}},
- CellID->568217799,ExpressionUUID->"9876e7ae-912e-46ef-9d47-761236c903e1"],
-
-Cell["superconducting quantum computer", "Keywords",
- CellChangeTimes->{{3.8663733769004183`*^9, 3.866373385127268*^9}},
- CellID->565862337,ExpressionUUID->"7c0ab9b7-f087-409c-afc2-900d53370c56"],
-
-Cell["Bloch theorem", "Keywords",
- CellChangeTimes->{{3.8673582058316183`*^9, 3.8673582077745953`*^9}},
- CellID->1755465352,ExpressionUUID->"54102b1a-e6f6-4778-8939-d3a9475993eb"],
-
-Cell["Floquet theorem", "Keywords",
- CellChangeTimes->{{3.8673582103982687`*^9, 3.867358212319373*^9}},
- CellID->746420664,ExpressionUUID->"a9e56bff-f372-4d39-9842-11e2927237c6"]
-}, Open  ]]
-}, Open  ]]
+Cell[" ", "FooterCell",ExpressionUUID->"75bde3d7-97e2-459b-9b30-3ce1f6534a9c"]
 },
-WindowSize->{748, 1207},
-WindowMargins->{{319, Automatic}, {Automatic, 0}},
-TaggingRules-><|"Paclet" -> "QuantumPlaybook"|>,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Transmon: Quantum Phase Model",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"2022", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 1, 3, 11, 4, 52.807616}", 
+    "history" -> {"13.1", "", "", ""}, "context" -> "Transmon`", 
+    "keywords" -> {
+     "Transmon", "Cooper-pair box", "superconducting charge qubit", 
+      "superconducting phase qubit", "superconducting flux qubit", 
+      "superconducting quantum computer", "Bloch theorem", "Floquet theorem"},
+     "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> 
+    True, "label" -> "Quantum Playbook Tech Note", "language" -> "en", 
+    "paclet" -> "QuantumPlaybook", "status" -> "None", "summary" -> 
+    "The transmission-line shunted plasma oscillation qubit, or transmon in \
+short, is a variant of superconducting charge qubit that is insensitive to \
+charge noise. It consists of two small superconducting islands tunnel coupled \
+through two Josephson junctions (forming a dc-SQUID) and shunted by a large \
+capacitor (see Figure 1). The key feature that distinguishes the transmon \
+from the so-called Cooper-pair box (Nakamura, Pashkin, and Tsai, 1999) is to \
+reduce the sensitivity to charge noise using the capacitive shunt while \
+maintaining a sufficient anharmonicity for selective control of a pair of \
+levels to form a quantum bit (Koch et al., 2007). A transmon is a small \
+Josephson junction and is described by the Hamiltonian", "synonyms" -> {}, 
+    "tabletags" -> DocumentationBuild`Make`Private`tabletaggingrules$22015, 
+    "title" -> "Transmon: Quantum Phase Model", "titlemodifier" -> "", 
+    "windowtitle" -> "Transmon: Quantum Phase Model", "type" -> "Tech Note", 
+    "uri" -> "QuantumPlaybook/tutorial/TransmonQuantumPhaseModel"}},
 FrontEndVersion->"13.1 for Mac OS X ARM (64-bit) (June 16, 2022)",
-StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TechNotePageStylesExt.nb", 
-  CharacterEncoding -> "UTF-8"],
-ExpressionUUID->"19976518-225e-40ca-b9a3-ae5a9b64a207"
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "13.1 for Mac OS X ARM (64-bit) (June 16, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"ddbf6d1c-c4d0-4166-a1f3-94c603643a43"
 ]
 (* End of Notebook Content *)
 
@@ -15097,363 +15001,279 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[601, 21, 3589, 83, 57, "AnchorBarGrid",ExpressionUUID->"1976a06a-ee59-4300-af39-e8cc0a1a5f6e",
+ CellID->1],
 Cell[CellGroupData[{
-Cell[580, 22, 122, 1, 114, "Title",ExpressionUUID->"84619687-b99d-42fb-b62a-1e97838d67a8",
- CellID->1995842154],
-Cell[705, 25, 1175, 24, 104, "DefinitionBox",ExpressionUUID->"a7efde7c-3ddc-4c72-aeca-82b006a2880f",
+Cell[4215, 108, 1408, 38, 61, "ObjectNameGrid",ExpressionUUID->"e931dae2-a74a-49b2-8cc0-3ad6eede0d65"],
+Cell[5626, 148, 4496, 97, 91, "TechNoteJumpBox",ExpressionUUID->"652534f1-4de4-48a5-b797-8ac138f80d16"],
+Cell[10125, 247, 1249, 32, 123, "DefinitionBox",ExpressionUUID->"a7efde7c-3ddc-4c72-aeca-82b006a2880f",
  CellID->902056032],
-Cell[1883, 51, 200, 2, 30, "Caption",ExpressionUUID->"3850dfff-1213-4bf1-a9d0-d1e9ee3eecf7",
+Cell[11377, 281, 142, 1, 31, "TechNoteCaption",ExpressionUUID->"3850dfff-1213-4bf1-a9d0-d1e9ee3eecf7",
  CellID->1768665651],
-Cell[2086, 55, 1870, 36, 120, "Text",ExpressionUUID->"8e1c8753-da45-4d47-b3fe-d1a49df28a00",
+Cell[11522, 284, 1074, 25, 156, "TechNoteText",ExpressionUUID->"8e1c8753-da45-4d47-b3fe-d1a49df28a00",
  CellID->873981330],
-Cell[3959, 93, 334904, 5496, 305, "Text",ExpressionUUID->"3f80036a-4016-4b78-b799-2c7427caaf1d",
+Cell[12599, 311, 334848, 5495, 313, "TechNoteText",ExpressionUUID->"3f80036a-4016-4b78-b799-2c7427caaf1d",
  CellID->161542912],
-Cell[338866, 5591, 449, 9, 46, "Caption",ExpressionUUID->"e2400e56-9846-4f7c-bb2e-73a54e11aab7",
+Cell[347450, 5808, 316, 7, 50, "TechNoteCaption",ExpressionUUID->"e2400e56-9846-4f7c-bb2e-73a54e11aab7",
  CellID->718733029],
-Cell[CellGroupData[{
-Cell[339340, 5604, 194, 2, 41, "MathCaption",ExpressionUUID->"46038275-7f9e-4e05-8112-bb3f07d818d1",
+Cell[347769, 5817, 132, 1, 70, "TechNoteMathCaption",ExpressionUUID->"46038275-7f9e-4e05-8112-bb3f07d818d1",
  CellID->494954583],
-Cell[339537, 5608, 217, 4, 27, "Input",ExpressionUUID->"5a8ed06e-4ee4-4f90-b644-d3cb4c53cbe8",
+Cell[347904, 5820, 152, 3, 70, "Input",ExpressionUUID->"5a8ed06e-4ee4-4f90-b644-d3cb4c53cbe8",
  CellID->1497511650]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[339791, 5617, 229, 3, 45, "Section",ExpressionUUID->"51c9fb48-beb1-4144-8f97-0878cbba511b",
+Cell[348093, 5828, 123, 1, 70, "TechNoteSection",ExpressionUUID->"51c9fb48-beb1-4144-8f97-0878cbba511b",
  CellID->1938848208],
-Cell[340023, 5622, 385, 6, 25, "Text",ExpressionUUID->"3b44f7ba-6fbf-438e-86b1-f174fd9cf6e7",
+Cell[348219, 5831, 184, 3, 70, "TechNoteText",ExpressionUUID->"3b44f7ba-6fbf-438e-86b1-f174fd9cf6e7",
  CellID->1694078531],
-Cell[340411, 5630, 1104, 31, 32, "Text",ExpressionUUID->"3f64e552-cf52-4897-9fed-80156c5580df",
+Cell[348406, 5836, 1018, 29, 70, "TechNoteText",ExpressionUUID->"3f64e552-cf52-4897-9fed-80156c5580df",
  CellID->1039678591],
-Cell[341518, 5663, 4577, 117, 94, "Text",ExpressionUUID->"79fd7c82-abfa-4f6e-b1f0-eb7b36bc465b",
+Cell[349427, 5867, 4178, 111, 70, "TechNoteText",ExpressionUUID->"79fd7c82-abfa-4f6e-b1f0-eb7b36bc465b",
  CellID->1951126945],
-Cell[346098, 5782, 686, 18, 32, "Text",ExpressionUUID->"2146ea69-4f1f-4454-b692-32559977fe5c",
+Cell[353608, 5980, 628, 17, 70, "TechNoteText",ExpressionUUID->"2146ea69-4f1f-4454-b692-32559977fe5c",
  CellID->515274925],
-Cell[346787, 5802, 298, 5, 44, "Text",ExpressionUUID->"0c30cdf1-ad88-4b58-a4a1-e7688eddc103",
+Cell[354239, 5999, 238, 4, 70, "TechNoteText",ExpressionUUID->"0c30cdf1-ad88-4b58-a4a1-e7688eddc103",
  CellID->1835552066],
-Cell[347088, 5809, 636, 14, 41, "Text",ExpressionUUID->"dce11a55-878e-49b4-a5f6-1d842fe7e177",
+Cell[354480, 6005, 576, 13, 70, "TechNoteText",ExpressionUUID->"dce11a55-878e-49b4-a5f6-1d842fe7e177",
  CellID->1841863071],
-Cell[347727, 5825, 302, 7, 25, "Text",ExpressionUUID->"fa69716b-8464-41b9-b6dc-430935c58860",
+Cell[355059, 6020, 242, 6, 70, "TechNoteText",ExpressionUUID->"fa69716b-8464-41b9-b6dc-430935c58860",
  CellID->668277452],
-Cell[348032, 5834, 56310, 929, 206, "Text",ExpressionUUID->"51066b20-8f10-4ecd-80e7-32df741ac253",
+Cell[355304, 6028, 56318, 929, 70, "TechNoteText",ExpressionUUID->"51066b20-8f10-4ecd-80e7-32df741ac253",
  CellID->1212380834],
-Cell[404345, 6765, 4105, 108, 89, "Caption",ExpressionUUID->"8f204c60-1176-4fc8-9894-453cee144567",
+Cell[411625, 6959, 4047, 107, 70, "TechNoteCaption",ExpressionUUID->"8f204c60-1176-4fc8-9894-453cee144567",
  CellID->2002338608],
-Cell[408453, 6875, 2782, 64, 107, "Text",ExpressionUUID->"9afcaabc-9bb0-4c1b-9cd5-4ab54b982daa",
+Cell[415675, 7068, 2235, 56, 70, "TechNoteText",ExpressionUUID->"9afcaabc-9bb0-4c1b-9cd5-4ab54b982daa",
  CellID->807078751],
-Cell[411238, 6941, 851, 22, 57, "Text",ExpressionUUID->"5b98d29d-bca3-41b8-a507-dd118d049627",
+Cell[417913, 7126, 718, 20, 70, "TechNoteText",ExpressionUUID->"5b98d29d-bca3-41b8-a507-dd118d049627",
  CellID->1061060072],
-Cell[412092, 6965, 572, 11, 44, "Text",ExpressionUUID->"ea5b4231-c9e8-4a38-8d43-0d0147f87be2",
+Cell[418634, 7148, 322, 7, 70, "TechNoteText",ExpressionUUID->"ea5b4231-c9e8-4a38-8d43-0d0147f87be2",
  CellID->1689424343],
-Cell[412667, 6978, 1159, 29, 32, "Text",ExpressionUUID->"909e3253-0842-4bcb-9f9f-df355fa35a6c",
+Cell[418959, 7157, 909, 25, 70, "TechNoteText",ExpressionUUID->"909e3253-0842-4bcb-9f9f-df355fa35a6c",
  CellID->1697021582],
-Cell[413829, 7009, 460, 10, 25, "Text",ExpressionUUID->"e343654d-328e-4486-89b7-45da8570c0c5",
+Cell[419871, 7184, 210, 6, 70, "TechNoteText",ExpressionUUID->"e343654d-328e-4486-89b7-45da8570c0c5",
  CellID->600783519],
-Cell[414292, 7021, 1062, 28, 41, "Text",ExpressionUUID->"16ae58d0-4598-4998-a2c2-87adb1d3d5f1",
+Cell[420084, 7192, 955, 26, 70, "TechNoteText",ExpressionUUID->"16ae58d0-4598-4998-a2c2-87adb1d3d5f1",
  CellID->2113106672],
-Cell[415357, 7051, 266, 5, 25, "Text",ExpressionUUID->"c5ba5dad-0613-4af4-9940-fdaea10a869c",
+Cell[421042, 7220, 208, 4, 70, "TechNoteText",ExpressionUUID->"c5ba5dad-0613-4af4-9940-fdaea10a869c",
  CellID->1946973196],
-Cell[415626, 7058, 1752, 44, 44, "Text",ExpressionUUID->"c4c53bd1-2a84-4c2b-9f5d-f0d1597226f5",
+Cell[421253, 7226, 1641, 42, 70, "TechNoteText",ExpressionUUID->"c4c53bd1-2a84-4c2b-9f5d-f0d1597226f5",
  CellID->693176039],
-Cell[417381, 7104, 386, 8, 44, "Text",ExpressionUUID->"d3c2005a-889b-4efe-a234-15577894f353",
+Cell[422897, 7270, 273, 6, 70, "TechNoteText",ExpressionUUID->"d3c2005a-889b-4efe-a234-15577894f353",
  CellID->185020457],
-Cell[417770, 7114, 645, 16, 27, "Text",ExpressionUUID->"b658b445-42b9-4a5a-9ed2-da5831bf6254",
+Cell[423173, 7278, 585, 15, 70, "TechNoteText",ExpressionUUID->"b658b445-42b9-4a5a-9ed2-da5831bf6254",
  CellID->1706049274]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[418452, 7135, 175, 2, 45, "Section",ExpressionUUID->"6fdfbd36-19af-4aee-acf6-f874342f68ec",
+Cell[423795, 7298, 116, 1, 70, "TechNoteSection",ExpressionUUID->"6fdfbd36-19af-4aee-acf6-f874342f68ec",
  CellID->170388726],
-Cell[418630, 7139, 222, 4, 27, "Input",ExpressionUUID->"88ebd940-8e26-4184-9d2f-9c6ca130aa81",
+Cell[423914, 7301, 152, 3, 70, "Input",ExpressionUUID->"88ebd940-8e26-4184-9d2f-9c6ca130aa81",
  CellID->1709628000],
 Cell[CellGroupData[{
-Cell[418877, 7147, 517, 12, 44, "Subsection",ExpressionUUID->"e80161f7-5dc9-4f30-a40b-abe1bd4bbe90",
+Cell[424091, 7308, 450, 11, 70, "Subsection",ExpressionUUID->"e80161f7-5dc9-4f30-a40b-abe1bd4bbe90",
  CellID->2134184332],
-Cell[419397, 7161, 177, 2, 25, "Text",ExpressionUUID->"11045e16-f582-4846-b3cb-e58c9f41876b",
+Cell[424544, 7321, 119, 1, 70, "TechNoteText",ExpressionUUID->"11045e16-f582-4846-b3cb-e58c9f41876b",
  CellID->401368965]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[419611, 7168, 510, 12, 44, "Subsection",ExpressionUUID->"55eda08c-5d1d-44f9-9584-4cff32791375",
+Cell[424700, 7327, 442, 11, 70, "Subsection",ExpressionUUID->"55eda08c-5d1d-44f9-9584-4cff32791375",
  CellID->59991752],
-Cell[420124, 7182, 177, 2, 25, "Text",ExpressionUUID->"174f556b-18f4-4be4-b7e2-e0cb2e0b3edf",
+Cell[425145, 7340, 119, 1, 70, "TechNoteText",ExpressionUUID->"174f556b-18f4-4be4-b7e2-e0cb2e0b3edf",
  CellID->762433005]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[420350, 7190, 221, 3, 45, "Section",ExpressionUUID->"b17e7835-0d71-4eae-9217-57103517accd",
+Cell[425313, 7347, 114, 1, 70, "TechNoteSection",ExpressionUUID->"b17e7835-0d71-4eae-9217-57103517accd",
  CellID->428639651],
-Cell[420574, 7195, 833, 18, 122, "DefinitionBox",ExpressionUUID->"80410dd0-fd13-4a51-875c-40dd9b8c021c",
+Cell[425430, 7350, 899, 22, 70, "DefinitionBox",ExpressionUUID->"80410dd0-fd13-4a51-875c-40dd9b8c021c",
  CellID->1779792370],
-Cell[CellGroupData[{
-Cell[421432, 7217, 194, 2, 30, "Caption",ExpressionUUID->"5f9c5116-9adc-40f3-8759-0339aff148b3",
+Cell[426332, 7374, 136, 1, 70, "TechNoteCaption",ExpressionUUID->"5f9c5116-9adc-40f3-8759-0339aff148b3",
  CellID->670643527],
-Cell[421629, 7221, 222, 4, 27, "Input",ExpressionUUID->"46ab8046-f48e-442f-b0a7-98fe212e6a08",
- CellID->1958972845]
-}, Open  ]],
-Cell[421866, 7228, 434, 7, 25, "Text",ExpressionUUID->"ac8c9758-d4f3-46a1-beeb-9b47c3f9a68f",
+Cell[426471, 7377, 152, 3, 70, "Input",ExpressionUUID->"46ab8046-f48e-442f-b0a7-98fe212e6a08",
+ CellID->1958972845],
+Cell[426626, 7382, 181, 3, 70, "TechNoteText",ExpressionUUID->"ac8c9758-d4f3-46a1-beeb-9b47c3f9a68f",
  CellID->1547238424],
-Cell[422303, 7237, 978, 25, 41, "Text",ExpressionUUID->"1709fefb-de72-4539-9754-9150a911f554",
+Cell[426810, 7387, 846, 23, 70, "TechNoteText",ExpressionUUID->"1709fefb-de72-4539-9754-9150a911f554",
  CellID->400121982],
-Cell[423284, 7264, 906, 19, 44, "Text",ExpressionUUID->"24246715-afbd-4fcf-a0bb-2ee762fb6455",
+Cell[427659, 7412, 450, 12, 70, "TechNoteText",ExpressionUUID->"24246715-afbd-4fcf-a0bb-2ee762fb6455",
  CellID->849606356],
-Cell[424193, 7285, 1115, 26, 41, "Text",ExpressionUUID->"b566962f-e042-4453-9cd2-4b32b8c3db18",
+Cell[428112, 7426, 959, 23, 70, "TechNoteText",ExpressionUUID->"b566962f-e042-4453-9cd2-4b32b8c3db18",
  CellID->1559573891],
-Cell[425311, 7313, 627, 14, 44, "Text",ExpressionUUID->"be18249c-82f8-4c17-abaf-14d82831e19d",
+Cell[429074, 7451, 424, 11, 70, "TechNoteText",ExpressionUUID->"be18249c-82f8-4c17-abaf-14d82831e19d",
  CellID->826884776],
-Cell[425941, 7329, 3805, 90, 110, "Text",ExpressionUUID->"9677f42a-c784-4d81-ad84-519c04a37846",
+Cell[429501, 7464, 3221, 82, 70, "TechNoteText",ExpressionUUID->"9677f42a-c784-4d81-ad84-519c04a37846",
  CellID->1507807136],
 Cell[CellGroupData[{
-Cell[429771, 7423, 179, 2, 42, "Subsection",ExpressionUUID->"5f2324a7-3ec2-40be-a553-ecbd56aed2b5",
+Cell[432747, 7550, 111, 1, 70, "Subsection",ExpressionUUID->"5f2324a7-3ec2-40be-a553-ecbd56aed2b5",
  CellID->1919793530],
-Cell[429953, 7427, 1081, 26, 48, "Text",ExpressionUUID->"b469d6b2-aa30-413f-bff8-93eb1fdcf7b1",
+Cell[432861, 7553, 923, 23, 70, "TechNoteText",ExpressionUUID->"b469d6b2-aa30-413f-bff8-93eb1fdcf7b1",
  CellID->1146307208],
-Cell[431037, 7455, 940, 24, 29, "Text",ExpressionUUID->"933ef6c6-4506-458e-9e0c-7a742e2f3bda",
+Cell[433787, 7578, 831, 22, 70, "TechNoteText",ExpressionUUID->"933ef6c6-4506-458e-9e0c-7a742e2f3bda",
  CellID->1836996988],
-Cell[431980, 7481, 296, 6, 25, "Text",ExpressionUUID->"d8d28eb1-f830-4add-bfc5-241acf8ff1b3",
+Cell[434621, 7602, 187, 4, 70, "TechNoteText",ExpressionUUID->"d8d28eb1-f830-4add-bfc5-241acf8ff1b3",
  CellID->1002080302],
-Cell[432279, 7489, 912, 23, 32, "Text",ExpressionUUID->"ed967b39-8d48-47ff-bc0f-5c7f2bdc9074",
+Cell[434811, 7608, 752, 20, 70, "TechNoteText",ExpressionUUID->"ed967b39-8d48-47ff-bc0f-5c7f2bdc9074",
  CellID->1808814691],
-Cell[433194, 7514, 472, 12, 27, "Text",ExpressionUUID->"f324ee1a-e335-4088-8d41-cee3724e8498",
+Cell[435566, 7630, 414, 11, 70, "TechNoteText",ExpressionUUID->"f324ee1a-e335-4088-8d41-cee3724e8498",
  CellID->938596671],
-Cell[433669, 7528, 503, 15, 44, "Text",ExpressionUUID->"ef533499-ffaa-4762-9938-93c08d2bbde9",
+Cell[435983, 7643, 392, 13, 70, "TechNoteText",ExpressionUUID->"ef533499-ffaa-4762-9938-93c08d2bbde9",
  CellID->1377197139],
-Cell[434175, 7545, 902, 21, 27, "Text",ExpressionUUID->"3ec696a3-0454-4b35-a501-f7b2663aa1d2",
+Cell[436378, 7658, 696, 18, 70, "TechNoteText",ExpressionUUID->"3ec696a3-0454-4b35-a501-f7b2663aa1d2",
  CellID->480568027],
-Cell[435080, 7568, 976, 23, 65, "Text",ExpressionUUID->"2904f56e-dad3-4ca4-8ecb-1c8873b3229f",
+Cell[437077, 7678, 772, 20, 70, "TechNoteText",ExpressionUUID->"2904f56e-dad3-4ca4-8ecb-1c8873b3229f",
  CellID->1946440487],
-Cell[CellGroupData[{
-Cell[436081, 7595, 291, 5, 41, "MathCaption",ExpressionUUID->"70b25202-b1a2-4099-ab26-7c30b5d0e4a7",
+Cell[437852, 7700, 181, 3, 70, "TechNoteMathCaption",ExpressionUUID->"70b25202-b1a2-4099-ab26-7c30b5d0e4a7",
  CellID->1699554849],
-Cell[436375, 7602, 606, 14, 66, "Input",ExpressionUUID->"a9fe38a3-7e87-437c-9f03-a84ae658f92e",
- CellID->204329706]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[437018, 7621, 275, 5, 58, "MathCaption",ExpressionUUID->"eda9ac3e-d29d-4678-a283-ba4b0fc4f699",
+Cell[438036, 7705, 438, 11, 70, "Input",ExpressionUUID->"a9fe38a3-7e87-437c-9f03-a84ae658f92e",
+ CellID->204329706],
+Cell[438477, 7718, 217, 4, 70, "TechNoteMathCaption",ExpressionUUID->"eda9ac3e-d29d-4678-a283-ba4b0fc4f699",
  CellID->494943984],
 Cell[CellGroupData[{
-Cell[437318, 7630, 539, 14, 47, "Input",ExpressionUUID->"65c6cad6-3962-4480-85b1-7a82b7e0d185",
+Cell[438719, 7726, 475, 13, 70, "Input",ExpressionUUID->"65c6cad6-3962-4480-85b1-7a82b7e0d185",
  CellID->184637593],
-Cell[437860, 7646, 35181, 602, 378, "Output",ExpressionUUID->"3119592a-4c4a-4cf1-bea5-ff7f428da92b",
+Cell[439197, 7741, 35016, 599, 389, "Output",ExpressionUUID->"3119592a-4c4a-4cf1-bea5-ff7f428da92b",
  CellID->854355858]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[473090, 8254, 250, 4, 41, "MathCaption",ExpressionUUID->"4d023dbb-9bfd-407f-a453-d0075e070431",
+Cell[474228, 8343, 190, 3, 70, "TechNoteMathCaption",ExpressionUUID->"4d023dbb-9bfd-407f-a453-d0075e070431",
  CellID->858453958],
 Cell[CellGroupData[{
-Cell[473365, 8262, 720, 19, 47, "Input",ExpressionUUID->"32908bd7-e616-4cbd-8690-b6f24d970e15",
+Cell[474443, 8350, 607, 17, 70, "Input",ExpressionUUID->"32908bd7-e616-4cbd-8690-b6f24d970e15",
  CellID->1573110719],
-Cell[474088, 8283, 36217, 620, 378, "Output",ExpressionUUID->"9f495fef-f988-49ae-8832-6fee1cda0463",
+Cell[475053, 8369, 36100, 617, 389, "Output",ExpressionUUID->"9f495fef-f988-49ae-8832-6fee1cda0463",
  CellID->1384815573]
-}, Open  ]]
 }, Open  ]],
-Cell[510332, 8907, 358, 9, 25, "Text",ExpressionUUID->"9c2d3283-cfea-41ca-808c-20f66e7316a9",
+Cell[511168, 8989, 249, 7, 70, "TechNoteText",ExpressionUUID->"9c2d3283-cfea-41ca-808c-20f66e7316a9",
  CellID->1295918368],
-Cell[CellGroupData[{
-Cell[510715, 8920, 347, 6, 58, "MathCaption",ExpressionUUID->"e05d0a2b-a01b-4717-a566-f63c84efe4e4",
+Cell[511420, 8998, 238, 4, 70, "TechNoteMathCaption",ExpressionUUID->"e05d0a2b-a01b-4717-a566-f63c84efe4e4",
  CellID->2146643744],
 Cell[CellGroupData[{
-Cell[511087, 8930, 2708, 69, 180, "Input",ExpressionUUID->"d9e73bac-b4ed-4b90-903e-4a6f34f9419c",
+Cell[511683, 9006, 2104, 60, 70, "Input",ExpressionUUID->"d9e73bac-b4ed-4b90-903e-4a6f34f9419c",
  CellID->1036262070],
-Cell[513798, 9001, 19135, 343, 399, "Output",ExpressionUUID->"8317eaf2-8dc2-4e2b-9d86-16e08eb8cee1",
+Cell[513790, 9068, 18506, 333, 410, "Output",ExpressionUUID->"8317eaf2-8dc2-4e2b-9d86-16e08eb8cee1",
  CellID->643832829]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[532982, 9350, 451, 8, 58, "MathCaption",ExpressionUUID->"9e21d03b-cc3c-4117-b4b1-9e2e3cd6b2ba",
+Cell[532311, 9404, 293, 5, 70, "TechNoteMathCaption",ExpressionUUID->"9e21d03b-cc3c-4117-b4b1-9e2e3cd6b2ba",
  CellID->2069478039],
 Cell[CellGroupData[{
-Cell[533458, 9362, 2711, 69, 180, "Input",ExpressionUUID->"d6f5576c-d4ed-4300-bb9f-cbb4893744bd",
+Cell[532629, 9413, 2105, 60, 70, "Input",ExpressionUUID->"d6f5576c-d4ed-4300-bb9f-cbb4893744bd",
  CellID->2141032521],
-Cell[536172, 9433, 16767, 305, 387, "Output",ExpressionUUID->"9b876dc1-1ee0-493c-b523-ed066d4c54ca",
+Cell[534737, 9475, 16701, 304, 398, "Output",ExpressionUUID->"9b876dc1-1ee0-493c-b523-ed066d4c54ca",
  CellID->126979287]
-}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[553000, 9745, 179, 2, 42, "Subsection",ExpressionUUID->"34b3d79e-ca60-4730-8e4a-ebd38dc9d0b4",
+Cell[551487, 9785, 115, 1, 70, "Subsection",ExpressionUUID->"34b3d79e-ca60-4730-8e4a-ebd38dc9d0b4",
  CellID->1284780530],
-Cell[553182, 9749, 2862, 70, 109, "Text",ExpressionUUID->"97849a34-aeca-4860-8337-eb6c909f7fb2",
+Cell[551605, 9788, 2604, 66, 70, "TechNoteText",ExpressionUUID->"97849a34-aeca-4860-8337-eb6c909f7fb2",
  CellID->776220634],
-Cell[556047, 9821, 1893, 45, 48, "Text",ExpressionUUID->"a83fd811-6b81-4efa-a6c3-60a0671e9ee5",
+Cell[554212, 9856, 1637, 41, 70, "TechNoteText",ExpressionUUID->"a83fd811-6b81-4efa-a6c3-60a0671e9ee5",
  CellID->2091133882],
-Cell[557943, 9868, 1082, 29, 41, "Text",ExpressionUUID->"32246fd8-1bfe-4833-b44c-14be24fc47c6",
+Cell[555852, 9899, 1024, 28, 70, "TechNoteText",ExpressionUUID->"32246fd8-1bfe-4833-b44c-14be24fc47c6",
  CellID->34522092],
-Cell[559028, 9899, 1136, 31, 41, "Text",ExpressionUUID->"d96e9f80-9617-427d-91f9-0e1ba5c3532c",
+Cell[556879, 9929, 1078, 30, 70, "TechNoteText",ExpressionUUID->"d96e9f80-9617-427d-91f9-0e1ba5c3532c",
  CellID->1065060897],
-Cell[560167, 9932, 3293, 80, 126, "Text",ExpressionUUID->"31b8d458-0c79-4ffb-a805-6438dc91d268",
+Cell[557960, 9961, 3031, 76, 70, "TechNoteText",ExpressionUUID->"31b8d458-0c79-4ffb-a805-6438dc91d268",
  CellID->681991870],
-Cell[563463, 10014, 1058, 28, 28, "Text",ExpressionUUID->"6146667c-4267-474c-aeb0-fac3283c0b0c",
+Cell[560994, 10039, 901, 25, 70, "TechNoteText",ExpressionUUID->"6146667c-4267-474c-aeb0-fac3283c0b0c",
  CellID->1217648810],
-Cell[564524, 10044, 1261, 30, 47, "Text",ExpressionUUID->"0b3859b6-3e17-41b8-9e0d-47eabcaab8c9",
+Cell[561898, 10066, 1103, 27, 70, "TechNoteText",ExpressionUUID->"0b3859b6-3e17-41b8-9e0d-47eabcaab8c9",
  CellID->1292111441],
-Cell[565788, 10076, 1029, 28, 27, "Text",ExpressionUUID->"daaef912-a6e5-4e99-a046-3766c34a3ee5",
+Cell[563004, 10095, 917, 26, 70, "TechNoteText",ExpressionUUID->"daaef912-a6e5-4e99-a046-3766c34a3ee5",
  CellID->975786153],
-Cell[566820, 10106, 2355, 60, 48, "Text",ExpressionUUID->"e3104b01-22ab-4ee9-a3a2-8e4a55e1474a",
+Cell[563924, 10123, 2195, 57, 70, "TechNoteText",ExpressionUUID->"e3104b01-22ab-4ee9-a3a2-8e4a55e1474a",
  CellID->1818426641]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[569224, 10172, 182, 2, 45, "Section",ExpressionUUID->"dfced86a-c5a4-4ca6-bb2c-0f4a0092beae",
+Cell[566168, 10186, 122, 1, 70, "TechNoteSection",ExpressionUUID->"dfced86a-c5a4-4ca6-bb2c-0f4a0092beae",
  CellID->138156041],
-Cell[569409, 10176, 222, 4, 27, "Input",ExpressionUUID->"61ad759c-2fef-439e-aff7-8e5003d20f2f",
+Cell[566293, 10189, 152, 3, 70, "Input",ExpressionUUID->"61ad759c-2fef-439e-aff7-8e5003d20f2f",
  CellID->1150065278],
-Cell[569634, 10182, 1623, 38, 65, "Text",ExpressionUUID->"04ac1f75-10cf-4906-b335-24bcb883c4dd",
+Cell[566448, 10194, 1317, 33, 70, "TechNoteText",ExpressionUUID->"04ac1f75-10cf-4906-b335-24bcb883c4dd",
  CellID->468284324],
-Cell[571260, 10222, 1115, 26, 41, "Text",ExpressionUUID->"226b8b36-c4e9-45d4-8bdf-2b7e71b16405",
+Cell[567768, 10229, 959, 23, 70, "TechNoteText",ExpressionUUID->"226b8b36-c4e9-45d4-8bdf-2b7e71b16405",
  CellID->1227593811],
-Cell[572378, 10250, 1806, 42, 67, "Text",ExpressionUUID->"e2211d97-5d1e-43fa-8e8e-369e57193dc6",
+Cell[568730, 10254, 1500, 37, 70, "TechNoteText",ExpressionUUID->"e2211d97-5d1e-43fa-8e8e-369e57193dc6",
  CellID->745744007],
-Cell[574187, 10294, 279, 5, 25, "Text",ExpressionUUID->"d9b25aa4-34bd-43ad-9986-73c755cd5f76",
+Cell[570233, 10293, 170, 3, 70, "TechNoteText",ExpressionUUID->"d9b25aa4-34bd-43ad-9986-73c755cd5f76",
  CellID->1251747742],
-Cell[574469, 10301, 930, 23, 41, "Text",ExpressionUUID->"1067f284-bff4-445f-8414-0e7528eafe72",
+Cell[570406, 10298, 870, 22, 70, "TechNoteText",ExpressionUUID->"1067f284-bff4-445f-8414-0e7528eafe72",
  CellID->923702001],
-Cell[575402, 10326, 173, 2, 25, "Text",ExpressionUUID->"31bb3969-8904-4f24-a7db-0352a4dee6cc",
+Cell[571279, 10322, 115, 1, 70, "TechNoteText",ExpressionUUID->"31bb3969-8904-4f24-a7db-0352a4dee6cc",
  CellID->65073434],
-Cell[575578, 10330, 1667, 45, 28, "Text",ExpressionUUID->"98bf87d4-3ce0-41df-a1e2-141f26f2e921",
+Cell[571397, 10325, 1507, 42, 70, "TechNoteText",ExpressionUUID->"98bf87d4-3ce0-41df-a1e2-141f26f2e921",
  CellID->2008242915],
-Cell[577248, 10377, 1415, 41, 48, "Text",ExpressionUUID->"dd595e3d-981d-4c1e-9b64-3acae47be64e",
+Cell[572907, 10369, 1257, 38, 70, "TechNoteText",ExpressionUUID->"dd595e3d-981d-4c1e-9b64-3acae47be64e",
  CellID->427459998],
-Cell[CellGroupData[{
-Cell[578688, 10422, 250, 4, 41, "MathCaption",ExpressionUUID->"22eabd9b-bd2b-4467-9062-d93db2cd37b9",
+Cell[574167, 10409, 190, 3, 70, "TechNoteMathCaption",ExpressionUUID->"22eabd9b-bd2b-4467-9062-d93db2cd37b9",
  CellID->247564451],
-Cell[578941, 10428, 762, 18, 85, "Input",ExpressionUUID->"451a381a-88ea-49ae-a451-280671f6ecd3",
+Cell[574360, 10414, 551, 15, 70, "Input",ExpressionUUID->"451a381a-88ea-49ae-a451-280671f6ecd3",
  CellID->1780744697],
 Cell[CellGroupData[{
-Cell[579728, 10450, 739, 17, 47, "Input",ExpressionUUID->"f71b0fc6-fe20-4992-ac27-bd7e78fe1b68",
+Cell[574936, 10433, 528, 14, 70, "Input",ExpressionUUID->"f71b0fc6-fe20-4992-ac27-bd7e78fe1b68",
  CellID->1871320843],
-Cell[580470, 10469, 31095, 535, 378, "Output",ExpressionUUID->"0a980032-d4fe-448c-9a9e-5e6af99ca7b8",
+Cell[575467, 10449, 30908, 532, 389, "Output",ExpressionUUID->"0a980032-d4fe-448c-9a9e-5e6af99ca7b8",
  CellID->1730556660]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[611614, 11010, 255, 5, 41, "MathCaption",ExpressionUUID->"92cf618e-8b1a-44d1-8b93-e1d2793d980e",
+Cell[606390, 10984, 197, 4, 70, "TechNoteMathCaption",ExpressionUUID->"92cf618e-8b1a-44d1-8b93-e1d2793d980e",
  CellID->1146806578],
 Cell[CellGroupData[{
-Cell[611894, 11019, 1090, 30, 85, "Input",ExpressionUUID->"120f2e0c-8051-49a3-ad1b-4c9d5d02d3c1",
+Cell[606612, 10992, 975, 28, 70, "Input",ExpressionUUID->"120f2e0c-8051-49a3-ad1b-4c9d5d02d3c1",
  CellID->1722105853],
-Cell[612987, 11051, 4220, 96, 383, "Output",ExpressionUUID->"58eb9291-b63e-4a25-be4f-f43876ef96af",
+Cell[607590, 11022, 4103, 93, 394, "Output",ExpressionUUID->"58eb9291-b63e-4a25-be4f-f43876ef96af",
  CellID->503825587]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[617256, 11153, 264, 3, 41, "MathCaption",ExpressionUUID->"ae2371bd-707c-4c70-af88-727c7aa3b95d",
+Cell[611708, 11118, 153, 1, 70, "TechNoteMathCaption",ExpressionUUID->"ae2371bd-707c-4c70-af88-727c7aa3b95d",
  CellID->243979338],
-Cell[617523, 11158, 811, 19, 85, "Input",ExpressionUUID->"7fc59e23-d895-4368-83ee-d5b16b5da01e",
+Cell[611864, 11121, 551, 15, 70, "Input",ExpressionUUID->"7fc59e23-d895-4368-83ee-d5b16b5da01e",
  CellID->1014451643],
 Cell[CellGroupData[{
-Cell[618359, 11181, 740, 17, 47, "Input",ExpressionUUID->"726df25c-eab2-474f-98cf-a35513dad7f4",
+Cell[612440, 11140, 529, 14, 70, "Input",ExpressionUUID->"726df25c-eab2-474f-98cf-a35513dad7f4",
  CellID->1016090368],
-Cell[619102, 11200, 45544, 773, 378, "Output",ExpressionUUID->"a326afba-3b8d-482c-b52b-04151ad6cc5a",
+Cell[612972, 11156, 45309, 769, 389, "Output",ExpressionUUID->"a326afba-3b8d-482c-b52b-04151ad6cc5a",
  CellID->604990663]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[664683, 11978, 1091, 30, 85, "Input",ExpressionUUID->"3d5656e0-7f51-4686-a70b-c452f9a61472",
+Cell[658318, 11930, 976, 28, 70, "Input",ExpressionUUID->"3d5656e0-7f51-4686-a70b-c452f9a61472",
  CellID->1137313168],
-Cell[665777, 12010, 4201, 95, 383, "Output",ExpressionUUID->"6da54c1b-0487-4106-aac1-e50476154e79",
+Cell[659297, 11960, 4105, 93, 394, "Output",ExpressionUUID->"6da54c1b-0487-4106-aac1-e50476154e79",
  CellID->1448573271]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[670015, 12110, 1502, 32, 85, "Input",ExpressionUUID->"51f51ab6-304a-45c1-a427-f9ed5c6800fb",
+Cell[663439, 12058, 861, 23, 70, "Input",ExpressionUUID->"51f51ab6-304a-45c1-a427-f9ed5c6800fb",
  CellID->107211967],
-Cell[671520, 12144, 53798, 937, 391, "Output",ExpressionUUID->"c4d6855e-5a62-4739-aadc-816d09bfc2a2",
+Cell[664303, 12083, 53531, 933, 402, "Output",ExpressionUUID->"c4d6855e-5a62-4739-aadc-816d09bfc2a2",
  CellID->598053705]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[725355, 13086, 1505, 32, 85, "Input",ExpressionUUID->"19c0c0c6-d9ff-4d34-8c0c-5ecb1afec77b",
+Cell[717871, 13021, 862, 23, 70, "Input",ExpressionUUID->"19c0c0c6-d9ff-4d34-8c0c-5ecb1afec77b",
  CellID->1739519264],
-Cell[726863, 13120, 23009, 403, 387, "Output",ExpressionUUID->"4aa8abe2-0494-49b5-8678-7073532d0d78",
+Cell[718736, 13046, 22967, 402, 398, "Output",ExpressionUUID->"4aa8abe2-0494-49b5-8678-7073532d0d78",
  CellID->801642582]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[749921, 13529, 289, 5, 58, "MathCaption",ExpressionUUID->"26e8f494-5ada-49b4-807b-f81c7afadfd2",
+Cell[741718, 13451, 229, 4, 70, "TechNoteMathCaption",ExpressionUUID->"26e8f494-5ada-49b4-807b-f81c7afadfd2",
  CellID->1188823418],
 Cell[CellGroupData[{
-Cell[750235, 13538, 1537, 30, 85, "Input",ExpressionUUID->"a7c8e1a1-51d4-47ff-8136-68195bcdb866",
+Cell[741972, 13459, 694, 18, 70, "Input",ExpressionUUID->"a7c8e1a1-51d4-47ff-8136-68195bcdb866",
  CellID->1796169684],
-Cell[751775, 13570, 36739, 636, 399, "Output",ExpressionUUID->"d240cacf-ec63-4644-a8a2-f523e417ca37",
+Cell[742669, 13479, 35785, 623, 410, "Output",ExpressionUUID->"d240cacf-ec63-4644-a8a2-f523e417ca37",
  CellID->931230069]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[788563, 14212, 313, 8, 41, "MathCaption",ExpressionUUID->"20357a51-2fdd-44de-bf77-c97df170ea32",
+Cell[778469, 14105, 253, 7, 70, "TechNoteMathCaption",ExpressionUUID->"20357a51-2fdd-44de-bf77-c97df170ea32",
  CellID->949183490],
 Cell[CellGroupData[{
-Cell[788901, 14224, 1416, 28, 85, "Input",ExpressionUUID->"8f513f6b-5eea-41ab-8121-864c8a0edd04",
+Cell[778747, 14116, 696, 18, 70, "Input",ExpressionUUID->"8f513f6b-5eea-41ab-8121-864c8a0edd04",
  CellID->1312098114],
-Cell[790320, 14254, 35794, 626, 391, "Output",ExpressionUUID->"6ec70d04-459e-42b6-9986-cbbb3173ada5",
+Cell[779446, 14136, 35510, 621, 402, "Output",ExpressionUUID->"6ec70d04-459e-42b6-9986-cbbb3173ada5",
  CellID->1281676296]
 }, Open  ]]
-}, Open  ]]
 }, Open  ]],
-Cell[CellGroupData[{
-Cell[826175, 14887, 191, 2, 74, "TutorialMoreAboutSection",ExpressionUUID->"95fcc82d-e223-474a-b1a5-29d526c30a38",
- CellID->342788460],
-Cell[826369, 14891, 302, 5, 24, "TutorialMoreAbout",ExpressionUUID->"01f04e72-f4f4-4e04-b243-f2a900fa5558",
- CellID->1551876817],
-Cell[826674, 14898, 292, 4, 24, "TutorialMoreAbout",ExpressionUUID->"3e2b1269-c660-4ab5-bf58-aad4422f095b",
- CellID->2096576364],
-Cell[826969, 14904, 283, 4, 24, "TutorialMoreAbout",ExpressionUUID->"84fe880a-af8f-4b50-a4b1-8794ce9ec0cd",
- CellID->2020423144]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[827289, 14913, 129, 1, 74, "RelatedTutorialsSection",ExpressionUUID->"e1059f40-7194-42bf-9af7-c617bf25b11a",
- CellID->1781127695],
-Cell[827421, 14916, 294, 5, 24, "RelatedTutorials",ExpressionUUID->"9449875c-2eb8-4262-9246-0904e611ee7d",
- CellID->64621854],
-Cell[827718, 14923, 302, 5, 24, "RelatedTutorials",ExpressionUUID->"42c07db6-ec09-4e6b-aa9f-25124640ebba",
- CellID->834618593],
-Cell[828023, 14930, 310, 5, 24, "RelatedTutorials",ExpressionUUID->"424a4e73-35eb-4053-bb1b-7b9a2c6fd2b8",
- CellID->2102036812]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[828370, 14940, 193, 2, 74, "TutorialRelatedLinksSection",ExpressionUUID->"c77fdbdc-d41d-4163-9f41-57029cacd3be",
- CellID->847161968],
-Cell[828566, 14944, 447, 10, 42, "TutorialRelatedLinks",ExpressionUUID->"d36bb8ed-5af4-4639-88c6-7eab3cd7052d",
- CellID->2079065127],
-Cell[829016, 14956, 730, 18, 42, "TutorialRelatedLinks",ExpressionUUID->"3111c180-422a-4da6-b13e-c4c01fc20835",
- CellID->159401120],
-Cell[829749, 14976, 600, 13, 60, "TutorialRelatedLinks",ExpressionUUID->"9eb944ff-7eb8-4ca2-9cef-24a6c7460501",
- CellID->976969510]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[830398, 14995, 110, 1, 72, "MetadataSection",ExpressionUUID->"269fd244-724d-4297-87ea-2e581b4581df",
- CellID->860788796],
-Cell[830511, 14998, 722, 16, 26, "History",ExpressionUUID->"0baf3fd0-3f4d-4d7b-a784-28ae4cca1f26",
- CellID->1247902091],
-Cell[CellGroupData[{
-Cell[831258, 15018, 123, 1, 21, "CategorizationSection",ExpressionUUID->"fd27759f-e768-4eed-8899-e7f784036007",
- CellID->1827448180],
-Cell[831384, 15021, 137, 2, 34, "Categorization",ExpressionUUID->"aa1fc7fb-bd3f-4cf1-b158-3e1e7bb1eb8d",
- CellID->610441866],
-Cell[831524, 15025, 144, 2, 34, "Categorization",ExpressionUUID->"f8f58759-4e5c-4129-95e7-28fb7b033bb0",
- CellID->1167060143],
-Cell[831671, 15029, 251, 4, 34, "Categorization",ExpressionUUID->"4187edc1-76a5-4d94-a0b4-ecc63b76b0dc",
- CellID->1811675350],
-Cell[831925, 15035, 171, 2, 34, "Categorization",ExpressionUUID->"86e39f22-7c60-4e99-8f62-41025316f4b5",
- CellID->1804460284]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[832133, 15042, 110, 1, 31, "KeywordsSection",ExpressionUUID->"786cd24f-259c-4725-9a6a-35d2e0b79aae",
- CellID->799930254],
-Cell[832246, 15045, 221, 3, 20, "Keywords",ExpressionUUID->"8f8820d9-2ba4-49af-b829-ea2e0301dfa9",
- CellID->1180148758],
-Cell[832470, 15050, 178, 2, 20, "Keywords",ExpressionUUID->"b07924b4-58d9-4d25-b404-7b9c2293239a",
- CellID->912713703],
-Cell[832651, 15054, 192, 2, 20, "Keywords",ExpressionUUID->"e02f351c-6922-4a99-b704-d65d8a08956b",
- CellID->1740158970],
-Cell[832846, 15058, 188, 2, 20, "Keywords",ExpressionUUID->"e52772ba-026a-4a23-bc54-16403db4e405",
- CellID->1443433549],
-Cell[833037, 15062, 191, 2, 20, "Keywords",ExpressionUUID->"9876e7ae-912e-46ef-9d47-761236c903e1",
- CellID->568217799],
-Cell[833231, 15066, 195, 2, 20, "Keywords",ExpressionUUID->"7c0ab9b7-f087-409c-afc2-900d53370c56",
- CellID->565862337],
-Cell[833429, 15070, 179, 2, 20, "Keywords",ExpressionUUID->"54102b1a-e6f6-4778-8939-d3a9475993eb",
- CellID->1755465352],
-Cell[833611, 15074, 178, 2, 20, "Keywords",ExpressionUUID->"a9e56bff-f372-4d39-9842-11e2927237c6",
- CellID->746420664]
-}, Open  ]]
-}, Open  ]]
+Cell[814983, 14761, 1333, 34, 70, "TutorialMoreAboutSection",ExpressionUUID->"38264291-3390-4ac8-9790-5c04fa5b8232"],
+Cell[816319, 14797, 1391, 36, 70, "RelatedTutorialsSection",ExpressionUUID->"6090ef69-be64-4bea-962e-577b269a4f7d"],
+Cell[817713, 14835, 3558, 95, 70, "TutorialRelatedLinksSection",ExpressionUUID->"0bba90ad-fe77-4c86-9ea2-7dceb029c7e0"],
+Cell[821274, 14932, 78, 0, 70, "FooterCell",ExpressionUUID->"75bde3d7-97e2-459b-9b30-3ce1f6534a9c"]
 }
 ]
 *)
+
+(* End of internal cache information *)
 
