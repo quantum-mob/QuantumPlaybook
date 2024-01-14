@@ -16,7 +16,7 @@ Copy the following code, and just evaluate it in your Mathematica(R) Notebook:
 Module[
   { ps },
   ps = PacletSiteRegister[
-    "https://github.com/quantum-mob/PacletServer/raw/main",
+    "https://github.com/quantum-mob/PacletRepository/raw/main",
     "Quantum Mob Paclet Server"
    ];
   PacletSiteUpdate[ps];
