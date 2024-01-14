@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.2
+
+- The paclet server PacletServer has been renamed PacletRepository.
+
 ## 3.3.0
 
 - Documents accompanying the YouTube videos have regenerated with a new version of PlaybookTools.
