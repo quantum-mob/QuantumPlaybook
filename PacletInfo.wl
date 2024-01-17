@@ -5,7 +5,7 @@
 
 Paclet[
   "Name" -> "QuantumPlaybook",
-  "Version" -> "3.3.2",
+  "Version" -> "3.3.3",
   "WolframVersion" -> "12.3+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,
@@ -42,7 +42,6 @@ Paclet[
          is pacletObj["AssetLocation", "assetname"]. *)
       "Root" -> "Samples",
       "Assets" -> {
-        {"Book", "QuantumPlaybook.pdf"},
         {"FrontMatter", "FrontMatter.pdf"},
         {"Chapter2", "Chapter2.pdf"},
         {"BackMatter", "BackMatter.pdf"},
