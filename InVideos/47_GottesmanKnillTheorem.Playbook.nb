@@ -1,0 +1,567 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21810,        559]
+NotebookOptionsPosition[     14954,        400]
+NotebookOutlinePosition[     17035,        468]
+CellTagsIndexPosition[     16992,        465]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The Gottesman-Knill Theorem", "Title",
+ CellChangeTimes->{{3.894768217343396*^9, 3.894768219232481*^9}, {
+  3.894769173047077*^9, 3.8947691791403*^9}},
+ CellID->887652171,ExpressionUUID->"d073095f-934d-467c-8582-01e47951c432"],
+
+Cell["\<\
+The Gottesman-Knill theorem exhibits why the Clifford group (gates) is so \
+special.\
+\>", "Text",
+ CellChangeTimes->{{3.894769779436776*^9, 3.89476981302106*^9}},
+ CellID->461383751,ExpressionUUID->"7fe8ed66-7293-4c6b-9d81-265cbe4b3d86"],
+
+Cell[CellGroupData[{
+
+Cell["\t", "Text", "ParagraphDelimiter",
+ ShowCellBracket->Automatic,
+ CellMargins->{{Inherited, Inherited}, {Inherited, 10}},
+ CellGroupingRules->{"SectionGrouping", 70},
+ TabFilling->"\[LongDash]\[NegativeThickSpace]",
+ TabSpacings->Scaled[1],
+ FontColor->GrayLevel[0.85],
+ CellID->849089889,ExpressionUUID->"95307cb7-2006-437e-9e0b-dd9f286f0bdf"],
+
+Cell[TextData[{
+ StyleBox["Theorem",
+  FontWeight->"Bold"],
+ ": Any ",
+ StyleBox["Clifford circuit",
+  FontSlant->"Italic"],
+ " (a quantum circuit consisting of Clifford operators and Pauli \
+measurements) can be efficiently simulated on a classical computer."
+}], "Text",
+ CellChangeTimes->{{3.850029630242763*^9, 3.850029677632588*^9}, {
+  3.850029790918322*^9, 3.850029856926344*^9}, {3.894769385857164*^9, 
+  3.8947694480380583`*^9}, {3.894769651393323*^9, 3.89476965942542*^9}, {
+  3.9145504638299503`*^9, 3.914550490573666*^9}},
+ CellID->2115661179,ExpressionUUID->"8e8638a1-ba28-4d3d-b91b-75dcc9f9fc98"]
+}, Open  ]],
+
+Cell["\t", "Text", "ParagraphDelimiter",
+ ShowCellBracket->Automatic,
+ CellMargins->{{Inherited, Inherited}, {Inherited, 10}},
+ CellGroupingRules->{"SectionGrouping", 70},
+ TabFilling->"\[LongDash]\[NegativeThickSpace]",
+ TabSpacings->Scaled[1],
+ FontColor->GrayLevel[0.85],
+ CellID->1275103538,ExpressionUUID->"473429a1-f99a-4f25-9b63-14639eeb5a14"],
+
+Cell[TextData[{
+ "The Clifford operators are sufficient to generate a rich range of quantum \
+effects including the ",
+ StyleBox["GHZ experiment",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox[ButtonBox["quantum teleportation",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Q3/tutorial/QuantumTeleportation"],
+  FontSlant->"Italic"],
+ ", and ",
+ StyleBox["super dense coding",
+  FontSlant->"Italic"],
+ "."
+}], "Item",
+ CellChangeTimes->{{3.850029630242763*^9, 3.850029677632588*^9}, {
+   3.850029790918322*^9, 3.850029856173527*^9}, {3.85003019095046*^9, 
+   3.8500301970850143`*^9}, {3.850030236249484*^9, 3.850030241033895*^9}, {
+   3.850099541689248*^9, 3.850099542738447*^9}, {3.8502575216040363`*^9, 
+   3.850257543642921*^9}, 3.855700142815259*^9, 3.89476935153728*^9, {
+   3.894769474186226*^9, 3.894769480283244*^9}, {3.894769567141088*^9, 
+   3.894769609864365*^9}},
+ CellID->2030692074,ExpressionUUID->"cd3c88d1-48ae-4f44-9557-4da9236cf475"],
+
+Cell["\<\
+They are also sufficient to encode and decode quantum error-correction codes.\
+\
+\>", "Item",
+ CellChangeTimes->{{3.850029630242763*^9, 3.850029677632588*^9}, {
+   3.850029790918322*^9, 3.850029856173527*^9}, {3.85003019095046*^9, 
+   3.8500301970850143`*^9}, {3.850030236249484*^9, 3.850030241033895*^9}, {
+   3.850099541689248*^9, 3.850099542738447*^9}, {3.8502575216040363`*^9, 
+   3.850257543642921*^9}, 3.855700142815259*^9, 3.89476935153728*^9, {
+   3.894769500369062*^9, 3.894769508172468*^9}},
+ CellID->925849753,ExpressionUUID->"eb812cbd-0a65-481a-9361-ee7ebe970b84"],
+
+Cell[TextData[{
+ "Nevertheless, the theorem indicates that the Clifford group \"falls short \
+of the full power of quantum computation.\" Recall the ",
+ ButtonBox["Solovay-Kitaev theorem",
+  BaseStyle->"Link",
+  ButtonData->"paclet:QuantumPlaybook/tutorial/SolovayKitaevAlgorithm"],
+ "."
+}], "Item",
+ CellChangeTimes->{{3.850029630242763*^9, 3.850029677632588*^9}, {
+   3.850029790918322*^9, 3.850029856173527*^9}, {3.85003019095046*^9, 
+   3.8500301970850143`*^9}, {3.850030236249484*^9, 3.850030241033895*^9}, {
+   3.850099541689248*^9, 3.850099542738447*^9}, {3.8502575216040363`*^9, 
+   3.850257543642921*^9}, 3.855700142815259*^9, 3.89476935153728*^9, {
+   3.894769500369062*^9, 3.894769537760932*^9}},
+ CellID->1591224497,ExpressionUUID->"8503510a-2cd1-4729-b3bb-7d8dcace98b2"],
+
+Cell["Clifford Operators", "Section",
+ CellChangeTimes->{{3.9145505215338907`*^9, 3.914550524555667*^9}},
+ CellID->1230124648,ExpressionUUID->"154f2027-f7c2-4f68-8bdd-806c669deb93"],
+
+Cell["Pauli Measurements", "Section",
+ CellChangeTimes->{{3.91455052914473*^9, 3.914550536498039*^9}},
+ CellID->804977155,ExpressionUUID->"28e50764-f07a-44b0-9d3c-56e7f6679f28"],
+
+Cell[CellGroupData[{
+
+Cell["Clifford Decomposition", "Section",
+ CellID->1304605151,ExpressionUUID->"a2e86661-cb8a-4464-8f16-086cd264f7fc"],
+
+Cell[BoxData[
+ RowBox[{"Let", "[", 
+  RowBox[{"Qubit", ",", "S"}], "]"}]], "Input",
+ CellChangeTimes->{{3.894769702260118*^9, 3.894769706893321*^9}},
+ CellLabel->"In[131]:=",
+ CellID->1630290610,ExpressionUUID->"c170ef48-655b-40f8-9cc6-5def656b704c"],
+
+Cell["Start with a small number of qubits.", "Text",
+ CellChangeTimes->{{3.881613658403053*^9, 3.881613676921496*^9}},
+ CellID->1338536550,ExpressionUUID->"831a826e-aeba-4c11-b539-540b6bb4c96d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$n", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ss", "=", 
+  RowBox[{"S", "[", 
+   RowBox[{
+    RowBox[{"Range", "@", "$n"}], ",", "None"}], "]"}]}]}], "Input",
+ CellLabel->"In[132]:=",
+ CellID->2092092956,ExpressionUUID->"ea9049c0-4171-4462-b4ff-cae1f11344b8"],
+
+Cell[TextData[{
+ "Now, choose a Clifford unitary operator. You can construct one by applying \
+generators, that is, the Hadamard (",
+ StyleBox["H",
+  FontSlant->"Italic"],
+ "), quadrant (",
+ StyleBox["S",
+  FontSlant->"Italic"],
+ "), and CNOT gates. Here, we do it by choosing a ",
+ ButtonBox["Gottesman matrix",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Q3/ref/GottesmanMatrix"],
+ ". Gottesman matrices are elements of the ",
+ ButtonBox["binary symplectic group",
+  BaseStyle->"Link",
+  ButtonData->"paclet:Q3/ref/BinarySymplecticGroup"],
+ ", that is, a symplectic group  over the field of binary numbers."
+}], "Text",
+ CellID->669790911,ExpressionUUID->"636ec02c-cbf1-4a4e-821d-58fe192102c0"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bsp", "=", 
+   RowBox[{"BinarySymplecticGroup", "[", "ss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gts", "=", 
+   RowBox[{"First", "@", 
+    RowBox[{"GroupElements", "[", 
+     RowBox[{"bsp", ",", 
+      RowBox[{"{", "2", "}"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", "gts", "]"}]}], "Input",
+ CellChangeTimes->{{3.895100609732975*^9, 3.895100696496874*^9}},
+ CellLabel->"In[149]:=",
+ CellID->5310392,ExpressionUUID->"58bbebaa-c5d3-4293-92e7-3a4361dbccfb"],
+
+Cell["\<\
+Convert the Gottesman matrix to the corresponding Clifford operator.\
+\>", "Text",
+ CellChangeTimes->{{3.895100747011843*^9, 3.895100772412279*^9}},
+ CellID->1260019797,ExpressionUUID->"87f54939-f3d3-4ed3-9955-fd85119fc97c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"op", "=", 
+   RowBox[{"FromGottesmanMatrix", "[", 
+    RowBox[{"gts", ",", "ss"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"op", "//", "PauliForm"}]}], "Input",
+ CellChangeTimes->{
+  3.895100609732975*^9, {3.895100721891416*^9, 3.8951007409757648`*^9}},
+ CellLabel->"In[166]:=",
+ CellID->1790437857,ExpressionUUID->"8f679b74-222d-4f30-970f-1fff536e78f9"],
+
+Cell["Check that the operator is a Clifford.", "Text",
+ CellChangeTimes->{{3.8951007797800508`*^9, 3.895100785806734*^9}},
+ CellID->2043432145,ExpressionUUID->"046f3967-f618-40c3-820c-a7be0db13d6a"],
+
+Cell[BoxData[
+ RowBox[{"CliffordQ", "[", "op", "]"}]], "Input",
+ CellChangeTimes->{
+  3.895100609732975*^9, {3.895100721891416*^9, 3.8951007409757648`*^9}},
+ CellLabel->"In[168]:=",
+ CellID->2094042095,ExpressionUUID->"0fd69296-2827-4be5-bb75-db063fcd08a9"],
+
+Cell["For efficiency, convert the operator to matrix.", "Text",
+ CellChangeTimes->{{3.895100791989464*^9, 3.895100806057571*^9}},
+ CellID->82714773,ExpressionUUID->"ddb94a44-ed9f-423f-b858-7e4fbba3ab2d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mat", "=", 
+   RowBox[{"Matrix", "[", 
+    RowBox[{"op", ",", "ss"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"mat", "//", "MatrixForm"}]}], "Input",
+ CellChangeTimes->{
+  3.895100609732975*^9, {3.895100721891416*^9, 3.895100725610641*^9}},
+ CellLabel->"In[171]:=",
+ CellID->1653598866,ExpressionUUID->"56d94af0-0b00-4a91-b98d-03e531275ca8"],
+
+Cell[CellGroupData[{
+
+Cell["Clifford Decomposition", "Subsection",
+ CellID->843126029,ExpressionUUID->"b55bf633-5260-48b4-aaba-52f758254556"],
+
+Cell[TextData[{
+ "Get the elementary Clifford gates that reconstruct the Clifford operator. \
+Note that function ",
+ Cell[BoxData[
+  ButtonBox["CliffordDecompose",
+   BaseStyle->"Link",
+   ButtonData->"paclet:Q3/ref/CliffordDecompose"]], "InlineFormula",
+  ExpressionUUID->"9d2d36a3-0de0-4cb0-ad81-469373085c9a"],
+ " takes a Gottesman matrix as its input (not the actually Clifford unitary \
+operator or matrix)."
+}], "Text",
+ CellChangeTimes->{{3.881614035031184*^9, 3.88161404540548*^9}, {
+   3.88161435593256*^9, 3.881614394131988*^9}, 3.881614434183046*^9},
+ CellID->1962709845,ExpressionUUID->"a37ba51c-1af0-42ee-abb0-e67a474e2b0b"],
+
+Cell[BoxData[
+ RowBox[{"gates", "=", 
+  RowBox[{"CliffordDecompose", "[", 
+   RowBox[{"gts", ",", "ss"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8816132711382113`*^9, 3.8816132720332823`*^9}, {
+  3.881614284245261*^9, 3.881614284972903*^9}},
+ CellLabel->"In[173]:=",
+ CellID->333323559,ExpressionUUID->"393a442b-43f7-4652-8619-6e2c9e565bee"],
+
+Cell["Show the elementary gates in the quantum circuit model.", "Text",
+ CellChangeTimes->{{3.8816141351425867`*^9, 3.881614153505915*^9}},
+ CellID->591332509,ExpressionUUID->"944f8d70-f0d1-47e0-932f-779308dabf18"],
+
+Cell[BoxData[
+ RowBox[{"qc", "=", 
+  RowBox[{"QuantumCircuit", "[", 
+   RowBox[{"Sequence", "@@", 
+    RowBox[{"Reverse", "@", "gates"}]}], "]"}]}]], "Input",
+ CellLabel->"In[174]:=",
+ CellID->634712339,ExpressionUUID->"75e4796c-a9aa-4ed9-8f39-8fbb5d98988e"],
+
+Cell["\<\
+Check whether the quantum circuit indeed reconstruct the Clifford unitary \
+operator.\
+\>", "Text",
+ CellChangeTimes->{{3.881614302106365*^9, 3.881614336780379*^9}},
+ CellID->715980407,ExpressionUUID->"814452cd-bcfa-4051-8a38-aeaa8ca04fc0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Matrix", "[", "qc", "]"}], "-", "mat"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.881614157436842*^9, 3.881614166678205*^9}, {
+  3.881614294055119*^9, 3.881614298023964*^9}},
+ CellLabel->"In[175]:=",
+ CellID->1199424135,ExpressionUUID->"d0a3fe33-4986-482d-9085-65614589b3df"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["A Gray-Code Decomposition: Comparison", "Subsection",
+ CellChangeTimes->{{3.8514929000460587`*^9, 3.851492906051899*^9}, {
+  3.881614458032795*^9, 3.881614480149188*^9}},
+ CellID->1062129407,ExpressionUUID->"e0482d4b-c5c1-4249-a89f-11150db4b44a"],
+
+Cell[TextData[{
+ "It is interesting and heuristic to compare the above Clifford decomposition \
+with the more common gray-code-based decomposition. Use the same symbol ",
+ StyleBox["S", "Input"],
+ " to denote the qubits."
+}], "Text",
+ CellID->677020406,ExpressionUUID->"d1437fbc-7373-46da-bad4-bd011bc2e1be"],
+
+Cell["\<\
+Decompose the unitary matrix into two-level matrices. Here, we convert the \
+matrix into numerically approximate form to avoid unnecessary complexity to \
+deal with exact numbers. Note that the number of required two-level matrices \
+is already over 25.\
+\>", "Text",
+ CellChangeTimes->{3.881614700811152*^9},
+ CellID->1729192821,ExpressionUUID->"85676863-dc49-4191-a6f9-af4a132336bb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tld", "=", 
+   RowBox[{"TwoLevelDecomposition", "[", 
+    RowBox[{"N", "@", "mat"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "tld", "]"}]}], "Input",
+ CellChangeTimes->{3.881614727000866*^9},
+ CellLabel->"In[176]:=",
+ CellID->1563598043,ExpressionUUID->"a8ca35ae-36e2-41de-a7ed-51baa7cdb193"],
+
+Cell["Check some of the elements.", "Text",
+ CellID->154086825,ExpressionUUID->"5898dd36-e29f-4b04-b236-a32a0997471c"],
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "/@", 
+  RowBox[{"Matrix", "/@", 
+   RowBox[{"tld", "[", 
+    RowBox[{"[", 
+     RowBox[{";;", "5"}], "]"}], "]"}]}]}]], "Input",
+ CellLabel->"In[178]:=",
+ CellID->38851052,ExpressionUUID->"606e45c9-7e33-4661-b212-f314168a77d5"],
+
+Cell["\<\
+Convert the two-level unitary matrices to quantum circuit elements consists \
+of controlled-unitary and CNOT gates.\
+\>", "Text",
+ CellID->111251633,ExpressionUUID->"ada27040-f7b5-43f4-b7c2-e79ef403d3ea"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"elm", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"FromTwoLevelU", "[", 
+       RowBox[{"#", ",", "ss"}], "]"}], "&"}], "/@", "tld"}], "//", 
+    "Flatten"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.88161331293806*^9, 3.881613313613613*^9}, {
+  3.881613344214403*^9, 3.8816133573741302`*^9}},
+ CellLabel->"In[179]:=",
+ CellID->1067270155,ExpressionUUID->"eb4fb7a8-d2f3-40f9-a071-ef326a847065"],
+
+Cell["\<\
+Note that there are about 60 quantum circuit elements. This is in stark \
+contrast with the Clifford decomposition shown in the above example, which \
+had only 7 elementary gates.\
+\>", "Text",
+ CellChangeTimes->{{3.881614757914591*^9, 3.881614759297727*^9}},
+ CellID->1630323727,ExpressionUUID->"ae82f0e0-f1af-4b96-9749-c6d8674eaac4"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "elm", "]"}]], "Input",
+ CellLabel->"In[180]:=",
+ CellID->37501207,ExpressionUUID->"b06b1150-ce15-43c8-9c02-1c07b57fdda6"],
+
+Cell["Take a look at the first several elements.", "Text",
+ CellID->214602882,ExpressionUUID->"7c18719b-2337-4207-9c38-210549340d13"],
+
+Cell[BoxData[
+ RowBox[{"new", "=", 
+  RowBox[{"QuantumCircuit", "[", 
+   RowBox[{
+    RowBox[{"Sequence", "@@", 
+     RowBox[{"Take", "[", 
+      RowBox[{
+       RowBox[{"Reverse", "@", "elm"}], ",", "12"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Ket", "[", 
+       RowBox[{
+        RowBox[{"S", "[", "2", "]"}], "->", "1"}], "]"}], ",", 
+      RowBox[{"\"\<Label\>\"", "->", "\"\<\[CenterEllipsis]\>\""}]}], "}"}]}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.851492952359789*^9, 3.851493019699998*^9}, {
+  3.8514931682666273`*^9, 3.851493168308226*^9}},
+ CellLabel->"In[181]:=",
+ CellID->1432186175,ExpressionUUID->"746dcc39-5026-4b8d-b89b-1aa898813cd2"]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+},
+Saveable->False,
+WindowSize->{855, 1041},
+WindowMargins->{{411, Automatic}, {Automatic, 0}},
+Visible->True,
+DockedCells->Cell[
+ "Q3: Symbolic Quantum Simulation", "Text", Background -> GrayLevel[0.9], 
+  FontSize -> 12, CellFrameMargins -> {{22, 8}, {8, 8}}],
+PageFooters->{{
+   Cell["Q3: Symbolic Quantum Simulation", "Footer", CellMargins -> 4], None, 
+   None}, {None, None, 
+   Cell["Q3: Symbolic Quantum Simulation", "Footer", CellMargins -> 4]}},
+PageFooterLines->{True, True},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Playbook.nb"]], 
+   Cell[
+    StyleData["Title"], Editable -> False], 
+   Cell[
+    StyleData["Subtitle"], Editable -> False], 
+   Cell[
+    StyleData["Chapter"], Editable -> False], 
+   Cell[
+    StyleData["Section"], Editable -> False], 
+   Cell[
+    StyleData["Subsection"], Editable -> False], 
+   Cell[
+    StyleData["Subsubsection"], Editable -> False], 
+   Cell[
+    StyleData["Text"], Editable -> False], 
+   Cell[
+    StyleData["Code"], Editable -> False], 
+   Cell[
+    StyleData["Item"], Editable -> False], 
+   Cell[
+    StyleData["Subitem"], Editable -> False], 
+   Cell[
+    StyleData["Subsubitem"], Editable -> False], 
+   Cell[
+    StyleData["DisplayFormula"], Editable -> False], 
+   Cell[
+    StyleData["Picture"], Editable -> False], 
+   Cell[
+    StyleData["Caption"], Editable -> False], 
+   Cell[
+    StyleData["OutlineSection"], Editable -> False], 
+   Cell[
+    StyleData["Outline1"], Editable -> False], 
+   Cell[
+    StyleData["Outline2"], Editable -> False], 
+   Cell[
+    StyleData["Outline3"], Editable -> False], 
+   Cell[
+    StyleData["Outline4"], Editable -> False]}, Visible -> False, 
+  FrontEndVersion -> "14.0 for Mac OS X ARM (64-bit) (December 12, 2023)", 
+  StyleDefinitions -> "Playbook.nb"],
+ExpressionUUID->"e41a3124-c884-4296-8e49-876ba9610b99"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 232, 3, 98, "Title",ExpressionUUID->"d073095f-934d-467c-8582-01e47951c432",
+ CellID->887652171],
+Cell[815, 27, 248, 5, 35, "Text",ExpressionUUID->"7fe8ed66-7293-4c6b-9d81-265cbe4b3d86",
+ CellID->461383751],
+Cell[CellGroupData[{
+Cell[1088, 36, 349, 7, 37, "Text",ExpressionUUID->"95307cb7-2006-437e-9e0b-dd9f286f0bdf",
+ CellGroupingRules->{"SectionGrouping", 70},
+ CellID->849089889],
+Cell[1440, 45, 610, 13, 58, "Text",ExpressionUUID->"8e8638a1-ba28-4d3d-b91b-75dcc9f9fc98",
+ CellID->2115661179]
+}, Open  ]],
+Cell[2065, 61, 350, 7, 37, "Text",ExpressionUUID->"473429a1-f99a-4f25-9b63-14639eeb5a14",
+ CellGroupingRules->{"SectionGrouping", 70},
+ CellID->1275103538],
+Cell[2418, 70, 943, 22, 49, "Item",ExpressionUUID->"cd3c88d1-48ae-4f44-9557-4da9236cf475",
+ CellID->2030692074],
+Cell[3364, 94, 586, 10, 32, "Item",ExpressionUUID->"eb812cbd-0a65-481a-9361-ee7ebe970b84",
+ CellID->925849753],
+Cell[3953, 106, 783, 14, 53, "Item",ExpressionUUID->"8503510a-2cd1-4729-b3bb-7d8dcace98b2",
+ CellID->1591224497],
+Cell[4739, 122, 181, 2, 67, "Section",ExpressionUUID->"154f2027-f7c2-4f68-8bdd-806c669deb93",
+ CellID->1230124648],
+Cell[4923, 126, 177, 2, 53, "Section",ExpressionUUID->"28e50764-f07a-44b0-9d3c-56e7f6679f28",
+ CellID->804977155],
+Cell[CellGroupData[{
+Cell[5125, 132, 117, 1, 53, "Section",ExpressionUUID->"a2e86661-cb8a-4464-8f16-086cd264f7fc",
+ CellID->1304605151],
+Cell[5245, 135, 250, 5, 70, "Input",ExpressionUUID->"c170ef48-655b-40f8-9cc6-5def656b704c",
+ CellID->1630290610],
+Cell[5498, 142, 194, 2, 70, "Text",ExpressionUUID->"831a826e-aeba-4c11-b539-540b6bb4c96d",
+ CellID->1338536550],
+Cell[5695, 146, 307, 8, 70, "Input",ExpressionUUID->"ea9049c0-4171-4462-b4ff-cae1f11344b8",
+ CellID->2092092956],
+Cell[6005, 156, 695, 18, 70, "Text",ExpressionUUID->"636ec02c-cbf1-4a4e-821d-58fe192102c0",
+ CellID->669790911],
+Cell[6703, 176, 549, 14, 70, "Input",ExpressionUUID->"58bbebaa-c5d3-4293-92e7-3a4361dbccfb",
+ CellID->5310392],
+Cell[7255, 192, 234, 4, 70, "Text",ExpressionUUID->"87f54939-f3d3-4ed3-9955-fd85119fc97c",
+ CellID->1260019797],
+Cell[7492, 198, 399, 9, 70, "Input",ExpressionUUID->"8f679b74-222d-4f30-970f-1fff536e78f9",
+ CellID->1790437857],
+Cell[7894, 209, 198, 2, 70, "Text",ExpressionUUID->"046f3967-f618-40c3-820c-a7be0db13d6a",
+ CellID->2043432145],
+Cell[8095, 213, 257, 5, 70, "Input",ExpressionUUID->"0fd69296-2827-4be5-bb75-db063fcd08a9",
+ CellID->2094042095],
+Cell[8355, 220, 203, 2, 70, "Text",ExpressionUUID->"ddb94a44-ed9f-423f-b858-7e4fbba3ab2d",
+ CellID->82714773],
+Cell[8561, 224, 386, 9, 70, "Input",ExpressionUUID->"56d94af0-0b00-4a91-b98d-03e531275ca8",
+ CellID->1653598866],
+Cell[CellGroupData[{
+Cell[8972, 237, 119, 1, 70, "Subsection",ExpressionUUID->"b55bf633-5260-48b4-aaba-52f758254556",
+ CellID->843126029],
+Cell[9094, 240, 637, 13, 70, "Text",ExpressionUUID->"a37ba51c-1af0-42ee-abb0-e67a474e2b0b",
+ CellID->1962709845],
+Cell[9734, 255, 343, 7, 70, "Input",ExpressionUUID->"393a442b-43f7-4652-8619-6e2c9e565bee",
+ CellID->333323559],
+Cell[10080, 264, 214, 2, 70, "Text",ExpressionUUID->"944f8d70-f0d1-47e0-932f-779308dabf18",
+ CellID->591332509],
+Cell[10297, 268, 258, 6, 70, "Input",ExpressionUUID->"75e4796c-a9aa-4ed9-8f39-8fbb5d98988e",
+ CellID->634712339],
+Cell[10558, 276, 250, 5, 70, "Text",ExpressionUUID->"814452cd-bcfa-4051-8a38-aeaa8ca04fc0",
+ CellID->715980407],
+Cell[10811, 283, 338, 8, 70, "Input",ExpressionUUID->"d0a3fe33-4986-482d-9085-65614589b3df",
+ CellID->1199424135]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11186, 296, 252, 3, 70, "Subsection",ExpressionUUID->"e0482d4b-c5c1-4249-a89f-11150db4b44a",
+ CellID->1062129407],
+Cell[11441, 301, 308, 6, 70, "Text",ExpressionUUID->"d1437fbc-7373-46da-bad4-bd011bc2e1be",
+ CellID->677020406],
+Cell[11752, 309, 395, 7, 70, "Text",ExpressionUUID->"85676863-dc49-4191-a6f9-af4a132336bb",
+ CellID->1729192821],
+Cell[12150, 318, 352, 8, 70, "Input",ExpressionUUID->"a8ca35ae-36e2-41de-a7ed-51baa7cdb193",
+ CellID->1563598043],
+Cell[12505, 328, 118, 1, 70, "Text",ExpressionUUID->"5898dd36-e29f-4b04-b236-a32a0997471c",
+ CellID->154086825],
+Cell[12626, 331, 265, 7, 70, "Input",ExpressionUUID->"606e45c9-7e33-4661-b212-f314168a77d5",
+ CellID->38851052],
+Cell[12894, 340, 214, 4, 70, "Text",ExpressionUUID->"ada27040-f7b5-43f4-b7c2-e79ef403d3ea",
+ CellID->111251633],
+Cell[13111, 346, 444, 12, 70, "Input",ExpressionUUID->"eb4fb7a8-d2f3-40f9-a071-ef326a847065",
+ CellID->1067270155],
+Cell[13558, 360, 345, 6, 70, "Text",ExpressionUUID->"ae82f0e0-f1af-4b96-9749-c6d8674eaac4",
+ CellID->1630323727],
+Cell[13906, 368, 160, 3, 70, "Input",ExpressionUUID->"b06b1150-ce15-43c8-9c02-1c07b57fdda6",
+ CellID->37501207],
+Cell[14069, 373, 133, 1, 70, "Text",ExpressionUUID->"7c18719b-2337-4207-9c38-210549340d13",
+ CellID->214602882],
+Cell[14205, 376, 709, 19, 70, "Input",ExpressionUUID->"746dcc39-5026-4b8d-b89b-1aa898813cd2",
+ CellID->1432186175]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
