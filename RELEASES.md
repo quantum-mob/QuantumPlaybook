@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.3
+
+- YouTube videos of Q3 tutorials have been updated.
+
 ## 3.3.2
 
 - The paclet server PacletServer has been renamed PacletRepository.
