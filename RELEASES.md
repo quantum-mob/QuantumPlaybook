@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.5
+
+- QuantumWorkbook has beeen removed from Documentation.
+
 ## 3.3.3
 
 - YouTube videos of Q3 tutorials have been updated.
