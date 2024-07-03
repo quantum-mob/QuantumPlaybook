@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 3.3.7
+
+- "Kitaev Random Circuit" has been further elaborated with step-by-step explanations.
+
+## 3.3.6
+
+- "Kitaev Random Circuit" is added.
+
 ## 3.3.5
 
 - QuantumWorkbook has beeen removed from Documentation.
