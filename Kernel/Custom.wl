@@ -22,8 +22,12 @@ Block[
     PlotStyle -> Automatic,
     AxesStyle -> Automatic,
     ImageSize -> 250
-   };
+  };
 
+  (* Specials *)
+  
+  SetOptions[BlochSphere, ImageSize -> 250];
+  
   (* Graphics *)
 
   Customize[Graphics, Frame -> False, Axes -> False, GridLines -> None];
@@ -34,7 +38,7 @@ Block[
     Histogram,
     Plot, ParametricPlot, LogPlot, LogLinearPlot, LogLogPlot,
     ListPlot, ListLinePlot, ListLogPlot, ListLogLinearPlot, ListLogLogPlot
-   };
+  };
 
   (* Graphics3D-related functions *)
 
@@ -42,11 +46,10 @@ Block[
 
   Customize[
     { Plot3D,
-      ParametricPlot3D
-     },
+      ParametricPlot3D },
     Axes -> True
-   ];
- ]
+  ];
+]
 
 End[]
 

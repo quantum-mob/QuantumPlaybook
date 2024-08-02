@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 3.3.9
+
+- Updates for compatibility with Q3.
+
+## 3.3.8
+
+- All assets are collected in a single folder.
+
 ## 3.3.7
 
 - "Kitaev Random Circuit" has been further elaborated with step-by-step explanations.
