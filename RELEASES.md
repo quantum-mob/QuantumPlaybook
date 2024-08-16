@@ -2,7 +2,8 @@
 
 ## 3.3.11
 
-- Typos in Hatano-Nelson model.
+- Typos in Hatano-Nelson Model.
+- Normalization check reminder in Kitaev Random Circuit.
 
 ## 3.3.10
 
