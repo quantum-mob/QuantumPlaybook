@@ -5,7 +5,7 @@
 
 Paclet[
   "Name" -> "QuantumPlaybook",
-  "Version" -> "3.3.10",
+  "Version" -> "3.3.11",
   "WolframVersion" -> "12.3+",
   "Loading" -> Automatic,
   "Updating" -> Automatic,

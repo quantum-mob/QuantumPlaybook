@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 3.3.11
+
+- Typos in Hatano-Nelson model.
+
+## 3.3.10
+
+- A tutorial on Hatano-Nelson model is added.
+
 ## 3.3.9
 
 - Updates for compatibility with Q3.
