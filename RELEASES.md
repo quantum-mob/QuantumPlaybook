@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.12
+
+- New demonstrations: Baker-Hausdorff Lemma, Commutation Relations for Qubits.nb, Hatano Nelson Model, Kitaev Chain, Magnetic Exchange Coupling.
+
 ## 3.3.11
 
 - Typos in Hatano-Nelson Model.
