@@ -1,5 +1,14 @@
 # Select Release Notes
 
+## 3.3.14
+
+- Requires Q3 v3.6.1
+
+## 3.3.13
+
+- Update of "Kitaev Random Circuit" for compatibility with the new version of Q3.
+- Requires Q3 v3.6.0
+
 ## 3.3.12
 
 - New demonstrations: Baker-Hausdorff Lemma, Commutation Relations for Qubits.nb, Hatano Nelson Model, Kitaev Chain, Magnetic Exchange Coupling.

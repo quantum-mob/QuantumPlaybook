@@ -4,7 +4,7 @@
 (* $Revision: 1.11 $ *)
 
 Get["Q3`"];
-Q3Assure["3.5.12"];
+Q3Assure["3.6.1"];
 
 
 BeginPackage["QuantumPlaybook`"]
