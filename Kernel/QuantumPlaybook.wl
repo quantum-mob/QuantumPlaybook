@@ -1,10 +1,5 @@
-(* -*- mode:math -*- *)
-(* Mahn-Soo Choi *)
-(* $Date: 2023-02-20 23:50:30+09 $ *)
-(* $Revision: 1.11 $ *)
-
 Get["Q3`"];
-Q3Assure["3.6.1"];
+Q3Assure["3.6.2"];
 
 
 BeginPackage["QuantumPlaybook`"]

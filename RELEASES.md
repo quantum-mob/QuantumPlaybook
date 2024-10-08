@@ -1,5 +1,11 @@
 # Select Release Notes
 
+## 3.3.15
+
+- Motivation and references are added in the "Kitaev Random Circuit" page.
+- Updates of "Kitaev Random Circuits", "Hatano-Nelson Model" in accordance with the uprade of Q3.
+- New page: "Chiral Fermion Random Circuit"
+
 ## 3.3.14
 
 - Requires Q3 v3.6.1
