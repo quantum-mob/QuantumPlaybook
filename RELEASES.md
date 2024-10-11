@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.16
+
+- Updated "Hatano-Nelson model"
+
 ## 3.3.15
 
 - Motivation and references are added in the "Kitaev Random Circuit" page.
