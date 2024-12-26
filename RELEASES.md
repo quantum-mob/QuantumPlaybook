@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 3.3.17
+
+- Several documentations are updated for the new version (v3.7.0) of Q3. The examples are much faster now.
+
 ## 3.3.16
 
 - Updated "Hatano-Nelson model"
