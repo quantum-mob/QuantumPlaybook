@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 3.3.19
+
+- Hatano-Nelson model as a projective model.
+
+## 3.3.18
+
+- Examples updated for Q3 v3.7.3.
+
 ## 3.3.17
 
 - Several documentations are updated for the new version (v3.7.1) of Q3. The examples are much faster now.
