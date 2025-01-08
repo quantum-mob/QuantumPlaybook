@@ -1,5 +1,13 @@
 # Select Release Notes
 
+## 3.3.21
+
+- Updated examples in Hatano-Nelson model due to Q3 v3.7.6.
+
+## 3.3.20
+
+- Updated examples in Hatano-Nelson model due to Q3 v3.7.6.
+
 ## 3.3.19
 
 - Hatano-Nelson model as a projective model.

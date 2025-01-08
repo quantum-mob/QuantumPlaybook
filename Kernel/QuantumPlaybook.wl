@@ -1,5 +1,5 @@
 Get["Q3`"];
-Q3Assure["3.7.5"];
+Q3Assure["3.8.0"];
 
 
 BeginPackage["QuantumPlaybook`"]
