@@ -1,5 +1,14 @@
 # Select Release Notes
 
+## 3.3.23
+
+- Updated examples in Kitaev Random Circuits and Chiral Fermion Random Circuits due to Q3 v3.8.1.
+- New: Hatano-Nelson-Kitaev model
+
+## 3.3.22
+
+- Updated examples in Hatano-Nelson model due to Q3 v3.8.0.
+
 ## 3.3.21
 
 - Updated examples in Hatano-Nelson model due to Q3 v3.7.6.
