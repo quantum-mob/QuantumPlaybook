@@ -1,13 +1,13 @@
 (* -*- mode:math -*- *)
-Get["Q3`"];
-Q3Assert["2.8.4"];
+Get["QuantumMob`Q3S`"];
+Q3Assure["4.0.5"];
 
-BeginPackage["Solovay`", {"Q3`"}]
+BeginPackage["QuantumMob`Solovay`", {"QuantumMob`Q3S`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];
 
-`Solovay`$Version = StringJoin[
+QuantumMob`Solovay`$Version = StringJoin[
   "Solovay/", $Input, " v",
   StringSplit["$Revision: 1.21 $"][[2]], " (",
   StringSplit["$Date: 2023-03-13 13:18:28+09 $"][[2]], ") ",

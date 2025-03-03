@@ -1,9 +1,6 @@
-(* -*- mode:math -*- *)
-(* Mahn-Soo Choi *)
-(* $Date: 2022-12-31 12:24:58+09 $ *)
-(* $Revision: 1.1 $ *)
+(* ::Package:: *)
 
-BeginPackage["QuantumPlaybook`Custom`", {"Q3`"}]
+BeginPackage["QuantumMob`QuantumPlaybook`Custom`", {"QuantumMob`Q3S`"}]
 
 Begin["`Private`"]
 

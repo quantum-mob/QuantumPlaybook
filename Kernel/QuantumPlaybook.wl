@@ -1,8 +1,9 @@
-Get["Q3`"];
-Q3Assure["3.8.1"];
+Get["QuantumMob`Q3S`"];
+Q3Assure["4.0.5"];
 
+$ContextAliases["QuantumPlaybook`"] = "QuantumMob`QuantumPlaybook`";
 
-BeginPackage["QuantumPlaybook`"]
+BeginPackage["QuantumMob`QuantumPlaybook`"]
 
 Unprotect["`*"];
 ClearAll["`*"];
@@ -11,6 +12,8 @@ ClearAll["`*"];
 { QuantumPlaybookEdition };
 
 Begin["`Private`"]
+
+$ContextAliases["Q3`"] = "QuantumMob`Q3S`";
 
 (**** <QuantumWorkbook> *****)
 
@@ -27,11 +30,13 @@ If[ old != {},
 
 QuantumPlaybookUpdate::usage = "QuantumPlaybookUpdate[] installs the latest update of the package."
 
+QuantumPlaybookUpdate::fresh = "You are using the latest release v`` of QuantumPlaybook."
+
 QuantumPlaybookUpdate[opts___?OptionQ] := (
   PrintTemporary["Installing an update ..."];
   PacletDataRebuild[];
   Q3`Private`serverEnsure[];
-  PacletInstall["QuantumPlaybook", opts, UpdatePacletSites -> True]
+  PacletInstall["QuantumMob/QuantumPlaybook", opts, UpdatePacletSites -> True]
  )
 
 
@@ -42,14 +47,14 @@ QuantumPlaybookCheckUpdate[] := Module[
   PrintTemporary["Checking for updates ..."];
   PacletDataRebuild[];
   Q3`Private`serverEnsure[];
-  pac = PacletFind["QuantumPlaybook"];
-  new = PacletFindRemote["QuantumPlaybook", UpdatePacletSites -> True];
+  pac = PacletFind["QuantumMob/QuantumPlaybook"];
+  new = PacletFindRemote["QuantumMob/QuantumPlaybook", UpdatePacletSites -> True];
   If[ pac=={}, Return[$Failed], pac = Q3`Private`pacletVersion[pac] ];
   If[ new=={}, Return[$Failed], new = Q3`Private`pacletVersion[new] ];
   If[ OrderedQ @ {
       Q3`Private`versionNumber @ new,
       Q3`Private`versionNumber @ pac },
-    Print["You are using the latest release v", pac, " of QuantumPlaybook."],
+    ToString @ StringForm[QuantumPlaybookUpdate::fresh, pac],
     PrintTemporary["QuantumPlaybook,v", new, " is now available; ",
       "you are using v", pac, "."];
     QuantumPlaybookUpdate[]
@@ -62,7 +67,7 @@ QuantumPlaybookEdition::usage = "QuantumPlaybookEdition[] returns the edition of
 QuantumPlaybookEdition::nobk = "No complilation of the Workbook chapters is found."
 
 QuantumPlaybookEdition[] := Module[
-  { pac = PacletFind["QuantumPlaybook"] },
+  { pac = PacletFind["QuantumMob/QuantumPlaybook"] },
   If[ pac == {},
     Message[QuantumPlaybookEdition::nobk];
     Return[$Failed],

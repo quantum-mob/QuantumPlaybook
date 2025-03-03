@@ -1,18 +1,11 @@
 (* -*- mode:math -*- *)
-Get["Q3`"];
-Q3Assert["2.6.0"];
+Get["QuantumMob`Q3S`"];
+Q3Assure["4.0.5"];
 
-BeginPackage["Transmon`", {"Q3`"}]
+BeginPackage["QuantumMob`Transmon`", {"QuantumMob`Q3S`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];
-
-`Transmon`$Version = StringJoin[
-  "Transmon/", $Input, " v",
-  StringSplit["$Revision: 1.28 $"][[2]], " (",
-  StringSplit["$Date: 2023-03-13 13:18:15+09 $"][[2]], ") ",
-  "Mahn-Soo Choi"
- ];
 
 { BlochEnergy,
   BlochFunction,
