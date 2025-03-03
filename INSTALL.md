@@ -20,7 +20,7 @@ Module[
     "Quantum Mob Paclet Server"
   ];
   PacletSiteUpdate[ps];
-  PacletInstall["Q3"];
+  PacletInstall["QuantumMob/Q3S"];
   PacletInstall["QuantumMob/QuantumPlaybook"]
 ]
 ```
