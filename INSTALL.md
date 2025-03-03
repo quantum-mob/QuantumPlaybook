@@ -13,16 +13,16 @@ One can install the QuantumPlaybook package using the `paclet` system that has r
 Copy the following code, and just evaluate it in your Mathematica(R) Notebook:
 
 ```Mathematica
-   Module[
-     { ps },
-     ps = PacletSiteRegister[
-       "https://github.com/quantum-mob/PacletRepository/raw/main",
-       "Quantum Mob Paclet Server"
-     ];
-     PacletSiteUpdate[ps];
-     PacletInstall["Q3"];
-     PacletInstall["QuantumMob/QuantumPlaybook"]
-   ]
+Module[
+  { ps },
+  ps = PacletSiteRegister[
+    "https://github.com/quantum-mob/PacletRepository/raw/main",
+    "Quantum Mob Paclet Server"
+  ];
+  PacletSiteUpdate[ps];
+  PacletInstall["Q3"];
+  PacletInstall["QuantumMob/QuantumPlaybook"]
+]
 ```
 
 Note that along with QuantumPlaybook, it also installs the main application Q3 for your convenience.
