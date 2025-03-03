@@ -2,7 +2,7 @@
 
 This package contains two compilations of Mathematica(R) demonstrations. The first, Workbook Demonstrations, includes all demonstrations in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130). The other, Playbook Demonstrations, is a collection of demonstrations of various topics in the field of *quantum information systems*, *quatum many-body systems*, and *quantum spin systems*. Users can try and modify the code themselves to build their own examples on the demonstrations and to experiment their fresh ideas.
 
-The code in this package is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
+The code in this package is based on Wolfram Language framework [Q3S](https://github.com/quantum-mob/Q3). [Q3S](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3S](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
 ## NOTICE
 
@@ -64,7 +64,7 @@ Here is another compilation of demonstrations that have not been covered in deta
 <img src="http://img.youtube.com/vi/k2icqSdb0FA/mqdefault.jpg" alt="Watch the videos" width="240" border="10" align="right" />
 </a>
 
-The tutorials of Q3 for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
+The tutorials of Q3S for beginners are also available in [YouTube videos](https://www.youtube.com/@QuantumWorkforceCenter/videos). The notebook files below contain the demonstrations shown in the corresponding videos.
 
 1. Q3: Install & Quick Start
 2. Quantum Playbook
