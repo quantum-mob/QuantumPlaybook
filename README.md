@@ -4,6 +4,9 @@ This package contains two compilations of Mathematica(R) demonstrations. The fir
 
 The code in this package is based on Mathematica package [Q3](https://github.com/quantum-mob/Q3). [Q3](https://github.com/quantum-mob/Q3) consists of tools and utilities that perform symbolic calculations and numerical simulations useful in the study of quantum information processing, quantum many-body systems, and quantum spin systems. With [Q3](https://github.com/quantum-mob/Q3), one can avoid many of the tedious calculations involved in various principles and theorems of quantum theory. Furthermore, numerous visualization and simulation tools can help deepen the understanding of core concepts.
 
+## NOTICE
+
+The official Paclet name of this package has been changed to `QauntumMob/QuantumPlaybook` following the convention of the [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/). To load the package, use `Get["QuantumMob/QuantumPlaybook"]` or `Needs["QuantumMob/QuantumPlaybook"]` (usually it is autoloaded when needed). The primary context is now "QuantumMob\`QuantumPlaybook\`" (rather than previous "QuantumPlaybook\`").
 
 ## Installation
 

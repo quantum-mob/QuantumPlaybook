@@ -25,7 +25,7 @@ Module[
 ]
 ```
 
-Note that along with QuantumPlaybook, it also installs the main application Q3 for your convenience.
+Note that along with `QuantumMob/QuantumPlaybook`, it also installs the main application `QuantumMob/Q3S` for your convenience.
 
 
 ## Update
