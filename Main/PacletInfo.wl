@@ -8,7 +8,7 @@ PacletObject[
     "URL" -> "https://github.com/quantum-mob/QuantumPlaybook",
     "License" -> "MIT",
     "PublisherID" -> "QuantumMob",
-    "Version" -> "4.0.2",
+    "Version" -> "4.1.0",
     "WolframVersion" -> "13+",
     "PrimaryContext" -> "QuantumMob`QuantumPlaybook`",
     "Category" -> "Education",
@@ -24,18 +24,7 @@ PacletObject[
         "Symbols" -> {
           "QuantumMob`QuantumPlaybook`QuantumPlaybookCheckUpdate",
           "QuantumMob`QuantumPlaybook`QuantumPlaybookEdition",
-          "QuantumMob`QuantumPlaybook`QuantumPlaybookUpdate",
-          "QuantumMob`QuantumPlaybook`TransmonExponent",
-          "QuantumMob`QuantumPlaybook`TransmonHamiltonian",
-          "QuantumMob`Solovay`Solovay",
-          "QuantumMob`Solovay`SolovayChains",
-          "QuantumMob`Solovay`SolovayKitaev",
-          "QuantumMob`Transmon`BlochEnergy",
-          "QuantumMob`Transmon`BlochFunction",
-          "QuantumMob`Transmon`TransmonEnergy",
-          "QuantumMob`Transmon`TransmonExponent",
-          "QuantumMob`Transmon`TransmonFunction",
-          "QuantumMob`Transmon`TransmonHamiltonian"
+          "QuantumMob`QuantumPlaybook`QuantumPlaybookUpdate"
         }
       },
       {
@@ -58,6 +47,8 @@ PacletObject[
         "Context" -> "QuantumMob`Solovay`",
         (* "HiddenImport" -> True, *)
         "Symbols" -> {
+          "QuantumMob`Solovay`GroupCommutator",
+          "QuantumMob`Solovay`BalancedCommutator",
           "QuantumMob`Solovay`Solovay",
           "QuantumMob`Solovay`SolovayChains",
           "QuantumMob`Solovay`SolovayKitaev"

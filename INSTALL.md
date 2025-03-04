@@ -20,12 +20,12 @@ Module[
     "Quantum Mob Paclet Repository"
   ];
   PacletSiteUpdate[ps];
-  PacletInstall["QuantumMob/Q3S"];
+  PacletInstall["QuantumMob/Q3"];
   PacletInstall["QuantumMob/QuantumPlaybook"]
 ]
 ```
 
-Note that along with `QuantumMob/QuantumPlaybook`, it also installs the main application `QuantumMob/Q3S` for your convenience.
+Note that along with `QuantumMob/QuantumPlaybook`, it also installs the main application `QuantumMob/Q3` for your convenience.
 
 
 ## Update

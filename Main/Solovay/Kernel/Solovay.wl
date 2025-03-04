@@ -1,8 +1,8 @@
 (* -*- mode:math -*- *)
-Get["QuantumMob`Q3S`"];
+Get["QuantumMob`Q3`"];
 Q3Assure["4.0.5"];
 
-BeginPackage["QuantumMob`Solovay`", {"QuantumMob`Q3S`"}]
+BeginPackage["QuantumMob`Solovay`", {"QuantumMob`Q3`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];

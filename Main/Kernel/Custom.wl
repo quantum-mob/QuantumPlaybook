@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["QuantumMob`QuantumPlaybook`Custom`", {"QuantumMob`Q3S`"}]
+BeginPackage["QuantumMob`QuantumPlaybook`Custom`", {"QuantumMob`Q3`"}]
 
 Begin["`Private`"]
 

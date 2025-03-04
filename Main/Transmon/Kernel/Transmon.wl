@@ -1,8 +1,8 @@
 (* -*- mode:math -*- *)
-Get["QuantumMob`Q3S`"];
+Get["QuantumMob`Q3`"];
 Q3Assure["4.0.5"];
 
-BeginPackage["QuantumMob`Transmon`", {"QuantumMob`Q3S`"}]
+BeginPackage["QuantumMob`Transmon`", {"QuantumMob`Q3`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];
@@ -24,11 +24,11 @@ BlochEnergy::usage = "BlochEnergy[\[Nu], \[Alpha]] returns the energy of the Blo
 
 BlochEnergy[nu_, alpha_] := (
   1/alpha + (alpha/8) * MathieuCharacteristicB[2*nu, -4/alpha^2]
- ) /; OddQ @ Rationalize[2*nu]
+) /; OddQ @ Rationalize[2*nu]
 
 BlochEnergy[nu_, alpha_] := (
   1/alpha + (alpha/8) * MathieuCharacteristicA[2*nu, -4/alpha^2]
- )
+)
 
 
 BlochFunction::usage = "BlochFunction[\[Nu], \[Alpha]] represents the Bloch function with characteristic exponent (or quasi-momentum) \[Nu] for the transmon Hamilonian with MacCumber parameter \[Alpha]."
@@ -39,7 +39,7 @@ BlochFunction[nu_, alpha_, x_] := Module[
   { a, b, q = -4/alpha^2 },
   a = MathieuCharacteristicA[2*nu, q];
   MathieuC[a, q, x/2] + I*MathieuS[a, q, x/2]
- ]
+]
 
 
 BlochHamiltonian::usage = "BlochHamiltonian[\[Alpha], x] represents the Bloch Hamiltonian in the x-space representation for MacCumber parameter \[Alpha].\nBlochHamiltonian[\[Alpha], x][expr] operates the operator on expr."
