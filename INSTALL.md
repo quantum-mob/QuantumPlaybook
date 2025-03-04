@@ -4,8 +4,8 @@ One can install the QuantumPlaybook package using the `paclet` system that has r
 
 ## Requirements
 
-* [Mathematica v12.2 or later](https://www.wolfram.com/mathematica)
-* [Q3 Application](https://github.com/quantum-mob/Q3)
+* [Mathematica v13.1 or later](https://www.wolfram.com/mathematica)
+* [QuantumMob/Q3](https://github.com/quantum-mob/Q3)
 
 
 ## Installation
@@ -25,7 +25,7 @@ Module[
 ]
 ```
 
-Note that along with `QuantumMob/QuantumPlaybook`, it also installs the main application `QuantumMob/Q3` for your convenience.
+Note that along with `QuantumMob/QuantumPlaybook`, it also installs the required framework `QuantumMob/Q3` for your convenience.
 
 
 ## Update
