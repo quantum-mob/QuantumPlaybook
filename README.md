@@ -6,7 +6,7 @@ The code in this package is based on Wolfram Language framework [Q3](https://git
 
 ## NOTICE
 
-The official Paclet name of this package has been changed to "QauntumMob/QuantumPlaybook" (previously, "QuantumPlaybook") following the convention of the [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/). To load the package, use `Get["QuantumMob/QuantumPlaybook"]` or `Needs["QuantumMob/QuantumPlaybook"]` (usually it is autoloaded when needed). The primary context is now "QuantumMob\`QuantumPlaybook\`" (rather than previous "QuantumPlaybook\`").
+The official Paclet name of this package has been changed to "QauntumMob/QuantumPlaybook" (previously, "QuantumPlaybook") following the convention of the [Wolfram Language Paclet Repository](https://resources.wolframcloud.com/PacletRepository/). To load the package, use `Get["QuantumMob`QuantumPlaybook`]` or `Needs["QuantumMob\`QuantumPlaybook\`]` (usually it is autoloaded when needed). The primary context is now "QuantumMob\`QuantumPlaybook\`" (rather than previous "QuantumPlaybook\`").
 
 ## Installation
 
