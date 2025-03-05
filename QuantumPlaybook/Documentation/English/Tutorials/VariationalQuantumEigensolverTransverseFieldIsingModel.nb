@@ -1,0 +1,2801 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    110523,       2791]
+NotebookOptionsPosition[     96705,       2517]
+NotebookOutlinePosition[     99647,       2585]
+CellTagsIndexPosition[     99604,       2582]
+WindowTitle->Variational Quantum Eigensolver: Transverse-Field Ising Model
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell[
+          "QUANTUM MOB/ QUANTUM PLAYBOOK TECH NOTE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "f9bdb233-3c35-4f33-b655-3fc90b7cd579"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "c31f6475-c3b8-4795-b57f-9c7a07aa65b7"],
+        Background->RGBColor[
+         0.3843137254901961, 0.4627450980392157, 0.7019607843137254],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "364ea177-bf18-4966-98eb-4686e80b224c"]
+         }],ExpressionUUID->"2cf4911d-086f-494b-bf13-313fef74529e"],
+         StripOnInput->False],{
+        StyleBox["\"FindMinimum\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:ref/FindMinimum"], 
+         StyleBox[
+          "\"QuantumCircuit\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:QuantumMob/Q3/ref/QuantumCircuit"]},
+        
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "39dc26a1-cc51-40c5-aef5-e4008d527ac3"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "3c852bc6-5467-449b-b396-80e2561152ba"]
+         }],ExpressionUUID->"21cd9bfc-7173-43af-8bbb-c3eeaf87c5f9"],
+         StripOnInput->False],{
+        "\"Quantum Information Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumInformationSystems"], 
+         "\"Quantum Many-Body Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumManyBodySystems"], 
+         "\"Quantum Spin Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumSpinSystems"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialMoreAboutSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "31802274-7ea1-496b-9ec6-594468b8d4a5"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "8a05be27-2ecc-475e-a84b-91393f8675ad"]
+         }],ExpressionUUID->"595d3bae-d1e1-4525-b841-2b883b983d68"],
+         StripOnInput->False],{
+        "\"A Quantum Playbook\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/QuantumPlaybook/tutorial/QuantumPlaybook"], 
+         "\"Quantum Information Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumInformationSystems"], 
+         "\"Quantum Many-Body Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumManyBodySystems"], 
+         "\"Quantum Spin Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumSpinSystems"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"RelatedTutorialsSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "58b88ae5-bd3c-436a-80e6-ff798dc9ce1e"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "4d90411a-e7c8-4ba7-8f89-69be5bae15cc"]
+         }],ExpressionUUID->"a526eddd-0ddc-4b16-a53c-5d22938128b2"],
+         StripOnInput->False],{
+        "\"QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel\"" :> None, 
+         "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard[
+          "QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel"], Delimiter, 
+         "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/QuantumMob/\
+QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel.html"], StandardForm]],
+                  "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+               False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "cedaa9a3-7791-453c-afdf-e3cd940d6a64"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "92e7f090-0c26-4a05-9bd3-b3f63c04cffe"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"1b91f1f7-2edc-4e3c-b992-7de2af36b9c1"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Variational Quantum Eigensolver: Transverse-Field Ising Model\
+\>", "TechNoteTitle",
+ CellID->1180735809,ExpressionUUID->"be6e49c5-df8f-4346-a4c0-7950047e1062"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell["Preliminary"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#337332107", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Variational Quantum Circuit (Ansatz)"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#1677757704", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+      Cell["Setting Up the Model"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#149272649", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Variational Solution in the Paramagnetic Phase"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#603660419", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+      Cell["Elementary Quantum Circuit Layer"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#1382925854", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Variational Solution in the Ferromagnetic Phase"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel#1976226607", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]}
+  }]], "TechNoteJumpBox",ExpressionUUID->"a66eaf3e-4aae-4d44-9cef-\
+430eee9e67ca"],
+
+Cell["\<\
+In this demonstration, we calculate the ground-state energy of the \
+transverse-field Ising model,\
+\>", "TechNoteText",
+ CellID->293025796,ExpressionUUID->"feff15d1-27e1-41ee-aa1d-fcf16f5b5b5d"],
+
+Cell[TextData[{
+ "\t",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"H", "=", 
+    RowBox[{"J", "(", 
+     RowBox[{
+      RowBox[{
+       UnderoverscriptBox["\[CapitalSigma]", 
+        RowBox[{"k", "=", "1"}], 
+        RowBox[{"n", "-", "1"}]], 
+       SubscriptBox["Z", "k"], 
+       SubscriptBox["Z", 
+        RowBox[{"k", "+", "1"}]]}], "+", 
+      RowBox[{"B", 
+       UnderoverscriptBox["\[CapitalSigma]", 
+        RowBox[{"k", "=", "1"}], "n"], 
+       SubscriptBox["X", "k"]}]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "bc426d27-3f4a-4f96-a6bd-563c83e31e4d"],
+ " ,"
+}], "TechNoteText",
+ CellID->546979545,ExpressionUUID->"25d05c0c-2df5-4a43-b43b-1a5f0dd0556f"],
+
+Cell[TextData[{
+ "where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["X", "k"], TraditionalForm]],ExpressionUUID->
+  "dc1b1f65-976b-4fdc-bccd-7d54caa63134"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Z", "k"], TraditionalForm]],ExpressionUUID->
+  "8ea2ab36-e394-42bf-8eea-6c7f596aff79"],
+ " are the Pauli ",
+ Cell[BoxData[
+  FormBox["X", TraditionalForm]],ExpressionUUID->
+  "d6d43368-1f97-4fd0-81e9-01eccb25cac5"],
+ " and ",
+ Cell[BoxData[
+  FormBox["Z", TraditionalForm]],ExpressionUUID->
+  "6d38a320-6133-4123-a6c3-fd6fee05e2c1"],
+ " operators, respectively, acting on qubit k, ",
+ Cell[BoxData[
+  FormBox["J", TraditionalForm]],ExpressionUUID->
+  "c6ce119d-2fc6-4663-a9a5-88d844321517"],
+ " is the exchange energy, and ",
+ Cell[BoxData[
+  FormBox["B", TraditionalForm]],ExpressionUUID->
+  "ed576ed9-2dd6-40ef-8141-03bde113b31b"],
+ " is the ",
+ StyleBox["dimensionless",
+  FontSlant->"Italic"],
+ " field in the transverse direction (that is, along the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "73642594-26c9-48db-afef-087b280ed5a6"],
+ "-axis)."
+}], "TechNoteText",
+ CellID->598760743,ExpressionUUID->"38b81b47-c442-4f86-b233-0466036142ca"],
+
+Cell[TextData[{
+ "The model exhibits a quantum phase transition from the ferromagnetic (or \
+ordered) phase (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", "B", "\[RightBracketingBar]"}], "<", 
+    "1"}], TraditionalForm]],ExpressionUUID->
+  "01096b4c-b79e-4dff-b558-dbaeb6a34e5c"],
+ ") to the paramagnetic (or disordered) phase (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", "B", "\[RightBracketingBar]"}], "<", 
+    "1"}], TraditionalForm]],ExpressionUUID->
+  "497e4094-a64d-41a7-b169-48e7972cc27e"],
+ ")."
+}], "TechNoteText",
+ CellID->1255345077,ExpressionUUID->"b48764d4-0414-4692-b462-2a76e91c655a"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell[
+       TextData["FindMinimum"]], "paclet:ref/FindMinimum"},
+     "RefLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Searches for a local mininum", "TechNoteTableText",ExpressionUUID->
+     "962a41ab-2c87-44bf-8823-01a12a33b668"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["QuantumCircuit"]], "paclet:QuantumMob/Q3/ref/QuantumCircuit",
+       "QuantumMob Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Quantum circuit model", "TechNoteTableText",ExpressionUUID->
+     "beef804c-5237-467f-a373-3275cf16d6fb"]}
+  }]], "DefinitionBox",
+ CellID->1497423169,ExpressionUUID->"021848df-b814-4dd3-925a-362e1754f842"],
+
+Cell["Functions used in variational quantum eigensolver.", "TechNoteCaption",
+ CellID->830342190,ExpressionUUID->"8337fefa-bbf1-4838-a4b6-3fcad9f3e35f"],
+
+Cell[CellGroupData[{
+
+Cell["Preliminary", "TechNoteSection",
+ CellID->337332107,ExpressionUUID->"13b385fe-a6ec-4e71-b895-75aaf253dd40"],
+
+Cell["Make sure that the Q3 package is loaded.", "TechNoteMathCaption",
+ CellID->1212449124,ExpressionUUID->"9673169f-44cd-443f-b129-2b278f7ba236"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<QuantumMob`Q3`\>\"", "]"}]], "Input",
+ CellLabel->"In[27]:=",
+ CellID->1179069090,ExpressionUUID->"7ea3d106-9579-4247-b856-0e3f37505d00"],
+
+Cell[TextData[{
+ "This function checks the calculated value against the true ground-state \
+energy. It returns a pair ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    StyleBox["val", "TI"], ",", 
+    StyleBox["error", "TI"]}], "}"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "4d4e7a6e-5ecd-4ccb-8870-4d12d2a335d3"],
+ " of the estimated ground-state energy ",
+ Cell[BoxData[
+  StyleBox["val", "TI"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "ceb0ceed-940f-4706-862f-b5ec5b7f8ebd"],
+ " and the ",
+ Cell[BoxData[
+  StyleBox["error", "TI"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a0a81a92-7ab8-4817-b2bb-c026df5db3b1"],
+ " relative to the true ground-state energy."
+}], "TechNoteMathCaption",
+ CellID->599820170,ExpressionUUID->"24743a0c-f2cd-4afb-885f-da39f95f5015"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"checkResult", "[", 
+   RowBox[{"val_", ",", "true_"}], "]"}], ":=", 
+  RowBox[{"With", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"error", "=", 
+      RowBox[{"Abs", "@", 
+       RowBox[{"PseudoDivide", "[", 
+        RowBox[{
+         RowBox[{"val", "-", "true"}], ",", "true"}], "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"error", ">", "10*^-2"}], ",", 
+       RowBox[{"Message", "[", 
+        RowBox[{"checkResult", "::", "big"}], "]"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"val", ",", 
+       RowBox[{"PercentForm", "@", "error"}]}], "}"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"checkResult", "::", "big"}], 
+   "=", "\"\<The error is too big!\>\""}], ";"}]}], "Input",
+ CellLabel->"In[28]:=",
+ CellID->1392016665,ExpressionUUID->"7a47aac5-a637-4ff6-8ff6-ed861bb14838"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Setting Up the Model", "TechNoteSection",
+ CellID->149272649,ExpressionUUID->"4d057755-4717-4daf-b415-f0224804c767"],
+
+Cell[TextData[{
+ "Take a quantum register of ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "7f083db4-395a-4ee2-9d59-e90dbac6b7a5"],
+ " qubits. We refer to the register by symbol ",
+ StyleBox["S", "Input"],
+ "."
+}], "TechNoteMathCaption",
+ CellID->1816949893,ExpressionUUID->"378e3d05-bc15-4445-af9e-e9aed15000e3"],
+
+Cell[BoxData[
+ RowBox[{"Let", "[", 
+  RowBox[{"Qubit", ",", "S"}], "]"}]], "Input",
+ CellLabel->"In[30]:=",
+ CellID->675384181,ExpressionUUID->"21be799c-a0e4-4d97-a692-ce255894765f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$n", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kk", "=", 
+   RowBox[{"Range", "[", "$n", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"SS", "=", 
+  RowBox[{"S", "[", 
+   RowBox[{"kk", ",", "$"}], "]"}]}]}], "Input",
+ CellLabel->"In[31]:=",
+ CellID->1536751657,ExpressionUUID->"981d29f7-46bc-4cfe-9f49-ebab3be3eb3e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SubscriptBox["S", 
+     TemplateBox[{",", "\",\"", "1"},
+      "RowWithSeparators"]],
+    $CellContext`S[1, QuantumMob`Q3`$]], ",", 
+   InterpretationBox[
+    SubscriptBox["S", 
+     TemplateBox[{",", "\",\"", "2"},
+      "RowWithSeparators"]],
+    $CellContext`S[2, QuantumMob`Q3`$]], ",", 
+   InterpretationBox[
+    SubscriptBox["S", 
+     TemplateBox[{",", "\",\"", "3"},
+      "RowWithSeparators"]],
+    $CellContext`S[3, QuantumMob`Q3`$]], ",", 
+   InterpretationBox[
+    SubscriptBox["S", 
+     TemplateBox[{",", "\",\"", "4"},
+      "RowWithSeparators"]],
+    $CellContext`S[4, QuantumMob`Q3`$]]}], "}"}]], "Output",
+ CellLabel->"Out[33]=",
+ CellID->2080692317,ExpressionUUID->"36a212be-9141-4da6-b902-c61fae5d51cc"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Take the Hamiltonian of transverse-field Ising model. We have put ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"J", "=", "1"}], TraditionalForm]],ExpressionUUID->
+  "7efbb5d7-92b1-49eb-a3eb-0ba2ed87d722"],
+ ". In other words, we measure energies in units of ",
+ Cell[BoxData[
+  FormBox["J", TraditionalForm]],ExpressionUUID->
+  "fa4a66f8-59ac-4194-b8f1-aab6b3a8f8e2"],
+ ". On the other hand, ",
+ Cell[BoxData[
+  FormBox["B", TraditionalForm]],ExpressionUUID->
+  "d2493a06-33e6-43dc-8452-6affd22172d9"],
+ " is the dimensionless field in the transverse direction."
+}], "TechNoteMathCaption",
+ CellID->1107588717,ExpressionUUID->"32cf9169-f464-4858-a7c5-1a4fa711298f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Let", "[", 
+  RowBox[{"Real", ",", "B"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"HH", "=", 
+  RowBox[{
+   RowBox[{"Total", "@", 
+    RowBox[{"ChainBy", "[", 
+     RowBox[{
+      RowBox[{"Through", "[", 
+       RowBox[{"SS", "[", "3", "]"}], "]"}], ",", "Multiply"}], "]"}]}], "+", 
+   
+   RowBox[{"B", "*", 
+    RowBox[{"Total", "@", 
+     RowBox[{"Through", "[", 
+      RowBox[{"SS", "[", "1", "]"}], "]"}]}]}]}]}]}], "Input",
+ CellLabel->"In[34]:=",
+ CellID->1442422837,ExpressionUUID->"a2f1c8ef-dfd4-4310-9c3e-48594bb106ed"],
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   TemplateBox[{
+     TemplateBox[{"\[VeryThinSpace]", "\"\[VeryThinSpace]\"", 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "1"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[1, 3]], 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "2"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[2, 3]]}, "RowWithSeparators"]},
+    "RowDefault"],
+   QuantumMob`Q3`Multiply[
+    $CellContext`S[1, 3], 
+    $CellContext`S[2, 3]]], "+", 
+  InterpretationBox[
+   TemplateBox[{
+     TemplateBox[{"\[VeryThinSpace]", "\"\[VeryThinSpace]\"", 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "2"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[2, 3]], 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "3"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[3, 3]]}, "RowWithSeparators"]},
+    "RowDefault"],
+   QuantumMob`Q3`Multiply[
+    $CellContext`S[2, 3], 
+    $CellContext`S[3, 3]]], "+", 
+  InterpretationBox[
+   TemplateBox[{
+     TemplateBox[{"\[VeryThinSpace]", "\"\[VeryThinSpace]\"", 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "3"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[3, 3]], 
+       InterpretationBox[
+        TemplateBox[{"S", 
+          TemplateBox[{",", "\",\"", "4"}, "RowWithSeparators"], 
+          TemplateBox[{",", "\",\"", "\"Z\""}, "RowWithSeparators"]}, 
+         "Subsuperscript", SyntaxForm -> SubsuperscriptBox], 
+        $CellContext`S[4, 3]]}, "RowWithSeparators"]},
+    "RowDefault"],
+   QuantumMob`Q3`Multiply[
+    $CellContext`S[3, 3], 
+    $CellContext`S[4, 3]]], "+", 
+  RowBox[{"B", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     InterpretationBox[
+      TemplateBox[{"S", 
+        TemplateBox[{",", "\",\"", "1"}, "RowWithSeparators"], 
+        TemplateBox[{",", "\",\"", "\"X\""}, "RowWithSeparators"]},
+       "Subsuperscript"],
+      $CellContext`S[1, 1]], "+", 
+     InterpretationBox[
+      TemplateBox[{"S", 
+        TemplateBox[{",", "\",\"", "2"}, "RowWithSeparators"], 
+        TemplateBox[{",", "\",\"", "\"X\""}, "RowWithSeparators"]},
+       "Subsuperscript"],
+      $CellContext`S[2, 1]], "+", 
+     InterpretationBox[
+      TemplateBox[{"S", 
+        TemplateBox[{",", "\",\"", "3"}, "RowWithSeparators"], 
+        TemplateBox[{",", "\",\"", "\"X\""}, "RowWithSeparators"]},
+       "Subsuperscript"],
+      $CellContext`S[3, 1]], "+", 
+     InterpretationBox[
+      TemplateBox[{"S", 
+        TemplateBox[{",", "\",\"", "4"}, "RowWithSeparators"], 
+        TemplateBox[{",", "\",\"", "\"X\""}, "RowWithSeparators"]},
+       "Subsuperscript"],
+      $CellContext`S[4, 1]]}], ")"}]}]}]], "Output",
+ CellLabel->"Out[35]=",
+ CellID->18898210,ExpressionUUID->"71fb0c6a-24b3-47ff-ac7e-84cbc9cc24c1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Elementary Quantum Circuit Layer", "TechNoteSection",
+ CellID->1382925854,ExpressionUUID->"73a2eff5-145d-4e18-b853-59024ee4701d"],
+
+Cell["\<\
+A variational quantum circuit is usually constructed by accumulating layers \
+of quantum circuits. Here, we construct an elementary quantum circuit layer \
+to be used repeatedly later.\
+\>", "TechNoteText",
+ CellID->1749295743,ExpressionUUID->"9d0d314e-f0ed-4032-ab29-b49441b126c9"],
+
+Cell[TextData[{
+ "The variational parameters are denoted by ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["a", "TI"], "[", 
+   RowBox[{
+    StyleBox["layer", "TI"], ",", 
+    StyleBox["qubit", "TI"], ",", 
+    StyleBox["\[Mu]", "TR"]}], "]"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "1de1396d-f410-4e0c-841f-1b5b9b7b027f"],
+ "."
+}], "TechNoteMathCaption",
+ CellID->777941866,ExpressionUUID->"ea3c20ef-b9fb-4d83-bdec-c52f401d7ead"],
+
+Cell[BoxData[
+ RowBox[{"Let", "[", 
+  RowBox[{"Real", ",", "a"}], "]"}]], "Input",
+ CellLabel->"In[36]:=",
+ CellID->712907482,ExpressionUUID->"c8c4b8b8-46b3-40ae-850e-0c08c94758ec"],
+
+Cell["Construct a basic layer of quantum circuit.", "TechNoteMathCaption",
+ CellID->644145878,ExpressionUUID->"989e4f19-aa6b-4b0b-ac1c-17864168f77d"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"rot", ",", "layer"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"rot", "[", "k_", "]"}], "=", 
+   RowBox[{"QuantumCircuit", "@", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"EulerRotation", "[", 
+       RowBox[{
+        RowBox[{"Pi", "*", 
+         RowBox[{"a", "[", 
+          RowBox[{"k", ",", "q", ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], "]"}]}], ",", 
+        RowBox[{"S", "[", 
+         RowBox[{"q", ",", "$"}], "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"q", ",", "$n"}], "}"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"cnt", "=", 
+   RowBox[{"QuantumCircuit", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"CNOT", "@@@", 
+      RowBox[{"Partition", "[", 
+       RowBox[{"SS", ",", "2"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"CNOT", "@@@", 
+      RowBox[{"Partition", "[", 
+       RowBox[{
+        RowBox[{"Rest", "@", "SS"}], ",", "2"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"layer", "[", "k_Integer", "]"}], "=", 
+   RowBox[{"QuantumCircuit", "[", 
+    RowBox[{
+     RowBox[{"rot", "[", "k", "]"}], ",", "cnt"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"layer", "[", 
+   RowBox[{"kk", ":", 
+    RowBox[{"{", "___Integer", "}"}]}], "]"}], ":=", 
+  RowBox[{"QuantumCircuit", "@@", 
+   RowBox[{"Riffle", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"layer", "[", "k", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "kk"}], "}"}]}], "]"}], ",", "\"\<Separator\>\""}], 
+    "]"}]}]}]}], "Input",
+ CellLabel->"In[37]:=",
+ CellID->1029194049,ExpressionUUID->"51ac766f-19f8-4cbd-8896-0db8e0363650"],
+
+Cell[TextData[{
+ "For example, here is a variational quantum circuit with two layers. \
+Although all boxes are denoted by the same label ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["U", "E"], TraditionalForm]],ExpressionUUID->
+  "a9ae0e8a-40f4-4e2b-a211-d99449d129e5"],
+ ", they represent different Euler rotations with different sets of Euler \
+angles  ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     StyleBox["a", "TI"], "[", 
+     RowBox[{
+      StyleBox["layer", "TI"], ",", 
+      StyleBox["qubit", "TI"], ",", "1"}], "]"}], ",", 
+    RowBox[{
+     StyleBox["a", "TI"], "[", 
+     RowBox[{
+      StyleBox["layer", "TI"], ",", 
+      StyleBox["qubit", "TI"], ",", "2"}], "]"}], ",", 
+    RowBox[{
+     StyleBox["a", "TI"], "[", 
+     RowBox[{
+      StyleBox["layer", "TI"], ",", 
+      StyleBox["qubit", "TI"], ",", "3"}], "]"}]}], "}"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "70739c07-8c97-40ad-bf8b-fe1b7981f772"],
+ "."
+}], "TechNoteMathCaption",
+ CellID->1403115228,ExpressionUUID->"fd657db4-99bc-44b9-9921-11466bf47fe9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"layer", "[", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", "2"}], "}"}], "]"}]], "Input",
+ CellLabel->"In[42]:=",
+ CellID->53432401,ExpressionUUID->"badb6b09-8796-4dd2-82f2-d4a9ad8babb6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  GraphicsBox[{
+    {Dashing[{Small, Small}], LineBox[{}]}, 
+    LineBox[{{{0, -1}, {8, -1}}, {{0, -2}, {8, -2}}, {{0, -3}, {8, -3}}, {{
+     0, -4}, {8, -4}}}], {{
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -1.4}, {1.4, -0.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -1.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -2.4}, {1.4, -1.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -2.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -3.4}, {1.4, -2.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -3.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -4.4}, {1.4, -3.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -4.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}}, {{
+      LineBox[{{2, -1}, {2, -2}}], 
+      DiskBox[{2, -1}, 0.09], {CircleBox[{2, -2}, 0.26666666666666666], 
+       LineBox[{{{1.7333333333333334`, -2}, {2.2666666666666666`, -2}}, {{
+          2, -2.2666666666666666`}, {2, -1.7333333333333334`}}}]}}, {
+      LineBox[{{2, -3}, {2, -4}}], 
+      DiskBox[{2, -3}, 0.09], {CircleBox[{2, -4}, 0.26666666666666666], 
+       LineBox[{{{1.7333333333333334`, -4}, {2.2666666666666666`, -4}}, {{
+          2, -4.266666666666667}, {2, -3.7333333333333334`}}}]}}}, {
+     LineBox[{{3, -2}, {3, -3}}], 
+     DiskBox[{3, -2}, 0.09], {CircleBox[{3, -3}, 0.26666666666666666], 
+      LineBox[{{{2.7333333333333334`, -3}, {3.2666666666666666`, -3}}, {{
+         3, -3.2666666666666666`}, {3, -2.7333333333333334`}}}]}}, 
+    {Dashing[{0, Small}], 
+     LineBox[NCache[{{4, Rational[-9, 2]}, {4, Rational[-1, 2]}}, {{
+        4, -4.5}, {4, -0.5}}]]}, {{
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -1.4}, {5.4, -0.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -1.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -2.4}, {5.4, -1.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -2.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -3.4}, {5.4, -2.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -3.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -4.4}, {5.4, -3.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -4.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}}, {{
+      LineBox[{{6, -1}, {6, -2}}], 
+      DiskBox[{6, -1}, 0.09], {CircleBox[{6, -2}, 0.26666666666666666], 
+       LineBox[{{{5.733333333333333, -2}, {6.266666666666667, -2}}, {{
+          6, -2.2666666666666666`}, {6, -1.7333333333333334`}}}]}}, {
+      LineBox[{{6, -3}, {6, -4}}], 
+      DiskBox[{6, -3}, 0.09], {CircleBox[{6, -4}, 0.26666666666666666], 
+       LineBox[{{{5.733333333333333, -4}, {6.266666666666667, -4}}, {{
+          6, -4.266666666666667}, {6, -3.7333333333333334`}}}]}}}, {
+     LineBox[{{7, -2}, {7, -3}}], 
+     DiskBox[{7, -2}, 0.09], {CircleBox[{7, -3}, 0.26666666666666666], 
+      LineBox[{{{6.733333333333333, -3}, {7.266666666666667, -3}}, {{
+         7, -3.2666666666666666`}, {7, -2.7333333333333334`}}}]}}},
+   ImagePadding->{{25.56, 25.56}, {7.2, 7.2}},
+   ImageSize->334.8,
+   PlotRange->{{0, 8}, {-4.5, -0.5}},
+   PlotRangePadding->Scaled[0.025]],
+  QuantumMob`Q3`QuantumCircuit[{
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 1, 1], Pi $CellContext`a[1, 1, 2], 
+      Pi $CellContext`a[1, 1, 3]}, 
+     $CellContext`S[1, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 2, 1], Pi $CellContext`a[1, 2, 2], 
+      Pi $CellContext`a[1, 2, 3]}, 
+     $CellContext`S[2, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 3, 1], Pi $CellContext`a[1, 3, 2], 
+      Pi $CellContext`a[1, 3, 3]}, 
+     $CellContext`S[3, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 4, 1], Pi $CellContext`a[1, 4, 2], 
+      Pi $CellContext`a[1, 4, 3]}, 
+     $CellContext`S[4, QuantumMob`Q3`$]]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[1, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[2, QuantumMob`Q3`$]}], 
+    QuantumMob`Q3`CNOT[{$CellContext`S[3, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[4, QuantumMob`Q3`$]}]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[2, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[3, QuantumMob`Q3`$]}]}, "Separator", {
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 1, 1], Pi $CellContext`a[2, 1, 2], 
+      Pi $CellContext`a[2, 1, 3]}, 
+     $CellContext`S[1, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 2, 1], Pi $CellContext`a[2, 2, 2], 
+      Pi $CellContext`a[2, 2, 3]}, 
+     $CellContext`S[2, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 3, 1], Pi $CellContext`a[2, 3, 2], 
+      Pi $CellContext`a[2, 3, 3]}, 
+     $CellContext`S[3, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 4, 1], Pi $CellContext`a[2, 4, 2], 
+      Pi $CellContext`a[2, 4, 3]}, 
+     $CellContext`S[4, QuantumMob`Q3`$]]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[1, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[2, QuantumMob`Q3`$]}], 
+    QuantumMob`Q3`CNOT[{$CellContext`S[3, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[4, QuantumMob`Q3`$]}]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[2, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[3, QuantumMob`Q3`$]}]}]]], "Output",
+ CellLabel->"Out[42]=",
+ CellID->1942119361,ExpressionUUID->"821b3a3f-8384-4e41-997f-d99b4100af65"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Variational Quantum Circuit (Ansatz)", "TechNoteSection",
+ CellID->1677757704,ExpressionUUID->"8961f365-f2b5-43be-b71c-9f62fe601252"],
+
+Cell["\<\
+Here, we construct a variational quantum circuit by accumulating the quantum \
+circuit layers defined above.\
+\>", "TechNoteText",
+ CellID->1988760820,ExpressionUUID->"b1476ecc-0b8d-4c42-9f2c-578c0528564d"],
+
+Cell["The number of layers.", "TechNoteMathCaption",
+ CellID->1613446018,ExpressionUUID->"f1c41eba-7b69-4080-9990-2e4483353b46"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$L", "=", "2"}], ";"}]], "Input",
+ CellLabel->"In[43]:=",
+ CellID->911213857,ExpressionUUID->"181756a8-c0c1-4b63-9226-7f7e28ace11d"],
+
+Cell["Construct a variational quantum circuit. ", "TechNoteMathCaption",
+ CellID->83309207,ExpressionUUID->"2f569153-3ef7-4ebb-9484-73fd3d264a52"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"try", "=", 
+  RowBox[{"QuantumCircuit", "[", 
+   RowBox[{
+    RowBox[{"Ket", "[", "SS", "]"}], ",", 
+    RowBox[{"layer", "[", 
+     RowBox[{"Range", "@", "$L"}], "]"}]}], "]"}]}]], "Input",
+ CellLabel->"In[44]:=",
+ CellID->18504205,ExpressionUUID->"f11b8f4d-45af-462a-8904-a1f4e15d065b"],
+
+Cell[BoxData[
+ InterpretationBox[
+  GraphicsBox[{
+    {Dashing[{Small, Small}], LineBox[{}]}, 
+    LineBox[{{{0, -1}, {8, -1}}, {{0, -2}, {8, -2}}, {{0, -3}, {8, -3}}, {{
+     0, -4}, {8, -4}}}], {InsetBox[
+      TemplateBox[{"0"},
+       "Ket"], {-0.2, -1.}, NCache[
+      ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]], Automatic, {1,
+       0}], InsetBox[
+      TemplateBox[{"0"},
+       "Ket"], {-0.2, -2.}, NCache[
+      ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]], Automatic, {1,
+       0}], InsetBox[
+      TemplateBox[{"0"},
+       "Ket"], {-0.2, -3.}, NCache[
+      ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]], Automatic, {1,
+       0}], InsetBox[
+      TemplateBox[{"0"},
+       "Ket"], {-0.2, -4.}, NCache[
+      ImageScaled[{1, Rational[1, 2]}], ImageScaled[{1, 0.5}]], Automatic, {1,
+       0}]}, {{
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -1.4}, {1.4, -0.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -1.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -2.4}, {1.4, -1.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -2.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -3.4}, {1.4, -2.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -3.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{0.6, -4.4}, {1.4, -3.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {1., -4.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}}, {{
+      LineBox[{{2, -1}, {2, -2}}], 
+      DiskBox[{2, -1}, 0.09], {CircleBox[{2, -2}, 0.26666666666666666], 
+       LineBox[{{{1.7333333333333334`, -2}, {2.2666666666666666`, -2}}, {{
+          2, -2.2666666666666666`}, {2, -1.7333333333333334`}}}]}}, {
+      LineBox[{{2, -3}, {2, -4}}], 
+      DiskBox[{2, -3}, 0.09], {CircleBox[{2, -4}, 0.26666666666666666], 
+       LineBox[{{{1.7333333333333334`, -4}, {2.2666666666666666`, -4}}, {{
+          2, -4.266666666666667}, {2, -3.7333333333333334`}}}]}}}, {
+     LineBox[{{3, -2}, {3, -3}}], 
+     DiskBox[{3, -2}, 0.09], {CircleBox[{3, -3}, 0.26666666666666666], 
+      LineBox[{{{2.7333333333333334`, -3}, {3.2666666666666666`, -3}}, {{
+         3, -3.2666666666666666`}, {3, -2.7333333333333334`}}}]}}, 
+    {Dashing[{0, Small}], 
+     LineBox[NCache[{{4, Rational[-9, 2]}, {4, Rational[-1, 2]}}, {{
+        4, -4.5}, {4, -0.5}}]]}, {{
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -1.4}, {5.4, -0.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -1.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -2.4}, {5.4, -1.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -2.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -3.4}, {5.4, -2.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -3.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}, {
+      {GrayLevel[1], EdgeForm[Opacity[1]], 
+       RectangleBox[{4.6, -4.4}, {5.4, -3.6}]}, InsetBox[
+       StyleBox[
+        SubscriptBox["\<\"R\"\>", "\<\"E\"\>"],
+        StripOnInput->False,
+        FontSize->Scaled[0.05],
+        FontWeight->"Light",
+        FontSlant->Italic], {5., -4.}, NCache[
+       ImageScaled[{Rational[1, 2], Rational[1, 2]}], 
+        ImageScaled[{0.5, 0.5}]], Automatic, {1, 0}]}}, {{
+      LineBox[{{6, -1}, {6, -2}}], 
+      DiskBox[{6, -1}, 0.09], {CircleBox[{6, -2}, 0.26666666666666666], 
+       LineBox[{{{5.733333333333333, -2}, {6.266666666666667, -2}}, {{
+          6, -2.2666666666666666`}, {6, -1.7333333333333334`}}}]}}, {
+      LineBox[{{6, -3}, {6, -4}}], 
+      DiskBox[{6, -3}, 0.09], {CircleBox[{6, -4}, 0.26666666666666666], 
+       LineBox[{{{5.733333333333333, -4}, {6.266666666666667, -4}}, {{
+          6, -4.266666666666667}, {6, -3.7333333333333334`}}}]}}}, {
+     LineBox[{{7, -2}, {7, -3}}], 
+     DiskBox[{7, -2}, 0.09], {CircleBox[{7, -3}, 0.26666666666666666], 
+      LineBox[{{{6.733333333333333, -3}, {7.266666666666667, -3}}, {{
+         7, -3.2666666666666666`}, {7, -2.7333333333333334`}}}]}}},
+   ImagePadding->{{25.56, 25.56}, {7.2, 7.2}},
+   ImageSize->334.8,
+   PlotRange->{{0, 8}, {-4.5, -0.5}},
+   PlotRangePadding->Scaled[0.025]],
+  QuantumMob`Q3`QuantumCircuit[
+   QuantumMob`Q3`PortIn[
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[2, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[3, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[4, QuantumMob`Q3`$] -> 0|>]], {
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 1, 1], Pi $CellContext`a[1, 1, 2], 
+      Pi $CellContext`a[1, 1, 3]}, 
+     $CellContext`S[1, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 2, 1], Pi $CellContext`a[1, 2, 2], 
+      Pi $CellContext`a[1, 2, 3]}, 
+     $CellContext`S[2, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 3, 1], Pi $CellContext`a[1, 3, 2], 
+      Pi $CellContext`a[1, 3, 3]}, 
+     $CellContext`S[3, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[1, 4, 1], Pi $CellContext`a[1, 4, 2], 
+      Pi $CellContext`a[1, 4, 3]}, 
+     $CellContext`S[4, QuantumMob`Q3`$]]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[1, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[2, QuantumMob`Q3`$]}], 
+    QuantumMob`Q3`CNOT[{$CellContext`S[3, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[4, QuantumMob`Q3`$]}]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[2, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[3, QuantumMob`Q3`$]}]}, "Separator", {
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 1, 1], Pi $CellContext`a[2, 1, 2], 
+      Pi $CellContext`a[2, 1, 3]}, 
+     $CellContext`S[1, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 2, 1], Pi $CellContext`a[2, 2, 2], 
+      Pi $CellContext`a[2, 2, 3]}, 
+     $CellContext`S[2, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 3, 1], Pi $CellContext`a[2, 3, 2], 
+      Pi $CellContext`a[2, 3, 3]}, 
+     $CellContext`S[3, QuantumMob`Q3`$]], 
+    QuantumMob`Q3`EulerRotation[{
+     Pi $CellContext`a[2, 4, 1], Pi $CellContext`a[2, 4, 2], 
+      Pi $CellContext`a[2, 4, 3]}, 
+     $CellContext`S[4, QuantumMob`Q3`$]]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[1, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[2, QuantumMob`Q3`$]}], 
+    QuantumMob`Q3`CNOT[{$CellContext`S[3, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[4, QuantumMob`Q3`$]}]}, {
+    QuantumMob`Q3`CNOT[{$CellContext`S[2, QuantumMob`Q3`$] -> 1}, {
+      $CellContext`S[3, QuantumMob`Q3`$]}]}]]], "Output",
+ CellLabel->"Out[44]=",
+ CellID->1596149574,ExpressionUUID->"37c0c879-8412-4749-a141-eb8aa9d3316f"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The above quantum circuit involves ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"L", "\[Times]", "n", "\[Times]", "3"}], TraditionalForm]],
+  ExpressionUUID->"5e417803-b03b-4776-ad99-3ff2cbda9362"],
+ " variational parameters ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["a", 
+    RowBox[{"l", ",", "q", ",", "\[Mu]"}]], TraditionalForm]],ExpressionUUID->
+  "5742c0c2-084f-4719-8cd7-77cdedf376a5"],
+ " for layer ",
+ Cell[BoxData[
+  FormBox["l", TraditionalForm]],ExpressionUUID->
+  "fdea9300-265e-4398-82d3-5b9f6cdaf5f4"],
+ ", qubit ",
+ Cell[BoxData[
+  FormBox["q", TraditionalForm]],ExpressionUUID->
+  "bd7e676a-9fb2-47ed-b9ce-e8925b6abf23"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[Mu]", "=", "1"}], ",", "2", ",", "3"}], TraditionalForm]],
+  ExpressionUUID->"dbe3a12d-7601-45db-9a4c-f6291e3bf0a8"],
+ "."
+}], "TechNoteMathCaption",
+ CellID->590951808,ExpressionUUID->"266d9d55-b96b-40a0-9d57-810c3f6468ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"aa", "=", 
+  RowBox[{"a", "[", 
+   RowBox[{
+    RowBox[{"Range", "@", "$L"}], ",", "kk", ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}], "]"}]}]], "Input",
+ CellLabel->"In[45]:=",
+ CellID->15169681,ExpressionUUID->"51b088d5-ad6c-47f5-a329-2b9dc384adbd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "1", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 1, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "1", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 1, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "1", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 1, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "2", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 2, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "2", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 2, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "2", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 2, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "3", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 3, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "3", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 3, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "3", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 3, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "4", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 4, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "4", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 4, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "1", "4", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[1, 4, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "1", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 1, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "1", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 1, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "1", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 1, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "2", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 2, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "2", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 2, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "2", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 2, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "3", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 3, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "3", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 3, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "3", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 3, 3]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "4", "1"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 4, 1]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "4", "2"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 4, 2]], ",", 
+   InterpretationBox[
+    SubscriptBox["a", 
+     TemplateBox[{",", "\",\"", "2", "4", "3"},
+      "RowWithSeparators"]],
+    $CellContext`a[2, 4, 3]]}], "}"}]], "Output",
+ CellLabel->"Out[45]=",
+ CellID->120171894,ExpressionUUID->"74e1e681-f554-404d-8aa0-f8777227f684"]
+}, Open  ]],
+
+Cell["This is to randomly initialize the parameters.", "TechNoteMathCaption",
+ CellID->613272827,ExpressionUUID->"219fd724-7930-43e5-b130-bb61a5b48e45"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a0", "=", 
+  RowBox[{"Flatten", "@", 
+   RowBox[{"RandomReal", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}], "Pi"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"$L", ",", "$n", ",", "3"}], "}"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[46]:=",
+ CellID->1502381436,ExpressionUUID->"55ec0414-3f47-454e-9cf7-bf844329d6b6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.4143748095486529`", ",", "0.6178684778213133`", ",", 
+   "2.1155020556646495`", ",", "0.2877137263833363`", ",", 
+   "0.12520712112110485`", ",", "1.9239814942447637`", ",", 
+   "2.550849413575126`", ",", "1.917067923227227`", ",", "1.648147349743102`",
+    ",", "0.906176840221335`", ",", "1.1128031343549887`", ",", 
+   "0.8399372809417187`", ",", "0.0212202486756979`", ",", 
+   "0.01458900754569737`", ",", "2.3461554780079528`", ",", 
+   "2.054372831396091`", ",", "2.9062874715447777`", ",", 
+   "0.5516118985870869`", ",", "0.5321885233348339`", ",", 
+   "2.178530487622047`", ",", "0.6294907943452327`", ",", 
+   "0.3184027295552855`", ",", "2.8577912491515893`", ",", 
+   "2.163474177602939`"}], "}"}]], "Output",
+ CellLabel->"Out[46]=",
+ CellID->1094394278,ExpressionUUID->"78e004f2-55c6-42cd-8929-54fcb4754e62"]
+}, Open  ]],
+
+Cell["\<\
+Evaluate the quantum circuit to express it in the vector form.\
+\>", "TechNoteMathCaption",
+ CellID->1378831204,ExpressionUUID->"7988db4f-881e-41e1-ae5e-f9580aeb92d2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EchoTiming", "[", 
+  RowBox[{
+   RowBox[{"out", "=", 
+    RowBox[{"Matrix", "[", 
+     RowBox[{"try", ",", "SS"}], "]"}]}], ";"}], "]"}]], "Input",
+ CellLabel->"In[47]:=",
+ CellID->423156751,ExpressionUUID->"41269a38-267d-4b55-b16e-11b6898c54d5"],
+
+Cell[BoxData["0.472176`"], "EchoTiming",
+ CellID->287193791,ExpressionUUID->"0a242ce3-1e91-44ac-be08-eb8e674e674e"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Variational Solution in the Paramagnetic Phase", "TechNoteSection",
+ CellID->603660419,ExpressionUUID->"fbdf9a33-43f5-43bb-89d3-e3a3bfad1288"],
+
+Cell["\<\
+Now, we are ready to solve the variational problem by defining the objective \
+function and minimizing the function over the variational parameter. Here, we \
+first solve the problem in the paramagnetic phase.\
+\>", "TechNoteText",
+ CellID->415503970,ExpressionUUID->"c6024c6d-f018-4194-ad6f-be061d57835f"],
+
+Cell["\<\
+Construct the objective function, which in this case is the expectation value \
+of the Hamiltonian.\
+\>", "TechNoteMathCaption",
+ CellID->138273358,ExpressionUUID->"b1fe9ef3-1b9c-4fbc-bb7c-57b65da8044e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Block", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"B", "=", "5."}], "}"}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Paramagnetic", " ", "phase"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EchoTiming", "[", 
+     RowBox[{"mat", "=", 
+      RowBox[{"Matrix", "[", 
+       RowBox[{"HH", ",", "SS"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    
+    RowBox[{"Echo", "[", 
+     RowBox[{
+      RowBox[{"groundStateEnergy", "=", 
+       RowBox[{"Min", "@", 
+        RowBox[{"Eigenvalues", "[", "mat", "]"}]}]}], 
+      ",", "\"\<Ground-state energy\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"EchoTiming", "[", 
+     RowBox[{"avg", "=", 
+      RowBox[{"Re", "[", 
+       RowBox[{
+        RowBox[{"Conjugate", "[", "out", "]"}], ".", "mat", ".", "out"}], 
+       "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[48]:=",
+ CellID->383021852,ExpressionUUID->"b3431b89-836e-475e-8737-fc7292cf404b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["0.002129`"], "EchoTiming",
+ CellID->1470290528,ExpressionUUID->"9ad356b1-8792-4ea3-8883-d64482fe2240"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"Ground-state energy\"\>",
+   "EchoLabel"], "  ", 
+  RowBox[{"-", "20.15012369228522`"}]}]], "Echo",
+ CellID->78578067,ExpressionUUID->"245ba8fb-e3b0-43e9-a5bd-2d0491316bd8"],
+
+Cell[BoxData["0.097482`"], "EchoTiming",
+ CellID->2106612811,ExpressionUUID->"6dde4cba-7011-4893-82aa-57296151b5c9"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+A variable to take trace of the value of objective function at each iteration \
+step.\
+\>", "TechNoteMathCaption",
+ CellID->485220661,ExpressionUUID->"7aabb6db-1f17-45ec-9ad3-491ae8449974"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellLabel->"In[49]:=",
+ CellID->2038743382,ExpressionUUID->"3f92b38a-7ebb-438c-a662-f304d470def1"],
+
+Cell["\<\
+Iteratively calculate the ground-state energy by minimizing the expectation \
+value of the Hamiltonian.\
+\>", "TechNoteMathCaption",
+ CellID->1078826718,ExpressionUUID->"358637d5-b6cc-4efe-9524-6b88f1516d4f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"val", ",", "sol"}], "}"}], "=", 
+   RowBox[{"FindMinimum", "[", 
+    RowBox[{"avg", ",", 
+     RowBox[{"Transpose", "@", 
+      RowBox[{"{", 
+       RowBox[{"aa", ",", "a0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"StepMonitor", ":>", 
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"data", ",", "avg"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"PrintTemporary", "[", 
+         RowBox[{"\"\<Expectation value: \>\"", ",", "avg"}], "]"}]}], 
+       "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Method", "->", "\"\<IPOPT\>\""}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[50]:=",
+ CellID->277335284,ExpressionUUID->"0e72a63f-37e0-4554-a823-3bd04ac5573b"],
+
+Cell["\<\
+Check the result. The first value is the estimation of the ground-state \
+energy and the second number is the relative error.\
+\>", "TechNoteMathCaption",
+ CellID->960407115,ExpressionUUID->"01f998a4-6693-4da1-a76b-092f64764dd5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"checkResult", "[", 
+  RowBox[{"val", ",", "groundStateEnergy"}], "]"}]], "Input",
+ CellLabel->"In[51]:=",
+ CellID->1075290953,ExpressionUUID->"88624071-ce8e-4b9a-95f8-5a9fa5268045"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "20.099997524934604`"}], ",", 
+   TagBox[
+    InterpretationBox[
+     StyleBox["\<\"0.2488%\"\>",
+      ShowStringCharacters->False],
+     0.0024876357146039387`,
+     AutoDelete->True],
+    PercentForm]}], "}"}]], "Output",
+ CellLabel->"Out[51]=",
+ CellID->1321914294,ExpressionUUID->"4099a967-8576-48c3-8be1-3da04db09bde"]
+}, Open  ]],
+
+Cell["\<\
+This shows the convergence behavior of the above iteration method.\
+\>", "TechNoteMathCaption",
+ CellID->405406820,ExpressionUUID->"a3e75474-85f7-41c7-9ce6-c94fdb592ff5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{"data", ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotMarkers", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<\[FilledCircle]\>\"", ",", " ", "12"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "->", "All"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Iteration\>\"", ",", 
+      RowBox[{"Expectation", " ", "value"}]}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[52]:=",
+ CellID->62495436,ExpressionUUID->"3995c383-3cfa-453c-9033-d09bf70adefd"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   InterpretationBox[{
+     TagBox[{{{}, {}, 
+        TagBox[
+         {RGBColor[0.24, 0.6, 0.8], PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[2], 
+          LineBox[CompressedData["
+1:eJxTTMoPSmViYGAQB2IQDQEf7OOcz9W+c2I6ABVwUGm2yfjlKAXlczgoKhqE
+L1onC+ULOCyoWsm4REgZyhdx+M+46I7kDk0oX8Lhm+SnxsW5elC+jIPdqrMn
+kguNoHwFBxtl9XdnzxpD+UoObka/eBewmUD5Kg5vN/6qfCcK46s55HHcbG6S
+hPE1HDomqiycBudrOdiUtZ9E8HUcYq6ys02H8/Uc2GWYFyP4Bg6pm7o3zIDz
+DR3WVOwMnwnnGznknxfPQPCNHdwWquYj+CYOPyIvI/FNHfTP8hYg+GYOM0yE
+kfjmDhluED4AhAJdpQ==
+           "]]},
+         Annotation[#, "Charting`Private`Tag#1"]& ]}, 
+       TagBox[
+        {RGBColor[0.24, 0.6, 0.8], PointSize[
+          NCache[
+           Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[2], 
+         GeometricTransformationBox[InsetBox[
+           StyleBox["\<\"\[FilledCircle]\"\>",
+            StripOnInput->False,
+            FontSize->12], {0., 0.}], CompressedData["
+1:eJxTTMoPSmVmYGAQB2JGIGZigIEP9nHO52rfOTEdgAo4qDTbZPxylILyORwU
+FQ3CF62ThfIFHBZUrWRcIqQM5Ys4/GdcdEdyhyaUL+HwTfJT4+JcPShfxsFu
+1dkTyYVGUL6Cg42y+ruzZ42hfCUHN6NfvAvYTKB8FYe3G39VvhOF8dUc8jhu
+NjdJwvgaDh0TVRZOg/O1HGzK2k8i+DoOMVfZ2abD+XoO7DLMixF8A4fUTd0b
+ZsD5hg5rKnaGz4TzjRzyz4tnIPjGDm4LVfMRfBOHH5GXkfimDvpneQsQfDOH
+GSbCSHxzhww3CB8AjgZdpw==
+          "]]},
+        Annotation[#, "Charting`Private`Tag#1"]& ]},
+      {"WolframDynamicHighlight", <|
+       "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>}], 
+     StyleBox[
+      DynamicBox[(Charting`HighlightActionBox["DynamicHighlight", {}, 
+        Slot["HighlightElements"], 
+        Slot["LayoutOptions"], 
+        Slot["Meta"], 
+        Charting`HighlightActionFunction["DynamicHighlight", {{{}, {}, 
+           Annotation[{
+             Hue[0.67, 0.6, 0.6], 
+             Directive[
+              PointSize[
+               Rational[7, 360]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]], 
+             Line[CompressedData["
+1:eJxTTMoPSmViYGAQB2IQDQEf7OOcz9W+c2I6ABVwUGm2yfjlKAXlczgoKhqE
+L1onC+ULOCyoWsm4REgZyhdx+M+46I7kDk0oX8Lhm+SnxsW5elC+jIPdqrMn
+kguNoHwFBxtl9XdnzxpD+UoObka/eBewmUD5Kg5vN/6qfCcK46s55HHcbG6S
+hPE1HDomqiycBudrOdiUtZ9E8HUcYq6ys02H8/Uc2GWYFyP4Bg6pm7o3zIDz
+DR3WVOwMnwnnGznknxfPQPCNHdwWquYj+CYOPyIvI/FNHfTP8hYg+GYOM0yE
+kfjmDhluED4AhAJdpQ==
+              "]]}, "Charting`Private`Tag#1"]}, {
+           Annotation[{
+             Directive[
+              PointSize[
+               Rational[7, 360]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]], 
+             GeometricTransformation[
+              Inset[
+               Style["\[FilledCircle]", FontSize -> 12], {0., 
+               0.}], CompressedData["
+1:eJxTTMoPSmVmYGAQB2JGIGZigIEP9nHO52rfOTEdgAo4qDTbZPxylILyORwU
+FQ3CF62ThfIFHBZUrWRcIqQM5Ys4/GdcdEdyhyaUL+HwTfJT4+JcPShfxsFu
+1dkTyYVGUL6Cg42y+ruzZ42hfCUHN6NfvAvYTKB8FYe3G39VvhOF8dUc8jhu
+NjdJwvgaDh0TVRZOg/O1HGzK2k8i+DoOMVfZ2abD+XoO7DLMixF8A4fUTd0b
+ZsD5hg5rKnaGz4TzjRzyz4tnIPjGDm4LVfMRfBOHH5GXkfimDvpneQsQfDOH
+GSbCSHxzhww3CB8AjgZdpw==
+              "]]}, "Charting`Private`Tag#1"]}}, <|
+         "HighlightElements" -> <|
+           "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+          "LayoutOptions" -> <|
+           "PanelPlotLayout" -> <||>, 
+            "PlotRange" -> {{0.4210526315789482, 
+             23.}, {-20.099997524934594`, -2.282681448800232}}, 
+            "Frame" -> {{True, True}, {True, True}}, 
+            "AxesOrigin" -> {0.4210526315789482, -1.8138047099545949`}, 
+            "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+            "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+            "DefaultStyle" -> {
+              Directive[
+               PointSize[
+                Rational[7, 360]], 
+               RGBColor[0.24, 0.6, 0.8], 
+               AbsoluteThickness[2]]}, 
+            "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), 
+              "ScalingFunctions" -> {{Identity, Identity}, {
+                Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> 
+            False|>, 
+          "Meta" -> <|
+           "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+            ListLinePlot, "GroupHighlight" -> False|>|>]]& )[<|
+        "HighlightElements" -> <|
+          "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+         "LayoutOptions" -> <|
+          "PanelPlotLayout" -> <||>, 
+           "PlotRange" -> {{0.4210526315789482, 
+            23.}, {-20.099997524934594`, -2.282681448800232}}, 
+           "Frame" -> {{True, True}, {True, True}}, 
+           "AxesOrigin" -> {0.4210526315789482, -1.8138047099545949`}, 
+           "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+           "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+           "DefaultStyle" -> {
+             Directive[
+              PointSize[
+               Rational[7, 360]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]]}, 
+           "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+               (Identity[#]& )[
+                Part[#, 1]], 
+               (Identity[#]& )[
+                Part[#, 2]]}& ), 
+             "ScalingFunctions" -> {{Identity, Identity}, {
+               Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> 
+           False|>, 
+         "Meta" -> <|
+          "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+           ListLinePlot, "GroupHighlight" -> False|>|>],
+       ImageSizeCache->{{4.503599627370496*^15, -4.503599627370496*^15}, {
+        4.503599627370496*^15, -4.503599627370496*^15}}],
+      Selectable->False]},
+    Annotation[{{{}, {}, 
+       Annotation[{
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           Rational[7, 360]], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]], 
+         Line[CompressedData["
+1:eJxTTMoPSmViYGAQB2IQDQEf7OOcz9W+c2I6ABVwUGm2yfjlKAXlczgoKhqE
+L1onC+ULOCyoWsm4REgZyhdx+M+46I7kDk0oX8Lhm+SnxsW5elC+jIPdqrMn
+kguNoHwFBxtl9XdnzxpD+UoObka/eBewmUD5Kg5vN/6qfCcK46s55HHcbG6S
+hPE1HDomqiycBudrOdiUtZ9E8HUcYq6ys02H8/Uc2GWYFyP4Bg6pm7o3zIDz
+DR3WVOwMnwnnGznknxfPQPCNHdwWquYj+CYOPyIvI/FNHfTP8hYg+GYOM0yE
+kfjmDhluED4AhAJdpQ==
+          "]]}, "Charting`Private`Tag#1"]}, {
+       Annotation[{
+         Directive[
+          PointSize[
+           Rational[7, 360]], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]], 
+         GeometricTransformation[
+          Inset[
+           Style["\[FilledCircle]", FontSize -> 12], {0., 
+           0.}], CompressedData["
+1:eJxTTMoPSmVmYGAQB2JGIGZigIEP9nHO52rfOTEdgAo4qDTbZPxylILyORwU
+FQ3CF62ThfIFHBZUrWRcIqQM5Ys4/GdcdEdyhyaUL+HwTfJT4+JcPShfxsFu
+1dkTyYVGUL6Cg42y+ruzZ42hfCUHN6NfvAvYTKB8FYe3G39VvhOF8dUc8jhu
+NjdJwvgaDh0TVRZOg/O1HGzK2k8i+DoOMVfZ2abD+XoO7DLMixF8A4fUTd0b
+ZsD5hg5rKnaGz4TzjRzyz4tnIPjGDm4LVfMRfBOHH5GXkfimDvpneQsQfDOH
+GSbCSHxzhww3CB8AjgZdpw==
+          "]]}, "Charting`Private`Tag#1"]}}, <|
+     "HighlightElements" -> <|
+       "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+      "LayoutOptions" -> <|
+       "PanelPlotLayout" -> <||>, 
+        "PlotRange" -> {{0.4210526315789482, 
+         23.}, {-20.099997524934594`, -2.282681448800232}}, 
+        "Frame" -> {{True, True}, {True, True}}, 
+        "AxesOrigin" -> {0.4210526315789482, -1.8138047099545949`}, 
+        "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+        "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), "DefaultStyle" -> {
+          Directive[
+           PointSize[
+            Rational[7, 360]], 
+           RGBColor[0.24, 0.6, 0.8], 
+           AbsoluteThickness[2]]}, 
+        "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& ), 
+          "ScalingFunctions" -> {{Identity, Identity}, {
+            Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> False|>, 
+      "Meta" -> <|
+       "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+        ListLinePlot, "GroupHighlight" -> False|>|>, 
+     "DynamicHighlight"]], {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.4210526315789482, -1.8138047099545949`},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      TagBox[
+       RowBox[{"Expectation", " ", "value"}], HoldForm], TraditionalForm], 
+     None}, {
+     FormBox[
+      TagBox["\"Iteration\"", HoldForm], TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{Automatic, Automatic},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->Large,
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.24, 0.6, 0.8], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.95, 0.627, 0.1425], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.455, 0.7, 0.21], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.922526, 0.385626, 0.209179], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.578, 0.51, 0.85], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.772079, 0.431554, 0.102387], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.4, 0.64, 1.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[1., 0.75, 0.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.8, 0.4, 0.76], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.637, 0.65, 0.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.915, 0.3325, 0.2125], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.9728288904374106, 0.621644452187053, 0.07336199581899142], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.736782672705901, 0.358, 0.5030266573755369], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965], 
+       AbsoluteThickness[2]]}, "DomainPadding" -> Scaled[0.02], 
+    "RangePadding" -> Scaled[0.05], "OptimizePlotMarkers" -> True, 
+    "IncludeHighlighting" -> "CurrentSet", "HighlightStyle" -> Automatic, 
+    "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0.4210526315789482, 
+   23.}, {-20.099997524934594`, -2.282681448800232}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.025], 
+     Scaled[0.025]}, {
+     Scaled[0.025], 
+     Scaled[0.025]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellLabel->"Out[52]=",
+ CellID->1695211043,ExpressionUUID->"4c859ce1-026b-40dd-8fdc-82d020c0a89d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Variational Solution in the Ferromagnetic Phase", "TechNoteSection",
+ CellID->1976226607,ExpressionUUID->"0f66b952-15dc-488c-ac87-7ad3347be6f2"],
+
+Cell["\<\
+Here, we solve the variational problem by minimizing the expectation value of \
+the Hamiltonian in the paramagnetic phase.\
+\>", "TechNoteText",
+ CellID->402819221,ExpressionUUID->"258f64c5-1f6c-4797-9c75-dd57bbee1759"],
+
+Cell["\<\
+Construct the objective function, which in this case is the expectation value \
+of the Hamiltonian.\
+\>", "TechNoteMathCaption",
+ CellID->664957237,ExpressionUUID->"ca7c50da-f536-4c82-9d1f-ae95bf44c5fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Block", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"B", "=", "0.2"}], "}"}], ",", " ", 
+   RowBox[{"(*", 
+    RowBox[{"Ferromagnetic", " ", "phase"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"EchoTiming", "[", 
+     RowBox[{"mat", "=", 
+      RowBox[{"Matrix", "[", 
+       RowBox[{"HH", ",", "SS"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+    
+    RowBox[{"Echo", "[", 
+     RowBox[{
+      RowBox[{"groundStateEnergy", "=", 
+       RowBox[{"Min", "@", 
+        RowBox[{"Eigenvalues", "[", "mat", "]"}]}]}], 
+      ",", "\"\<Ground-state energy\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"EchoTiming", "[", 
+     RowBox[{"avg", "=", 
+      RowBox[{"Re", "[", 
+       RowBox[{
+        RowBox[{"Conjugate", "[", "out", "]"}], ".", "mat", ".", "out"}], 
+       "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[53]:=",
+ CellID->15761878,ExpressionUUID->"ecef8ea3-7140-44f0-8f8f-ecae1850e42e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["0.00224`"], "EchoTiming",
+ CellID->746454952,ExpressionUUID->"06eae27f-f7e1-45d3-9172-89b117407bc0"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"Ground-state energy\"\>",
+   "EchoLabel"], "  ", 
+  RowBox[{"-", "3.061734803953745`"}]}]], "Echo",
+ CellID->68912490,ExpressionUUID->"b3527937-7be0-4365-909d-ce33a1b87d92"],
+
+Cell[BoxData["0.098693`"], "EchoTiming",
+ CellID->718533697,ExpressionUUID->"03918fda-de6f-40ad-8c16-0f79a3a0ebe2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+A variable to take trace of the value of objective function at each iteration \
+step.\
+\>", "TechNoteMathCaption",
+ CellID->2002774042,ExpressionUUID->"015bac50-78d5-4224-8a7f-d143d41703c9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellLabel->"In[54]:=",
+ CellID->964640816,ExpressionUUID->"4ca3f8e8-37eb-47bd-afb6-fc5ce0345cc6"],
+
+Cell["\<\
+Iteratively calculate the ground-state energy by minimizing the expectation \
+value of the Hamiltonian.\
+\>", "TechNoteMathCaption",
+ CellID->1254002473,ExpressionUUID->"85bc9f72-75cb-4485-8a70-0dd5d926b7fb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"val", ",", "sol"}], "}"}], "=", 
+   RowBox[{"FindMinimum", "[", 
+    RowBox[{"avg", ",", 
+     RowBox[{"Transpose", "@", 
+      RowBox[{"{", 
+       RowBox[{"aa", ",", "a0"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"StepMonitor", ":>", 
+      RowBox[{"(", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"data", ",", "avg"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"PrintTemporary", "[", 
+         RowBox[{"\"\<Expectation value: \>\"", ",", "avg"}], "]"}]}], 
+       "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Method", "->", "\"\<IPOPT\>\""}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[55]:=",
+ CellID->844575297,ExpressionUUID->"d279f8ee-1d68-4553-a4b9-3da2e01cda90"],
+
+Cell["\<\
+Check the result. The first value is the estimation of the ground-state \
+energy and the second number is the relative error.\
+\>", "TechNoteMathCaption",
+ CellID->1652818375,ExpressionUUID->"2c9df8a6-d938-4e55-b8c9-299ea96ed360"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"checkResult", "[", 
+  RowBox[{"val", ",", "groundStateEnergy"}], "]"}]], "Input",
+ CellLabel->"In[56]:=",
+ CellID->215517378,ExpressionUUID->"195f802d-3828-4205-ace4-4c8c67eabce2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "3.059459802005815`"}], ",", 
+   TagBox[
+    InterpretationBox[
+     StyleBox["\<\"0.0743%\"\>",
+      ShowStringCharacters->False],
+     0.0007430434356992775,
+     AutoDelete->True],
+    PercentForm]}], "}"}]], "Output",
+ CellLabel->"Out[56]=",
+ CellID->1027715775,ExpressionUUID->"a1a87403-bb1b-44da-931b-5bef4ddc5434"]
+}, Open  ]],
+
+Cell["\<\
+This shows the convergence behavior of the above iteration method.\
+\>", "TechNoteMathCaption",
+ CellID->471731523,ExpressionUUID->"32876fbf-90de-4c02-a09a-a015aa99bce3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{"data", ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotMarkers", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<\[FilledCircle]\>\"", ",", " ", "12"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"PlotRange", "->", "All"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "->", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Iteration\>\"", ",", 
+      RowBox[{"Expectation", " ", "value"}]}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[57]:=",
+ CellID->875423598,ExpressionUUID->"f0f9926d-dc68-464f-989b-58e39a3452e0"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   InterpretationBox[{
+     TagBox[{{{}, {}, 
+        TagBox[
+         {RGBColor[0.24, 0.6, 0.8], PointSize[
+           NCache[
+            Rational[1, 60], 0.016666666666666666`]], AbsoluteThickness[2], 
+          LineBox[CompressedData["
+1:eJxFyWtIk3EUx/EnMRAEnbDQoEJrPEWlWzNrW+nz29WJzNQ1rGhbphuEDaMs
+W0S4sJC0JGbMDBSvL8pYG9SsGPNF6agXQWRhbxLstgjxQrc3rovP+XfgcPic
+b97RxmpXCsdxyj/7967MvJDcVH5+SpiNiQ9ML5oK+qc/iE7D4PPqU4s3v4iW
+wFfRYA1E5kRLMbUvp12+dl50DgLh5WC9grwOCW9/cJuVnItM/3pe4yBvxIxr
+dLBjjizDWaVQ7r69JJrHoa6Qx9b8Q/QWJFcvbT6jTh1f8VZYktcro+lpordj
+zYvh7JZicgE6W5/YlSVkBRbStTYD8w5o6l77qpiV4Md+ddYwF8LjeDB7gHkn
+Lud13TnIXITCyEj3YeZduCf7/tjOvBtln3usDmYVEhZZn5NZDdX7E8ePMGvw
+jP+0v5Z5DwKPom/qmPdCUzXS5GIuRlvPqvb/LkFyQSc5ySzAXjva52UGbkUa
+4lfILQCfEr8fZV2LS/y77gyBuhYbhs+FxsicDuPxpvBVUNfB74xJl3XU9cjy
+D9krLNT1eHXaJ39oo27AtaIL5gEHdQNCktzwSxd1IxTf5L133dSNuJEvaX17
+jLoJHdKPQ6pG6iZMOn/21jRTL0WWR58weqmXIj/VkxEjc2YMXIx8fcq6GdlB
+d+YE62VQ29r++TdpXttE
+           "]]},
+         Annotation[#, "Charting`Private`Tag#1"]& ]}, 
+       TagBox[
+        {RGBColor[0.24, 0.6, 0.8], PointSize[
+          NCache[
+           Rational[1, 60], 0.016666666666666666`]], AbsoluteThickness[2], 
+         GeometricTransformationBox[InsetBox[
+           StyleBox["\<\"\[FilledCircle]\"\>",
+            StripOnInput->False,
+            FontSize->12], {0., 0.}], CompressedData["
+1:eJxFyVtIk3EYx/FXMxAEnbDQwEJrvEWlWzNrW+n729GJzNI1rHBbZhuEDaMs
+W0S4sJC0JGbMDBSPF2WsDWpWjHlROewiiCzspsBOixAPdLpxSb3Pvwd+F5/n
+W3Ckqca1iuM45cpSVpbK0c0LyY2V56eF2Zj4wMyiqWhg5qPodAw9rzm1ePOr
+aAl8VY3WQGROtBTTe3M75GvnReciEF4OHlWQ85DwDgS3Wsn5yPKv4zUO8ga8
+d40Ndc6RZTirFCrdt5dE8zjUHfLYWn6K3ozk6qVNZ9RpE/+8BZbk9X3RjHTR
+27DmxUhOaym5CF1tT+zKMrICCxlam4F5OzQNr33VzErw47+7apmL4XE8mD3A
+vAOXC7rvHGQuQXFktKeOeSfuyX48tjPvQsWXXquDWYWERdbvZFZD9eHE8cPM
+Gkzxn/fXM+9G4FH0TQPzHmiqR5tdzKVo703p+O8yJBd0kpPMAuz1Y/1eZuBW
+pDF+hdwK8Knx+1HWtbjEv+vJFKhrsX7kXGiczOkwEW8OXwV1HfzOmHRZR12P
+bP+wvcpCXY9Xp33yhzbqBlwruWAedFA3ICTJD790UTdC8V3ed9dN3YgbhZK2
+t8eom9Ap/TSsaqJuwqTzV19tC/VyZHv0CaOXejkK0zyZMTJnxuDFyLenrJuR
+E3RnPWO9Ampb+1//AXcu20Y=
+          "]]},
+        Annotation[#, "Charting`Private`Tag#1"]& ]},
+      {"WolframDynamicHighlight", <|
+       "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>}], 
+     StyleBox[
+      DynamicBox[(Charting`HighlightActionBox["DynamicHighlight", {}, 
+        Slot["HighlightElements"], 
+        Slot["LayoutOptions"], 
+        Slot["Meta"], 
+        Charting`HighlightActionFunction["DynamicHighlight", {{{}, {}, 
+           Annotation[{
+             Hue[0.67, 0.6, 0.6], 
+             Directive[
+              PointSize[
+               Rational[1, 60]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]], 
+             Line[CompressedData["
+1:eJxFyWtIk3EUx/EnMRAEnbDQoEJrPEWlWzNrW+nz29WJzNQ1rGhbphuEDaMs
+W0S4sJC0JGbMDBSvL8pYG9SsGPNF6agXQWRhbxLstgjxQrc3rovP+XfgcPic
+b97RxmpXCsdxyj/7967MvJDcVH5+SpiNiQ9ML5oK+qc/iE7D4PPqU4s3v4iW
+wFfRYA1E5kRLMbUvp12+dl50DgLh5WC9grwOCW9/cJuVnItM/3pe4yBvxIxr
+dLBjjizDWaVQ7r69JJrHoa6Qx9b8Q/QWJFcvbT6jTh1f8VZYktcro+lpordj
+zYvh7JZicgE6W5/YlSVkBRbStTYD8w5o6l77qpiV4Md+ddYwF8LjeDB7gHkn
+Lud13TnIXITCyEj3YeZduCf7/tjOvBtln3usDmYVEhZZn5NZDdX7E8ePMGvw
+jP+0v5Z5DwKPom/qmPdCUzXS5GIuRlvPqvb/LkFyQSc5ySzAXjva52UGbkUa
+4lfILQCfEr8fZV2LS/y77gyBuhYbhs+FxsicDuPxpvBVUNfB74xJl3XU9cjy
+D9krLNT1eHXaJ39oo27AtaIL5gEHdQNCktzwSxd1IxTf5L133dSNuJEvaX17
+jLoJHdKPQ6pG6iZMOn/21jRTL0WWR58weqmXIj/VkxEjc2YMXIx8fcq6GdlB
+d+YE62VQ29r++TdpXttE
+              "]]}, "Charting`Private`Tag#1"]}, {
+           Annotation[{
+             Directive[
+              PointSize[
+               Rational[1, 60]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]], 
+             GeometricTransformation[
+              Inset[
+               Style["\[FilledCircle]", FontSize -> 12], {0., 
+               0.}], CompressedData["
+1:eJxFyVtIk3EYx/FXMxAEnbDQwEJrvEWlWzNrW+n729GJzNI1rHBbZhuEDaMs
+W0S4sJC0JGbMDBSPF2WsDWpWjHlROewiiCzspsBOixAPdLpxSb3Pvwd+F5/n
+W3Ckqca1iuM45cpSVpbK0c0LyY2V56eF2Zj4wMyiqWhg5qPodAw9rzm1ePOr
+aAl8VY3WQGROtBTTe3M75GvnReciEF4OHlWQ85DwDgS3Wsn5yPKv4zUO8ga8
+d40Ndc6RZTirFCrdt5dE8zjUHfLYWn6K3ozk6qVNZ9RpE/+8BZbk9X3RjHTR
+27DmxUhOaym5CF1tT+zKMrICCxlam4F5OzQNr33VzErw47+7apmL4XE8mD3A
+vAOXC7rvHGQuQXFktKeOeSfuyX48tjPvQsWXXquDWYWERdbvZFZD9eHE8cPM
+Gkzxn/fXM+9G4FH0TQPzHmiqR5tdzKVo703p+O8yJBd0kpPMAuz1Y/1eZuBW
+pDF+hdwK8Knx+1HWtbjEv+vJFKhrsX7kXGiczOkwEW8OXwV1HfzOmHRZR12P
+bP+wvcpCXY9Xp33yhzbqBlwruWAedFA3ICTJD790UTdC8V3ed9dN3YgbhZK2
+t8eom9Ap/TSsaqJuwqTzV19tC/VyZHv0CaOXejkK0zyZMTJnxuDFyLenrJuR
+E3RnPWO9Ampb+1//AXcu20Y=
+              "]]}, "Charting`Private`Tag#1"]}}, <|
+         "HighlightElements" -> <|
+           "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+          "LayoutOptions" -> <|
+           "PanelPlotLayout" -> <||>, 
+            "PlotRange" -> {{
+              0, 50.}, {-3.0594598020058155`, -0.6015422275169157}}, 
+            "Frame" -> {{True, True}, {True, True}}, 
+            "AxesOrigin" -> {0, -0.5368601860829987}, 
+            "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+            "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+            "DefaultStyle" -> {
+              Directive[
+               PointSize[
+                Rational[1, 60]], 
+               RGBColor[0.24, 0.6, 0.8], 
+               AbsoluteThickness[2]]}, 
+            "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+                (Identity[#]& )[
+                 Part[#, 1]], 
+                (Identity[#]& )[
+                 Part[#, 2]]}& ), 
+              "ScalingFunctions" -> {{Identity, Identity}, {
+                Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> 
+            False|>, 
+          "Meta" -> <|
+           "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+            ListLinePlot, "GroupHighlight" -> False|>|>]]& )[<|
+        "HighlightElements" -> <|
+          "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+         "LayoutOptions" -> <|
+          "PanelPlotLayout" -> <||>, 
+           "PlotRange" -> {{
+             0, 50.}, {-3.0594598020058155`, -0.6015422275169157}}, 
+           "Frame" -> {{True, True}, {True, True}}, 
+           "AxesOrigin" -> {0, -0.5368601860829987}, 
+           "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+           "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), 
+           "DefaultStyle" -> {
+             Directive[
+              PointSize[
+               Rational[1, 60]], 
+              RGBColor[0.24, 0.6, 0.8], 
+              AbsoluteThickness[2]]}, 
+           "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+               (Identity[#]& )[
+                Part[#, 1]], 
+               (Identity[#]& )[
+                Part[#, 2]]}& ), 
+             "ScalingFunctions" -> {{Identity, Identity}, {
+               Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> 
+           False|>, 
+         "Meta" -> <|
+          "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+           ListLinePlot, "GroupHighlight" -> False|>|>],
+       ImageSizeCache->{{4.503599627370496*^15, -4.503599627370496*^15}, {
+        4.503599627370496*^15, -4.503599627370496*^15}}],
+      Selectable->False]},
+    Annotation[{{{}, {}, 
+       Annotation[{
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           Rational[1, 60]], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]], 
+         Line[CompressedData["
+1:eJxFyWtIk3EUx/EnMRAEnbDQoEJrPEWlWzNrW+nz29WJzNQ1rGhbphuEDaMs
+W0S4sJC0JGbMDBSvL8pYG9SsGPNF6agXQWRhbxLstgjxQrc3rovP+XfgcPic
+b97RxmpXCsdxyj/7967MvJDcVH5+SpiNiQ9ML5oK+qc/iE7D4PPqU4s3v4iW
+wFfRYA1E5kRLMbUvp12+dl50DgLh5WC9grwOCW9/cJuVnItM/3pe4yBvxIxr
+dLBjjizDWaVQ7r69JJrHoa6Qx9b8Q/QWJFcvbT6jTh1f8VZYktcro+lpordj
+zYvh7JZicgE6W5/YlSVkBRbStTYD8w5o6l77qpiV4Md+ddYwF8LjeDB7gHkn
+Lud13TnIXITCyEj3YeZduCf7/tjOvBtln3usDmYVEhZZn5NZDdX7E8ePMGvw
+jP+0v5Z5DwKPom/qmPdCUzXS5GIuRlvPqvb/LkFyQSc5ySzAXjva52UGbkUa
+4lfILQCfEr8fZV2LS/y77gyBuhYbhs+FxsicDuPxpvBVUNfB74xJl3XU9cjy
+D9krLNT1eHXaJ39oo27AtaIL5gEHdQNCktzwSxd1IxTf5L133dSNuJEvaX17
+jLoJHdKPQ6pG6iZMOn/21jRTL0WWR58weqmXIj/VkxEjc2YMXIx8fcq6GdlB
+d+YE62VQ29r++TdpXttE
+          "]]}, "Charting`Private`Tag#1"]}, {
+       Annotation[{
+         Directive[
+          PointSize[
+           Rational[1, 60]], 
+          RGBColor[0.24, 0.6, 0.8], 
+          AbsoluteThickness[2]], 
+         GeometricTransformation[
+          Inset[
+           Style["\[FilledCircle]", FontSize -> 12], {0., 
+           0.}], CompressedData["
+1:eJxFyVtIk3EYx/FXMxAEnbDQwEJrvEWlWzNrW+n729GJzNI1rHBbZhuEDaMs
+W0S4sJC0JGbMDBSPF2WsDWpWjHlROewiiCzspsBOixAPdLpxSb3Pvwd+F5/n
+W3Ckqca1iuM45cpSVpbK0c0LyY2V56eF2Zj4wMyiqWhg5qPodAw9rzm1ePOr
+aAl8VY3WQGROtBTTe3M75GvnReciEF4OHlWQ85DwDgS3Wsn5yPKv4zUO8ga8
+d40Ndc6RZTirFCrdt5dE8zjUHfLYWn6K3ozk6qVNZ9RpE/+8BZbk9X3RjHTR
+27DmxUhOaym5CF1tT+zKMrICCxlam4F5OzQNr33VzErw47+7apmL4XE8mD3A
+vAOXC7rvHGQuQXFktKeOeSfuyX48tjPvQsWXXquDWYWERdbvZFZD9eHE8cPM
+Gkzxn/fXM+9G4FH0TQPzHmiqR5tdzKVo703p+O8yJBd0kpPMAuz1Y/1eZuBW
+pDF+hdwK8Knx+1HWtbjEv+vJFKhrsX7kXGiczOkwEW8OXwV1HfzOmHRZR12P
+bP+wvcpCXY9Xp33yhzbqBlwruWAedFA3ICTJD790UTdC8V3ed9dN3YgbhZK2
+t8eom9Ap/TSsaqJuwqTzV19tC/VyZHv0CaOXejkK0zyZMTJnxuDFyLenrJuR
+E3RnPWO9Ampb+1//AXcu20Y=
+          "]]}, "Charting`Private`Tag#1"]}}, <|
+     "HighlightElements" -> <|
+       "Label" -> {"XYLabel"}, "Ball" -> {"InterpolatedBall"}|>, 
+      "LayoutOptions" -> <|
+       "PanelPlotLayout" -> <||>, 
+        "PlotRange" -> {{
+          0, 50.}, {-3.0594598020058155`, -0.6015422275169157}}, 
+        "Frame" -> {{True, True}, {True, True}}, 
+        "AxesOrigin" -> {0, -0.5368601860829987}, 
+        "ImageSize" -> {360, 360/GoldenRatio}, "Axes" -> {False, False}, 
+        "LabelStyle" -> {}, "AspectRatio" -> GoldenRatio^(-1), "DefaultStyle" -> {
+          Directive[
+           PointSize[
+            Rational[1, 60]], 
+           RGBColor[0.24, 0.6, 0.8], 
+           AbsoluteThickness[2]]}, 
+        "HighlightLabelingFunctions" -> <|"CoordinatesToolOptions" -> ({
+            (Identity[#]& )[
+             Part[#, 1]], 
+            (Identity[#]& )[
+             Part[#, 2]]}& ), 
+          "ScalingFunctions" -> {{Identity, Identity}, {
+            Identity, Identity}}|>, "Primitives" -> {}, "GCFlag" -> False|>, 
+      "Meta" -> <|
+       "DefaultHighlight" -> {"Dynamic", None}, "Index" -> {}, "Function" -> 
+        ListLinePlot, "GroupHighlight" -> False|>|>, 
+     "DynamicHighlight"]], {{}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -0.5368601860829987},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      TagBox[
+       RowBox[{"Expectation", " ", "value"}], HoldForm], TraditionalForm], 
+     None}, {
+     FormBox[
+      TagBox["\"Iteration\"", HoldForm], TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{Automatic, Automatic},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->Large,
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "DefaultPlotStyle" -> {
+      Directive[
+       RGBColor[0.24, 0.6, 0.8], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.95, 0.627, 0.1425], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.455, 0.7, 0.21], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.922526, 0.385626, 0.209179], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.578, 0.51, 0.85], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.772079, 0.431554, 0.102387], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.4, 0.64, 1.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[1., 0.75, 0.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.8, 0.4, 0.76], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.637, 0.65, 0.], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.915, 0.3325, 0.2125], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.40082222609352647`, 0.5220066643438841, 0.85], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.9728288904374106, 0.621644452187053, 0.07336199581899142], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.736782672705901, 0.358, 0.5030266573755369], 
+       AbsoluteThickness[2]], 
+      Directive[
+       RGBColor[0.28026441037696703`, 0.715, 0.4292089322474965], 
+       AbsoluteThickness[2]]}, "DomainPadding" -> Scaled[0.02], 
+    "RangePadding" -> Scaled[0.05], "OptimizePlotMarkers" -> True, 
+    "IncludeHighlighting" -> "CurrentSet", "HighlightStyle" -> Automatic, 
+    "OptimizePlotMarkers" -> True, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 50.}, {-3.0594598020058155`, -0.6015422275169157}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.025], 
+     Scaled[0.025]}, {
+     Scaled[0.025], 
+     Scaled[0.025]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellLabel->"Out[57]=",
+ CellID->608057604,ExpressionUUID->"635a4a77-4ed4-4530-9bcf-8bcb9796bc77"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumInformationSystems"]],
+          "TutorialMoreAbout",ExpressionUUID->
+         "23a6a8f7-7dde-433f-b680-35ea25dcfad0"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Many-Body Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumManyBodySystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "0ea0018f-ae42-45d9-a2e9-a16ed4a0aed3"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Spin Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumSpinSystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "026f72b7-97ba-4637-95b5-62f0cb30a2a2"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"1b402677-ca1d-45c7-81b0-\
+59950c0a38d6"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Tech", " ", "Notes"}], 
+        "RelatedTutorialsSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "A Quantum Playbook",
+         BaseStyle->"Link",
+         ButtonData->
+          "paclet:QuantumMob/QuantumPlaybook/tutorial/QuantumPlaybook"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "e59e743c-ecc6-415e-835f-b637185dba18"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->
+          "paclet:QuantumMob/Q3/tutorial/QuantumInformationSystems"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "6b4fb756-fc4a-482f-afd5-422edf1be67f"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Many-Body Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/tutorial/QuantumManyBodySystems"]],
+          "RelatedTutorials",ExpressionUUID->
+         "40370644-8f2e-4223-906d-fbf9780d7309"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Spin Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/tutorial/QuantumSpinSystems"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "e439146c-11da-45ea-8658-887ccf7542a3"]}]}
+     }]}
+  }]], "RelatedTutorialsSection",ExpressionUUID->"b9257382-4c50-435d-9b13-\
+976f921efc95"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{29},
+     "Spacer1"], GridBox[{
+      {
+       RowBox[{
+        TemplateBox[{17},
+         "Spacer1"], 
+        StyleBox[
+         RowBox[{"Related", " ", "Links"}], 
+         "TutorialRelatedLinksSection"]}]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "Mahn-Soo Choi (2022)"}]]]], 
+             "https://doi.org/10.1007/978-3-030-91214-7"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "20b3393c-9f1c-491e-92a3-143177eb831b"]}]],ExpressionUUID->
+         "3334c6e7-f77b-4f91-a53c-2f250d51adab"],
+        ", A Quantum Computation Workbook (Springer, 2022)."
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "8a3cf388-6529-4a3f-9446-c0bae99fa13f"]}
+     }]}
+  }]], "TutorialRelatedLinksSection",ExpressionUUID->"513476c0-4a2c-440b-b14a-\
+96930c7a7527"]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"cd2d0656-56e4-4d98-9653-c9e973864bb5"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Variational Quantum Eigensolver: Transverse-Field Ising Model",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"2023", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2025, 3, 5, 9, 12, 56.522164}", 
+    "history" -> {"13.3", "", "", ""}, "context" -> 
+    "QuantumMob`QuantumPlaybook`", 
+    "keywords" -> {
+     "variational quantum algorithm", "variational quantum eigensolver", 
+      "VQA", "VQE"}, "specialkeywords" -> {}, "tutorialcollectionlinks" -> {},
+     "index" -> True, "label" -> "Quantum Mob/ Quantum Playbook Tech Note", 
+    "language" -> "en", "paclet" -> "QuantumMob/QuantumPlaybook", "status" -> 
+    "None", "summary" -> 
+    "In this demonstration, we calculate the ground-state energy of the \
+transverse-field Ising model, H=J(UnderoverscriptBox[\\[CapitalSigma], \
+RowBox[{k, =, 1}], RowBox[{n, -, 1}]]Z_kZ \
+_k+1+BUnderoverscriptBox[\\[CapitalSigma], RowBox[{k, =, 1}], n]X_k) , where \
+X_k and Z_k are the Pauli X and Z operators, respectively, acting on qubit k, \
+J is the exchange energy, and B is the dimensionless field in the transverse \
+direction (that is, along the x-axis).", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> 
+    "Variational Quantum Eigensolver: Transverse-Field Ising Model", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "Variational Quantum Eigensolver: Transverse-Field Ising Model", "type" -> 
+    "Tech Note", "uri" -> 
+    "QuantumMob/QuantumPlaybook/tutorial/\
+VariationalQuantumEigensolverTransverseFieldIsingModel"}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "14.2 for Mac OS X ARM (64-bit) (December 26, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"fac19ae8-578c-47b2-849f-dbf19c57a52e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[629, 21, 7394, 180, 50, "AnchorBarGrid",ExpressionUUID->"1b91f1f7-2edc-4e3c-b992-7de2af36b9c1",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[8048, 205, 170, 3, 118, "TechNoteTitle",ExpressionUUID->"be6e49c5-df8f-4346-a4c0-7950047e1062",
+ CellID->1180735809],
+Cell[8221, 210, 6188, 137, 109, "TechNoteJumpBox",ExpressionUUID->"a66eaf3e-4aae-4d44-9cef-430eee9e67ca"],
+Cell[14412, 349, 205, 4, 34, "TechNoteText",ExpressionUUID->"feff15d1-27e1-41ee-aa1d-fcf16f5b5b5d",
+ CellID->293025796],
+Cell[14620, 355, 666, 21, 48, "TechNoteText",ExpressionUUID->"25d05c0c-2df5-4a43-b43b-1a5f0dd0556f",
+ CellID->546979545],
+Cell[15289, 378, 1182, 36, 57, "TechNoteText",ExpressionUUID->"38b81b47-c442-4f86-b233-0466036142ca",
+ CellID->598760743],
+Cell[16474, 416, 665, 18, 57, "TechNoteText",ExpressionUUID->"b48764d4-0414-4692-b462-2a76e91c655a",
+ CellID->1255345077],
+Cell[17142, 436, 752, 19, 90, "DefinitionBox",ExpressionUUID->"021848df-b814-4dd3-925a-362e1754f842",
+ CellID->1497423169],
+Cell[17897, 457, 152, 1, 30, "TechNoteCaption",ExpressionUUID->"8337fefa-bbf1-4838-a4b6-3fcad9f3e35f",
+ CellID->830342190],
+Cell[CellGroupData[{
+Cell[18074, 462, 113, 1, 79, "TechNoteSection",ExpressionUUID->"13b385fe-a6ec-4e71-b895-75aaf253dd40",
+ CellID->337332107],
+Cell[18190, 465, 147, 1, 35, "TechNoteMathCaption",ExpressionUUID->"9673169f-44cd-443f-b129-2b278f7ba236",
+ CellID->1212449124],
+Cell[18340, 468, 179, 3, 28, "Input",ExpressionUUID->"7ea3d106-9579-4247-b856-0e3f37505d00",
+ CellID->1179069090],
+Cell[18522, 473, 851, 22, 54, "TechNoteMathCaption",ExpressionUUID->"24743a0c-f2cd-4afb-885f-da39f95f5015",
+ CellID->599820170],
+Cell[19376, 497, 1014, 29, 116, "Input",ExpressionUUID->"7a47aac5-a637-4ff6-8ff6-ed861bb14838",
+ CellID->1392016665]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20427, 531, 122, 1, 70, "TechNoteSection",ExpressionUUID->"4d057755-4717-4daf-b415-f0224804c767",
+ CellID->149272649],
+Cell[20552, 534, 337, 9, 70, "TechNoteMathCaption",ExpressionUUID->"378e3d05-bc15-4445-af9e-e9aed15000e3",
+ CellID->1816949893],
+Cell[20892, 545, 182, 4, 70, "Input",ExpressionUUID->"21be799c-a0e4-4d97-a692-ce255894765f",
+ CellID->675384181],
+Cell[CellGroupData[{
+Cell[21099, 553, 377, 10, 70, "Input",ExpressionUUID->"981d29f7-46bc-4cfe-9f49-ebab3be3eb3e",
+ CellID->1536751657],
+Cell[21479, 565, 789, 24, 36, "Output",ExpressionUUID->"36a212be-9141-4da6-b902-c61fae5d51cc",
+ CellID->2080692317]
+}, Open  ]],
+Cell[22283, 592, 678, 16, 70, "TechNoteMathCaption",ExpressionUUID->"32cf9169-f464-4858-a7c5-1a4fa711298f",
+ CellID->1107588717],
+Cell[CellGroupData[{
+Cell[22986, 612, 554, 16, 70, "Input",ExpressionUUID->"a2f1c8ef-dfd4-4310-9c3e-48594bb106ed",
+ CellID->1442422837],
+Cell[23543, 630, 3555, 87, 37, "Output",ExpressionUUID->"71fb0c6a-24b3-47ff-ac7e-84cbc9cc24c1",
+ CellID->18898210]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27147, 723, 135, 1, 70, "TechNoteSection",ExpressionUUID->"73a2eff5-145d-4e18-b853-59024ee4701d",
+ CellID->1382925854],
+Cell[27285, 726, 292, 5, 70, "TechNoteText",ExpressionUUID->"9d0d314e-f0ed-4032-ab29-b49441b126c9",
+ CellID->1749295743],
+Cell[27580, 733, 455, 13, 70, "TechNoteMathCaption",ExpressionUUID->"ea3c20ef-b9fb-4d83-bdec-c52f401d7ead",
+ CellID->777941866],
+Cell[28038, 748, 181, 4, 70, "Input",ExpressionUUID->"c8c4b8b8-46b3-40ae-850e-0c08c94758ec",
+ CellID->712907482],
+Cell[28222, 754, 149, 1, 70, "TechNoteMathCaption",ExpressionUUID->"989e4f19-aa6b-4b0b-ac1c-17864168f77d",
+ CellID->644145878],
+Cell[28374, 757, 1829, 52, 70, "Input",ExpressionUUID->"51ac766f-19f8-4cbd-8896-0db8e0363650",
+ CellID->1029194049],
+Cell[30206, 811, 1077, 31, 70, "TechNoteMathCaption",ExpressionUUID->"fd657db4-99bc-44b9-9921-11466bf47fe9",
+ CellID->1403115228],
+Cell[CellGroupData[{
+Cell[31308, 846, 203, 5, 70, "Input",ExpressionUUID->"badb6b09-8796-4dd2-82f2-d4a9ad8babb6",
+ CellID->53432401],
+Cell[31514, 853, 7552, 163, 177, "Output",ExpressionUUID->"821b3a3f-8384-4e41-997f-d99b4100af65",
+ CellID->1942119361]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39115, 1022, 139, 1, 70, "TechNoteSection",ExpressionUUID->"8961f365-f2b5-43be-b71c-9f62fe601252",
+ CellID->1677757704],
+Cell[39257, 1025, 216, 4, 70, "TechNoteText",ExpressionUUID->"b1476ecc-0b8d-4c42-9f2c-578c0528564d",
+ CellID->1988760820],
+Cell[39476, 1031, 128, 1, 70, "TechNoteMathCaption",ExpressionUUID->"f1c41eba-7b69-4080-9990-2e4483353b46",
+ CellID->1613446018],
+Cell[39607, 1034, 167, 4, 70, "Input",ExpressionUUID->"181756a8-c0c1-4b63-9226-7f7e28ace11d",
+ CellID->911213857],
+Cell[39777, 1040, 146, 1, 70, "TechNoteMathCaption",ExpressionUUID->"2f569153-3ef7-4ebb-9484-73fd3d264a52",
+ CellID->83309207],
+Cell[CellGroupData[{
+Cell[39948, 1045, 312, 8, 70, "Input",ExpressionUUID->"f11b8f4d-45af-462a-8904-a1f4e15d065b",
+ CellID->18504205],
+Cell[40263, 1055, 8427, 184, 177, "Output",ExpressionUUID->"37c0c879-8412-4749-a141-eb8aa9d3316f",
+ CellID->1596149574]
+}, Open  ]],
+Cell[48705, 1242, 944, 28, 70, "TechNoteMathCaption",ExpressionUUID->"266d9d55-b96b-40a0-9d57-810c3f6468ae",
+ CellID->590951808],
+Cell[CellGroupData[{
+Cell[49674, 1274, 302, 8, 70, "Input",ExpressionUUID->"51b088d5-ad6c-47f5-a329-2b9dc384adbd",
+ CellID->15169681],
+Cell[49979, 1284, 3944, 124, 54, "Output",ExpressionUUID->"74e1e681-f554-404d-8aa0-f8777227f684",
+ CellID->120171894]
+}, Open  ]],
+Cell[53938, 1411, 152, 1, 70, "TechNoteMathCaption",ExpressionUUID->"219fd724-7930-43e5-b130-bb61a5b48e45",
+ CellID->613272827],
+Cell[CellGroupData[{
+Cell[54115, 1416, 384, 11, 70, "Input",ExpressionUUID->"55ec0414-3f47-454e-9cf7-bf844329d6b6",
+ CellID->1502381436],
+Cell[54502, 1429, 867, 16, 68, "Output",ExpressionUUID->"78e004f2-55c6-42cd-8929-54fcb4754e62",
+ CellID->1094394278]
+}, Open  ]],
+Cell[55384, 1448, 177, 3, 70, "TechNoteMathCaption",ExpressionUUID->"7988db4f-881e-41e1-ae5e-f9580aeb92d2",
+ CellID->1378831204],
+Cell[CellGroupData[{
+Cell[55586, 1455, 270, 7, 70, "Input",ExpressionUUID->"41269a38-267d-4b55-b16e-11b6898c54d5",
+ CellID->423156751],
+Cell[55859, 1464, 115, 1, 70, "EchoTiming",ExpressionUUID->"0a242ce3-1e91-44ac-be08-eb8e674e674e",
+ CellID->287193791]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56023, 1471, 148, 1, 70, "TechNoteSection",ExpressionUUID->"fbdf9a33-43f5-43bb-89d3-e3a3bfad1288",
+ CellID->603660419],
+Cell[56174, 1474, 316, 5, 70, "TechNoteText",ExpressionUUID->"c6024c6d-f018-4194-ad6f-be061d57835f",
+ CellID->415503970],
+Cell[56493, 1481, 213, 4, 70, "TechNoteMathCaption",ExpressionUUID->"b1fe9ef3-1b9c-4fbc-bb7c-57b65da8044e",
+ CellID->138273358],
+Cell[CellGroupData[{
+Cell[56731, 1489, 1004, 26, 70, "Input",ExpressionUUID->"b3431b89-836e-475e-8737-fc7292cf404b",
+ CellID->383021852],
+Cell[CellGroupData[{
+Cell[57760, 1519, 116, 1, 70, "EchoTiming",ExpressionUUID->"9ad356b1-8792-4ea3-8883-d64482fe2240",
+ CellID->1470290528],
+Cell[57879, 1522, 211, 5, 70, "Echo",ExpressionUUID->"245ba8fb-e3b0-43e9-a5bd-2d0491316bd8",
+ CellID->78578067],
+Cell[58093, 1529, 116, 1, 70, "EchoTiming",ExpressionUUID->"6dde4cba-7011-4893-82aa-57296151b5c9",
+ CellID->2106612811]
+}, Open  ]]
+}, Open  ]],
+Cell[58236, 1534, 199, 4, 70, "TechNoteMathCaption",ExpressionUUID->"7aabb6db-1f17-45ec-9ad3-491ae8449974",
+ CellID->485220661],
+Cell[58438, 1540, 189, 5, 70, "Input",ExpressionUUID->"3f92b38a-7ebb-438c-a662-f304d470def1",
+ CellID->2038743382],
+Cell[58630, 1547, 218, 4, 70, "TechNoteMathCaption",ExpressionUUID->"358637d5-b6cc-4efe-9524-6b88f1516d4f",
+ CellID->1078826718],
+Cell[58851, 1553, 836, 20, 70, "Input",ExpressionUUID->"0e72a63f-37e0-4554-a823-3bd04ac5573b",
+ CellID->277335284],
+Cell[59690, 1575, 239, 4, 70, "TechNoteMathCaption",ExpressionUUID->"01f998a4-6693-4da1-a76b-092f64764dd5",
+ CellID->960407115],
+Cell[CellGroupData[{
+Cell[59954, 1583, 205, 4, 70, "Input",ExpressionUUID->"88624071-ce8e-4b9a-95f8-5a9fa5268045",
+ CellID->1075290953],
+Cell[60162, 1589, 380, 12, 36, "Output",ExpressionUUID->"4099a967-8576-48c3-8be1-3da04db09bde",
+ CellID->1321914294]
+}, Open  ]],
+Cell[60557, 1604, 180, 3, 70, "TechNoteMathCaption",ExpressionUUID->"a3e75474-85f7-41c7-9ce6-c94fdb592ff5",
+ CellID->405406820],
+Cell[CellGroupData[{
+Cell[60762, 1611, 573, 13, 70, "Input",ExpressionUUID->"3995c383-3cfa-453c-9033-d09bf70adefd",
+ CellID->62495436],
+Cell[61338, 1626, 11763, 284, 70, "Output",ExpressionUUID->"4c859ce1-026b-40dd-8fdc-82d020c0a89d",
+ CellID->1695211043]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73150, 1916, 150, 1, 70, "TechNoteSection",ExpressionUUID->"0f66b952-15dc-488c-ac87-7ad3347be6f2",
+ CellID->1976226607],
+Cell[73303, 1919, 229, 4, 70, "TechNoteText",ExpressionUUID->"258f64c5-1f6c-4797-9c75-dd57bbee1759",
+ CellID->402819221],
+Cell[73535, 1925, 213, 4, 70, "TechNoteMathCaption",ExpressionUUID->"ca7c50da-f536-4c82-9d1f-ae95bf44c5fc",
+ CellID->664957237],
+Cell[CellGroupData[{
+Cell[73773, 1933, 1005, 26, 70, "Input",ExpressionUUID->"ecef8ea3-7140-44f0-8f8f-ecae1850e42e",
+ CellID->15761878],
+Cell[CellGroupData[{
+Cell[74803, 1963, 114, 1, 70, "EchoTiming",ExpressionUUID->"06eae27f-f7e1-45d3-9172-89b117407bc0",
+ CellID->746454952],
+Cell[74920, 1966, 211, 5, 70, "Echo",ExpressionUUID->"b3527937-7be0-4365-909d-ce33a1b87d92",
+ CellID->68912490],
+Cell[75134, 1973, 115, 1, 70, "EchoTiming",ExpressionUUID->"03918fda-de6f-40ad-8c16-0f79a3a0ebe2",
+ CellID->718533697]
+}, Open  ]]
+}, Open  ]],
+Cell[75276, 1978, 200, 4, 70, "TechNoteMathCaption",ExpressionUUID->"015bac50-78d5-4224-8a7f-d143d41703c9",
+ CellID->2002774042],
+Cell[75479, 1984, 188, 5, 70, "Input",ExpressionUUID->"4ca3f8e8-37eb-47bd-afb6-fc5ce0345cc6",
+ CellID->964640816],
+Cell[75670, 1991, 218, 4, 70, "TechNoteMathCaption",ExpressionUUID->"85bc9f72-75cb-4485-8a70-0dd5d926b7fb",
+ CellID->1254002473],
+Cell[75891, 1997, 836, 20, 70, "Input",ExpressionUUID->"d279f8ee-1d68-4553-a4b9-3da2e01cda90",
+ CellID->844575297],
+Cell[76730, 2019, 240, 4, 70, "TechNoteMathCaption",ExpressionUUID->"2c9df8a6-d938-4e55-b8c9-299ea96ed360",
+ CellID->1652818375],
+Cell[CellGroupData[{
+Cell[76995, 2027, 204, 4, 70, "Input",ExpressionUUID->"195f802d-3828-4205-ace4-4c8c67eabce2",
+ CellID->215517378],
+Cell[77202, 2033, 378, 12, 36, "Output",ExpressionUUID->"a1a87403-bb1b-44da-931b-5bef4ddc5434",
+ CellID->1027715775]
+}, Open  ]],
+Cell[77595, 2048, 180, 3, 70, "TechNoteMathCaption",ExpressionUUID->"32876fbf-90de-4c02-a09a-a015aa99bce3",
+ CellID->471731523],
+Cell[CellGroupData[{
+Cell[77800, 2055, 574, 13, 70, "Input",ExpressionUUID->"f0f9926d-dc68-464f-989b-58e39a3452e0",
+ CellID->875423598],
+Cell[78377, 2070, 13812, 319, 70, "Output",ExpressionUUID->"635a4a77-4ed4-4530-9bcf-8bcb9796bc77",
+ CellID->608057604]
+}, Open  ]]
+}, Open  ]],
+Cell[92216, 2393, 1382, 34, 70, "TutorialMoreAboutSection",ExpressionUUID->"1b402677-ca1d-45c7-81b0-59950c0a38d6"],
+Cell[93601, 2429, 1790, 46, 70, "RelatedTutorialsSection",ExpressionUUID->"b9257382-4c50-435d-9b13-976f921efc95"],
+Cell[95394, 2477, 1214, 35, 70, "TutorialRelatedLinksSection",ExpressionUUID->"513476c0-4a2c-440b-b14a-96930c7a7527"]
+}, Open  ]],
+Cell[96623, 2515, 78, 0, 70, "FooterCell",ExpressionUUID->"cd2d0656-56e4-4d98-9653-c9e973864bb5"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

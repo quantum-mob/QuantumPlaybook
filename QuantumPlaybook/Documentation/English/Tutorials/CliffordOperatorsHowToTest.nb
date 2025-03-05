@@ -1,0 +1,2898 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    103430,       2888]
+NotebookOptionsPosition[     89244,       2607]
+NotebookOutlinePosition[     92425,       2676]
+CellTagsIndexPosition[     92382,       2673]
+WindowTitle->Clifford Operators: How to Test
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell[
+          "QUANTUM MOB/ QUANTUM PLAYBOOK TECH NOTE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "98ce8473-0121-435a-82cd-34f0a38bc510"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "3a0aa7db-778a-444f-b28d-37a23781f711"],
+        Background->RGBColor[
+         0.3843137254901961, 0.4627450980392157, 0.7019607843137254],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "d83fac79-d037-400b-9486-566b3c418295"]
+         }],ExpressionUUID->"04a5e09f-fae2-46d5-93f8-92049557d82d"],
+         StripOnInput->False],{
+        StyleBox["\"CliffordQ\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup["paclet:QuantumMob/Q3/ref/CliffordQ"], 
+         StyleBox[
+          "\"StabilizerStateQ\"", "SeeAlsoRelated", StripOnInput -> False] :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/ref/StabilizerStateQ"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "c2d3d0ca-125b-4028-800c-c6a3c57e190a"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "acc4caaf-88a1-4466-81ff-ccabf1c908a2"]
+         }],ExpressionUUID->"07c7605c-89ae-4578-aa99-1b160e64a4e4"],
+         StripOnInput->False],{
+        "\"Quantum Information Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumInformationSystems"], 
+         "\"Quantum Many-Body Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumManyBodySystems"], 
+         "\"Quantum Spin Systems\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/guide/QuantumSpinSystems"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialMoreAboutSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "3dcb7772-86f3-4c0d-ac7b-012ae3ded53c"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "162c37bf-9b12-4dc0-a93f-26cd847098b0"]
+         }],ExpressionUUID->"4282485a-8f8b-4aa8-b272-bb5c08ef405b"],
+         StripOnInput->False],{
+        "\"A Quantum Playbook\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/QuantumPlaybook/tutorial/QuantumPlaybook"], 
+         "\"Stabilizer Formalism\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/StabilizerFormalism"], 
+         "\"Quantum Information Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumInformationSystems"], 
+         "\"Quantum Many-Body Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumManyBodySystems"], 
+         "\"Quantum Spin Systems with Q3\"" :> 
+         Documentation`HelpLookup[
+          "paclet:QuantumMob/Q3/tutorial/QuantumSpinSystems"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"RelatedTutorialsSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "0751eb9c-3e64-40f2-adf0-6828f13d38e6"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}},
+            PlotRangePadding->Scaled[0.025]]],ExpressionUUID->
+           "6a241b08-3d8e-4121-a302-7dfd5b0d793c"]
+         }],ExpressionUUID->"98966da6-aabd-4491-9aaf-ba3fb63cb2fa"],
+         StripOnInput->False],{
+        "\"QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest\"" :> 
+         None, "\"Copy Wolfram Documentation Center URL\"" :> 
+         CopyToClipboard[
+          "QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest"], 
+         Delimiter, "\"Copy web URL\"" :> 
+         Module[{DocumentationSearch`Private`nb$}, 
+           DocumentationSearch`Private`nb$ = 
+            NotebookPut[
+             Notebook[{
+               Cell[BoxData[
+                 MakeBoxes[
+                  Hyperlink[
+                   "http://reference.wolfram.com/language/QuantumMob/\
+QuantumPlaybook/tutorial/CliffordOperatorsHowToTest.html"], StandardForm]], 
+                 "Input", TextClipboardType -> "PlainText"]}, Visible -> 
+               False]]; 
+           SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+           FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+           NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+         "\"Go to web URL\"" :> 
+         FrontEndExecute[{
+           NotebookLocate[{
+             URL[If[TrueQ[False], 
+                 "http://reference.wolfram.com/system-modeler/", 
+                 "http://reference.wolfram.com/language/"] <> 
+               "QuantumMob/QuantumPlaybook/tutorial/\
+CliffordOperatorsHowToTest" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1812cbb0-83b8-4f24-82b0-b62a34f4b16f"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "72b23ced-040e-4683-addd-8ac678ede137"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"bad9b94b-f552-4dcb-8432-1eba496d8e03"],
+
+Cell[CellGroupData[{
+
+Cell["Clifford Operators: How to Test", "TechNoteTitle",
+ CellID->156574489,ExpressionUUID->"22af32f7-5764-4d1d-9990-45f26f13a7f2"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell["Simple Test"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest#\
+372617603", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], 
+    TemplateBox[{
+      Cell["Relation to Stabilizer States"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest#\
+1353962026", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}]},
+   {
+    TemplateBox[{
+      Cell["Using Matrix Representations"], 
+      "paclet:QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest#\
+1177023179", 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.3843137254901961, 0.4627450980392157, 0.7019607843137254], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False], 
+      StyleBox[
+       GraphicsBox[{
+         Thickness[0.18], 
+         RGBColor[0.9686274509803922, 0.4666666666666667, 0.], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20, PlotRangePadding -> 
+        Scaled[0.025]], Magnification -> 0.68 Inherited, StripOnInput -> 
+       False]},
+     "GrayLinkWithIcon",
+     BaseStyle->{"TutorialJumpBoxLink"}], ""}
+  }]], "TechNoteJumpBox",ExpressionUUID->"b218d99e-f4fc-4613-88b6-\
+fe21f29b5d3a"],
+
+Cell[TextData[{
+ "See also Section 6.3 of the ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Quantum Workbook (Springer, 2022)"]], 
+    "https://doi.org/10.1007/978-3-030-91214-7"},
+   "WebLink",
+   BaseStyle->{"TechNoteText"}]],ExpressionUUID->
+  "b90975f1-f7b6-44c3-a12a-340a8badff99"],
+ "."
+}], "TechNoteText",
+ TextAlignment->"Right",
+ CellID->1308734266,ExpressionUUID->"388069a5-0969-4c4c-ac79-e4b1b9609626"],
+
+Cell[TextData[{
+ "Given a unitary operator ",
+ Cell[BoxData[
+  FormBox["U", TraditionalForm]],ExpressionUUID->
+  "7e83a3e0-d793-482e-8aa0-f97a4a4250c8"],
+ ", how can we check whether ",
+ Cell[BoxData[
+  FormBox["U", TraditionalForm]],ExpressionUUID->
+  "61e70dd4-a267-47d3-9e9e-9293a3f0492b"],
+ " is a Clifford operator or not?"
+}], "TechNoteText",
+ CellID->850525737,ExpressionUUID->"2b32de73-e00a-4940-966d-081824543722"],
+
+Cell[TextData[{
+ "A Clifford operator ",
+ Cell[BoxData[
+  FormBox["U", TraditionalForm]],ExpressionUUID->
+  "7547c690-74a3-48c2-a521-4201fe7ec531"],
+ " transforms Pauli operators to other Pauli operators. Since Pauli operators \
+are generated by single-qubit Pauli-",
+ StyleBox["X",
+  FontSlant->"Italic"],
+ " and Pauli-",
+ StyleBox["Z",
+  FontSlant->"Italic"],
+ " operators, a Clifford operator is completely specified (up to a global \
+phase factor ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["e", 
+    RowBox[{"\[ImaginaryI]", " ", "m", " ", 
+     RowBox[{"\[Pi]", " ", "/", "4"}]}]], TraditionalForm]],ExpressionUUID->
+  "175d8e67-1c37-497d-82a5-6d5d33ee037c"],
+ ") by the transformation of Pauli operators under conjugation by ",
+ Cell[BoxData[
+  FormBox["U", TraditionalForm]],ExpressionUUID->
+  "4a6a0717-f4da-4756-8a78-932a8704e474"],
+ ":\n\t",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"U", " ", 
+     SubscriptBox["X", "j"], " ", 
+     SuperscriptBox["U", "\[Dagger]"]}], "=", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], 
+      SubscriptBox["p", "j"]], 
+     UnderoverscriptBox["\[CapitalPi]", 
+      RowBox[{" ", 
+       RowBox[{"i", "=", "1"}]}], 
+      RowBox[{" ", "n"}]], 
+     RowBox[{
+      SubsuperscriptBox["X", "i", 
+       SubscriptBox["a", 
+        StyleBox["ij",
+         FontSlant->"Italic"]]], 
+      SubsuperscriptBox["Z", "i", 
+       SubscriptBox["b", 
+        StyleBox["ij",
+         FontSlant->"Italic"]]]}]}]}], TraditionalForm]],ExpressionUUID->
+  "6a93e9ae-a09c-4f7b-9bc6-c10569b74032"],
+ "\nand\n\t",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"U", " ", 
+     SubscriptBox["Z", "j"], " ", 
+     SuperscriptBox["U", "\[Dagger]"]}], "=", 
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], 
+      SubscriptBox["q", "j"]], 
+     UnderoverscriptBox["\[CapitalPi]", 
+      RowBox[{" ", 
+       RowBox[{"i", "=", "1"}]}], 
+      RowBox[{" ", "n"}]], 
+     RowBox[{
+      SubsuperscriptBox["X", "i", 
+       SubscriptBox["c", 
+        StyleBox["ij",
+         FontSlant->"Italic"]]], 
+      SubsuperscriptBox["Z", "i", 
+       SubscriptBox["d", 
+        StyleBox["ij",
+         FontSlant->"Italic"]]]}]}]}], TraditionalForm]],ExpressionUUID->
+  "d5f0e827-2040-4b3d-aa96-9f8669039608"],
+ "."
+}], "TechNoteText",
+ CellID->1417856937,ExpressionUUID->"19e95fef-4819-4754-9f34-f2a987c665f7"],
+
+Cell["Here, we are going to use this observation.", "TechNoteText",
+ CellID->1134907327,ExpressionUUID->"4ab56fc7-8ef2-44c9-87cc-b440e4ce2995"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell[
+       TextData["CliffordQ"]], "paclet:QuantumMob/Q3/ref/CliffordQ", 
+      "QuantumMob Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Test for Clifford operators", "TechNoteTableText",ExpressionUUID->
+     "2fc082f6-602f-4993-95df-3f313556cbc1"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["StabilizerStateQ"]], 
+      "paclet:QuantumMob/Q3/ref/StabilizerStateQ", 
+      "QuantumMob Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "Test for stabilizer states", "TechNoteTableText",ExpressionUUID->
+     "e16c16be-d4fe-49c4-9d1c-8c495b979b9e"]}
+  }]], "DefinitionBox",
+ CellID->2067396494,ExpressionUUID->"b6c5e7bb-110b-46e5-a7ca-190605c1cb43"],
+
+Cell["\<\
+Functions providing a simple test for Clifford operators and related states.\
+\>", "TechNoteCaption",
+ CellID->447466198,ExpressionUUID->"519a96b1-63e8-4950-9dbc-9fe74fbb5d83"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<QuantumMob`Q3`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1687953511,ExpressionUUID->"4134bdcb-7856-4aea-91d5-6bb8839abe79"],
+
+Cell[BoxData[
+ RowBox[{"Let", "[", 
+  RowBox[{"Qubit", ",", "S"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1175682507,ExpressionUUID->"2e50dc1f-14d8-4602-9936-d5683eeea023"],
+
+Cell[CellGroupData[{
+
+Cell["Simple Test", "TechNoteSection",
+ CellID->372617603,ExpressionUUID->"2daee93c-d762-4fc1-a83a-c6e795da05bb"],
+
+Cell["Let us start with simple examples.", "TechNoteText",
+ CellID->521738969,ExpressionUUID->"86fb5318-90ed-4112-a59d-c33bb1ddae60"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$n", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kk", "=", 
+   RowBox[{"Range", "[", "$n", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ss", "=", 
+   RowBox[{"S", "[", 
+    RowBox[{"kk", ",", "$"}], "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[3]:=",
+ CellID->691121282,ExpressionUUID->"353f646e-d4fd-4585-9ccf-c8ebbcd5f7ee"],
+
+Cell["\<\
+The Clifford group is finite and yet increases quite fast in size with the \
+number of qubits.\
+\>", "TechNoteText",
+ CellID->2083823598,ExpressionUUID->"681d88c9-62b5-4e0a-a29b-45ea78e7a8ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"grp", "=", 
+   RowBox[{"CliffordGroup", "[", "ss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"elm", "=", 
+   RowBox[{"GroupElements", "[", "grp", "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[6]:=",
+ CellID->1659896310,ExpressionUUID->"6723e4e2-70aa-4438-ba6d-9b00706413d4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CliffordGroup", "toobig", 
+   "\"There are about \\!\\(\\*RowBox[{\\\"\\\\\\\"1.2\\\\\\\"\\\", \\\"\
+\[Times]\\\", SuperscriptBox[\\\"10\\\", \\\"\\\\\\\"4\\\\\\\"\\\"]}]\\) \
+elements in the group. Only the first 10 elements are returned.\"", 2, 7, 1, 
+   33934066645877678787, "Local", "QuantumMob`Q3`CliffordGroup"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->1205504252,ExpressionUUID->"265063df-8832-4c8a-9ed0-fea0ea1eca48"]
+}, Open  ]],
+
+Cell["Here is the total number of Clifford operators in this case.", \
+"TechNoteText",
+ CellID->353053607,ExpressionUUID->"2bfdd5c0-c354-4b99-996e-6636f2744dcb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"odr", "=", 
+  RowBox[{"GroupOrder", "[", "grp", "]"}]}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->274656188,ExpressionUUID->"0646d46c-3567-43d3-936d-cdba49ac0b80"],
+
+Cell[BoxData["11520"], "Output",
+ CellLabel->"Out[8]=",
+ CellID->796418448,ExpressionUUID->"b9b684a4-3006-4bec-a1d3-8b2aec0fd01a"]
+}, Open  ]],
+
+Cell["Let us choose one randomly.", "TechNoteText",
+ CellID->1007929263,ExpressionUUID->"13282000-f246-44d2-9ccb-0ea3be392edf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ptr", "=", 
+  RowBox[{"RandomInteger", "[", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "odr"}], "}"}], "]"}]}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->916115705,ExpressionUUID->"1b98cd27-dbb1-4e87-bb69-b7e12bc053f2"],
+
+Cell[BoxData["4014"], "Output",
+ CellLabel->"Out[9]=",
+ CellID->576326221,ExpressionUUID->"2326454e-31bd-43a5-b4f5-d4dcd00ac473"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"opc", "=", 
+  RowBox[{"First", "@", 
+   RowBox[{"GroupElements", "[", 
+    RowBox[{"grp", ",", 
+     RowBox[{"{", "ptr", "}"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->1114366594,ExpressionUUID->"cfd42164-d1b9-4720-af6c-9f8dbb983e31"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["\[ImaginaryI]", 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "+", 
+  FractionBox[
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 1]], 
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"], 
+           TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[2, 1]]}, "RowDefault"]},
+     "RowDefault"],
+    QuantumMob`Q3`Multiply[
+     $CellContext`S[1, 1], 
+     $CellContext`S[2, 1]]], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 1]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 2]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 1], 
+      $CellContext`S[2, 2]]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 2]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 1]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 2], 
+      $CellContext`S[2, 1]]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "+", 
+  FractionBox[
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 2]], 
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"], 
+           TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[2, 2]]}, "RowDefault"]},
+     "RowDefault"],
+    QuantumMob`Q3`Multiply[
+     $CellContext`S[1, 2], 
+     $CellContext`S[2, 2]]], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 3]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 3]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 3], 
+      $CellContext`S[2, 3]]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{"S"}, "RowDefault"], 
+       TemplateBox[{"1"}, "RowDefault"], 
+       TemplateBox[{"\"z\""}, "RowDefault"]},
+      "Subsuperscript"],
+     $CellContext`S[1, 3]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "-", 
+  FractionBox[
+   RowBox[{"\[ImaginaryI]", " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{"S"}, "RowDefault"], 
+       TemplateBox[{"2"}, "RowDefault"], 
+       TemplateBox[{"\"z\""}, "RowDefault"]},
+      "Subsuperscript"],
+     $CellContext`S[2, 3]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]]}]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->1310749514,ExpressionUUID->"27df9265-46da-464a-898b-d40da34dd3c9"]
+}, Open  ]],
+
+Cell["\<\
+Using CliffordQ, check that it is indeed a Clifford operator.\
+\>", "TechNoteText",
+ CellID->2051692454,ExpressionUUID->"7f0eb69d-ca63-4ef7-9d1f-732c7d4c3adb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CliffordQ", "[", "opc", "]"}]], "Input",
+ CellLabel->"In[11]:=",
+ CellID->650154499,ExpressionUUID->"4591e6d7-64fa-4268-8514-4c3d464d6458"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[11]=",
+ CellID->1744371271,ExpressionUUID->"b64510ff-33f5-415b-8315-d56c273f3d2d"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Pick up single-qubit Pauli-",
+ StyleBox["X",
+  FontSlant->"Italic"],
+ " and Pauli-",
+ StyleBox["Z",
+  FontSlant->"Italic"],
+ " operators."
+}], "TechNoteText",
+ CellID->1610158303,ExpressionUUID->"6859a88b-ec55-4f4a-aea6-97c40798b981"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"opx", "=", 
+  RowBox[{"S", "[", 
+   RowBox[{"kk", ",", "1"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"opz", "=", 
+  RowBox[{"S", "[", 
+   RowBox[{"kk", ",", "3"}], "]"}]}]}], "Input",
+ CellLabel->"In[12]:=",
+ CellID->1489162674,ExpressionUUID->"b645ec97-6bc7-43db-8ab1-ea27424cfdf5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{"S"}, "RowDefault"], 
+      TemplateBox[{"1"}, "RowDefault"], 
+      TemplateBox[{"\"x\""}, "RowDefault"]},
+     "Subsuperscript"],
+    $CellContext`S[1, 1]], ",", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{"S"}, "RowDefault"], 
+      TemplateBox[{"2"}, "RowDefault"], 
+      TemplateBox[{"\"x\""}, "RowDefault"]},
+     "Subsuperscript"],
+    $CellContext`S[2, 1]]}], "}"}]], "Output",
+ CellLabel->"Out[12]=",
+ CellID->1793026435,ExpressionUUID->"41771891-e646-4900-ba01-12e67600332f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{"S"}, "RowDefault"], 
+      TemplateBox[{"1"}, "RowDefault"], 
+      TemplateBox[{"\"z\""}, "RowDefault"]},
+     "Subsuperscript"],
+    $CellContext`S[1, 3]], ",", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{"S"}, "RowDefault"], 
+      TemplateBox[{"2"}, "RowDefault"], 
+      TemplateBox[{"\"z\""}, "RowDefault"]},
+     "Subsuperscript"],
+    $CellContext`S[2, 3]]}], "}"}]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->1904758341,ExpressionUUID->"ce901fe8-a970-4a0e-afd5-edaada7350d6"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Under the conjugation by the operator ",
+ StyleBox["opc", "Input"],
+ " in question, the single-qubit Pauli-X and Pauli-Z operators result in \
+certain Pauli operators, confirming again that the operator ",
+ StyleBox["opc", "Input"],
+ " is a Clifford operator."
+}], "TechNoteText",
+ CellID->190239628,ExpressionUUID->"19afdaa3-2cca-4e80-8bfb-471fbd4560d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"EchoTiming", "[", 
+  RowBox[{"opc", "**", "opx", "**", 
+   RowBox[{"Dagger", "[", "opc", "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"EchoTiming", "[", 
+  RowBox[{"opc", "**", "opz", "**", 
+   RowBox[{"Dagger", "[", "opc", "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[14]:=",
+ CellID->1901761060,ExpressionUUID->"f74331ca-8988-432f-b219-d57815e4acd7"],
+
+Cell[BoxData["0.06739`"], "EchoTiming",
+ CellID->1744921388,ExpressionUUID->"e397a26d-0f39-45fc-baf9-592968124ed6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 1]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 3]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 1], 
+      $CellContext`S[2, 3]]]}], ",", 
+   RowBox[{"-", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 3]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 1]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 3], 
+      $CellContext`S[2, 1]]]}]}], "}"}]], "Output",
+ CellLabel->"Out[14]=",
+ CellID->857084684,ExpressionUUID->"1860c96b-0cac-4f72-8a51-347847bc24bc"],
+
+Cell[BoxData["0.043417`"], "EchoTiming",
+ CellID->1849463559,ExpressionUUID->"64bb6774-857d-49a0-b129-0cf26f1c9f2f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 1]], 
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"], 
+           TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[2, 2]]}, "RowDefault"]},
+     "RowDefault"],
+    QuantumMob`Q3`Multiply[
+     $CellContext`S[1, 1], 
+     $CellContext`S[2, 2]]], ",", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 2]], 
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"], 
+           TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[2, 1]]}, "RowDefault"]},
+     "RowDefault"],
+    QuantumMob`Q3`Multiply[
+     $CellContext`S[1, 2], 
+     $CellContext`S[2, 1]]]}], "}"}]], "Output",
+ CellLabel->"Out[15]=",
+ CellID->1255729435,ExpressionUUID->"c1af8e05-a00a-44e7-99bd-dc38192b107f"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Now, consider a new operator involving the octant phase operator on the \
+first qubit. Note that the  octant phase operator is not a Clifford operator. \
+Indeed, the results involve several terms of Pauli operators indicating that \
+the operator ",
+ StyleBox["opd", "Input"],
+ " is not a Clifford operator."
+}], "TechNoteText",
+ CellID->1029220014,ExpressionUUID->"26ae71cd-8fac-4f57-a8a2-4d906417ebec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"opd", "=", 
+   RowBox[{"opc", "**", 
+    RowBox[{"S", "[", 
+     RowBox[{"1", ",", "8"}], "]"}]}]}], ";"}]], "Input",
+ CellLabel->"In[16]:=",
+ CellID->119998713,ExpressionUUID->"8300ffbc-28b9-4e82-9644-f96fca5701b6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"EchoTiming", "[", 
+  RowBox[{"out", "=", 
+   RowBox[{"opd", "**", "opx", "**", 
+    RowBox[{"Dagger", "[", "opd", "]"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"EchoTiming", "[", 
+  RowBox[{"out", "=", 
+   RowBox[{"opd", "**", "opz", "**", 
+    RowBox[{"Dagger", "[", "opd", "]"}]}]}], "]"}]}], "Input",
+ CellLabel->"In[17]:=",
+ CellID->331224858,ExpressionUUID->"fc1b00fe-5c0c-4744-806d-471f1a7800e1"],
+
+Cell[BoxData["0.291104`"], "EchoTiming",
+ CellID->962001717,ExpressionUUID->"cfe2ff1e-4d1e-42e9-aae1-861e6d8030cd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{
+           InterpretationBox[
+            TemplateBox[{
+              TemplateBox[{"S"}, "RowDefault"], 
+              TemplateBox[{"1"}, "RowDefault"], 
+              TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+             SyntaxForm -> SubsuperscriptBox], 
+            $CellContext`S[1, 1]], 
+           InterpretationBox[
+            TemplateBox[{
+              TemplateBox[{"S"}, "RowDefault"], 
+              TemplateBox[{"2"}, "RowDefault"], 
+              TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+             SyntaxForm -> SubsuperscriptBox], 
+            $CellContext`S[2, 3]]}, "RowDefault"]},
+        "RowDefault"],
+       QuantumMob`Q3`Multiply[
+        $CellContext`S[1, 1], 
+        $CellContext`S[2, 3]]], 
+      SqrtBox["2"]]}], "+", 
+    RowBox[{
+     FractionBox["1", "16"], " ", "\[ImaginaryI]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       SqrtBox["2"]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 3]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 1]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 3], 
+       $CellContext`S[2, 1]]]}], "+", 
+    RowBox[{
+     FractionBox["1", "16"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", 
+       SqrtBox["2"]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 3]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 2]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 3], 
+       $CellContext`S[2, 2]]]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["\[ImaginaryI]", "8"], "-", 
+       FractionBox[
+        RowBox[{
+         FractionBox["1", "8"], "+", 
+         FractionBox["\[ImaginaryI]", "8"]}], 
+        SqrtBox["2"]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 1]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 8], 
+       $CellContext`S[2, 1]]]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", "8"], "-", 
+       FractionBox[
+        RowBox[{
+         FractionBox["1", "8"], "-", 
+         FractionBox["\[ImaginaryI]", "8"]}], 
+        SqrtBox["2"]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 2]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 8], 
+       $CellContext`S[2, 2]]]}], "-", 
+    FractionBox[
+     RowBox[{"7", " ", 
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{"S"}, "RowDefault"], 
+         TemplateBox[{"2"}, "RowDefault"], 
+         TemplateBox[{"\"x\""}, "RowDefault"]},
+        "Subsuperscript"],
+       $CellContext`S[2, 1]]}], 
+     RowBox[{"8", " ", 
+      SqrtBox["2"]}]], "-", 
+    FractionBox[
+     RowBox[{"\[ImaginaryI]", " ", 
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{"S"}, "RowDefault"], 
+         TemplateBox[{"2"}, "RowDefault"], 
+         TemplateBox[{"\"y\""}, "RowDefault"]},
+        "Subsuperscript"],
+       $CellContext`S[2, 2]]}], 
+     RowBox[{"8", " ", 
+      SqrtBox["2"]}]]}], ",", 
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"1", "/", "4"}]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             InterpretationBox[
+              TemplateBox[{
+                TemplateBox[{"S"}, "RowDefault"], 
+                TemplateBox[{"1"}, "RowDefault"], 
+                TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+               SyntaxForm -> SubsuperscriptBox], 
+              $CellContext`S[1, 8]], "\"\[Dagger]\""}, "Superscript", 
+            SyntaxForm -> SuperscriptBox], 
+           $CellContext`S[1, -8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 1]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, -8], 
+       $CellContext`S[2, 1]]]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", "\[ImaginaryI]", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"1", "/", "4"}]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             InterpretationBox[
+              TemplateBox[{
+                TemplateBox[{"S"}, "RowDefault"], 
+                TemplateBox[{"1"}, "RowDefault"], 
+                TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+               SyntaxForm -> SubsuperscriptBox], 
+              $CellContext`S[1, 8]], "\"\[Dagger]\""}, "Superscript", 
+            SyntaxForm -> SuperscriptBox], 
+           $CellContext`S[1, -8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 2]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, -8], 
+       $CellContext`S[2, 2]]]}], "+", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "6"}], "-", 
+       SqrtBox["2"]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 3]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 1]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 3], 
+       $CellContext`S[2, 1]]]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], "+", 
+       FractionBox[
+        RowBox[{
+         FractionBox["1", "8"], "-", 
+         FractionBox["\[ImaginaryI]", "8"]}], 
+        SqrtBox["2"]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 1]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 8], 
+       $CellContext`S[2, 1]]]}], "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["\[ImaginaryI]", "8"], "-", 
+       FractionBox[
+        RowBox[{
+         FractionBox["1", "8"], "+", 
+         FractionBox["\[ImaginaryI]", "8"]}], 
+        SqrtBox["2"]]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 8]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 2]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 8], 
+       $CellContext`S[2, 2]]]}], "+", 
+    FractionBox[
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{"S"}, "RowDefault"], 
+        TemplateBox[{"2"}, "RowDefault"], 
+        TemplateBox[{"\"y\""}, "RowDefault"]},
+       "Subsuperscript"],
+      $CellContext`S[2, 2]], 
+     RowBox[{"4", " ", 
+      SqrtBox["2"]}]]}]}], "}"}]], "Output",
+ CellLabel->"Out[17]=",
+ CellID->2105963003,ExpressionUUID->"271b64b8-0377-4020-9405-d7f040f84368"],
+
+Cell[BoxData["0.159939`"], "EchoTiming",
+ CellID->94721567,ExpressionUUID->"e7b07c90-84ec-46a7-a3d5-35c9770e0b31"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     FractionBox["1", "32"], " ", 
+     RowBox[{"(", 
+      RowBox[{"2", "+", 
+       SqrtBox["2"]}], ")"}]}], "+", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox["1", "8"], "+", 
+        FractionBox["\[ImaginaryI]", "8"]}], ")"}], " ", 
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{
+           InterpretationBox[
+            TemplateBox[{
+              InterpretationBox[
+               TemplateBox[{
+                 TemplateBox[{"S"}, "RowDefault"], 
+                 TemplateBox[{"1"}, "RowDefault"], 
+                 TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+                SyntaxForm -> SubsuperscriptBox], 
+               $CellContext`S[1, 8]], "\"\[Dagger]\""}, "Superscript", 
+             SyntaxForm -> SuperscriptBox], 
+            $CellContext`S[1, -8]], 
+           InterpretationBox[
+            TemplateBox[{
+              TemplateBox[{"S"}, "RowDefault"], 
+              TemplateBox[{"2"}, "RowDefault"], 
+              TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+             SyntaxForm -> SubsuperscriptBox], 
+            $CellContext`S[2, 3]]}, "RowDefault"]},
+        "RowDefault"],
+       QuantumMob`Q3`Multiply[
+        $CellContext`S[1, -8], 
+        $CellContext`S[2, 3]]]}], 
+     SqrtBox["2"]], "+", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"], 
+            TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[1, 1]], 
+         InterpretationBox[
+          TemplateBox[{
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"], 
+            TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+           SyntaxForm -> SubsuperscriptBox], 
+          $CellContext`S[2, 2]]}, "RowDefault"]},
+      "RowDefault"],
+     QuantumMob`Q3`Multiply[
+      $CellContext`S[1, 1], 
+      $CellContext`S[2, 2]]], "+", 
+    RowBox[{
+     FractionBox["1", "32"], " ", 
+     RowBox[{"(", 
+      RowBox[{"4", "-", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", "+", "\[ImaginaryI]"}], ")"}], " ", 
+        SqrtBox["2"]}]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"], 
+             TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[1, 3]], 
+          InterpretationBox[
+           TemplateBox[{
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"], 
+             TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+            SyntaxForm -> SubsuperscriptBox], 
+           $CellContext`S[2, 3]]}, "RowDefault"]},
+       "RowDefault"],
+      QuantumMob`Q3`Multiply[
+       $CellContext`S[1, 3], 
+       $CellContext`S[2, 3]]]}], "-", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[ImaginaryI]"}], ")"}], "+", 
+        SqrtBox["2"]}], ")"}], " ", 
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{
+           InterpretationBox[
+            TemplateBox[{
+              TemplateBox[{"S"}, "RowDefault"], 
+              TemplateBox[{"1"}, "RowDefault"], 
+              TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+             SyntaxForm -> SubsuperscriptBox], 
+            $CellContext`S[1, 8]], 
+           InterpretationBox[
+            TemplateBox[{
+              TemplateBox[{"S"}, "RowDefault"], 
+              TemplateBox[{"2"}, "RowDefault"], 
+              TemplateBox[{"\"z\""}, "RowDefault"]}, "Subsuperscript", 
+             SyntaxForm -> SubsuperscriptBox], 
+            $CellContext`S[2, 3]]}, "RowDefault"]},
+        "RowDefault"],
+       QuantumMob`Q3`Multiply[
+        $CellContext`S[1, 8], 
+        $CellContext`S[2, 3]]]}], 
+     RowBox[{"16", " ", 
+      SqrtBox["2"]}]], "-", 
+    RowBox[{
+     FractionBox["1", "8"], " ", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"-", "1"}], ")"}], 
+      RowBox[{"1", "/", "4"}]], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"T\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 8]], "\"\[Dagger]\""},
+       "Superscript"],
+      $CellContext`S[1, -8]]}], "+", 
+    RowBox[{
+     FractionBox["1", "32"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "4"}], "+", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"2", "+", "\[ImaginaryI]"}], ")"}], " ", 
+        SqrtBox["2"]}]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{"S"}, "RowDefault"], 
+        TemplateBox[{"1"}, "RowDefault"], 
+        TemplateBox[{"\"z\""}, "RowDefault"]},
+       "Subsuperscript"],
+      $CellContext`S[1, 3]]}], "+", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "\[ImaginaryI]"}], ")"}], "+", 
+        SqrtBox["2"]}], ")"}], " ", 
+      InterpretationBox[
+       TemplateBox[{
+         TemplateBox[{"S"}, "RowDefault"], 
+         TemplateBox[{"1"}, "RowDefault"], 
+         TemplateBox[{"\"T\""}, "RowDefault"]},
+        "Subsuperscript"],
+       $CellContext`S[1, 8]]}], 
+     RowBox[{"16", " ", 
+      SqrtBox["2"]}]], "+", 
+    RowBox[{
+     FractionBox["1", "32"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "2"}], "-", 
+       SqrtBox["2"]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{"S"}, "RowDefault"], 
+        TemplateBox[{"2"}, "RowDefault"], 
+        TemplateBox[{"\"z\""}, "RowDefault"]},
+       "Subsuperscript"],
+      $CellContext`S[2, 3]]}]}], ",", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"], 
+           TemplateBox[{"\"y\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[1, 2]], 
+        InterpretationBox[
+         TemplateBox[{
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"], 
+           TemplateBox[{"\"x\""}, "RowDefault"]}, "Subsuperscript", 
+          SyntaxForm -> SubsuperscriptBox], 
+         $CellContext`S[2, 1]]}, "RowDefault"]},
+     "RowDefault"],
+    QuantumMob`Q3`Multiply[
+     $CellContext`S[1, 2], 
+     $CellContext`S[2, 1]]]}], "}"}]], "Output",
+ CellLabel->"Out[18]=",
+ CellID->699994142,ExpressionUUID->"46890fc4-a337-4185-a1f0-92be04c9c8e1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Using Matrix Representations", "TechNoteSection",
+ CellID->1177023179,ExpressionUUID->"d05b748b-af97-453b-aa1e-c8a14def90bf"],
+
+Cell["\<\
+In principle, the above test works. Unfortunately, however, the method \
+quickly gets slower with the number of qubits. To improve the speed of the \
+test, we use the matrix representations.\
+\>", "TechNoteText",
+ CellID->1756696936,ExpressionUUID->"3d8378bb-788d-4d4a-88c0-b3458e747a71"],
+
+Cell[TextData[{
+ "Here is the matrix representation of the given operator ",
+ StyleBox["opc", "Input"],
+ "."
+}], "TechNoteText",
+ CellID->1200224396,ExpressionUUID->"14a9f124-b0fd-4ac3-b0d1-a9bde60483f4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matc", "=", 
+   RowBox[{"Matrix", "[", 
+    RowBox[{"opc", ",", "ss"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"matc", "//", "MatrixForm"}]}], "Input",
+ CellLabel->"In[19]:=",
+ CellID->857527301,ExpressionUUID->"50f6f0b2-4d82-4d2f-bd7a-5a3f13314ed3"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"-", 
+       FractionBox["\[ImaginaryI]", 
+        SqrtBox["2"]]}], "0", "0", 
+      RowBox[{"-", 
+       FractionBox["1", 
+        SqrtBox["2"]]}]},
+     {"0", 
+      FractionBox["\[ImaginaryI]", 
+       SqrtBox["2"]], 
+      FractionBox["1", 
+       SqrtBox["2"]], "0"},
+     {"0", 
+      FractionBox["1", 
+       SqrtBox["2"]], 
+      FractionBox["\[ImaginaryI]", 
+       SqrtBox["2"]], "0"},
+     {
+      FractionBox["1", 
+       SqrtBox["2"]], "0", "0", 
+      FractionBox["\[ImaginaryI]", 
+       SqrtBox["2"]]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[
+   SparseArray[
+    Automatic, {4, 4}, 0, {
+     1, {{0, 2, 4, 6, 8}, {{1}, {4}, {2}, {3}, {3}, {2}, {4}, {1}}}, {
+      Complex[0, -1] 2^Rational[-1, 2], -2^Rational[-1, 2], Complex[0, 1] 
+       2^Rational[-1, 2], 2^Rational[-1, 2], Complex[0, 1] 2^Rational[-1, 2], 
+       2^Rational[-1, 2], Complex[0, 1] 2^Rational[-1, 2], 2^
+       Rational[-1, 2]}}]]]]], "Output",
+ CellLabel->"Out[20]//MatrixForm=",
+ CellID->1029813557,ExpressionUUID->"14b31b04-843b-4c62-8b2f-fb70954fe3ad"]
+}, Open  ]],
+
+Cell[TextData[{
+ "These are the matrix representations of the single-qubit Pauli-",
+ StyleBox["X",
+  FontSlant->"Italic"],
+ " and Pauli-",
+ StyleBox["Z",
+  FontSlant->"Italic"],
+ " operators."
+}], "TechNoteText",
+ CellID->957604081,ExpressionUUID->"b64c084b-3fc0-4f90-af71-542038cd36a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"matx", "=", 
+   RowBox[{"Matrix", "[", 
+    RowBox[{"opx", ",", "ss"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"matz", "=", 
+   RowBox[{"Matrix", "[", 
+    RowBox[{"opz", ",", "ss"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "/@", "matx"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "/@", "matz"}]}], "Input",
+ CellLabel->"In[21]:=",
+ CellID->1209338749,ExpressionUUID->"4859699a-00d4-44c3-b473-12207581806f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", "1", "0"},
+       {"0", "0", "0", "1"},
+       {"1", "0", "0", "0"},
+       {"0", "1", "0", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 1, 2, 3, 4}, {{3}, {4}, {1}, {2}}}, {1, 1, 1, 1}}]]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "1", "0", "0"},
+       {"1", "0", "0", "0"},
+       {"0", "0", "0", "1"},
+       {"0", "0", "1", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 1, 2, 3, 4}, {{2}, {1}, {4}, {3}}}, {1, 1, 1, 1}}]]]]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[23]=",
+ CellID->2044226502,ExpressionUUID->"abae4ed5-40a3-4a6a-a16f-f163654a1382"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0", "0", "0"},
+       {"0", "1", "0", "0"},
+       {"0", "0", 
+        RowBox[{"-", "1"}], "0"},
+       {"0", "0", "0", 
+        RowBox[{"-", "1"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 1, 2, 3, 4}, {{1}, {2}, {3}, {4}}}, {1, 1, -1, -1}}]]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0", "0", "0"},
+       {"0", 
+        RowBox[{"-", "1"}], "0", "0"},
+       {"0", "0", "1", "0"},
+       {"0", "0", "0", 
+        RowBox[{"-", "1"}]}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 1, 2, 3, 4}, {{1}, {2}, {3}, {4}}}, {1, -1, 1, -1}}]]]]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[24]=",
+ CellID->1871434408,ExpressionUUID->"94dacbd7-7133-4eee-a439-4f8e119bbb4e"]
+}, Open  ]],
+
+Cell["\<\
+The single-qubit Pauli-X and Pauli-Z operators (i.e., their matrix \
+representation) transform under the given operator as follows.\
+\>", "TechNoteText",
+ CellID->174125312,ExpressionUUID->"bf6919d9-2e2b-4edf-8ec9-ffd1d45e607a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"outx", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"matc", ".", "#", ".", 
+      RowBox[{"Topple", "[", "matc", "]"}]}], "&"}], "/@", "matx"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"outz", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"matc", ".", "#", ".", 
+      RowBox[{"Topple", "[", "matc", "]"}]}], "&"}], "/@", "matz"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "/@", "outx"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "/@", "outz"}]}], "Input",
+ CellLabel->"In[25]:=",
+ CellID->1651391570,ExpressionUUID->"1f666257-abb1-4052-bf11-1ac9c5871b9c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", 
+        RowBox[{"-", "1"}], "0"},
+       {"0", "0", "0", "1"},
+       {
+        RowBox[{"-", "1"}], "0", "0", "0"},
+       {"0", "1", "0", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 2, 4, 6, 8}, {{2}, {3}, {1}, {4}, {1}, {4}, {2}, {3}}}, {0, -1,
+         0, 1, -1, 0, 1, 0}}]]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", 
+        RowBox[{"-", "1"}], "0", "0"},
+       {
+        RowBox[{"-", "1"}], "0", "0", "0"},
+       {"0", "0", "0", "1"},
+       {"0", "0", "1", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 2, 4, 6, 8}, {{2}, {3}, {1}, {4}, {1}, {4}, {2}, {3}}}, {-1, 
+        0, -1, 0, 0, 1, 0, 1}}]]]]}], "}"}]], "Output",
+ CellLabel->"Out[27]=",
+ CellID->1224731156,ExpressionUUID->"6870db67-f3c1-4c17-82dc-f0e8176c2d99"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", "0", 
+        RowBox[{"-", "\[ImaginaryI]"}]},
+       {"0", "0", "\[ImaginaryI]", "0"},
+       {"0", 
+        RowBox[{"-", "\[ImaginaryI]"}], "0", "0"},
+       {"\[ImaginaryI]", "0", "0", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 2, 4, 6, 8}, {{1}, {4}, {2}, {3}, {2}, {3}, {1}, {4}}}, {
+        0, Complex[0, -1], 0, Complex[0, 1], Complex[0, -1], 0, Complex[0, 1],
+          0}}]]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"0", "0", "0", 
+        RowBox[{"-", "\[ImaginaryI]"}]},
+       {"0", "0", 
+        RowBox[{"-", "\[ImaginaryI]"}], "0"},
+       {"0", "\[ImaginaryI]", "0", "0"},
+       {"\[ImaginaryI]", "0", "0", "0"}
+      },
+      GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[
+     SparseArray[
+      Automatic, {4, 4}, 0, {
+       1, {{0, 2, 4, 6, 8}, {{1}, {4}, {2}, {3}, {2}, {3}, {1}, {4}}}, {
+        0, Complex[0, -1], 0, Complex[0, -1], Complex[0, 1], 0, Complex[0, 1],
+          0}}]]]]}], "}"}]], "Output",
+ CellLabel->"Out[28]=",
+ CellID->425782397,ExpressionUUID->"77c13faf-5c58-4cbf-b95f-9d509e10e104"]
+}, Open  ]],
+
+Cell[TextData[{
+ "These results represents Pauli operators. This is seen by taking the ",
+ ButtonBox["Pauli decomposition",
+  BaseStyle->"Link",
+  ButtonData->"paclet:QuantumMob/Q3/ref/PauliDecompose"],
+ "."
+}], "TechNoteText",
+ CellID->687220037,ExpressionUUID->"0971b537-c1d8-4931-bee9-b10cb90472f3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"rrx", "=", 
+  RowBox[{"PauliDecompose", "/@", "outx"}]}], "\[IndentingNewLine]", 
+ RowBox[{"rrz", "=", 
+  RowBox[{"PauliDecompose", "/@", "outz"}]}]}], "Input",
+ CellLabel->"In[29]:=",
+ CellID->940108293,ExpressionUUID->"b049ea3a-ef26-489a-a849-d869742932eb"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "3"}], "}"}], "\[Rule]", 
+     RowBox[{"-", "1"}]}], "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1"}], "}"}], "\[Rule]", 
+     RowBox[{"-", "1"}]}], "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellLabel->"Out[29]=",
+ CellID->666727611,ExpressionUUID->"8090df35-d877-428b-bd17-29c5d051c4f8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}], "\[Rule]", "1"}], 
+    "\[RightAssociation]"}], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1"}], "}"}], "\[Rule]", "1"}], 
+    "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellLabel->"Out[30]=",
+ CellID->121288031,ExpressionUUID->"02d69b31-e08e-4484-a9d4-a6164cabee84"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Relation to Stabilizer States", "TechNoteSection",
+ CellID->1353962026,ExpressionUUID->"dc46036e-5156-4131-ac22-3a1e378cc348"],
+
+Cell[TextData[{
+ "A state is called a stabilizer state if it can be generated from ",
+ Cell[BoxData[
+  TemplateBox[{
+    RowBox[{"00", "\[Ellipsis]0"}]},
+   "Ket"]],ExpressionUUID->"1ea2f329-0d4b-4040-8ae2-c4670258e5b2"],
+ "by a Clifford operator. It is given the name since such a state can be \
+stabilized by some non-trivial Pauli operators."
+}], "TechNoteText",
+ CellID->1303047370,ExpressionUUID->"86d0c5c0-85ea-4536-bde8-5375c82227ab"],
+
+Cell["So, we consider the following typical initial state.", "TechNoteText",
+ CellID->278915484,ExpressionUUID->"d972d0a1-98fe-4c40-8ac9-284a68c50c87"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"in", "=", 
+  RowBox[{"Ket", "[", "ss", "]"}]}]], "Input",
+ CellLabel->"In[33]:=",
+ CellID->1923221834,ExpressionUUID->"1faedf12-f0da-45f1-ba75-7d420e2de209"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TemplateBox[{
+    TemplateBox[{
+      SubscriptBox["0", 
+       InterpretationBox[
+        SubscriptBox[
+         TemplateBox[{"S"}, "RowDefault"], 
+         TemplateBox[{"1"}, "RowDefault"]], 
+        $CellContext`S[1, QuantumMob`Q3`$]]], 
+      SubscriptBox["0", 
+       InterpretationBox[
+        SubscriptBox[
+         TemplateBox[{"S"}, "RowDefault"], 
+         TemplateBox[{"2"}, "RowDefault"]], 
+        $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+   "Ket"],
+  Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+    0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]], "Output",
+ CellLabel->"Out[33]=",
+ CellID->1938970276,ExpressionUUID->"850b0248-438d-45c9-85fb-355afd9e251b"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Some Clifford operators (e.g., the octant phase operator) operates in a \
+trivial way on such a special state as ",
+ Cell[BoxData[
+  TemplateBox[{
+    RowBox[{"00", "\[Ellipsis]0"}]},
+   "Ket"]],ExpressionUUID->"0c8a7566-e1a8-4bf9-bbf2-38d67965c64e"],
+ ". Therefore, we consider another common stabilizer state."
+}], "TechNoteText",
+ CellID->328572804,ExpressionUUID->"9de6c3e7-dc73-4ee3-9370-e3686f1c7853"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hh", "=", 
+   RowBox[{"Multiply", "@@", 
+    RowBox[{"S", "[", 
+     RowBox[{"kk", ",", "6"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"hh", "=", 
+  RowBox[{"hh", "**", "in"}]}]}], "Input",
+ CellLabel->"In[34]:=",
+ CellID->1142660391,ExpressionUUID->"9f4d2f6e-b8af-4e8c-a1eb-55acdc540035"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      1, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], "+", 
+  RowBox[{
+   FractionBox["1", "2"], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      1, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}]}]], "Output",
+ CellLabel->"Out[35]=",
+ CellID->79641977,ExpressionUUID->"1472a8cd-77ee-4142-8803-b97cc050226a"]
+}, Open  ]],
+
+Cell["\<\
+A Clifford operator transforms both states to different stablizer states.\
+\>", "TechNoteText",
+ CellID->925448419,ExpressionUUID->"dd66bdcd-c0eb-455e-b19f-9f940907eb5d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"out1", "=", 
+  RowBox[{"opc", "**", "in"}]}], "\[IndentingNewLine]", 
+ RowBox[{"out2", "=", 
+  RowBox[{"opc", "**", "hh"}]}]}], "Input",
+ CellLabel->"In[36]:=",
+ CellID->1935006559,ExpressionUUID->"ae65bfad-fa2e-4555-9a4d-2aadfde1f41c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"]], 
+            $CellContext`S[1, QuantumMob`Q3`$]]], 
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"]], 
+            $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+       "Ket"],
+      Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+        0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], 
+    SqrtBox["2"]]}], "+", 
+  FractionBox[
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      1, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]], 
+   SqrtBox["2"]]}]], "Output",
+ CellLabel->"Out[36]=",
+ CellID->1567281095,ExpressionUUID->"b14aee6e-3775-456e-8eef-9e08d7c8968f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       FractionBox["1", "2"], "+", 
+       FractionBox["\[ImaginaryI]", "2"]}], ")"}], " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"]], 
+            $CellContext`S[1, QuantumMob`Q3`$]]], 
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"]], 
+            $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+       "Ket"],
+      Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+        0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], 
+    SqrtBox["2"]]}], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["1", "2"], "+", 
+      FractionBox["\[ImaginaryI]", "2"]}], ")"}], " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         SubscriptBox["0", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"]], 
+           $CellContext`S[1, QuantumMob`Q3`$]]], 
+         SubscriptBox["1", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"]], 
+           $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+      "Ket"],
+     Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+       0, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}], 
+   SqrtBox["2"]], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["1", "2"], "+", 
+      FractionBox["\[ImaginaryI]", "2"]}], ")"}], " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         SubscriptBox["1", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"]], 
+           $CellContext`S[1, QuantumMob`Q3`$]]], 
+         SubscriptBox["0", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"]], 
+           $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+      "Ket"],
+     Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+       1, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], 
+   SqrtBox["2"]], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["1", "2"], "+", 
+      FractionBox["\[ImaginaryI]", "2"]}], ")"}], " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         SubscriptBox["1", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"]], 
+           $CellContext`S[1, QuantumMob`Q3`$]]], 
+         SubscriptBox["1", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"]], 
+           $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+      "Ket"],
+     Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+       1, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}], 
+   SqrtBox["2"]]}]], "Output",
+ CellLabel->"Out[37]=",
+ CellID->258949563,ExpressionUUID->"02e3a68b-60ce-4dd6-8174-e00f43f09323"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"StabilizerStateQ", "[", "out1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"StabilizerStateQ", "[", "out2", "]"}]}], "Input",
+ CellLabel->"In[38]:=",
+ CellID->993635469,ExpressionUUID->"61498787-acde-411d-80c6-2a360d7abd29"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[38]=",
+ CellID->1739985518,ExpressionUUID->"587b92f9-9eb6-4a03-8f30-d14e95d58fe5"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[39]=",
+ CellID->1651779827,ExpressionUUID->"9cb60415-4e6e-412a-82dd-f4db676b86f5"]
+}, Open  ]],
+
+Cell["\<\
+On the other hand, a non-Clifford operator transforms either or both states \
+to a non-stabilizer state.\
+\>", "TechNoteText",
+ CellID->1499282781,ExpressionUUID->"e4130714-348d-47d7-88a1-cc942685cc45"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"new1", "=", 
+  RowBox[{"opd", "**", "in"}]}], "\[IndentingNewLine]", 
+ RowBox[{"new2", "=", 
+  RowBox[{"opd", "**", "hh"}]}]}], "Input",
+ CellLabel->"In[40]:=",
+ CellID->2020070016,ExpressionUUID->"716302ff-812d-428e-821e-d09f1e3ade7b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"\[ImaginaryI]", " ", 
+     InterpretationBox[
+      TemplateBox[{
+        TemplateBox[{
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"1"}, "RowDefault"]], 
+            $CellContext`S[1, QuantumMob`Q3`$]]], 
+          SubscriptBox["0", 
+           InterpretationBox[
+            SubscriptBox[
+             TemplateBox[{"S"}, "RowDefault"], 
+             TemplateBox[{"2"}, "RowDefault"]], 
+            $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+       "Ket"],
+      Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+        0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], 
+    SqrtBox["2"]]}], "+", 
+  FractionBox[
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      1, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]], 
+   SqrtBox["2"]]}]], "Output",
+ CellLabel->"Out[40]=",
+ CellID->1534422268,ExpressionUUID->"8567ec8b-2123-48e1-8684-f534543dab90"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox["1", "4"]}], " ", "\[ImaginaryI]", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", "\[ImaginaryI]"}], ")"}], "+", 
+     SqrtBox["2"]}], ")"}], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], "+", 
+  RowBox[{
+   FractionBox["1", "4"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "+", "\[ImaginaryI]"}], ")"}], "+", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      SqrtBox["2"]}]}], ")"}], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["0", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      0, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}], "+", 
+  FractionBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"-", "1"}], ")"}], 
+       RowBox[{"3", "/", "4"}]]}], ")"}], " ", 
+    InterpretationBox[
+     TemplateBox[{
+       TemplateBox[{
+         SubscriptBox["1", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"1"}, "RowDefault"]], 
+           $CellContext`S[1, QuantumMob`Q3`$]]], 
+         SubscriptBox["0", 
+          InterpretationBox[
+           SubscriptBox[
+            TemplateBox[{"S"}, "RowDefault"], 
+            TemplateBox[{"2"}, "RowDefault"]], 
+           $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+      "Ket"],
+     Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+       1, $CellContext`S[2, QuantumMob`Q3`$] -> 0|>]]}], 
+   RowBox[{"2", " ", 
+    SqrtBox["2"]}]], "+", 
+  RowBox[{
+   FractionBox["1", "4"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", "\[ImaginaryI]"}], ")"}], "+", 
+     SqrtBox["2"]}], ")"}], " ", 
+   InterpretationBox[
+    TemplateBox[{
+      TemplateBox[{
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"1"}, "RowDefault"]], 
+          $CellContext`S[1, QuantumMob`Q3`$]]], 
+        SubscriptBox["1", 
+         InterpretationBox[
+          SubscriptBox[
+           TemplateBox[{"S"}, "RowDefault"], 
+           TemplateBox[{"2"}, "RowDefault"]], 
+          $CellContext`S[2, QuantumMob`Q3`$]]]}, "RowDefault"]},
+     "Ket"],
+    Ket[<|$CellContext`S[1, QuantumMob`Q3`$] -> 
+      1, $CellContext`S[2, QuantumMob`Q3`$] -> 1|>]]}]}]], "Output",
+ CellLabel->"Out[41]=",
+ CellID->2051425100,ExpressionUUID->"99c444ad-361d-4567-9398-d6a1ce6a7fe6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"StabilizerStateQ", "[", "new1", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"StabilizerStateQ", "[", "new2", "]"}]}], "Input",
+ CellLabel->"In[42]:=",
+ CellID->636097383,ExpressionUUID->"2246cb5f-3c85-4f31-bb91-9cd162fed7e3"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[42]=",
+ CellID->1121553018,ExpressionUUID->"5a430dd0-f4c6-4468-a68a-9dd93adabe77"],
+
+Cell[BoxData["False"], "Output",
+ CellLabel->"Out[43]=",
+ CellID->1477603807,ExpressionUUID->"f2a88c19-fe70-45f9-a5ff-0fc001e28b29"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumInformationSystems"]],
+          "TutorialMoreAbout",ExpressionUUID->
+         "b3ade39b-feb3-4e8a-a26b-268f2853d618"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Many-Body Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumManyBodySystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "52be5391-3a95-49cd-b89b-2d8dc7b82d62"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Spin Systems",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/guide/QuantumSpinSystems"]], 
+         "TutorialMoreAbout",ExpressionUUID->
+         "598a2eb2-3e98-4b38-b2ff-ebe9825fd669"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"4279a62f-dd9a-446f-9080-\
+5ee9e943558b"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {26.47265625, 33.52734375}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Tech", " ", "Notes"}], 
+        "RelatedTutorialsSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "A Quantum Playbook",
+         BaseStyle->"Link",
+         ButtonData->
+          "paclet:QuantumMob/QuantumPlaybook/tutorial/QuantumPlaybook"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "6dcbcb61-b8a6-4fd2-948e-12d3454442e1"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Stabilizer Formalism",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/tutorial/StabilizerFormalism"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "4166d638-1c24-49c9-bc44-b0e5094fb0d6"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Information Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->
+          "paclet:QuantumMob/Q3/tutorial/QuantumInformationSystems"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "0df39524-8114-40d3-bceb-cd13ec0d5a47"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Many-Body Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/tutorial/QuantumManyBodySystems"]],
+          "RelatedTutorials",ExpressionUUID->
+         "662a3ae8-ddf9-472c-85a0-86a8baa1bc83"]}]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Quantum Spin Systems with Q3",
+         BaseStyle->"Link",
+         ButtonData->"paclet:QuantumMob/Q3/tutorial/QuantumSpinSystems"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "602f49f8-af1e-4be9-b6b3-4751d943d5dc"]}]}
+     }]}
+  }]], "RelatedTutorialsSection",ExpressionUUID->"a26eccb3-2d50-4ae3-b798-\
+60e983688bb7"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{29},
+     "Spacer1"], GridBox[{
+      {
+       RowBox[{
+        TemplateBox[{17},
+         "Spacer1"], 
+        StyleBox[
+         RowBox[{"Related", " ", "Links"}], 
+         "TutorialRelatedLinksSection"]}]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "D. Gottesman, Physical Review A 54, 1862 (1996)"}]]]], 
+             "https://doi.org/10.1103%2Fphysreva.54.1862"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "68b0c7c3-6f08-4768-bf27-e9917f1f25b1"]}]],ExpressionUUID->
+         "030bfd46-e1ad-4fe4-8c2c-611d9406e1e4"],
+        ", \[OpenCurlyDoubleQuote]Class of quantum error- correcting codes \
+saturating the quantum Hamming bound.\[CloseCurlyDoubleQuote]"
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "56829cc3-1c04-4207-92e7-8449ac84c0ec"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "D. Gottesman, Physical Review A 57, 127 (1998)"}]]]], 
+             "https://doi.org/10.1103/PhysRevA.57.127"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "857d3056-1895-4343-b068-c62c2c1dc050"]}]],ExpressionUUID->
+         "3ade5791-676f-4bd0-ac8e-bbdad8be5882"],
+        ", \[OpenCurlyDoubleQuote]Theory of fault-tolerant quantum \
+computation.\[CloseCurlyDoubleQuote]"
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "222b9d2b-aab5-4ec5-a3ca-90219d0d7ab4"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "M. Nielsen and I. L. Chuang (2022)"}]]]], 
+             "https://doi.org/10.1017/CBO9780511976667"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "48b6aa2e-0bb3-4676-8dda-f18110dc0bc4"]}]],ExpressionUUID->
+         "6f495074-be60-4b7d-b0df-7fbddabd06fe"],
+        StyleBox[
+        ", Quantum Computation and Quantum Information (Cambridge University \
+Press, 2011).",
+         FontSlant->"Plain"]
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "e4db7437-c5e0-4c0f-8e2e-63cdaddacf7c"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         RowBox[{
+          TemplateBox[{16},
+           "Spacer1"], "\[FilledVerySmallSquare]", Cell[BoxData[
+           TemplateBox[{
+             Cell[
+              TextData[
+               Cell[
+                TextData[{
+                  Cell[
+                   BoxData[
+                    TemplateBox[{2}, "Spacer1"]]], 
+                  "Mahn-Soo Choi (2022)"}]]]], 
+             "https://doi.org/10.1007/978-3-030-91214-7"},
+            "WebLink",
+            BaseStyle->{"TutorialRelatedLinks"}]],ExpressionUUID->
+           "d9d9835a-897c-4939-83b4-2b17acdae95e"]}]],ExpressionUUID->
+         "200a49e4-3709-4d95-80fc-020620824884"],
+        ", A Quantum Computation Workbook (Springer, 2022)."
+       }], "TutorialRelatedLinks",ExpressionUUID->
+        "813a5c0e-d9a5-420f-93ab-603f05d89d46"]}
+     }]}
+  }]], "TutorialRelatedLinksSection",ExpressionUUID->"665123e9-da13-484c-a9be-\
+01c5bc0e2fad"]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"081436c4-6e82-43fc-a71a-b1943ea31e9b"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900, 830},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Clifford Operators: How to Test",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"2022", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", "HeaderCoreAreaLink" -> {}, 
+  "Metadata" -> {
+   "built" -> "{2025, 3, 5, 9, 12, 32.336841}", 
+    "history" -> {"13.1", "", "", ""}, "context" -> 
+    "QuantumMob`QuantumPlaybook`", "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Quantum Mob/ Quantum Playbook Tech Note", "language" -> "en", "paclet" -> 
+    "QuantumMob/QuantumPlaybook", "status" -> "None", "summary" -> 
+    "See also Section 6.3 of the Quantum Workbook (Springer, 2022). Given a \
+unitary operator U, how can we check whether U is a Clifford operator or not? \
+A Clifford operator U transforms Pauli operators to other Pauli operators. \
+Since Pauli operators are generated by single-qubit Pauli-X and Pauli-Z \
+operators, a Clifford operator is completely specified (up to a global phase \
+factor e^I m \\[Pi] /4) by the transformation of Pauli operators under \
+conjugation by U: U X_j \
+U^\\[Dagger]=(-1)^p_jUnderoverscriptBox[\\[CapitalPi], RowBox[{ , RowBox[{i, \
+=, 1}]}], RowBox[{ , n}]]X_i^SubscriptBox[a, StyleBox[ij, FontSlant -> \
+Italic]]Z_i^SubscriptBox[b, StyleBox[ij, FontSlant -> Italic]] and U Z_j \
+U^\\[Dagger]=(-1)^q_jUnderoverscriptBox[\\[CapitalPi], RowBox[{ , RowBox[{i, \
+=, 1}]}], RowBox[{ , n}]]X_i^SubscriptBox[c, StyleBox[ij, FontSlant -> \
+Italic]]Z_i^SubscriptBox[d, StyleBox[ij, FontSlant -> Italic]].", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "Clifford Operators: How to Test", "titlemodifier" -> "", 
+    "metadescription" -> "", "windowtitle" -> 
+    "Clifford Operators: How to Test", "type" -> "Tech Note", "uri" -> 
+    "QuantumMob/QuantumPlaybook/tutorial/CliffordOperatorsHowToTest"}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 26, 2024)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "14.2 for Mac OS X ARM (64-bit) (December 26, 2024)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"],
+ExpressionUUID->"8df270b4-a18b-425b-8e8a-f1074e7c30d0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[599, 21, 7432, 180, 50, "AnchorBarGrid",ExpressionUUID->"bad9b94b-f552-4dcb-8432-1eba496d8e03",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[8056, 205, 131, 1, 67, "TechNoteTitle",ExpressionUUID->"22af32f7-5764-4d1d-9990-45f26f13a7f2",
+ CellID->156574489],
+Cell[8190, 208, 3041, 70, 86, "TechNoteJumpBox",ExpressionUUID->"b218d99e-f4fc-4613-88b6-fe21f29b5d3a"],
+Cell[11234, 280, 426, 13, 34, "TechNoteText",ExpressionUUID->"388069a5-0969-4c4c-ac79-e4b1b9609626",
+ CellID->1308734266],
+Cell[11663, 295, 423, 11, 34, "TechNoteText",ExpressionUUID->"2b32de73-e00a-4940-966d-081824543722",
+ CellID->850525737],
+Cell[12089, 308, 2412, 78, 200, "TechNoteText",ExpressionUUID->"19e95fef-4819-4754-9f34-f2a987c665f7",
+ CellID->1417856937],
+Cell[14504, 388, 143, 1, 34, "TechNoteText",ExpressionUUID->"4ab56fc7-8ef2-44c9-87cc-b440e4ce2995",
+ CellID->1134907327],
+Cell[14650, 391, 817, 21, 90, "DefinitionBox",ExpressionUUID->"b6c5e7bb-110b-46e5-a7ca-190605c1cb43",
+ CellID->2067396494],
+Cell[15470, 414, 186, 3, 30, "TechNoteCaption",ExpressionUUID->"519a96b1-63e8-4950-9dbc-9fe74fbb5d83",
+ CellID->447466198],
+Cell[15659, 419, 178, 3, 28, "Input",ExpressionUUID->"4134bdcb-7856-4aea-91d5-6bb8839abe79",
+ CellID->1687953511],
+Cell[15840, 424, 182, 4, 28, "Input",ExpressionUUID->"2e50dc1f-14d8-4602-9936-d5683eeea023",
+ CellID->1175682507],
+Cell[CellGroupData[{
+Cell[16047, 432, 113, 1, 79, "TechNoteSection",ExpressionUUID->"2daee93c-d762-4fc1-a83a-c6e795da05bb",
+ CellID->372617603],
+Cell[16163, 435, 133, 1, 34, "TechNoteText",ExpressionUUID->"86fb5318-90ed-4112-a59d-c33bb1ddae60",
+ CellID->521738969],
+Cell[16299, 438, 395, 11, 63, "Input",ExpressionUUID->"353f646e-d4fd-4585-9ccf-c8ebbcd5f7ee",
+ CellID->691121282],
+Cell[16697, 451, 202, 4, 34, "TechNoteText",ExpressionUUID->"681d88c9-62b5-4e0a-a29b-45ea78e7a8ae",
+ CellID->2083823598],
+Cell[CellGroupData[{
+Cell[16924, 459, 328, 9, 70, "Input",ExpressionUUID->"6723e4e2-70aa-4438-ba6d-9b00706413d4",
+ CellID->1659896310],
+Cell[17255, 470, 513, 9, 70, "Message",ExpressionUUID->"265063df-8832-4c8a-9ed0-fea0ea1eca48",
+ CellID->1205504252]
+}, Open  ]],
+Cell[17783, 482, 161, 2, 70, "TechNoteText",ExpressionUUID->"2bfdd5c0-c354-4b99-996e-6636f2744dcb",
+ CellID->353053607],
+Cell[CellGroupData[{
+Cell[17969, 488, 188, 4, 70, "Input",ExpressionUUID->"0646d46c-3567-43d3-936d-cdba49ac0b80",
+ CellID->274656188],
+Cell[18160, 494, 130, 2, 36, "Output",ExpressionUUID->"b9b684a4-3006-4bec-a1d3-8b2aec0fd01a",
+ CellID->796418448]
+}, Open  ]],
+Cell[18305, 499, 127, 1, 70, "TechNoteText",ExpressionUUID->"13282000-f246-44d2-9ccb-0ea3be392edf",
+ CellID->1007929263],
+Cell[CellGroupData[{
+Cell[18457, 504, 240, 6, 70, "Input",ExpressionUUID->"1b98cd27-dbb1-4e87-bb69-b7e12bc053f2",
+ CellID->916115705],
+Cell[18700, 512, 129, 2, 36, "Output",ExpressionUUID->"2326454e-31bd-43a5-b4f5-d4dcd00ac473",
+ CellID->576326221]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18866, 519, 274, 7, 70, "Input",ExpressionUUID->"cfd42164-d1b9-4720-af6c-9f8dbb983e31",
+ CellID->1114366594],
+Cell[19143, 528, 5154, 151, 55, "Output",ExpressionUUID->"27df9265-46da-464a-898b-d40da34dd3c9",
+ CellID->1310749514]
+}, Open  ]],
+Cell[24312, 682, 169, 3, 70, "TechNoteText",ExpressionUUID->"7f0eb69d-ca63-4ef7-9d1f-732c7d4c3adb",
+ CellID->2051692454],
+Cell[CellGroupData[{
+Cell[24506, 689, 163, 3, 70, "Input",ExpressionUUID->"4591e6d7-64fa-4268-8514-4c3d464d6458",
+ CellID->650154499],
+Cell[24672, 694, 131, 2, 36, "Output",ExpressionUUID->"b64510ff-33f5-415b-8315-d56c273f3d2d",
+ CellID->1744371271]
+}, Open  ]],
+Cell[24818, 699, 252, 9, 70, "TechNoteText",ExpressionUUID->"6859a88b-ec55-4f4a-aea6-97c40798b981",
+ CellID->1610158303],
+Cell[CellGroupData[{
+Cell[25095, 712, 311, 8, 70, "Input",ExpressionUUID->"b645ec97-6bc7-43db-8ab1-ea27424cfdf5",
+ CellID->1489162674],
+Cell[25409, 722, 601, 18, 37, "Output",ExpressionUUID->"41771891-e646-4900-ba01-12e67600332f",
+ CellID->1793026435],
+Cell[26013, 742, 601, 18, 37, "Output",ExpressionUUID->"ce901fe8-a970-4a0e-afd5-edaada7350d6",
+ CellID->1904758341]
+}, Open  ]],
+Cell[26629, 763, 373, 8, 70, "TechNoteText",ExpressionUUID->"19afdaa3-2cca-4e80-8bfb-471fbd4560d8",
+ CellID->190239628],
+Cell[CellGroupData[{
+Cell[27027, 775, 379, 8, 70, "Input",ExpressionUUID->"f74331ca-8988-432f-b219-d57815e4acd7",
+ CellID->1901761060],
+Cell[27409, 785, 115, 1, 70, "EchoTiming",ExpressionUUID->"e397a26d-0f39-45fc-baf9-592968124ed6",
+ CellID->1744921388],
+Cell[27527, 788, 1762, 48, 37, "Output",ExpressionUUID->"1860c96b-0cac-4f72-8a51-347847bc24bc",
+ CellID->857084684],
+Cell[29292, 838, 116, 1, 70, "EchoTiming",ExpressionUUID->"64bb6774-857d-49a0-b129-0cf26f1c9f2f",
+ CellID->1849463559],
+Cell[29411, 841, 1683, 46, 37, "Output",ExpressionUUID->"c1af8e05-a00a-44e7-99bd-dc38192b107f",
+ CellID->1255729435]
+}, Open  ]],
+Cell[31109, 890, 421, 8, 70, "TechNoteText",ExpressionUUID->"26ae71cd-8fac-4f57-a8a2-4d906417ebec",
+ CellID->1029220014],
+Cell[31533, 900, 251, 7, 70, "Input",ExpressionUUID->"8300ffbc-28b9-4e82-9644-f96fca5701b6",
+ CellID->119998713],
+Cell[CellGroupData[{
+Cell[31809, 911, 432, 10, 70, "Input",ExpressionUUID->"fc1b00fe-5c0c-4744-806d-471f1a7800e1",
+ CellID->331224858],
+Cell[32244, 923, 115, 1, 70, "EchoTiming",ExpressionUUID->"cfe2ff1e-4d1e-42e9-aae1-861e6d8030cd",
+ CellID->962001717],
+Cell[32362, 926, 11721, 332, 113, "Output",ExpressionUUID->"271b64b8-0377-4020-9405-d7f040f84368",
+ CellID->2105963003],
+Cell[44086, 1260, 114, 1, 70, "EchoTiming",ExpressionUUID->"e7b07c90-84ec-46a7-a3d5-35c9770e0b31",
+ CellID->94721567],
+Cell[44203, 1263, 7141, 207, 102, "Output",ExpressionUUID->"46890fc4-a337-4185-a1f0-92be04c9c8e1",
+ CellID->699994142]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51393, 1476, 131, 1, 70, "TechNoteSection",ExpressionUUID->"d05b748b-af97-453b-aa1e-c8a14def90bf",
+ CellID->1177023179],
+Cell[51527, 1479, 298, 5, 70, "TechNoteText",ExpressionUUID->"3d8378bb-788d-4d4a-88c0-b3458e747a71",
+ CellID->1756696936],
+Cell[51828, 1486, 204, 5, 70, "TechNoteText",ExpressionUUID->"14a9f124-b0fd-4ac3-b0d1-a9bde60483f4",
+ CellID->1200224396],
+Cell[CellGroupData[{
+Cell[52057, 1495, 296, 7, 70, "Input",ExpressionUUID->"50f6f0b2-4d82-4d2f-bd7a-5a3f13314ed3",
+ CellID->857527301],
+Cell[52356, 1504, 1447, 44, 130, "Output",ExpressionUUID->"14b31b04-843b-4c62-8b2f-fb70954fe3ad",
+ CellID->1029813557]
+}, Open  ]],
+Cell[53818, 1551, 287, 9, 70, "TechNoteText",ExpressionUUID->"b64c084b-3fc0-4f90-af71-542038cd36a3",
+ CellID->957604081],
+Cell[CellGroupData[{
+Cell[54130, 1564, 493, 12, 70, "Input",ExpressionUUID->"4859699a-00d4-44c3-b473-12207581806f",
+ CellID->1209338749],
+Cell[54626, 1578, 1508, 45, 79, "Output",ExpressionUUID->"abae4ed5-40a3-4a6a-a16f-f163654a1382",
+ CellID->2044226502],
+Cell[56137, 1625, 1608, 49, 79, "Output",ExpressionUUID->"94dacbd7-7133-4eee-a439-4f8e119bbb4e",
+ CellID->1871434408]
+}, Open  ]],
+Cell[57760, 1677, 238, 4, 70, "TechNoteText",ExpressionUUID->"bf6919d9-2e2b-4edf-8ec9-ffd1d45e607a",
+ CellID->174125312],
+Cell[CellGroupData[{
+Cell[58023, 1685, 629, 18, 70, "Input",ExpressionUUID->"1f666257-abb1-4052-bf11-1ac9c5871b9c",
+ CellID->1651391570],
+Cell[58655, 1705, 1687, 50, 79, "Output",ExpressionUUID->"6870db67-f3c1-4c17-82dc-f0e8176c2d99",
+ CellID->1224731156],
+Cell[60345, 1757, 1898, 52, 79, "Output",ExpressionUUID->"77c13faf-5c58-4cbf-b95f-9d509e10e104",
+ CellID->425782397]
+}, Open  ]],
+Cell[62258, 1812, 302, 7, 70, "TechNoteText",ExpressionUUID->"0971b537-c1d8-4931-bee9-b10cb90472f3",
+ CellID->687220037],
+Cell[CellGroupData[{
+Cell[62585, 1823, 284, 6, 70, "Input",ExpressionUUID->"b049ea3a-ef26-489a-a849-d869742932eb",
+ CellID->940108293],
+Cell[62872, 1831, 500, 14, 36, "Output",ExpressionUUID->"8090df35-d877-428b-bd17-29c5d051c4f8",
+ CellID->666727611],
+Cell[63375, 1847, 468, 14, 36, "Output",ExpressionUUID->"02d69b31-e08e-4484-a9d4-a6164cabee84",
+ CellID->121288031]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63892, 1867, 132, 1, 70, "TechNoteSection",ExpressionUUID->"dc46036e-5156-4131-ac22-3a1e378cc348",
+ CellID->1353962026],
+Cell[64027, 1870, 441, 9, 70, "TechNoteText",ExpressionUUID->"86d0c5c0-85ea-4536-bde8-5375c82227ab",
+ CellID->1303047370],
+Cell[64471, 1881, 151, 1, 70, "TechNoteText",ExpressionUUID->"d972d0a1-98fe-4c40-8ac9-284a68c50c87",
+ CellID->278915484],
+Cell[CellGroupData[{
+Cell[64647, 1886, 181, 4, 70, "Input",ExpressionUUID->"1faedf12-f0da-45f1-ba75-7d420e2de209",
+ CellID->1923221834],
+Cell[64831, 1892, 722, 20, 38, "Output",ExpressionUUID->"850b0248-438d-45c9-85fb-355afd9e251b",
+ CellID->1938970276]
+}, Open  ]],
+Cell[65568, 1915, 425, 9, 70, "TechNoteText",ExpressionUUID->"9de6c3e7-dc73-4ee3-9370-e3686f1c7853",
+ CellID->328572804],
+Cell[CellGroupData[{
+Cell[66018, 1928, 336, 9, 70, "Input",ExpressionUUID->"9f4d2f6e-b8af-4e8c-a1eb-55acdc540035",
+ CellID->1142660391],
+Cell[66357, 1939, 2868, 83, 48, "Output",ExpressionUUID->"1472a8cd-77ee-4142-8803-b97cc050226a",
+ CellID->79641977]
+}, Open  ]],
+Cell[69240, 2025, 180, 3, 70, "TechNoteText",ExpressionUUID->"dd66bdcd-c0eb-455e-b19f-9f940907eb5d",
+ CellID->925448419],
+Cell[CellGroupData[{
+Cell[69445, 2032, 261, 6, 70, "Input",ExpressionUUID->"ae65bfad-fa2e-4555-9a4d-2aadfde1f41c",
+ CellID->1935006559],
+Cell[69709, 2040, 1571, 45, 58, "Output",ExpressionUUID->"b14aee6e-3775-456e-8eef-9e08d7c8968f",
+ CellID->1567281095],
+Cell[71283, 2087, 3488, 104, 62, "Output",ExpressionUUID->"02e3a68b-60ce-4dd6-8174-e00f43f09323",
+ CellID->258949563]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74808, 2196, 246, 4, 70, "Input",ExpressionUUID->"61498787-acde-411d-80c6-2a360d7abd29",
+ CellID->993635469],
+Cell[75057, 2202, 131, 2, 36, "Output",ExpressionUUID->"587b92f9-9eb6-4a03-8f30-d14e95d58fe5",
+ CellID->1739985518],
+Cell[75191, 2206, 131, 2, 36, "Output",ExpressionUUID->"9cb60415-4e6e-412a-82dd-f4db676b86f5",
+ CellID->1651779827]
+}, Open  ]],
+Cell[75337, 2211, 212, 4, 70, "TechNoteText",ExpressionUUID->"e4130714-348d-47d7-88a1-cc942685cc45",
+ CellID->1499282781],
+Cell[CellGroupData[{
+Cell[75574, 2219, 261, 6, 70, "Input",ExpressionUUID->"716302ff-812d-428e-821e-d09f1e3ade7b",
+ CellID->2020070016],
+Cell[75838, 2227, 1571, 45, 58, "Output",ExpressionUUID->"8567ec8b-2123-48e1-8684-f534543dab90",
+ CellID->1534422268],
+Cell[77412, 2274, 3606, 109, 58, "Output",ExpressionUUID->"99c444ad-361d-4567-9398-d6a1ce6a7fe6",
+ CellID->2051425100]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81055, 2388, 246, 4, 70, "Input",ExpressionUUID->"2246cb5f-3c85-4f31-bb91-9cd162fed7e3",
+ CellID->636097383],
+Cell[81304, 2394, 131, 2, 36, "Output",ExpressionUUID->"5a430dd0-f4c6-4468-a68a-9dd93adabe77",
+ CellID->1121553018],
+Cell[81438, 2398, 132, 2, 36, "Output",ExpressionUUID->"f2a88c19-fe70-45f9-a5ff-0fc001e28b29",
+ CellID->1477603807]
+}, Open  ]]
+}, Open  ]],
+Cell[81597, 2404, 1382, 34, 70, "TutorialMoreAboutSection",ExpressionUUID->"4279a62f-dd9a-446f-9080-5ee9e943558b"],
+Cell[82982, 2440, 2109, 54, 70, "RelatedTutorialsSection",ExpressionUUID->"a26eccb3-2d50-4ae3-b798-60e983688bb7"],
+Cell[85094, 2496, 4053, 106, 70, "TutorialRelatedLinksSection",ExpressionUUID->"665123e9-da13-484c-a9be-01c5bc0e2fad"]
+}, Open  ]],
+Cell[89162, 2605, 78, 0, 70, "FooterCell",ExpressionUUID->"081436c4-6e82-43fc-a71a-b1943ea31e9b"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
