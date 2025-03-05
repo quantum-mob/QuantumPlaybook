@@ -10,6 +10,7 @@ The official Paclet name of this package has been changed to "QauntumMob/Quantum
 ```Mathematica
 Get["QuantumMob`QuantumPlaybook`"]
 ```
+or
 ```Mathematica
 Needs["QuantumMob`QuantumPlaybook`"]
 ```
