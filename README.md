@@ -100,6 +100,31 @@ The tutorials of Q3 for beginners are also available in [YouTube videos](https:/
 23. Multi-Level Systems (Qudits)
 24. Cavity QED Systems
 25. Cavity QED Systems: Spectral Properties
+26. Classical Oracle
+27. Quantum Oracle: Definition
+28. Quantum Oracle: Properties
+29. Deutsch-Jozsa Algorithm
+30. Bernstein-Vazirani Algorithm
+31. Simon's Algorithm
+32. Quantum Fourier Transform: Principle
+33. Quantum Fourier Transform: Implementation
+34. Controlled-Power Gate
+35. Quantum Phase Estimation: Principle
+36. Quantum Phase Estimation: Implementation
+37. Mixed States
+38. Partial Trace and Purification
+39. Supermaps
+40. Quantum Operations
+41. Quantum Master Equation
+42. Quantum Master Equation: Solution Method
+43. Quantum Master Equation: Monte Carlo Method
+44. Shor Code: Bit-Flip Errors
+45. Shor Code: Phase-Flip Errors
+46. Shor Code: General Errors
+47. Gottesman-Knill Theorem
+48. Clifford Circuits
+49. Classical Entropy
+50. Quantum Entropy
 
 
 ## How to use
