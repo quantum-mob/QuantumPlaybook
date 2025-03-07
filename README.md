@@ -27,11 +27,11 @@ QuantumPlaybook provides a *fully automatic installation and update*. Please tak
 This is a compilation of the demonstrations in ["A Quantum Computation Workbook" (Springer, March 2022)](https://link.springer.com/book/9783030912130).
 
 <a href="https://link.springer.com/book/9783030912130">
-<img src="QuantumPlaybook/Assets/Samples/BookCover.jpg" align="right" width="300" alt="Quantum Workbook Cover"/>
+<img src="QuantumPlaybook/Asset/Samples/BookCover.jpg" align="right" width="300" alt="Quantum Workbook Cover"/>
 </a>
 
 1. The Postulates of Quantum Mechanics
-2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./QuantumPlaybook/Assets/Samples/Chapter2.pdf))
+2. Quantum Computation: Overview ([Full text of Chapter 2 in PDF](./QuantumPlaybook/Asset/Samples/Chapter2.pdf))
 3. Realizations of Quantum Computers
 4. Quantum Algorithms
 5. Quantum Decoherence
@@ -46,7 +46,7 @@ This is a compilation of the demonstrations in ["A Quantum Computation Workbook"
 - Bibliography (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
 - Index (available free of charge as Back Matter from the [Springer Link](https://link.springer.com/book/9783030912130))
 
-[**ERRATA**](./QuantumPlaybook/Assets/Samples/Errata.pdf): Unfortunately, the book has several typographical errors. Please check the [errata](./QuantumPlaybook/Assets/Samples/Errata.pdf) for corrections.
+[**ERRATA**](./QuantumPlaybook/Asset/Samples/Errata.pdf): Unfortunately, the book has several typographical errors. Please check the [errata](./QuantumPlaybook/Asset/Samples/Errata.pdf) for corrections.
 
 **BACK MATERIALS**: All back materials including appendices, bibliography, and index are available in a single PDF file, free of charge from the [Springer Link](https://link.springer.com/book/9783030912130).
 

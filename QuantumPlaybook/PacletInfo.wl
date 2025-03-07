@@ -8,7 +8,7 @@ PacletObject[
     "URL" -> "https://github.com/quantum-mob/QuantumPlaybook",
     "License" -> "MIT",
     "PublisherID" -> "QuantumMob",
-    "Version" -> "4.1.0",
+    "Version" -> "4.1.1",
     "WolframVersion" -> "13+",
     "PrimaryContext" -> "QuantumMob`QuantumPlaybook`",
     "Category" -> "Education",
@@ -57,11 +57,24 @@ PacletObject[
       {
         "Documentation",
         "Language" -> "English",
-        "MainPage" -> "Tutorials/QuantumPlaybook"
+        "MainPage" -> "Tutorials/QuantumPlaybook",
+        "Resources" -> {
+          "Workbook/Algorithms.nb",
+          "Workbook/Computation.nb",
+          "Workbook/Computers.nb",
+          "Workbook/Decoherence.nb",
+          "Workbook/Errors.nb",
+          "Workbook/GroupTheory.nb",
+          "Workbook/Information.nb",
+          "Workbook/LinearAlgebra.nb",
+          "Workbook/Postulates.nb",
+          "Workbook/Solutions.nb",
+          "Workbook/Superoperators.nb"
+        }
       },
       {
         "Asset",
-        "Root" -> "Assets/Samples",
+        "Root" -> "Asset/Samples",
         "Assets" -> {
           {"Front Matter", "FrontMatter.pdf"},
           {"Back Matter", "BackMatter.pdf"},
@@ -71,7 +84,7 @@ PacletObject[
       },
       {
         "Asset",
-        "Root" -> "Assets/Data",
+        "Root" -> "Asset/Data",
         "Assets" -> {{"Iris", "QML/Iris-Class1and2-Scaled.txt"}}
       }
     },
