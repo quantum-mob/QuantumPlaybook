@@ -8,7 +8,7 @@ PacletObject[
     "URL" -> "https://github.com/quantum-mob/QuantumPlaybook",
     "License" -> "MIT",
     "PublisherID" -> "QuantumMob",
-    "Version" -> "4.1.1",
+    "Version" -> "4.1.3",
     "WolframVersion" -> "13+",
     "PrimaryContext" -> "QuantumMob`QuantumPlaybook`",
     "Category" -> "Education",

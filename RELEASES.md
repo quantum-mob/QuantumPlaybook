@@ -1,6 +1,10 @@
 # Select Release Notes
 
-## 4.0.2
+## 4.1.3
+
+- Styesheet is embedded to files in folders Workbook and Videobook.
+
+## 4.1.2
 
 - Paclet is renamed QuantumMob/QuantumPlaybook.
 - Renamed: Chapters --> Workbook, InVideos --> Videobook
