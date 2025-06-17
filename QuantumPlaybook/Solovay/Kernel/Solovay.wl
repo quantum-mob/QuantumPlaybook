@@ -1,18 +1,11 @@
 (* -*- mode:math -*- *)
 Get["QuantumMob`Q3`"];
-Q3Assure["4.1.0"];
+Q3Assure["4.2.5"];
 
 BeginPackage["QuantumMob`Solovay`", {"QuantumMob`Q3`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];
-
-QuantumMob`Solovay`$Version = StringJoin[
-  "Solovay/", $Input, " v",
-  StringSplit["$Revision: 1.21 $"][[2]], " (",
-  StringSplit["$Date: 2023-03-13 13:18:28+09 $"][[2]], ") ",
-  "Mahn-Soo Choi"
- ];
 
 { GroupCommutator,
   BalancedCommutator };

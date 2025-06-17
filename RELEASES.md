@@ -2,9 +2,9 @@
 
 ## 4.1.3
 
-- Styesheet is embedded to files in folders Workbook and Videobook.
+- Stylesheet is embedded to files in folders Workbook and Videobook.
 
-## 4.1.2
+## 4.1.0
 
 - Paclet is renamed QuantumMob/QuantumPlaybook.
 - Renamed: Chapters --> Workbook, InVideos --> Videobook

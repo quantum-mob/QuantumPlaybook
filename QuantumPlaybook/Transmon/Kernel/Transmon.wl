@@ -1,6 +1,6 @@
 (* -*- mode:math -*- *)
 Get["QuantumMob`Q3`"];
-Q3Assure["4.1.0"];
+Q3Assure["4.2.5"];
 
 BeginPackage["QuantumMob`Transmon`", {"QuantumMob`Q3`"}]
 
