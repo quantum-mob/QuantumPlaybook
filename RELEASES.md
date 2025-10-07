@@ -1,5 +1,10 @@
 # Select Release Notes
 
+## 4.2.0
+
+- Dark mode support
+- Corrections: Several documents are using obsolete or deprecated functions.
+
 ## 4.1.3
 
 - Stylesheet is embedded to files in folders Workbook and Videobook.
