@@ -1,5 +1,9 @@
 # Select Release Notes
 
+## 4.3.0
+
+- Requires Q3 v4.5.0, which provides an optimized simulation for the case of no pairing correlation and has changed the names of symbols for fermionic quantum computation (WickXXX --> BravyiXXX).
+
 ## 4.2.0
 
 - Dark mode support
