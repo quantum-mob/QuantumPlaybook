@@ -1,5 +1,14 @@
 # Select Release Notes
 
+## 4.3.2
+
+- Updated for Q3 v4.5.2: Quantum Information Scrambling on Kitaev Chain
+
+## 4.3.1
+
+- Requires Q3 v4.5.1
+- Updated: "Hatano-Nelson Model: Monte Carlo Simulation"
+
 ## 4.3.0
 
 - Requires Q3 v4.5.0, which provides an optimized simulation for the case of no pairing correlation and has changed the names of symbols for fermionic quantum computation (WickXXX --> BravyiXXX).

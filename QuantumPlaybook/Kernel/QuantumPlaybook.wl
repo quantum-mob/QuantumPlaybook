@@ -1,5 +1,5 @@
 Get["QuantumMob`Q3`"];
-Q3Assure["4.5.0"];
+Q3Assure["4.5.2"];
 
 BeginPackage["QuantumMob`QuantumPlaybook`"]
 
