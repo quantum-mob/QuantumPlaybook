@@ -1,7 +1,7 @@
 Get["QuantumMob`Q3`"];
-Q3Assure["4.5.2"];
+Q3Assure["4.5.11"];
 
-BeginPackage["QuantumMob`QuantumPlaybook`"]
+BeginPackage["QuantumMob`QuantumPlaybook`", {"QuantumMob`Q3`"}]
 
 Unprotect["`*"];
 ClearAll["`*"];
@@ -36,6 +36,7 @@ QuantumPlaybookUpdate::usage = "QuantumPlaybookUpdate[] installs the latest upda
 QuantumPlaybookUpdate::fresh = "You are using the latest release v`` of QuantumPlaybook."
 
 QuantumPlaybookUpdate[opts___?OptionQ] := (
+  QuantumMob`Q3`Private`serverAssure[];
   PrintTemporary["Installing an update ..."];
   PacletDataRebuild[];
   Q3`Private`serverEnsure[];
@@ -54,6 +55,7 @@ QuantumPlaybookCheckUpdate::usage = "QuantumPlaybookCheckUpdate[] checks if ther
 
 QuantumPlaybookCheckUpdate[] := Module[
   { pac, new },
+  QuantumMob`Q3`Private`serverAssure[];
   PrintTemporary["Checking for updates ..."];
   PacletDataRebuild[];
   serverEnsure[];
